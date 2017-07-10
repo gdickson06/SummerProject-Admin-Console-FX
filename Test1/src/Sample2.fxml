@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <Label layoutX="35.0" layoutY="29.0" text="Student" wrapText="true" />
+            <Label layoutX="232.0" layoutY="29.0" text="Lecture" wrapText="true" />
+            <Label layoutX="421.0" layoutY="29.0" text="Lecturer" wrapText="true" />
+            <Label layoutX="635.0" layoutY="29.0" text="Room" wrapText="true" />
+            <Button layoutX="7.0" layoutY="56.0" mnemonicParsing="false" text="Upload CSV" />
+            <Button layoutX="7.0" layoutY="104.0" mnemonicParsing="false" text="Ammend &amp; Delete" />
+            <Button layoutX="7.0" layoutY="155.0" mnemonicParsing="false" text="Upload Single" />
+            <Label layoutX="33.0" layoutY="218.0" text="Absence" />
+            <Label layoutX="211.0" layoutY="218.0" text="Search Absences" />
+            <Label layoutX="438.0" layoutY="218.0" text="PDF" />
+            <Label layoutX="642.0" layoutY="218.0" text="User" />
+            <Button layoutX="202.0" layoutY="56.0" mnemonicParsing="false" text="Upload CSV" />
+            <Button layoutX="202.0" layoutY="104.0" mnemonicParsing="false" text="Ammend &amp; Delete" />
+            <Button layoutX="202.0" layoutY="155.0" mnemonicParsing="false" text="Upload Single" />
+            <Button layoutX="385.0" layoutY="56.0" mnemonicParsing="false" text="Upload CSV" />
+            <Button layoutX="385.0" layoutY="104.0" mnemonicParsing="false" text="Ammend &amp; Delete" />
+            <Button layoutX="385.0" layoutY="155.0" mnemonicParsing="false" text="Upload Single" />
+            <Button layoutX="599.0" layoutY="56.0" mnemonicParsing="false" text="Upload CSV" />
+            <Button layoutX="600.0" layoutY="104.0" mnemonicParsing="false" text="Ammend &amp; Delete" />
+            <Button layoutX="600.0" layoutY="155.0" mnemonicParsing="false" text="Upload Single" />
+            <Button layoutX="7.0" layoutY="245.0" mnemonicParsing="false" text="Ammend or Delete" />
+            <Button layoutX="7.0" layoutY="295.0" mnemonicParsing="false" text="Upload Single" />
+            <Button layoutX="202.0" layoutY="245.0" mnemonicParsing="false" text="Search Absence" />
+            <Button layoutX="202.0" layoutY="295.0" mnemonicParsing="false" text="Absence Trends" />
+            <Button layoutX="385.0" layoutY="245.0" mnemonicParsing="false" text="Create PDF for lecture" />
+            <Button layoutX="385.0" layoutY="295.0" mnemonicParsing="false" text="Input PDF for Lecture" />
+            <Button layoutX="600.0" layoutY="245.0" mnemonicParsing="false" text="Upload CSV" />
+            <Button layoutX="600.0" layoutY="295.0" mnemonicParsing="false" text="Ammend &amp; Delete" />
+            <Button layoutX="600.0" layoutY="348.0" mnemonicParsing="false" text="Upload Single" />
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
