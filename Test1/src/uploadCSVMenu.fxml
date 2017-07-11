@@ -51,9 +51,9 @@
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
             <Label layoutX="14.0" layoutY="24.0" text="Please insert a CSV File" />
-            <TextField layoutX="14.0" layoutY="51.0" />
-            <Button layoutX="249.0" layoutY="51.0" mnemonicParsing="false" text="Choose File" />
-            <Button fx:id="submitButton" layoutX="14.0" layoutY="103.0" mnemonicParsing="false" text="OK" />
+            <TextField fx:id="fileNamer" layoutX="14.0" layoutY="51.0" />
+            <Button fx:id="ChooseFile" layoutX="249.0" layoutY="51.0" mnemonicParsing="false" onAction="#ChooseFile" text="Choose File" />
+            <Button fx:id="submitButton" layoutX="14.0" layoutY="103.0" mnemonicParsing="false" onAction="#upload" text="OK" />
             <Button fx:id="cancelStudentMenu" layoutX="249.0" layoutY="103.0" mnemonicParsing="false" onAction="#cancelButton" text="Cancel" />
       </children>
     </AnchorPane>
