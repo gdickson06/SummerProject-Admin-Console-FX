@@ -29,7 +29,7 @@ public class Main extends Application {
 		FXMLLoader loader = new FXMLLoader();
 		
 		//Creating path to the FXML File
-		String fxmlDocPath = "src/uploadCSVMenu.fxml";
+		String fxmlDocPath = "src/MainMenu.fxml";
 		FileInputStream fxmlStream = new FileInputStream(fxmlDocPath);
 		
 		//Creating the Pane and all Details

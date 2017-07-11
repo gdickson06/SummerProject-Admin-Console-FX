@@ -16,7 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class Controller {
+public class UploadStudentCSVController {
 	
 	private VBox content;
 	
@@ -39,7 +39,7 @@ public class Controller {
 	private ResourceBundle resources;
 
 	// Add a public no-args constructor
-	public Controller() 
+	public UploadStudentCSVController() 
 		{
 		}
 
