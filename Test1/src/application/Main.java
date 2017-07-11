@@ -40,7 +40,7 @@ public class Main extends Application {
 		//Set the Scene to stage
 		primaryStage.setScene(scene);
 		//setting the title to the stage
-		primaryStage.setTitle("First JavaFX stuff");
+		primaryStage.setTitle("First JavaFX Interface");
 		//displaying the stage
 		primaryStage.show();
 		
