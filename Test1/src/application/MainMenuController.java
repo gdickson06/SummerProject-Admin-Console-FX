@@ -24,8 +24,10 @@ public class MainMenuController {
     @FXML
     private Button lectureUploadCSV;
     
+    @FXML
+    private Button uploadSingleStudentButton;
     
-
+    
     @FXML
     void uploadStudentCSV(ActionEvent event) throws IOException {
     	
@@ -89,5 +91,49 @@ public class MainMenuController {
     	Main.stage.setScene(scene);
 
     }
+    
+    @FXML 
+    void userUploadCSVButton(ActionEvent event) throws IOException {
+    	//creating the FXML Loader
+    	FXMLLoader loader = new FXMLLoader();
+ 		
+    	String mainMenuFXML = "src/uploadCSVMenu.fxml";
+    	FileInputStream mainMenu = new FileInputStream(mainMenuFXML);
+    	VBox root = (VBox)loader.load(mainMenu);
+    	//Creating a new Scene
+    	Scene scene = new Scene(root);
+    	//Set the Scene to stage
+    	Main.stage.setScene(scene);
+    }
+    
+    @FXML 
+    void studentAmmendDeleteButton(ActionEvent event) throws IOException {
+    	//creating the FXML Loader
+    	FXMLLoader loader = new FXMLLoader();
+ 		
+    	String mainMenuFXML = "src/StudentAmmendDelete.fxml";
+    	FileInputStream mainMenu = new FileInputStream(mainMenuFXML);
+    	VBox root = (VBox)loader.load(mainMenu);
+    	//Creating a new Scene
+    	Scene scene = new Scene(root);
+    	//Set the Scene to stage
+    	Main.stage.setScene(scene);
+    }
+    
+    @FXML
+    void uploadSingleStudentClick(ActionEvent event) throws IOException {
+    	//creating the FXML Loader
+    	FXMLLoader loader = new FXMLLoader();
+ 		
+    	String mainMenuFXML = "src/UploadSingleStudent.fxml";
+    	FileInputStream mainMenu = new FileInputStream(mainMenuFXML);
+    	VBox root = (VBox)loader.load(mainMenu);
+    	//Creating a new Scene
+    	Scene scene = new Scene(root);
+    	//Set the Scene to stage
+    	Main.stage.setScene(scene);
+    }
+    
+    
 
 }
