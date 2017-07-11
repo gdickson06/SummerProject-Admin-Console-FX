@@ -29,7 +29,7 @@ public class Main extends Application {
 		FXMLLoader loader = new FXMLLoader();
 		
 		//Creating path to the FXML File
-		String fxmlDocPath = "src/MainMenu.fxml";
+		String fxmlDocPath = "src/mainMenu.fxml";
 		FileInputStream fxmlStream = new FileInputStream(fxmlDocPath);
 		
 		//Creating the Pane and all Details
@@ -40,7 +40,7 @@ public class Main extends Application {
 		//Set the Scene to stage
 		primaryStage.setScene(scene);
 		//setting the title to the stage
-		primaryStage.setTitle("First JavaFX Interface");
+		primaryStage.setTitle("First JavaFX stuff");
 		//displaying the stage
 		primaryStage.show();
 		

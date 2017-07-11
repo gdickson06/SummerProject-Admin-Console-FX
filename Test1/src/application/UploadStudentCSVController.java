@@ -1,8 +1,6 @@
 package application;
 
-import java.awt.event.MouseEvent;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,8 +15,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class UploadStudentCSVController {
-	
-	private VBox content;
 	
 	@FXML
 	private Button cancelButton;
@@ -47,10 +43,6 @@ public class UploadStudentCSVController {
 	private void initialize() {
 	}
 
-	@FXML
-	private void printOutput() {
-		outputText.setText(inputText.getText());
-	}
 	
 	@FXML
 	private void cancelButton(ActionEvent event) throws IOException{
@@ -58,7 +50,7 @@ public class UploadStudentCSVController {
 		//creating the FXML Loader
 		FXMLLoader loader = new FXMLLoader();
 		
-		String mainMenuFXML = "src/Sample2.fxml";
+		String mainMenuFXML = "src/MainMenu.fxml";
 		FileInputStream mainMenu = new FileInputStream(mainMenuFXML);
 		VBox root = (VBox)loader.load(mainMenu);
 		//Creating a new Scene
