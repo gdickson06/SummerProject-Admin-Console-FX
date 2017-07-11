@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.control.*?>
@@ -50,14 +51,29 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <Label layoutX="25.0" layoutY="14.0" text="Please input Student's first name and surname to search for details." />
-            <Label layoutX="25.0" layoutY="69.0" text="First Name:" />
-            <TextField fx:id="firstNameTextField" layoutX="124.0" layoutY="63.0" />
-            <Label layoutX="25.0" layoutY="128.0" text="Surname:" />
-            <TextField fx:id="lastNameTextField" layoutX="124.0" layoutY="122.0" />
-            <Button fx:id="studentSearch" layoutX="124.0" layoutY="181.0" mnemonicParsing="false" onAction="#studentSearchButton" text="Search" />
-            <Button fx:id="studentCancel" layoutX="229.0" layoutY="181.0" mnemonicParsing="false" onAction="#studentCancelButton" text="Cancel" />
+            <Label layoutX="25.0" layoutY="14.0" text="Search for student to amend/Delete" />
+            <Label layoutX="25.0" layoutY="40.0" text="First Name:" />
+            <TextField id="FirstName" fx:id="firstName" layoutX="134.0" layoutY="36.0" prefHeight="25.0" prefWidth="139.0" />
+            <TextField id="StudentNumber" fx:id="StudentNumber" layoutX="134.0" layoutY="79.0" prefHeight="25.0" prefWidth="139.0" />
+            <Label layoutX="346.0" layoutY="40.0" text="Surname:" />
+            <TextField id="LastName" fx:id="lastName" layoutX="427.0" layoutY="36.0" />
+            <Button fx:id="studentCancel" layoutX="565.0" layoutY="10.0" mnemonicParsing="false" onAction="#studentCancelButton" text="Back" />
+            <Label layoutX="25.0" layoutY="79.0" text="Student Number" />
+            <TextField id="IntakeYear" fx:id="IntakeYear" layoutX="427.0" layoutY="75.0" />
+            <TextField id="Cohort" fx:id="Cohort" layoutX="134.0" layoutY="114.0" prefHeight="25.0" prefWidth="139.0" />
+            <TextField id="EmailAddress" fx:id="EmailAddress" layoutX="427.0" layoutY="114.0" />
+            <Label layoutX="346.0" layoutY="79.0" text="Intake Year" />
+            <Label layoutX="25.0" layoutY="118.0" text="Cohort" />
+            <Label layoutX="346.0" layoutY="118.0" text="Email Address" />
+            <ImageView fitHeight="25.0" fitWidth="21.0" layoutX="283.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true" />
+            <Button id="FirstNameSearch" layoutX="277.0" layoutY="36.0" mnemonicParsing="false" onAction="#FirstNameSearch" text="Button" />
+            <Button id="StudentNumberSearch" layoutX="278.0" layoutY="79.0" mnemonicParsing="false" onAction="#StudentNumberSearch" text="Button" />
+            <Button id="CohortSearch" layoutX="277.0" layoutY="114.0" mnemonicParsing="false" onAction="#CohortSearch" text="Button" />
+            <Button id="SurnameSearch" layoutX="580.0" layoutY="36.0" mnemonicParsing="false" onAction="#SurnameSearch" text="Button" />
+            <Button id="IntakeYearSearch" layoutX="581.0" layoutY="75.0" mnemonicParsing="false" onAction="#IntakeYearSearch" text="Button" />
+            <Button id="EmailSearch" layoutX="579.0" layoutY="113.0" mnemonicParsing="false" onAction="#EmailSearch" text="Button" />
       </children>
     </AnchorPane>
+      <ListView id="ResultsList" fx:id="ListOfStudents" onMouseClicked="#ListClicked" prefHeight="200.0" prefWidth="200.0" />
   </children>
 </VBox>

@@ -80,15 +80,7 @@ public class UploadStudentCSVController {
 
     @FXML
     void cancelButton(ActionEvent event)throws Exception {
-	FXMLLoader loader = new FXMLLoader();
-		
-		String mainMenuFXML = "src/MainMenu.fxml";
-		FileInputStream mainMenu = new FileInputStream(mainMenuFXML);
-		VBox root = (VBox)loader.load(mainMenu);
-		//Creating a new Scene
-		Scene scene = new Scene(root);
-		//Set the Scene to stage
-		Main.stage.setScene(scene);
+	GeneralMethods.homeScreen();
 	}
     
 

@@ -33,6 +33,10 @@ public class SearchQueries {
 		case 5:
 			statement = "select * from students where Name LIKE '% " + info + "%';";
 			break;
+		//Email Address
+		case 6:
+			statement = "select * from students where StudentEmail LIKE '" + info + "%';";
+			break;
 		default:
 			System.out.println("Error in searching students");
 		}

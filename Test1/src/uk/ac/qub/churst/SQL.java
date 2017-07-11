@@ -15,9 +15,9 @@ import java.util.TreeSet;
 
 public class SQL {
 	
-	private static String user="root";
-	private static String password="VonMiller58";
-	private static String url="jdbc:mysql://127.0.0.1:3306/lectures?autoReconnect=true&useSSL=false&allowMultiQueries=true";
+	private static String user="jTurkington";
+	private static String password="emily1234";
+	private static String url="jdbc:mysql://qub.cjw92whe4wuf.eu-west-2.rds.amazonaws.com:3306/med?autoReconnect=true&useSSL=false&allowMultiQueries=true";
 
 	/**
 	 * This method is for admin staff to upload a list of lectures to a
