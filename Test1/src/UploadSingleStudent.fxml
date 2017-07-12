@@ -9,7 +9,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UploadSingleStudentController">
+<VBox prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UploadSingleStudentController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -52,13 +52,13 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <GridPane layoutX="47.0" layoutY="39.0" prefHeight="60.0" prefWidth="700.0">
+            <GridPane layoutX="25.0" layoutY="97.0" prefHeight="181.0" prefWidth="713.0">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="159.0" minWidth="10.0" prefWidth="158.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="249.0" minWidth="10.0" prefWidth="226.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.0" minWidth="0.0" prefWidth="105.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="239.0" minWidth="0.0" prefWidth="70.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="139.0" minWidth="0.0" prefWidth="139.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="221.0" minWidth="10.0" prefWidth="117.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="249.0" minWidth="10.0" prefWidth="214.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.0" minWidth="0.0" prefWidth="76.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="239.0" minWidth="0.0" prefWidth="65.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="238.0" minWidth="0.0" prefWidth="238.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -70,16 +70,20 @@
                   <Label prefHeight="27.0" prefWidth="90.0" text="Intake Year" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
                   <Label text="Cohort" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
                   <Label alignment="CENTER" prefHeight="27.0" prefWidth="85.0" text="Email" GridPane.columnIndex="4" GridPane.halignment="CENTER" />
-                  <TextField GridPane.rowIndex="1" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <TextField GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                  <TextField GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                  <TextField fx:id="StudentNumber" prefHeight="100.0" prefWidth="118.0" GridPane.rowIndex="1" />
+                  <TextField fx:id="StudentName" prefHeight="99.0" prefWidth="215.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="IntakeYear" prefHeight="96.0" prefWidth="77.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <TextField fx:id="Cohort" prefHeight="100.0" prefWidth="65.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <TextField fx:id="EmailAddress" prefHeight="98.0" prefWidth="238.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
                </children>
             </GridPane>
-            <Button fx:id="updateDetailsButton" layoutX="47.0" layoutY="142.0" mnemonicParsing="false" onAction="#updateDetailsClick" text="Update Details" />
-            <Button fx:id="deleteStudentButton" layoutX="221.0" layoutY="142.0" mnemonicParsing="false" onAction="#deleteStudentClick" text="Delete Student" />
-            <Button fx:id="cancelButton" layoutX="397.0" layoutY="142.0" mnemonicParsing="false" onAction="#cancelButtonClick" text="Cancel" />
+            <Button fx:id="updateDetailsButton" layoutX="216.0" layoutY="547.0" mnemonicParsing="false" onAction="#updateDetailsClick" text="Update Details" />
+            <Button fx:id="cancelButton" layoutX="491.0" layoutY="547.0" mnemonicParsing="false" onAction="#cancelButtonClick" text="Cancel" />
+            <Label layoutX="310.0" layoutY="14.0" text="Upload Student">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
          </children>
     </AnchorPane>
   </children>

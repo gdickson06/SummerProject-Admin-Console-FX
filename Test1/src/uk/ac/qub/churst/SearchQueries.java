@@ -48,7 +48,7 @@ public class SearchQueries {
 
 				do {
 					Student s = new Student(r.getInt("StudentNumber"), r.getString("Name"), r.getString("Group1"),
-							r.getInt("IntakeYear"));
+							r.getString("StudentEmail"),r.getInt("IntakeYear"));
 					students.add(s);
 				} while (r.next());
 

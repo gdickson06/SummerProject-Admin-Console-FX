@@ -2,7 +2,6 @@ package application;
 
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +9,6 @@ import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -69,18 +67,18 @@ public class UploadStudentCSVController {
     			studentList = CSV.readStudentsFromCSV(s);
     			SQL.saveSQLStudents(studentList);
     		} catch (Exception e) {
-    			show("Issue with input please view the handbook", "ERROR");
+    			GeneralMethods.show("Issue with input please view the handbook", "ERROR");
     			error = true;
     		}
 
     		if (error == false) {
-    			show("Import successful with " + studentList.size() + " students imported", "UPLOAD SUCCESS");
+    			GeneralMethods.show("Import successful with " + studentList.size() + " students imported", "UPLOAD SUCCESS");
     		}
     }
 
     @FXML
     void cancelButton(ActionEvent event)throws Exception {
-	GeneralMethods.homeScreen();
+	GeneralMethods.ChangeScene("MainMenu");
 	}
     
 
@@ -100,23 +98,7 @@ public class UploadStudentCSVController {
 				new FileChooser.ExtensionFilter("CSV", "*.csv"));
 	}
     
-    public static void show(String message, String title) {
-		Stage stage = new Stage();
-		stage.initModality(Modality.APPLICATION_MODAL);
-		stage.setTitle(title);
-		stage.setMinWidth(250);
-		Label lbl = new Label();
-		lbl.setText(message);
-		Button btnOK = new Button();
-		btnOK.setText("OK");
-		btnOK.setOnAction(e -> stage.close());
-		VBox pane = new VBox(20);
-		pane.getChildren().addAll(lbl, btnOK);
-		pane.setAlignment(Pos.CENTER);
-		Scene scene = new Scene(pane);
-		stage.setScene(scene);
-		stage.showAndWait();
-	}
+   
     
    
 }

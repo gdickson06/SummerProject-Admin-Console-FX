@@ -17,7 +17,7 @@ import uk.ac.qub.churst.Student;
 
 public class StudentAmmendDeleteController {
 	
-	protected Student SelectedStudent;
+	protected static Student SelectedStudent;
 	@FXML
 	private ResourceBundle resources;
 
@@ -50,7 +50,7 @@ public class StudentAmmendDeleteController {
 
 	@FXML
 	void studentCancelButton(ActionEvent event) throws Exception {
-		GeneralMethods.homeScreen();
+		GeneralMethods.ChangeScene("MainMenu");
 	}
 
 	@FXML
@@ -111,10 +111,11 @@ public class StudentAmmendDeleteController {
 	}
 	
 	 @FXML
-	    void ListClicked(MouseEvent event) {
+	    void ListClicked(MouseEvent event)throws Exception {
 		 if(event.getClickCount()==2){
 		 SelectedStudent=ListOfStudents.getSelectionModel().getSelectedItem();
 		 System.out.println("clicked on " + SelectedStudent);
+		 GeneralMethods.ChangeScene("SelectedStudent");
 	    }
 	 }
 	@FXML

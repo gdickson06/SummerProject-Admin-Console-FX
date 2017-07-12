@@ -325,8 +325,8 @@ public class SQL {
 	
 	}
 	
-	public void AmendStudent(List<String>s)throws Exception{
-		//This will be in the order of the name,group,email,year.
+	public static void AmendStudent(List<String>s)throws Exception{
+		//This will be in the order of the studentNumber,name,group,email,year.
 		//Using the JDBC driver
 				
 					Class.forName("com.mysql.jdbc.Driver");
@@ -338,13 +338,14 @@ public class SQL {
 			
 				PreparedStatement statement = null;
 		
-		String Statement ="UPDATE students SET Name ='"+s.get(1)+"', Group1='"+s.get(2)+"', StudentEmail= '"+s.get(3)+"', IntakeYear = "+s.get(4)+" WHERE StudentNumber = "+s.get(0)+");";
+		String Statement ="UPDATE students SET Name ='"+s.get(1)+"', Group1='"+s.get(2)+"', StudentEmail= '"+s.get(3)+"', IntakeYear = "+s.get(4)+" WHERE StudentNumber = "+s.get(0)+";";
+		System.out.println(Statement);
 		statement=connection.prepareStatement(Statement);
 		statement.executeUpdate();
 		
 	}
 	
-	public void UploadSingleStudent(List<String>s)throws Exception{
+	public static void UploadSingleStudent(List<String>s)throws Exception{
 		//This will be in the order of the name,group,email,year.
 		//Using the JDBC driver
 				
@@ -362,6 +363,13 @@ public class SQL {
 		statement=connection.prepareStatement(Statement);
 		statement.executeUpdate();
 		
+	}
+	
+	public static void DeleteStudent (String StudentNumber) throws Exception{
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection c = DriverManager.getConnection(url,user,password);
+		PreparedStatement ps = c.prepareStatement("DELETE FROM students WHERE StudentNumber ="+StudentNumber);
+		ps.executeUpdate();
 	}
 	
 	

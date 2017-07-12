@@ -1,14 +1,13 @@
 package application;
 
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.TextField;
+import uk.ac.qub.churst.SQL;
 
 public class UploadSingleStudentController {
 
@@ -19,32 +18,44 @@ public class UploadSingleStudentController {
     private Button cancelButton;
 
     @FXML
-    private Button deleteStudentButton;
+    private TextField IntakeYear;
+
+    @FXML
+    private TextField Cohort;
+
+    @FXML
+    private TextField StudentNumber;
+
+    @FXML
+    private TextField StudentName;
+
+    @FXML
+    private TextField EmailAddress;
 
     @FXML
     void updateDetailsClick(ActionEvent event) {
-
-    }
-
-    @FXML
-    void deleteStudentClick(ActionEvent event) {
-
-    }
-
-    @FXML
-    void cancelButtonClick(ActionEvent event) throws IOException {
+    	//This will be in the order of the Student Number, name,group,email,year.
+    	List<String> attributes = new ArrayList<String>();
     	
-    	//creating the FXML Loader
-    	FXMLLoader loader = new FXMLLoader();
-   		
-    	String mainMenuFXML = "src/MainMenu.fxml";
-    	FileInputStream mainMenu = new FileInputStream(mainMenuFXML);
-    	VBox root = (VBox)loader.load(mainMenu);
-    	//Creating a new Scene
-    	Scene scene = new Scene(root);
-    	//Set the Scene to stage
-    	Main.stage.setScene(scene);
+    	attributes.add(StudentNumber.getText());
+    	attributes.add(StudentName.getText());
+    	attributes.add(Cohort.getText());
+    	attributes.add(EmailAddress.getText());
+    	attributes.add(IntakeYear.getText());
+    	
+    	try {
+			SQL.UploadSingleStudent(attributes);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			GeneralMethods.show("Error when uploading Student", "ERROR");
+		}
+    	
+    	GeneralMethods.show("Student added with name "+StudentName.getText()+" and Student Number "+ StudentNumber.getText(), "Student Added");
+    }
 
+    @FXML
+    void cancelButtonClick(ActionEvent event)throws Exception {
+    	GeneralMethods.ChangeScene("MainMenu");
     }
 
 }
