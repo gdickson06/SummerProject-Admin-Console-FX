@@ -42,13 +42,13 @@ public class UploadStudentCSVController {
     @FXML
     private Button ChooseFile;
 
-    FileChooser fileChooser = new FileChooser();
-    File f;
+    private FileChooser fileChooser = new FileChooser();
+    private File f;
     
     @FXML
     void ChooseFile(ActionEvent event) {
     	
-		configureFileChooser(fileChooser);  
+		GeneralMethods.configureFileChooser(fileChooser);  
 		File fileCSV = fileChooser.showOpenDialog(Main.stage);
 		if (fileCSV != null) {
 			f = fileCSV;
@@ -91,12 +91,7 @@ public class UploadStudentCSVController {
 
     }
     
-    private static void configureFileChooser(FileChooser fileChooser) {
-		fileChooser.setTitle("Pick CSV");
-		fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
-		fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("CSV", "*.csv*"),
-				new FileChooser.ExtensionFilter("CSV", "*.csv"));
-	}
+   
     
    
     

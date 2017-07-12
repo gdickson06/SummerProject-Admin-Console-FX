@@ -67,7 +67,9 @@ public class SQL {
 				statements="INSERT INTO lectures (Week, Day, StartDate, StartTime, EndTime, Groups, Location, Subject, Theme, Teaching, Description, Staff, Style, Module)" + "VALUES (" + week + ", '" + day + "', '" + startDate
 						+ "', '" + startTime + "','" + endTime + "', '" + groups + "', '" + location + "', '" + subject
 						+ "', '" + theme + "', '" + format + "', '" + description + "', '" + staff + "', '" + style
-						+ "', '" + module + "')";
+						+ "', '" + module + "');";
+				
+				System.out.println(statements);
 				statement=connection.prepareStatement(statements);
 				statement.executeUpdate();
 			} catch (Exception e) {
@@ -78,6 +80,32 @@ public class SQL {
 
 		}
 
+	}
+	
+	public static void saveSQLRooms(List<Room>rooms)throws Exception{
+
+		
+		Class.forName("com.mysql.jdbc.Driver");
+	
+
+	Connection connection = DriverManager.getConnection(url, user, password);
+
+
+	PreparedStatement statement = null;
+	String newStatement=null;
+
+	for (Room r : rooms) {
+		String code = r.getCode();
+		String name =r.getName();
+		try {
+		newStatement="INSERT INTO location " + "VALUES ('"  + code + "', '" + name
+				+ "')";
+		statement=connection.prepareStatement(newStatement);
+		statement.executeUpdate();
+		} catch (Exception e){
+			e.printStackTrace();
+		}
+	}
 	}
 
 	/**

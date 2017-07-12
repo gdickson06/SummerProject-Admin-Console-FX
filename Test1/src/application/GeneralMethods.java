@@ -1,5 +1,6 @@
 package application;
 
+import java.io.File;
 import java.io.FileInputStream;
 
 import javafx.fxml.FXMLLoader;
@@ -8,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -42,6 +44,11 @@ FXMLLoader loader = new FXMLLoader();
 			stage.setScene(scene);
 			stage.showAndWait();
 		}
-	
+	 public static void configureFileChooser(FileChooser fileChooser) {
+			fileChooser.setTitle("Pick CSV");
+			fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
+			fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("CSV", "*.csv*"),
+					new FileChooser.ExtensionFilter("CSV", "*.csv"));
+		}
 
 }

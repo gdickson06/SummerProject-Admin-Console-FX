@@ -1,14 +1,8 @@
 package application;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.VBox;
 
 public class MainMenuController {
 
@@ -16,124 +10,176 @@ public class MainMenuController {
     private Button studentUploadCSVButton;
 
     @FXML
+    private Button InputPDF;
+
+    @FXML
+    private Button AbsenceUploadSingle;
+
+    @FXML
+    private Button Help;
+
+    @FXML
+    private Button RoomUploadSingle;
+
+    @FXML
+    private Button AmendDeleteUser;
+
+    @FXML
+    private Button SearchAbsence;
+
+    @FXML
+    private Button AbsenceTrends;
+
+    @FXML
+    private Button lectureUploadCSV;
+
+    @FXML
+    private Button AmendDeleteRoom;
+
+    @FXML
+    private Button CreatePDF;
+
+    @FXML
+    private Button LecturerUploadSingle;
+
+    @FXML
+    private Button UploadSingleUser;
+
+    @FXML
+    private Button uploadSingleStudentButton;
+
+    @FXML
+    private Button userUploadCSV;
+
+    @FXML
+    private Button LecturerAmendDelete;
+
+    @FXML
     private Button roomUploadCSV;
+
+    @FXML
+    private Button AbsenceAmendDelete;
+
+    @FXML
+    private Button studentAmmendDelete;
 
     @FXML
     private Button lecturerUploadCSV;
 
     @FXML
-    private Button lectureUploadCSV;
-    
-    @FXML
-    private Button uploadSingleStudentButton;
-    
-    
-    @FXML
-    void uploadStudentCSV(ActionEvent event) throws IOException {
-    	
-    	//creating the FXML Loader
-    	FXMLLoader loader = new FXMLLoader();
-    			
-    	String mainMenuFXML = "src/uploadCSVMenu.fxml";
-    	FileInputStream mainMenu = new FileInputStream(mainMenuFXML);
-    	VBox root = (VBox)loader.load(mainMenu);
-    	//Creating a new Scene
-    	Scene scene = new Scene(root);
-    	//Set the Scene to stage
-    	Main.stage.setScene(scene);
+    private Button LectureAmendDelete;
 
+    @FXML
+    private Button LectureUploadSingle;
+
+    @FXML
+    void uploadStudentCSV(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("uploadCSVMenu");
     }
 
     @FXML
-    void lectureUploadCSVButton(ActionEvent event) throws IOException {
-    	
-    	//creating the FXML Loader
-    	FXMLLoader loader = new FXMLLoader();
-    			
-    	String mainMenuFXML = "src/uploadCSVMenu.fxml";
-    	FileInputStream mainMenu = new FileInputStream(mainMenuFXML);
-    	VBox root = (VBox)loader.load(mainMenu);
-    	//Creating a new Scene
-    	Scene scene = new Scene(root);
-    	//Set the Scene to stage
-    	Main.stage.setScene(scene);
-
+    void studentAmmendDeleteButton(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("StudentAmmendDelete");
     }
 
     @FXML
-    void lecturerUploadCSVButton(ActionEvent event) throws IOException {
-    	
-    	//creating the FXML Loader
-    	FXMLLoader loader = new FXMLLoader();
-    			
-    	String mainMenuFXML = "src/uploadCSVMenu.fxml";
-    	FileInputStream mainMenu = new FileInputStream(mainMenuFXML);
-    	VBox root = (VBox)loader.load(mainMenu);
-    	//Creating a new Scene
-    	Scene scene = new Scene(root);
-    	//Set the Scene to stage
-    	Main.stage.setScene(scene);
+    void uploadSingleStudentClick(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("UploadSingleStudent");
+    }
+
+    @FXML
+    void lectureUploadCSVButton(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("UploadCSVLecture");
+    }
+
+    @FXML
+    void LectureAmendDelete(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("LectureAmendDelete");
+    }
+
+    @FXML
+    void LectureUploadSingle(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("UploadSingleLecture");
+    }
+
+    @FXML
+    void lecturerUploadCSVButton(ActionEvent event) {
 
     }
 
     @FXML
-    void roomUploadCSVButton(ActionEvent event) throws IOException {
-    	
-    	//creating the FXML Loader
-    	FXMLLoader loader = new FXMLLoader();
-    			
-    	String mainMenuFXML = "src/uploadCSVMenu.fxml";
-    	FileInputStream mainMenu = new FileInputStream(mainMenuFXML);
-    	VBox root = (VBox)loader.load(mainMenu);
-    	//Creating a new Scene
-    	Scene scene = new Scene(root);
-    	//Set the Scene to stage
-    	Main.stage.setScene(scene);
+    void LecturerAmendDelete(ActionEvent event) {
 
     }
-    
-    @FXML 
-    void userUploadCSVButton(ActionEvent event) throws IOException {
-    	//creating the FXML Loader
-    	FXMLLoader loader = new FXMLLoader();
- 		
-    	String mainMenuFXML = "src/uploadCSVMenu.fxml";
-    	FileInputStream mainMenu = new FileInputStream(mainMenuFXML);
-    	VBox root = (VBox)loader.load(mainMenu);
-    	//Creating a new Scene
-    	Scene scene = new Scene(root);
-    	//Set the Scene to stage
-    	Main.stage.setScene(scene);
-    }
-    
-    @FXML 
-    void studentAmmendDeleteButton(ActionEvent event) throws IOException {
-    	//creating the FXML Loader
-    	FXMLLoader loader = new FXMLLoader();
- 		
-    	String mainMenuFXML = "src/StudentAmmendDelete.fxml";
-    	FileInputStream mainMenu = new FileInputStream(mainMenuFXML);
-    	VBox root = (VBox)loader.load(mainMenu);
-    	//Creating a new Scene
-    	Scene scene = new Scene(root);
-    	//Set the Scene to stage
-    	Main.stage.setScene(scene);
-    }
-    
+
     @FXML
-    void uploadSingleStudentClick(ActionEvent event) throws IOException {
-    	//creating the FXML Loader
-    	FXMLLoader loader = new FXMLLoader();
- 		
-    	String mainMenuFXML = "src/UploadSingleStudent.fxml";
-    	FileInputStream mainMenu = new FileInputStream(mainMenuFXML);
-    	VBox root = (VBox)loader.load(mainMenu);
-    	//Creating a new Scene
-    	Scene scene = new Scene(root);
-    	//Set the Scene to stage
-    	Main.stage.setScene(scene);
+    void LecturerUploadSingle(ActionEvent event) {
+
     }
-    
-    
+
+    @FXML
+    void roomUploadCSVButton(ActionEvent event) {
+
+    }
+
+    @FXML
+    void AmendDeleteRoom(ActionEvent event) {
+
+    }
+
+    @FXML
+    void RoomUploadSingle(ActionEvent event) {
+
+    }
+
+    @FXML
+    void AbsenceAmendDelete(ActionEvent event) {
+
+    }
+
+    @FXML
+    void AbsenceUploadSingle(ActionEvent event) {
+
+    }
+
+    @FXML
+    void SearchAbsence(ActionEvent event) {
+
+    }
+
+    @FXML
+    void AbsenceTrends(ActionEvent event) {
+
+    }
+
+    @FXML
+    void CreatePDF(ActionEvent event) {
+
+    }
+
+    @FXML
+    void InputPDF(ActionEvent event) {
+
+    }
+
+    @FXML
+    void userUploadCSVButton(ActionEvent event) {
+
+    }
+
+    @FXML
+    void AmendDeleteUser(ActionEvent event) {
+
+    }
+
+    @FXML
+    void UploadSingleUser(ActionEvent event) {
+
+    }
+
+    @FXML
+    void Help(ActionEvent event) {
+
+    }
 
 }

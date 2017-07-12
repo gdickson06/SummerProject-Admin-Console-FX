@@ -14,9 +14,9 @@ public class ConvertGroup {
 	public static void main(String[] args) {
 	
 		//List<Lecture> lectures = SearchQueries.searchLecture(4, "5");
-		List<Lecture> lectures = CSV.readLecturesFromCSV("timetable.csv");
+		List<Room> r = CSV.readRoomsFromCSV("RoomList.csv");
 		try {
-			SQL.GroupsToGroup(lectures);
+			SQL.saveSQLRooms(r);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
