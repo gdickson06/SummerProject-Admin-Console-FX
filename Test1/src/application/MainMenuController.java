@@ -118,13 +118,13 @@ public class MainMenuController {
     }
 
     @FXML
-    void roomUploadCSVButton(ActionEvent event) {
-
+    void roomUploadCSVButton(ActionEvent event) throws Exception {
+    	
     }
 
     @FXML
-    void AmendDeleteRoom(ActionEvent event) {
-
+    void AmendDeleteRoom(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("RoomAmmendDelete");
     }
 
     @FXML
