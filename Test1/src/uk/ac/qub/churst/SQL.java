@@ -399,6 +399,52 @@ public class SQL {
 		PreparedStatement ps = c.prepareStatement("DELETE FROM students WHERE StudentNumber ="+StudentNumber);
 		ps.executeUpdate();
 	}
+	public static void AmendLecture(List<String>s)throws Exception{
+		//This will be in the order of the id,week,day,StartDate,StartTime,EndTime,Groups,Location,Subject,Theme,Teaching,Description,Staff
+		//Using the JDBC driver
+				
+					Class.forName("com.mysql.jdbc.Driver");
+				
+
+				//Creating a connection with 
+				Connection connection = DriverManager.getConnection(url, user, password);
+
+			
+				PreparedStatement statement = null;
+		
+		String Statement ="UPDATE lectures SET week ="+s.get(1)+", Day='"+s.get(2)+"', StartDate= '"+s.get(3)+"', StartTime= '"+s.get(4)+"', EndTime= '"+s.get(5)+"', Groups= '"+s.get(6)+"', Location= '"+s.get(7)+"', Subject= '"+s.get(8)+"', Theme= '"+s.get(9)+"', Teaching= '"+s.get(10)+"', Description= '"+s.get(11)+"', Staff= '"+s.get(12)+"', Style = '"+s.get(13)+"', Module = '"+s.get(14)+"' WHERE id = "+s.get(0)+";";
+		System.out.println(Statement);
+		statement=connection.prepareStatement(Statement);
+		statement.executeUpdate();
+		
+	}
+	
+	public static void DeleteLecture (String id) throws Exception{
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection c = DriverManager.getConnection(url,user,password);
+		PreparedStatement ps = c.prepareStatement("DELETE FROM lectures WHERE id ="+id);
+		ps.executeUpdate();
+	}
+	
+	public static void UploadSingleLecture(List<String>s)throws Exception{
+		Class.forName("com.mysql.jdbc.Driver");
+		
+
+		//Creating a connection with 
+		Connection connection = DriverManager.getConnection(url, user, password);
+
+	
+		PreparedStatement statement = null;
+		//This will be in the order of the week,day,StartDate,StartTime,EndTime,Groups,Location,Subject,Theme,Teaching,Description,Staff
+		
+String Statement ="INSERT INTO lectures (Week, Day, StartDate, StartTime, EndTime, Groups, Location, Subject, Theme, Teaching, Description, Staff, Style, Module)" + "VALUES (" + s.get(0) + ", '" + s.get(1) + "', '" + s.get(2)
++ "', '" + s.get(3) + "','" + s.get(4) + "', '" + s.get(5) + "', '" + s.get(6) + "', '" + s.get(7)
++ "', '" + s.get(8) + "', '" + s.get(9) + "', '" + s.get(10) + "', '" + s.get(11) + "', '" + s.get(12)
++ "', '" + s.get(13) + "');";
+System.out.println(Statement);
+statement=connection.prepareStatement(Statement);
+statement.executeUpdate();
+	}
 	
 	
 }

@@ -1,8 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
-</VBox>
 
+<VBox prefHeight="800.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.SelectedLectureController">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane prefHeight="800.0" prefWidth="800.0">
+         <children>
+            <Label fx:id="IDLabel" layoutX="435.0" layoutY="14.0" text="ID" textFill="RED">
+               <font>
+                  <Font size="46.0" />
+               </font>
+            </Label>
+            <Label layoutX="17.0" layoutY="138.0" text="Week" />
+            <Label layoutX="21.0" layoutY="188.0" text="Day" />
+            <Label layoutX="455.0" layoutY="138.0" text="StartDate" />
+            <Label layoutX="453.0" layoutY="188.0" text="Start Time" />
+            <Label layoutX="12.0" layoutY="241.0" text="Groups" />
+            <Label layoutX="458.0" layoutY="241.0" text="End Time" />
+            <Label layoutX="14.0" layoutY="304.0" text="Location" />
+            <Label layoutX="452.0" layoutY="304.0" text="Subject" />
+            <Label layoutX="19.0" layoutY="357.0" text="Theme" />
+            <Label layoutX="448.0" layoutY="357.0" text="Teaching" />
+            <Label layoutX="14.0" layoutY="471.0" text="Description" />
+            <Label layoutX="19.0" layoutY="414.0" text="Staff" />
+            <Label layoutX="459.0" layoutY="414.0" text="Style" />
+            <Label layoutX="452.0" layoutY="471.0" text="Module" />
+            <TextField fx:id="WeekText" layoutX="75.0" layoutY="134.0" prefHeight="25.0" prefWidth="300.0" />
+            <TextField fx:id="DayText" layoutX="75.0" layoutY="193.0" prefHeight="25.0" prefWidth="300.0" />
+            <TextField fx:id="GroupsText" layoutX="75.0" layoutY="237.0" prefHeight="25.0" prefWidth="300.0" />
+            <TextField fx:id="LocationText" layoutX="75.0" layoutY="292.0" prefHeight="25.0" prefWidth="300.0" />
+            <TextField fx:id="ThemeText" layoutX="75.0" layoutY="353.0" prefHeight="25.0" prefWidth="300.0" />
+            <TextField fx:id="StaffText" layoutX="75.0" layoutY="410.0" prefHeight="25.0" prefWidth="300.0" />
+            <TextField fx:id="StartDateText" layoutX="519.0" layoutY="134.0" prefHeight="25.0" prefWidth="255.0" />
+            <TextField fx:id="StartTimeText" layoutX="519.0" layoutY="184.0" prefHeight="25.0" prefWidth="255.0" />
+            <TextField fx:id="EndTimeText" layoutX="519.0" layoutY="237.0" prefHeight="25.0" prefWidth="255.0" />
+            <TextField fx:id="SubjectText" layoutX="519.0" layoutY="305.0" prefHeight="25.0" prefWidth="255.0" />
+            <TextField fx:id="TeachingText" layoutX="519.0" layoutY="353.0" prefHeight="25.0" prefWidth="255.0" />
+            <TextField fx:id="StyleText" layoutX="519.0" layoutY="419.0" prefHeight="25.0" prefWidth="255.0" />
+            <TextField fx:id="ModuleText" layoutX="519.0" layoutY="467.0" prefHeight="25.0" prefWidth="255.0" />
+            <TextArea fx:id="DescriptionText" layoutX="85.0" layoutY="471.0" prefHeight="200.0" prefWidth="300.0" />
+            <Button fx:id="SaveChanges" layoutX="435.0" layoutY="516.0" mnemonicParsing="false" onAction="#SaveChanges" text="Save Changes" />
+            <Button fx:id="Delete" layoutX="435.0" layoutY="559.0" mnemonicParsing="false" onAction="#Delete" text="Delete" />
+            <Button fx:id="Home" layoutX="718.0" layoutY="516.0" mnemonicParsing="false" onAction="#Home" text="Home" />
+            <Button fx:id="Back" layoutX="722.0" layoutY="559.0" mnemonicParsing="false" onAction="#Back" text="Back" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
