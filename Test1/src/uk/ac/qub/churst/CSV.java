@@ -28,6 +28,14 @@ public class CSV {
 		return new Lecturer(module,name,email);
 	}
 	
+	private static User createUser(List<String> metadata){
+		String userName = metadata.get(0);
+		String name =metadata.get(1);
+		String password = metadata.get(2);
+		String type = metadata.get(3);
+		
+		return new User(userName,name,password,type);
+	}
 	private static Lecture createLecture(List<String> metadata) {
 		int week = Integer.parseInt(metadata.get(0));
 		String day = metadata.get(1);
@@ -178,6 +186,35 @@ public class CSV {
 		
 		
 		return lecturers;
+	}
+	
+public static List<User> readUsersFromCSV (String filename){
+		
+		List<User> users = new ArrayList<User>();
+		
+		try  {
+			
+			CSVReader reader = new CSVReader(new FileReader(filename));
+		     List<String[]> attributes = reader.readAll();
+		     attributes.remove(0);
+		     for(String[] s: attributes){
+		    List<String> list = Arrays.asList(s);
+		    
+		    if(list.get(0).isEmpty()==false){
+			User user = createUser(list);
+			users.add(user);
+		    }
+		     }
+			
+		reader.close();
+		
+	} catch (IOException ioe) {
+		ioe.printStackTrace();
+		System.out.println("Error");
+	}
+		
+		
+		return users;
 	}
 	
 	
