@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox prefHeight="784.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.CSVLectureController">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane prefHeight="759.0" prefWidth="800.0">
+         <children>
+            <Label layoutX="193.0" layoutY="14.0" text="Upload a CSV file for lectures, for the file format please see the help guide in the main menu." />
+            <Button fx:id="FileSelect" layoutX="568.0" layoutY="128.0" mnemonicParsing="false" onAction="#SelectFile" text="Select File" />
+            <Button fx:id="Upload" layoutX="283.0" layoutY="276.0" mnemonicParsing="false" onAction="#Upload" text="OK" />
+            <Button fx:id="Cancel" layoutX="516.0" layoutY="276.0" mnemonicParsing="false" onAction="#Cancel" text="Cancel" />
+            <TextField fx:id="FileInput" layoutX="78.0" layoutY="128.0" prefHeight="25.0" prefWidth="474.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
