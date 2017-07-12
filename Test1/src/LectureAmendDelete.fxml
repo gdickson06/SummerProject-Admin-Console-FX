@@ -1,8 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
-</VBox>
 
+<VBox prefHeight="800.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.LectureAmendController">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane prefHeight="778.0" prefWidth="800.0">
+         <children>
+            <Label layoutX="253.0" layoutY="6.0" text="Search for a lecture to amend or delete" />
+            <Label layoutX="33.0" layoutY="112.0" text="Week" />
+            <Label layoutX="411.0" layoutY="112.0" text="Date" />
+            <Label layoutX="29.0" layoutY="153.0" text="Groups" />
+            <Label layoutX="411.0" layoutY="153.0" text="Staff" />
+            <Label layoutX="33.0" layoutY="189.0" text="Module" />
+            <Label layoutX="404.0" layoutY="189.0" text="Subject" />
+            <TextField fx:id="WeekText" layoutX="90.0" layoutY="108.0" prefHeight="25.0" prefWidth="237.0" />
+            <TextField fx:id="DateText" layoutX="461.0" layoutY="108.0" prefHeight="25.0" prefWidth="263.0" />
+            <TextField fx:id="GroupsText" layoutX="90.0" layoutY="149.0" prefHeight="25.0" prefWidth="237.0" />
+            <TextField fx:id="ModuleText" layoutX="90.0" layoutY="185.0" prefHeight="25.0" prefWidth="237.0" />
+            <TextField fx:id="StaffText" layoutX="461.0" layoutY="149.0" prefHeight="25.0" prefWidth="263.0" />
+            <TextField fx:id="SubjectText" layoutX="461.0" layoutY="185.0" prefHeight="25.0" prefWidth="263.0" />
+            <Button fx:id="WeekSearch" layoutX="342.0" layoutY="108.0" mnemonicParsing="false" onAction="#WeekSearch" text="Button" />
+            <Button fx:id="GroupsSearch" layoutX="342.0" layoutY="149.0" mnemonicParsing="false" onAction="#GroupsSearch" text="Button" />
+            <Button fx:id="ModuleSearch" layoutX="342.0" layoutY="185.0" mnemonicParsing="false" onAction="#ModuleSearch" text="Button" />
+            <Button fx:id="DateSearch" layoutX="734.0" layoutY="108.0" mnemonicParsing="false" onAction="#DateSearch" text="Button" />
+            <Button fx:id="StaffSearch" layoutX="734.0" layoutY="149.0" mnemonicParsing="false" onAction="#StaffSearch" text="Button" />
+            <Button fx:id="SubjectSearch" layoutX="734.0" layoutY="185.0" mnemonicParsing="false" onAction="#SubjectSearch" text="Button" />
+            <ListView fx:id="ListOfLectures" layoutX="14.0" layoutY="238.0" onMouseClicked="#ListClicked" prefHeight="532.0" prefWidth="776.0" />
+            <Button fx:id="Back" layoutX="734.0" layoutY="38.0" mnemonicParsing="false" onAction="#Back" text="Back" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
