@@ -2,6 +2,7 @@ package uk.ac.qub.churst;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -60,8 +61,26 @@ public final class To extends Application {
     }
  
     public static void main(String[] args) {
-        Application.launch(args);
-    }
+    	
+    	GregorianCalendar g = new GregorianCalendar();
+    	
+    	//current year
+    	int year=g.getTime().getYear();
+    	//current month this has to be +1 because Jan = month 0
+    	int month = g.getTime().getMonth()+1;
+    	// will be taken from the individual student
+    	int intakeYear=2015;
+    	// if the current month is past sept add 1 to the intake year eg in August 2017 someone with intakeyear 2016 will be a first year 
+    	// but if it is past septemeber they will be a secondyear
+    	int pastSept=0;
+    	
+    	if(month>=9){
+    		pastSept=1;
+    	}
+    	//I have to add 1900 because it gives me the year in numbers past the year 1900
+    	int whichYear = (year+1900) -intakeYear +pastSept;
+    	
+    	System.out.println(month);
  
-  
+    }
 }
