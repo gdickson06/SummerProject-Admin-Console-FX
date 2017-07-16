@@ -62,9 +62,9 @@ public class CSV {
 		String name = metadata.get(1);
 		String firstGroup = metadata.get(2);
 		String email = metadata.get(3);
-		int intakeYear = Integer.parseInt(metadata.get(4));
 		
-		return new Student(studentNumber, name, firstGroup,email, intakeYear);
+		
+		return new Student(studentNumber, name, firstGroup,email);
 	}
 	
 	public static Room createRoom(List<String>metadata){

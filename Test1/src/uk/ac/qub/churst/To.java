@@ -65,11 +65,13 @@ public final class To extends Application {
     	GregorianCalendar g = new GregorianCalendar();
     	
     	//current year
-    	int year=g.getTime().getYear();
+    	@SuppressWarnings("deprecation")
+		int year=g.getTime().getYear();
     	//current month this has to be +1 because Jan = month 0
-    	int month = g.getTime().getMonth()+1;
+    	@SuppressWarnings("deprecation")
+		int month = g.getTime().getMonth()+1;
     	// will be taken from the individual student
-    	int intakeYear=2015;
+    	int intakeYear=2014;
     	// if the current month is past sept add 1 to the intake year eg in August 2017 someone with intakeyear 2016 will be a first year 
     	// but if it is past septemeber they will be a secondyear
     	int pastSept=0;
@@ -80,7 +82,7 @@ public final class To extends Application {
     	//I have to add 1900 because it gives me the year in numbers past the year 1900
     	int whichYear = (year+1900) -intakeYear +pastSept;
     	
-    	System.out.println(month);
+    	System.out.println(whichYear);
  
     }
 }

@@ -10,6 +10,9 @@ import javafx.scene.control.TextField;
 import uk.ac.qub.churst.SQL;
 
 public class UploadSingleStudentController {
+	
+	 @FXML
+	    private TextField Year;
 
     @FXML
     private Button updateDetailsButton;

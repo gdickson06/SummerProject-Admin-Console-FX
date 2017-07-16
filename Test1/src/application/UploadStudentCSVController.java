@@ -23,6 +23,8 @@ import uk.ac.qub.churst.SQL;
 import uk.ac.qub.churst.Student;
 
 public class UploadStudentCSVController {
+	 @FXML
+	    private TextField Year;
 
     @FXML
     private ResourceBundle resources;
@@ -65,8 +67,9 @@ public class UploadStudentCSVController {
     		boolean error = false;
     		try {
     			studentList = CSV.readStudentsFromCSV(s);
-    			SQL.saveSQLStudents(studentList);
+    			SQL.saveSQLStudents(studentList,Year.getText());
     		} catch (Exception e) {
+    			e.printStackTrace();
     			GeneralMethods.show("Issue with input please view the handbook", "ERROR");
     			error = true;
     		}

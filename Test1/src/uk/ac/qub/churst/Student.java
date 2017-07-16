@@ -16,11 +16,11 @@ public class Student {
 		this.intakeYear = intakeYear;
 	}
 	
-	public Student(int studentNumber, String name, String firstGroup, int intakeYear) {
+	public Student(int studentNumber, String name, String firstGroup, String email) {
 		this.studentNumber = studentNumber;
 		this.name = name;
 		this.firstGroup = firstGroup;
-		this.intakeYear = intakeYear;
+		this.email = email;
 	}
 
 	@Override

@@ -133,7 +133,7 @@ public class SQL {
 	 * @param students
 	 * @throws Exception
 	 */
-	public static void saveSQLStudents(List<Student> students) throws Exception {
+	public static void saveSQLStudents(List<Student> students,String year) throws Exception {
 
 		Class.forName("com.mysql.jdbc.Driver");
 
@@ -147,10 +147,11 @@ public class SQL {
 			String name = s.getName();
 			String group = s.getFirstGroup();
 			String email = s.getEmail();
-			int intakeYear = s.getIntakeYear();
-
+			String intakeYear = year;
+		
 			newStatement = "INSERT INTO students " + "VALUES (" + studentNumber + ", '" + name + "', '" + group + "', '"
-					+ email + "', " + intakeYear + ")";
+					+ email + "', " + intakeYear + ");";
+			System.out.println(newStatement);
 			statement = connection.prepareStatement(newStatement);
 			statement.executeUpdate();
 
