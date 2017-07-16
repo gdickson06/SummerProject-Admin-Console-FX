@@ -10,8 +10,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import uk.ac.qub.churst.CSV;
-import uk.ac.qub.churst.Lecture;
-import uk.ac.qub.churst.SQL;
+import uk.ac.qub.objects.Lecture;
+import uk.ac.qub.sql.LectureSQL;
+
 
 public class CSVLectureController {
 
@@ -49,7 +50,7 @@ public class CSVLectureController {
 		boolean error = false;
 		try {
 			lectureList = CSV.readLecturesFromCSV(s);
-			SQL.saveSQLLecture(lectureList);
+			LectureSQL.saveSQLLecture(lectureList);
 		} catch (Exception e) {
 			GeneralMethods.show("Issue with input please view the handbook", "ERROR");
 			error = true;

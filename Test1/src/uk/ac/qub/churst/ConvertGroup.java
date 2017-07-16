@@ -7,6 +7,12 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 
+import uk.ac.qub.objects.Lecture;
+import uk.ac.qub.objects.Room;
+import uk.ac.qub.objects.Student;
+import uk.ac.qub.sql.SQL;
+import uk.ac.qub.sql.SearchQueries;
+
 
 
 public class ConvertGroup {

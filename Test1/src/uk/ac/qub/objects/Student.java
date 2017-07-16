@@ -1,4 +1,4 @@
-package uk.ac.qub.churst;
+package uk.ac.qub.objects;
 
 public class Student {
 	
@@ -7,6 +7,7 @@ public class Student {
 	String firstGroup;
 	String email;
 	int intakeYear;
+	String Password;
 
 	public Student(int studentNumber, String name, String firstGroup, String email, int intakeYear) {
 		this.studentNumber = studentNumber;

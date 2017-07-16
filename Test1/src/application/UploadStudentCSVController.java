@@ -19,8 +19,9 @@ import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import uk.ac.qub.churst.CSV;
-import uk.ac.qub.churst.SQL;
-import uk.ac.qub.churst.Student;
+import uk.ac.qub.objects.Student;
+import uk.ac.qub.sql.SQL;
+import uk.ac.qub.sql.StudentSQL;
 
 public class UploadStudentCSVController {
 	 @FXML
@@ -67,7 +68,7 @@ public class UploadStudentCSVController {
     		boolean error = false;
     		try {
     			studentList = CSV.readStudentsFromCSV(s);
-    			SQL.saveSQLStudents(studentList,Year.getText());
+    			StudentSQL.saveSQLStudents(studentList,Year.getText());
     		} catch (Exception e) {
     			e.printStackTrace();
     			GeneralMethods.show("Issue with input please view the handbook", "ERROR");

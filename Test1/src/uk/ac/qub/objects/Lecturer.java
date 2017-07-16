@@ -1,4 +1,4 @@
-package uk.ac.qub.churst;
+package uk.ac.qub.objects;
 
 public class Lecturer {
 	

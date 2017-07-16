@@ -2,6 +2,7 @@ package uk.ac.qub.churst;
 
 
 import java.io.File;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,7 +11,15 @@ import java.util.List;
 
 import com.opencsv.CSVReader;
 
+import uk.ac.qub.objects.Lecture;
+import uk.ac.qub.objects.Lecturer;
+import uk.ac.qub.objects.Room;
+import uk.ac.qub.objects.Student;
+import uk.ac.qub.objects.User;
+
 public class CSV {
+	
+	
 
 	/**
 	 * This method takes the String and returns a router with the 1-5 areas of

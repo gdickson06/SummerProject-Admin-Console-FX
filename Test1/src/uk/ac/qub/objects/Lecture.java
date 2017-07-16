@@ -1,8 +1,9 @@
-package uk.ac.qub.churst;
+package uk.ac.qub.objects;
 
 public class Lecture {
 	
 	int Week,id;
+	
 	public Lecture(int id, int week, String day, String startDate, String startTime, String endTime, String group,
 			String location, String subject, String theme, String teachingFormat, String description, String staff,
 			String style, String module) {
@@ -29,7 +30,8 @@ public class Lecture {
 	public void setId(int id) {
 		this.id = id;
 	}
-	String Day, startDate, StartTime, EndTime, group, location, subject, theme, teachingFormat, description, staff, style, module;
+	String Day, startDate, StartTime, EndTime, group, location, subject, theme, teachingFormat, description, staff, style, module,year,notes;
+	Boolean Essential;
 	public Lecture(int week, String day, String startDate, String startTime, String endTime,
 			String group, String location, String subject, String theme, String teachingFormat, String description,
 			String staff, String style, String module) {
@@ -48,6 +50,48 @@ public class Lecture {
 		this.staff = staff;
 		this.style = style;
 		this.module = module;
+	}
+	
+	
+	public Lecture(int week, int id, String day, String startDate, String startTime, String endTime, String group,
+			String location, String subject, String theme, String teachingFormat, String description, String staff,
+			String style, String module,Boolean essential, String year, String notes) {
+		Week = week;
+		this.id = id;
+		Day = day;
+		this.startDate = startDate;
+		StartTime = startTime;
+		EndTime = endTime;
+		this.group = group;
+		this.location = location;
+		this.subject = subject;
+		this.theme = theme;
+		this.teachingFormat = teachingFormat;
+		this.description = description;
+		this.staff = staff;
+		this.style = style;
+		this.module = module;
+		this.year = year;
+		this.notes = notes;
+		Essential = essential;
+	}
+	public String getYear() {
+		return year;
+	}
+	public void setYear(String year) {
+		this.year = year;
+	}
+	public String getNotes() {
+		return notes;
+	}
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
+	public Boolean getEssential() {
+		return Essential;
+	}
+	public void setEssential(Boolean essential) {
+		Essential = essential;
 	}
 	public int getWeek() {
 		return Week;

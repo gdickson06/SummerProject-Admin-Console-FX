@@ -8,9 +8,10 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import uk.ac.qub.churst.SQL;
+import uk.ac.qub.sql.SQL;
 
 public class UploadSingleLectureController {
 
@@ -19,6 +20,15 @@ public class UploadSingleLectureController {
 
     @FXML
     private URL location;
+    
+    @FXML
+    private CheckBox Essential;
+    
+    @FXML
+    private TextField NoteText;
+    
+    @FXML
+    private TextField YearText;
     
 
     @FXML
@@ -72,6 +82,10 @@ public class UploadSingleLectureController {
 
     @FXML
     void Upload(ActionEvent event) throws Exception {
+    	String essential="false";
+    	if(Essential.isSelected()){
+    		essential="true";
+    	}
     	List<String>attributes= new ArrayList<String>();
 		
     	
@@ -89,6 +103,9 @@ public class UploadSingleLectureController {
 		attributes.add(StaffText.getText());
 		attributes.add(StyleText.getText());
 		attributes.add(ModuleText.getText());
+		attributes.add(essential);
+		attributes.add(YearText.getText());
+		attributes.add(NoteText.getText());
 		
 		
 		SQL.UploadSingleLecture(attributes);

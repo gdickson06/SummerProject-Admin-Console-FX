@@ -8,7 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import uk.ac.qub.churst.SQL;
+import uk.ac.qub.sql.SQL;
 
 public class StudentSelectController {
 	  @FXML

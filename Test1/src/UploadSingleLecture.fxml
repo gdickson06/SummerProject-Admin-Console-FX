@@ -5,8 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox prefHeight="800.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.UploadSingleLectureController">
+<VBox prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UploadSingleLectureController">
    <children>
       <MenuBar>
         <menus>
@@ -54,12 +53,17 @@
             <TextField fx:id="SubjectText" layoutX="496.0" layoutY="237.0" prefHeight="25.0" prefWidth="260.0" />
             <TextField fx:id="ModuleText" layoutX="496.0" layoutY="279.0" prefHeight="25.0" prefWidth="260.0" />
             <TextField fx:id="StaffText" layoutX="496.0" layoutY="319.0" prefHeight="25.0" prefWidth="260.0" />
-            <Button fx:id="UploadButton" layoutX="483.0" layoutY="388.0" mnemonicParsing="false" onAction="#Upload" text="Upload" />
-            <Button fx:id="BackButton" layoutX="626.0" layoutY="388.0" mnemonicParsing="false" onAction="#Back" text="Cancel" />
+            <Button fx:id="UploadButton" layoutX="483.0" layoutY="498.0" mnemonicParsing="false" onAction="#Upload" text="Upload" />
+            <Button fx:id="BackButton" layoutX="626.0" layoutY="498.0" mnemonicParsing="false" onAction="#Back" text="Cancel" />
             <TextField fx:id="StyleText" layoutX="127.0" layoutY="195.0" prefHeight="25.0" prefWidth="277.0" />
             <Label layoutX="47.0" layoutY="199.0" text="Style" />
             <Label layoutX="442.0" layoutY="199.0" text="Teaching" />
             <TextField fx:id="TeachingText" layoutX="496.0" layoutY="195.0" prefHeight="25.0" prefWidth="260.0" />
+            <CheckBox fx:id="Essential" layoutX="477.0" layoutY="471.0" mnemonicParsing="false" text="Essential" />
+            <Label layoutX="442.0" layoutY="364.0" text="Note" />
+            <Label layoutX="442.0" layoutY="406.0" text="Year" />
+            <TextField fx:id="NoteText" layoutX="496.0" layoutY="360.0" prefHeight="25.0" prefWidth="260.0" />
+            <TextField fx:id="YearText" layoutX="496.0" layoutY="402.0" prefHeight="25.0" prefWidth="260.0" />
          </children>
       </AnchorPane>
    </children>

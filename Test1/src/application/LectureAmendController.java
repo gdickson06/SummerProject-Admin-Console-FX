@@ -10,8 +10,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import uk.ac.qub.churst.Lecture;
-import uk.ac.qub.churst.SearchQueries;
+import uk.ac.qub.objects.Lecture;
+import uk.ac.qub.sql.SearchQueries;
 
 
 public class LectureAmendController {
