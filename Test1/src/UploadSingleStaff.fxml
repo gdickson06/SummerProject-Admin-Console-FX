@@ -30,14 +30,18 @@
          <children>
             <Label layoutX="74.0" layoutY="56.0" text="Name" />
             <Label layoutX="77.0" layoutY="106.0" text="Password" />
-            <Label layoutX="76.0" layoutY="143.0" text="Type" />
+            <Label layoutX="89.0" layoutY="213.0" text="Type" />
             <TextField fx:id="NameText" layoutX="167.0" layoutY="52.0" prefHeight="25.0" prefWidth="306.0" promptText="Enter Name" />
             <TextField fx:id="PasswordText" layoutX="167.0" layoutY="102.0" prefHeight="25.0" prefWidth="306.0" promptText="Enter Password" />
-            <ComboBox fx:id="TypePicker" layoutX="167.0" layoutY="148.0" prefHeight="25.0" prefWidth="306.0" />
-            <Button fx:id="Upload" layoutX="167.0" layoutY="225.0" mnemonicParsing="false" onAction="#Upload" text="Upload" />
-            <Button fx:id="Cancel" layoutX="383.0" layoutY="225.0" mnemonicParsing="false" onAction="#Cancel" text="Cancel" />
+            <ComboBox fx:id="TypePicker" layoutX="167.0" layoutY="209.0" onAction="#TypeDrop" prefHeight="25.0" prefWidth="306.0" />
+            <Button fx:id="Upload" layoutX="167.0" layoutY="328.0" mnemonicParsing="false" onAction="#Upload" text="Upload" />
+            <Button fx:id="Cancel" layoutX="374.0" layoutY="328.0" mnemonicParsing="false" onAction="#Cancel" text="Cancel" />
             <TextField fx:id="UsernameText" layoutX="167.0" layoutY="14.0" prefHeight="25.0" prefWidth="306.0" />
             <Label layoutX="75.0" layoutY="18.0" text="Username" />
+            <ComboBox fx:id="ModuleBox" layoutX="167.0" layoutY="266.0" onAction="#ModuleDrop" prefHeight="25.0" prefWidth="306.0" />
+            <Label fx:id="ModuleTag" layoutX="82.0" layoutY="270.0" text="Module" />
+            <Label layoutX="89.0" layoutY="163.0" text="Email" />
+            <TextField fx:id="EmailText" layoutX="167.0" layoutY="159.0" prefHeight="25.0" prefWidth="306.0" />
          </children>
       </AnchorPane>
    </children>

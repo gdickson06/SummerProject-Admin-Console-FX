@@ -5,41 +5,27 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.util.List;
 
-import uk.ac.qub.objects.Lecturer;
+
+
 
 public class CoordinatorSQL {
 
-	public void saveSQLLecturer(List<Lecturer> lecturers) throws Exception {
-
+	public static void UploadSingleStaff(List<String> s) throws Exception {
+		// This will be in the order of the name,group,email,year.
 		// Using the JDBC driver
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
+
+		Class.forName("com.mysql.jdbc.Driver");
 
 		// Creating a connection with
 		Connection connection = DriverManager.getConnection(SQL.url, SQL.user, SQL.password);
 
 		PreparedStatement statement = null;
 
-		for (Lecturer l : lecturers) {
-			String name = l.getName();
-			String email = l.getEmail();
-			String module = l.getModule();
-
-			name = name.replaceAll("'", "''");
-			email = email.replaceAll("'", "''");
-			String statements = null;
-			try {
-				statements = "INSERT INTO lecturers" + "VALUES ('" + name + "', '" + email + "', '" + module + "')";
-				statement = connection.prepareStatement(statements);
-				statement.executeUpdate();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-		}
+		String Statement = "INSERT INTO course_coordinator " + "VALUES ('" + s.get(0) + "', '" + s.get(1) + "', '" + s.get(2) + "', '" +s.get(3)
+				+ "', '"+s.get(4)+"')";
+		System.out.println(Statement);
+		statement = connection.prepareStatement(Statement);
+		statement.executeUpdate();
 
 	}
 

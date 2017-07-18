@@ -3,50 +3,36 @@ package uk.ac.qub.churst;
 import java.util.ArrayList;
 import java.util.List;
 
+import uk.ac.qub.sql.SQL;
+
 public class Test {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		SQL.Modules();
 		
-		int [] numbers = {1,2,3,4,5,4589,4,4,4};
-		System.out.println(findNumber(numbers,6));
-		System.out.println(findNumber(numbers,4));
-		
-		int[]odds = oddNumbers(1,1);
-		
-		for(int i =0; i<odds.length;i++){
-			System.out.println(odds[i]);
-		}
 	}
-	static String findNumber(int[] arr, int k) {
-		String answer = "NO";
+	
+	public static void timeConvert(String time){
 		
-		for(Integer i: arr){
-			if(i==k){
-				answer="YES";
+		String [] split = time.split(":");
+		int hour = Integer.parseInt(split[0]);
+		
+		if(split[2].charAt(3)=='P'&&split[0].equals("12")==false){
+			split[0]=String.valueOf(hour+=12);
+		}
+		
+		split[2]=split[2].substring(0, 2);
+		
+		String answer="";
+		
+		for(int i=0; i<split.length;i++){
+			if(i!=split.length-1){
+			answer=answer+split[i] + ":";
+			} else {
+				answer = answer+split[i];
 			}
 		}
-return answer;
-    }
-	
-	 static int[] oddNumbers(int l, int r) {
-		   int size = ((r-l)/2)+1;
-		        
-			    int [] answer = new int [size];
-		        if(l!=r){
-			   int k=0;
-			    for(int i =l; i<=r; i++){
-			    	if(i%2==1){
-			    		answer[k]=i;
-			    		k++;
-			    	}
-			    }}else {
-		        if(l%2==1){
-		            answer[0]=l;
-		        } else {
-		            answer=null;
-		        }
-		    }
-return answer;
-}
+		
+		System.out.println(answer);
+	}
 }

@@ -16,7 +16,7 @@ import java.util.TreeSet;
 import uk.ac.qub.churst.ConvertGroup;
 import uk.ac.qub.objects.GroupsCon;
 import uk.ac.qub.objects.Lecture;
-import uk.ac.qub.objects.Lecturer;
+
 import uk.ac.qub.objects.Room;
 import uk.ac.qub.objects.Student;
 import uk.ac.qub.objects.User;
@@ -153,6 +153,31 @@ public class SQL {
 		for (String s : names) {
 			System.out.println(s);
 		}
+	}
+	
+	public static Set<String> Modules (){
+		Set<String> modules = new TreeSet<String>();
+		
+		
+		ResultSet r = SQLstatements("select Module from lectures");
+		
+		try {
+			if (r.next()) {
+
+				do {
+					modules.add(r.getString("Module"));
+				} while (r.next());
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		for(String s: modules){
+			System.out.println(s);
+		}
+		return modules;
 	}
 
 	

@@ -67,7 +67,7 @@ public class StaffSQL {
 
 		PreparedStatement statement = null;
 
-		String Statement = "INSERT INTO students " + "VALUES ('" + s.get(0) + "', '" + s.get(1) + "', '" + s.get(2) + "', '" +s.get(3)
+		String Statement = "INSERT INTO staff " + "VALUES ('" + s.get(0) + "', '" + s.get(1) + "', '" + s.get(2) + "', '" +s.get(3)
 				+ "')";
 		statement = connection.prepareStatement(Statement);
 		statement.executeUpdate();

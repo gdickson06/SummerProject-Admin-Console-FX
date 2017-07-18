@@ -50,8 +50,8 @@ public class CSV {
 		int week = Integer.parseInt(metadata.get(0));
 		String day = metadata.get(1);
 		String startDate = metadata.get(2);
-		String startTime = metadata.get(3);
-		String endTime = metadata.get(4);
+		String startTime = ConvertGroup.timeConvert(metadata.get(3));
+		String endTime = ConvertGroup.timeConvert(metadata.get(4));
 		String group = metadata.get(5);
 		String location = metadata.get(6);
 		String subject = metadata.get(7);

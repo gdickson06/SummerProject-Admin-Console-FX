@@ -54,6 +54,8 @@ public class CSVLectureController {
 		} catch (Exception e) {
 			GeneralMethods.show("Issue with input please view the handbook", "ERROR");
 			error = true;
+			
+			e.printStackTrace();
 		}
 
 		if (error == false) {

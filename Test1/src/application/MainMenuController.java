@@ -46,7 +46,7 @@ public class MainMenuController {
     private Button studentAmmendDelete;
 
     @FXML
-    private Button StaffDeleteUser;
+    private Button StaffAmendDelete;
 
     @FXML
     private Button LectureUploadSingle;
@@ -211,18 +211,28 @@ public class MainMenuController {
     }
 
     @FXML
-    void userUploadCSVButton(ActionEvent event) {
-
+    void staffUploadCSVButton(ActionEvent event) {
+    	try {
+			GeneralMethods.ChangeScene("UploadCSVStaff");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
     @FXML
-    void DeleteStaff(ActionEvent event) {
+    void StaffAmendDelete(ActionEvent event) {
 
     }
 
     @FXML
     void UploadSingleStaff(ActionEvent event) {
-
+    	try {
+			GeneralMethods.ChangeScene("UploadSingleStaff");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
     @FXML
@@ -257,7 +267,7 @@ public class MainMenuController {
         assert UploadSingleStaff != null : "fx:id=\"UploadSingleStaff\" was not injected: check your FXML file 'mainMenu.fxml'.";
         assert AbsenceAmendDelete != null : "fx:id=\"AbsenceAmendDelete\" was not injected: check your FXML file 'mainMenu.fxml'.";
         assert studentAmmendDelete != null : "fx:id=\"studentAmmendDelete\" was not injected: check your FXML file 'mainMenu.fxml'.";
-        assert StaffDeleteUser != null : "fx:id=\"StaffDeleteUser\" was not injected: check your FXML file 'mainMenu.fxml'.";
+        assert StaffAmendDelete != null : "fx:id=\"StaffDeleteUser\" was not injected: check your FXML file 'mainMenu.fxml'.";
         assert LectureUploadSingle != null : "fx:id=\"LectureUploadSingle\" was not injected: check your FXML file 'mainMenu.fxml'.";
         assert PracticalUploadSingle != null : "fx:id=\"PracticalUploadSingle\" was not injected: check your FXML file 'mainMenu.fxml'.";
         assert AbsenceUploadSingle != null : "fx:id=\"AbsenceUploadSingle\" was not injected: check your FXML file 'mainMenu.fxml'.";

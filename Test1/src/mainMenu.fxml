@@ -77,8 +77,8 @@
             <Button fx:id="AbsenceTrends" layoutX="202.0" layoutY="295.0" mnemonicParsing="false" onAction="#AbsenceTrends" text="Absence Trends" />
             <Button fx:id="CreatePDF" layoutX="385.0" layoutY="245.0" mnemonicParsing="false" onAction="#CreatePDF" text="Create PDF for lecture" />
             <Button fx:id="InputPDF" layoutX="385.0" layoutY="295.0" mnemonicParsing="false" onAction="#InputPDF" text="Input PDF for Lecture" />
-            <Button fx:id="staffUploadCSV" layoutX="600.0" layoutY="245.0" mnemonicParsing="false" onAction="#userUploadCSVButton" text="Upload CSV" />
-            <Button fx:id="StaffDeleteUser" layoutX="600.0" layoutY="295.0" mnemonicParsing="false" onAction="#DeleteStaff" text="Amend &amp; Delete" />
+            <Button fx:id="staffUploadCSV" layoutX="600.0" layoutY="245.0" mnemonicParsing="false" onAction="#staffUploadCSVButton" text="Upload CSV" />
+            <Button fx:id="StaffAmendDelete" layoutX="600.0" layoutY="295.0" mnemonicParsing="false" onAction="#StaffAmendDelete" text="Amend &amp; Delete" />
             <Button fx:id="UploadSingleStaff" layoutX="600.0" layoutY="348.0" mnemonicParsing="false" onAction="#UploadSingleStaff" text="Upload Single" />
             <Button fx:id="Help" layoutX="611.0" layoutY="509.0" mnemonicParsing="false" onAction="#Help" text="Help" />
             <Label layoutX="33.0" layoutY="395.0" text="Notes" />
