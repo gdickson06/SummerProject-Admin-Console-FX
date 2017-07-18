@@ -45,6 +45,7 @@ public class UploadUserCSVController {
 
     @FXML
     void initialize() {
+    	
         assert Cancel != null : "fx:id=\"Cancel\" was not injected: check your FXML file 'UploadCSVUser.fxml'.";
         assert Upload != null : "fx:id=\"Upload\" was not injected: check your FXML file 'UploadCSVUser.fxml'.";
         assert FileText != null : "fx:id=\"FileText\" was not injected: check your FXML file 'UploadCSVUser.fxml'.";

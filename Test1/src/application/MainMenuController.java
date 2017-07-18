@@ -222,7 +222,12 @@ public class MainMenuController {
 
     @FXML
     void StaffAmendDelete(ActionEvent event) {
-
+    	try {
+			GeneralMethods.ChangeScene("StaffAmendDelete");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
     @FXML

@@ -2,11 +2,18 @@ package uk.ac.qub.objects;
 
 public class Staff {
 	
-	String Name,Email,Password;
+	@Override
+	public String toString() {
+		return "Staff [Name=" + Name + ", StaffNumber=" + StaffNumber + ", Password=" + Password + "]";
+	}
 
-	public Staff(String name, String email, String password) {
+
+
+	String Name,StaffNumber,Password;
+
+	public Staff(String name, String StaffNumber, String password) {
 		Name = name;
-		Email = email;
+		this.StaffNumber = StaffNumber;
 		Password = password;
 	}
 
@@ -20,13 +27,7 @@ public class Staff {
 		Name = name;
 	}
 
-	public String getEmail() {
-		return Email;
-	}
 
-	public void setEmail(String email) {
-		Email = email;
-	}
 
 	public String getPassword() {
 		return Password;
@@ -36,10 +37,19 @@ public class Staff {
 		Password = password;
 	}
 
-	@Override
-	public String toString() {
-		return "Staff [Name=" + Name + ", Email=" + Email + ", Password=" + Password + "]";
+
+
+	public String getStaffNumber() {
+		return StaffNumber;
 	}
+
+
+
+	public void setStaffNumber(String staffNumber) {
+		StaffNumber = staffNumber;
+	}
+
+	
 	
 	
 

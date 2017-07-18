@@ -5,10 +5,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import uk.ac.qub.objects.Coordinator;
 import uk.ac.qub.objects.Lecture;
 import uk.ac.qub.objects.Lecturer;
 import uk.ac.qub.objects.Room;
+import uk.ac.qub.objects.Staff;
 import uk.ac.qub.objects.Student;
+import uk.ac.qub.objects.User;
 
 public class SearchQueries {
 
@@ -125,44 +128,102 @@ public class SearchQueries {
 		return lectures;
 	}
 
-	public static List<Lecturer> searchLecturer(int search, String info) {
-		ResultSet r;
+	public static List<Staff> searchStaff(int search, String info,Boolean x) {
+		ResultSet r,r1;
 		String statement = null;
-		List<Lecturer> lecturers = new ArrayList<Lecturer>();
+		String statement2 = null;
+		List<Staff> staff = new ArrayList<Staff>();
 
 		switch (search) {
 		// first name
 		case 1:
-			statement = "select * from lecturers where Name = '" + info + "%';";
+			statement = "select * from course_coordinator where Name like '" + info + "%';";
+			statement2 = "select * from staff where Name like '" + info + "%';";
 			break;
+			//Last NAme
 		case 2:
-			statement = "select * from lecturers where Name = '% " + info + "%';";
+			statement = "select * from course_coordinator where Name like '% " + info + "%';";
+			statement2 = "select * from staff where Name like '% " + info + "%';";
 			break;
 		// module
 		case 3:
-			statement = "select * from lecturers where Module = '" + info + "';";
+			statement = "select * from course_coordinator where Username = " + info + ";";
+			statement2 = "select * from staff where StaffNumber = " + info + ";";
 			break;
-
+		// type
+		case 4:
+			statement = "select * from course_coordinator;";
+			statement2="select * from staff where type ='"+info+"'";
+			break;
 		default:
 			System.out.println("Error in searching lecturers");
 		}
 
 		r = SQL.SQLstatements(statement);
+		r1=SQL.SQLstatements(statement2);
 		System.out.println(statement);
+		System.out.println(statement2);
+		if(x){
 		try {
-			if (r.next()) {
+			if (r1.next()) {
 
 				do {
-					Lecturer l = new Lecturer(r.getString("Name"), r.getString("Email"), r.getString("Module"));
-					lecturers.add(l);
-				} while (r.next());
+					User u = new User(r1.getString("Name"),r1.getString("StaffNumber"),  r1.getString("Password"),r1.getString("Type"));
+					staff.add(u);
+				} while (r1.next());
 
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return lecturers;
+		
+		try {
+			if(r.next()){
+				do{
+					Coordinator c = new Coordinator(r.getString("Name"),r.getString("Username"),r.getString("Password"),r.getString("Module"),r.getString("Email"));
+					staff.add(c);
+				} while(r.next());
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		} else {
+			if(info.equals("Module Coordinator")){
+				try {
+					if (r.next()){
+						try {
+							do{
+								Coordinator c = new Coordinator(r.getString("Name"),r.getString("Username"),r.getString("Password"),r.getString("Module"),r.getString("Email"));
+								staff.add(c);
+							} while(r.next());
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			} else {
+				try {
+					if (r1.next()) {
+
+						do {
+							User u = new User(r1.getString("Name"),r1.getString("StaffNumber"),  r1.getString("Password"),r1.getString("Type"));
+							staff.add(u);
+						} while (r1.next());
+
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		return staff;
 	}
 
 	public static List<Room> searchRoom(int search, String info) {
