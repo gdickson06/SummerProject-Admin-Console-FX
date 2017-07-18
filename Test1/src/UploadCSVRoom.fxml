@@ -7,7 +7,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CSVRoomController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -49,21 +49,13 @@
       </menus>
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
-      <children>
-            <Label layoutX="78.0" layoutY="14.0" text="Ammend Selected Room" textFill="#d01818">
-               <font>
-                  <Font size="36.0" />
-               </font>
-            </Label>
-            <Label layoutX="78.0" layoutY="87.0" text="Room Code:" />
-            <Label layoutX="78.0" layoutY="126.0" text="Room Name" />
-            <Button layoutX="78.0" layoutY="204.0" mnemonicParsing="false" text="Save" />
-            <Button layoutX="176.0" layoutY="204.0" mnemonicParsing="false" text="Back" />
-            <Button layoutX="275.0" layoutY="204.0" mnemonicParsing="false" text="Home" />
-            <Button layoutX="375.0" layoutY="204.0" mnemonicParsing="false" text="Delete" />
-            <TextField layoutX="200.0" layoutY="81.0" />
-            <TextField layoutX="200.0" layoutY="120.0" />
-      </children>
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Select a CSV file to upload Rooms, for assistance on the file format please see the 'Help' guide on the Main Menu." />
+            <TextField fx:id="SelectedRoomFilePath" layoutX="14.0" layoutY="57.0" prefHeight="25.0" prefWidth="474.0" />
+            <Button layoutX="510.0" layoutY="57.0" mnemonicParsing="false" onAction="#SelectRoomFileButton" text="Select File" />
+            <Button layoutX="410.0" layoutY="176.0" mnemonicParsing="false" onAction="#UploadRoomFileButton" text="Upload" />
+            <Button layoutX="536.0" layoutY="176.0" mnemonicParsing="false" onAction="#CancelRoomFileButton" text="Cancel" />
+         </children>
     </AnchorPane>
   </children>
 </VBox>

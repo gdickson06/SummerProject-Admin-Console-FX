@@ -119,7 +119,7 @@ public class MainMenuController {
 
     @FXML
     void roomUploadCSVButton(ActionEvent event) throws Exception {
-    	
+    	GeneralMethods.ChangeScene("UploadCSVRoom");
     }
 
     @FXML
@@ -129,8 +129,8 @@ public class MainMenuController {
     }
 
     @FXML
-    void RoomUploadSingle(ActionEvent event) {
-
+    void RoomUploadSingle(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("UploadSingleRoom");
     }
 
     @FXML

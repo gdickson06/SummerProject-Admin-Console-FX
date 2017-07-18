@@ -7,7 +7,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UploadSingleRoomController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -50,19 +50,17 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <Label layoutX="78.0" layoutY="14.0" text="Ammend Selected Room" textFill="#d01818">
+            <Label layoutX="184.0" layoutY="21.0" text="Upload Single Room" textFill="#ee0404">
                <font>
                   <Font size="36.0" />
                </font>
             </Label>
-            <Label layoutX="78.0" layoutY="87.0" text="Room Code:" />
-            <Label layoutX="78.0" layoutY="126.0" text="Room Name" />
-            <Button layoutX="78.0" layoutY="204.0" mnemonicParsing="false" text="Save" />
-            <Button layoutX="176.0" layoutY="204.0" mnemonicParsing="false" text="Back" />
-            <Button layoutX="275.0" layoutY="204.0" mnemonicParsing="false" text="Home" />
-            <Button layoutX="375.0" layoutY="204.0" mnemonicParsing="false" text="Delete" />
-            <TextField layoutX="200.0" layoutY="81.0" />
-            <TextField layoutX="200.0" layoutY="120.0" />
+            <Label layoutX="161.0" layoutY="108.0" text="Room Code :" />
+            <Label layoutX="155.0" layoutY="154.0" text="Room Name :" />
+            <TextField fx:id="RoomCodeTextField" layoutX="288.0" layoutY="102.0" />
+            <TextField fx:id="RoomNameTextField" layoutX="288.0" layoutY="148.0" />
+            <Button layoutX="288.0" layoutY="210.0" mnemonicParsing="false" onAction="#UploadSingleRoomUpload" text="Upload" />
+            <Button layoutX="434.0" layoutY="210.0" mnemonicParsing="false" onAction="#UploadSingleRoomCancel" text="Cancel" />
       </children>
     </AnchorPane>
   </children>
