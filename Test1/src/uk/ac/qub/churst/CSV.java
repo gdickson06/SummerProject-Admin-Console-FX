@@ -13,6 +13,7 @@ import com.opencsv.CSVReader;
 
 import uk.ac.qub.objects.Lecture;
 import uk.ac.qub.objects.Lecturer;
+import uk.ac.qub.objects.Placement;
 import uk.ac.qub.objects.Room;
 import uk.ac.qub.objects.Student;
 import uk.ac.qub.objects.User;

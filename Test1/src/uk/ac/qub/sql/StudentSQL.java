@@ -56,7 +56,7 @@ public class StudentSQL {
 
 		PreparedStatement statement = null;
 
-		String Statement = "UPDATE students SET Name ='" + s.get(1) + "', Group1='" + s.get(2) + "', StudentEmail= '"
+		String Statement = "UPDATE students SET Name ='" + s.get(1) + "', Cohort='" + s.get(2) + "', StudentEmail= '"
 				+ s.get(3) + "', IntakeYear = " + s.get(4) + " WHERE StudentNumber = " + s.get(0) + ";";
 		System.out.println(Statement);
 		statement = connection.prepareStatement(Statement);
@@ -76,7 +76,7 @@ public class StudentSQL {
 		PreparedStatement statement = null;
 
 		String Statement = "INSERT INTO students " + "VALUES (" + s.get(0) + ", '" + s.get(1) + "', '" + s.get(2)
-				+ "', '" + s.get(3) + "', " + s.get(4) + ")";
+				+ "', '" + s.get(3) + "', " + s.get(4) + ", '"+SQL.defaultPassword+"')";
 		statement = connection.prepareStatement(Statement);
 		statement.executeUpdate();
 

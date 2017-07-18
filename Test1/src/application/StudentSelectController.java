@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import uk.ac.qub.sql.SQL;
+import uk.ac.qub.sql.StudentSQL;
 
 public class StudentSelectController {
 	  @FXML
@@ -56,7 +57,7 @@ public class StudentSelectController {
     	attributes.add(EmailAddress.getText());
     	attributes.add(IntakeYear.getText());
     	
-    	SQL.AmendStudent(attributes);
+    	StudentSQL.AmendStudent(attributes);
     	
     	GeneralMethods.show("The student number"+Integer.toString(StudentAmmendDeleteController.SelectedStudent.getStudentNumber())+" has been amended", "Record Changed");
     	
@@ -74,7 +75,7 @@ public class StudentSelectController {
 
     @FXML
     void Delete(ActionEvent event)throws Exception{
-    	SQL.DeleteStudent(Integer.toString(StudentAmmendDeleteController.SelectedStudent.getStudentNumber()));
+    	StudentSQL.DeleteStudent(Integer.toString(StudentAmmendDeleteController.SelectedStudent.getStudentNumber()));
     	GeneralMethods.show("The record for "+Integer.toString(StudentAmmendDeleteController.SelectedStudent.getStudentNumber())+" has been deleted.", "Record Deleted");
     	GeneralMethods.ChangeScene("StudentAmmendDelete");
     	

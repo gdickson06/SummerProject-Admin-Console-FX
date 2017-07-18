@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import uk.ac.qub.sql.SQL;
+import uk.ac.qub.sql.StudentSQL;
 
 public class UploadSingleStudentController {
 	
@@ -47,7 +48,7 @@ public class UploadSingleStudentController {
     	attributes.add(IntakeYear.getText());
     	
     	try {
-			SQL.UploadSingleStudent(attributes);
+			StudentSQL.UploadSingleStudent(attributes);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			GeneralMethods.show("Error when uploading Student", "ERROR");

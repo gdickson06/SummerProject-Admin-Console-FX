@@ -28,7 +28,7 @@ public class SearchQueries {
 			break;
 		// Group
 		case 3:
-			statement = "select * from students where Group1 = '" + info + "';";
+			statement = "select * from students where Cohort = '" + info + "';";
 			break;
 		// First Name
 		case 4:
@@ -52,7 +52,7 @@ public class SearchQueries {
 			if (r.next()) {
 
 				do {
-					Student s = new Student(r.getInt("StudentNumber"), r.getString("Name"), r.getString("Group1"),
+					Student s = new Student(r.getInt("StudentNumber"), r.getString("Name"), r.getString("Cohort"),
 							r.getString("StudentEmail"),r.getInt("IntakeYear"));
 					students.add(s);
 				} while (r.next());

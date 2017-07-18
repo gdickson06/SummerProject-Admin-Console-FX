@@ -13,6 +13,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import uk.ac.qub.objects.Lecture;
 import uk.ac.qub.objects.Student;
+import uk.ac.qub.sql.LectureSQL;
 import uk.ac.qub.sql.SQL;
 
 public class SelectedLectureController {
@@ -102,7 +103,7 @@ public class SelectedLectureController {
 		attributes.add(StyleText.getText());
 		attributes.add(ModuleText.getText());
 		
-		SQL.AmendLecture(attributes);
+		LectureSQL.AmendLecture(attributes);
 		
 		GeneralMethods.show("The lecture occuring on "+StartDateText.getText()+" at "+StartTimeText.getText()+"-"+ EndTimeText.getText() + " located in "+LocationText.getText()+" has been sucessfully amended", "Lecture"+Integer.toString(l.getId())+" amendeded");
 		
@@ -110,7 +111,7 @@ public class SelectedLectureController {
 
     @FXML
     void Delete(ActionEvent event)throws Exception {
-    	SQL.DeleteLecture(Integer.toString(l.getId()));
+    	LectureSQL.DeleteLecture(Integer.toString(l.getId()));
     	GeneralMethods.show("The lecture occuring on "+StartDateText.getText()+" at "+StartTimeText.getText()+"-"+ EndTimeText.getText() + " located in "+LocationText.getText()+" has been sucessfully deleted", "Lecture Deleted");
     	GeneralMethods.ChangeScene("mainMenu");
     }

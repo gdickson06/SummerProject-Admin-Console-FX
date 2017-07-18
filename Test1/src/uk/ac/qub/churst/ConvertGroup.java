@@ -17,17 +17,7 @@ import uk.ac.qub.sql.SearchQueries;
 
 public class ConvertGroup {
 
-	public static void main(String[] args) {
-	
-		//List<Lecture> lectures = SearchQueries.searchLecture(4, "5");
-		List<Room> r = CSV.readRoomsFromCSV("RoomList.csv");
-		try {
-			SQL.saveSQLRooms(r);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+
 	
 	public static List<String> convert (String s) throws InputMismatchException{
 		

@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import uk.ac.qub.sql.LectureSQL;
 import uk.ac.qub.sql.SQL;
 
 public class UploadSingleLectureController {
@@ -108,7 +109,7 @@ public class UploadSingleLectureController {
 		attributes.add(NoteText.getText());
 		
 		
-		SQL.UploadSingleLecture(attributes);
+		LectureSQL.UploadSingleLecture(attributes);
 		GeneralMethods.show("Lecture added to database", "Lecture added to database");
     }
 
