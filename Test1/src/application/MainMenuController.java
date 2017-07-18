@@ -139,8 +139,8 @@ public class MainMenuController {
     }
 
     @FXML
-    void AbsenceUploadSingle(ActionEvent event) {
-
+    void AbsenceUploadSingle(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("UploadSingleAbsence");
     }
 
     @FXML

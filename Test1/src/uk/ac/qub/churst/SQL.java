@@ -437,14 +437,35 @@ public class SQL {
 		PreparedStatement statement = null;
 		//This will be in the order of the week,day,StartDate,StartTime,EndTime,Groups,Location,Subject,Theme,Teaching,Description,Staff
 		
-String Statement ="INSERT INTO lectures (Week, Day, StartDate, StartTime, EndTime, Groups, Location, Subject, Theme, Teaching, Description, Staff, Style, Module)" + "VALUES (" + s.get(0) + ", '" + s.get(1) + "', '" + s.get(2)
-+ "', '" + s.get(3) + "','" + s.get(4) + "', '" + s.get(5) + "', '" + s.get(6) + "', '" + s.get(7)
-+ "', '" + s.get(8) + "', '" + s.get(9) + "', '" + s.get(10) + "', '" + s.get(11) + "', '" + s.get(12)
-+ "', '" + s.get(13) + "');";
-System.out.println(Statement);
-statement=connection.prepareStatement(Statement);
-statement.executeUpdate();
+		String Statement = "INSERT INTO lectures (Week, Day, StartDate, StartTime, EndTime, Groups, Location, Subject, Theme, Teaching, Description, Staff, Style, Module)"
+				+ "VALUES (" + s.get(0) + ", '" + s.get(1) + "', '" + s.get(2) + "', '" + s.get(3) + "','" + s.get(4)
+				+ "', '" + s.get(5) + "', '" + s.get(6) + "', '" + s.get(7) + "', '" + s.get(8) + "', '" + s.get(9)
+				+ "', '" + s.get(10) + "', '" + s.get(11) + "', '" + s.get(12) + "', '" + s.get(13) + "');";
+		System.out.println(Statement);
+		statement = connection.prepareStatement(Statement);
+		statement.executeUpdate();
 	}
 	
-	
+	public static void saveSingleAbsence(List<Absence> absence) throws Exception{
+		//making a connection to the JDBC Driver
+		Class.forName("com.mysql.jdbc.Driver");
+		
+		//making a connection with the Medical Timetable Database
+		Connection connection = DriverManager.getConnection(url,user,password);
+		
+		//creating the preparedStatement to be used in the below method
+		PreparedStatement singleAbsenceStatement=null;
+		
+		//creating the SQL Query to add details for Single Absence
+		String Statement = "INSERT INTO absence (StudentNumber, LectureID, Date, Time, Reason, Approved, type)"
+				+ "VALUES (" + absence.get(0) + ", '" + absence.get(1) + ", '" + absence.get(2) + ", '" + absence.get(3)
+				+ ", '" + absence.get(4) + ", '" + absence.get(5) + ", '" + absence.get(6)+"');";
+		//printing the SQL statement to Console to ensure it is correctly prepared
+		System.out.println(Statement);
+		//assigning the SQL query to the prepareStatement method
+		singleAbsenceStatement = connection.prepareStatement(Statement);
+		//using the executeUpdate method we now update the database with the Absence
+		singleAbsenceStatement.executeUpdate();
+	}
+
 }
