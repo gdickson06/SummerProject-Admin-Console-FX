@@ -99,8 +99,8 @@ public static String timeConvert(String time){
 		
 		String answer="";
 		
-		for(int i=0; i<split.length;i++){
-			if(i!=split.length-1){
+		for(int i=0; i<split.length-1;i++){
+			if(i!=split.length-2){
 			answer=answer+split[i] + ":";
 			} else {
 				answer = answer+split[i];

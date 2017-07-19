@@ -1,6 +1,6 @@
 package uk.ac.qub.objects;
 
-public class Staff {
+public abstract class Staff {
 	
 	@Override
 	public String toString() {
