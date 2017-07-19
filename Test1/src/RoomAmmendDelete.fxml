@@ -7,7 +7,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RoomAmmendDeleteController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -50,11 +50,15 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-        <Label alignment="CENTER" layoutX="155.0" layoutY="177.0" style="&#10;" text="Drag components from Library here…" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
-          <font>
-            <Font size="18.0" />
-          </font>
-        </Label>
+            <Label layoutX="74.0" layoutY="7.0" text="Search for Room to ammend or delete" textFill="#ee0808" />
+            <Label layoutX="74.0" layoutY="46.0" text="Room Code:" />
+            <Label layoutX="74.0" layoutY="94.0" text="Room Name: " />
+            <TextField fx:id="roomCode" layoutX="208.0" layoutY="40.0" />
+            <TextField fx:id="roomName" layoutX="208.0" layoutY="88.0" />
+            <ListView layoutY="161.0" prefHeight="200.0" prefWidth="640.0" />
+            <Button fx:id="roomCancel" layoutX="556.0" layoutY="40.0" mnemonicParsing="false" onAction="#roomCancelButton" text="Back" />
+            <Button layoutX="448.0" layoutY="40.0" mnemonicParsing="false" onAction="#roomCodeSearch" text="Search" />
+            <Button layoutX="448.0" layoutY="88.0" mnemonicParsing="false" onAction="#roomNameSearch" text="Search" />
       </children>
     </AnchorPane>
   </children>

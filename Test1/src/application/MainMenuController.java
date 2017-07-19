@@ -166,18 +166,19 @@ public class MainMenuController {
     }
 
     @FXML
-    void roomUploadCSVButton(ActionEvent event) {
-
+    void roomUploadCSVButton(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("UploadCSVRoom");
     }
 
     @FXML
-    void AmendDeleteRoom(ActionEvent event) {
-
+    void AmendDeleteRoom(ActionEvent event) throws Exception {
+    	//changing scene
+    	GeneralMethods.ChangeScene("RoomAmmendDelete");
     }
 
     @FXML
-    void RoomUploadSingle(ActionEvent event) {
-
+    void RoomUploadSingle(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("UploadSingleRoom");
     }
 
     @FXML
@@ -186,8 +187,8 @@ public class MainMenuController {
     }
 
     @FXML
-    void AbsenceUploadSingle(ActionEvent event) {
-
+    void AbsenceUploadSingle(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("UploadSingleAbsence");
     }
 
     @FXML

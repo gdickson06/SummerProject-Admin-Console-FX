@@ -50,11 +50,19 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-        <Label alignment="CENTER" layoutX="155.0" layoutY="177.0" style="&#10;" text="Drag components from Library here…" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
-          <font>
-            <Font size="18.0" />
-          </font>
-        </Label>
+            <Label layoutX="78.0" layoutY="14.0" text="Ammend Selected Room" textFill="#d01818">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Label layoutX="78.0" layoutY="87.0" text="Room Code:" />
+            <Label layoutX="78.0" layoutY="126.0" text="Room Name" />
+            <Button layoutX="78.0" layoutY="204.0" mnemonicParsing="false" text="Save" />
+            <Button layoutX="176.0" layoutY="204.0" mnemonicParsing="false" text="Back" />
+            <Button layoutX="275.0" layoutY="204.0" mnemonicParsing="false" text="Home" />
+            <Button layoutX="375.0" layoutY="204.0" mnemonicParsing="false" text="Delete" />
+            <TextField layoutX="200.0" layoutY="81.0" />
+            <TextField layoutX="200.0" layoutY="120.0" />
       </children>
     </AnchorPane>
   </children>
