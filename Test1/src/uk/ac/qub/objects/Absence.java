@@ -1,7 +1,15 @@
 package uk.ac.qub.objects;
 
 public class Absence {
-	int StudentNumber , LectureID ;
+	
+
+	@Override
+	public String toString() {
+		return "Absence [id=" + id + ", StudentNumber=" + StudentNumber + ", LectureID=" + LectureID + ", Date=" + Date
+				+ ", Time=" + Time + ", Reason=" + Reason + ", type=" + type + ", approved=" + approved + "]";
+	}
+
+	int id,StudentNumber , LectureID ;
 	String Date,Time, Reason ,type;
 	Boolean approved;
 	
@@ -15,6 +23,14 @@ public class Absence {
 		Reason = reason;
 		this.type = type;
 		this.approved = approved;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public int getStudentNumber() {
