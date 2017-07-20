@@ -12,7 +12,7 @@ public class LectureSQL {
 
 
 	public static void saveSQLLecture(List<Lecture> lectures) throws Exception {
-
+		
 		// Using the JDBC driver
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -62,7 +62,7 @@ public class LectureSQL {
 			}
 
 		}
-
+		SQL.GroupsToGroup(lectures);
 	}
 	
 

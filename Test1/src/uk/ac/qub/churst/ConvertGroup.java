@@ -20,9 +20,10 @@ public class ConvertGroup {
 
 	
 	public static List<String> convert (String s) throws InputMismatchException{
-		
+		System.out.println(s);
 		
 		List <String> answer = new ArrayList<String>();
+		try{
 		s=s.replaceAll("\\s+","");
 		if(s.equalsIgnoreCase("ALL")||s.equalsIgnoreCase("optional all")||s.isEmpty()){
 			for(int i = 1; i<25;i++){
@@ -64,7 +65,9 @@ public class ConvertGroup {
 				}
 			}
 		}
-		
+		} catch (Exception e){
+			e.printStackTrace();
+		}
 		return answer;
 		
 	}

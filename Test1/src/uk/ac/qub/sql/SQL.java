@@ -180,6 +180,58 @@ public class SQL {
 		return modules;
 	}
 
+	public static void GroupsToGroup (List<Lecture> lectures)throws Exception{
+		//Using the JDBC driver
+				try {
+					Class.forName("com.mysql.jdbc.Driver");
+				} catch (ClassNotFoundException e) {
+					e.printStackTrace();
+				}
+
+				//Creating a connection with 
+				Connection connection = DriverManager.getConnection(url, user, password);
+				
+				Set<GroupsCon> set = new HashSet<GroupsCon>();
+				
+				for(Lecture l:lectures){
+					List<String> group = new ArrayList<String>();
+					try{
+					group = ConvertGroup.convert(l.getGroup());
+					} catch (InputMismatchException e){
+						e.printStackTrace();
+					}
+					for(String s:group){
+						GroupsCon g = new GroupsCon();
+						
+							g.setCohort(s);
+							g.setGroups(l.getGroup());
+						set.add(g);
+						
+						
+
+					}
+					
+				}
+				//
+				PreparedStatement statement=null;
+				String statements=null;
+				System.out.println(set.size());
+				for(GroupsCon g:set){
+				try {
+					
+					statements="INSERT INTO groupConvert " + "VALUES ('" + g.getGroups() + "', '" + g.getCohort() + "')";
+					statement=connection.prepareStatement(statements);
+					statement.executeUpdate();
+					
+					System.out.println(g.toString());
+				} catch (Exception e) {
+					e.printStackTrace();
+						}
+
+			}
+				
+		
 	
+	}
 
 }

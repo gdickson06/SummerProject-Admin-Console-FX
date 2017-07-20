@@ -3,12 +3,36 @@ package uk.ac.qub.churst;
 import java.util.ArrayList;
 import java.util.List;
 
+import uk.ac.qub.objects.GroupsCon;
+import uk.ac.qub.objects.Lecture;
 import uk.ac.qub.sql.SQL;
 
 public class Test {
 
 	public static void main(String[] args) {
-		SQL.Modules();
+		List<Lecture> l = CSV.readLecturesFromCSV("timetable.csv");
+		List<String> groups = new ArrayList<String>();
+		List<GroupsCon> obj = new ArrayList<GroupsCon>();
+		
+		for(Lecture lec:l){
+			groups.add(lec.getGroup());
+		}
+		
+		for(String s: groups){
+			try{
+			List<String> Cohort =  ConvertGroup.convert(s);
+			for(String p: Cohort){
+				obj.add(new GroupsCon(s,p));
+			}
+			}catch (Exception e){
+				e.printStackTrace();
+			}
+			
+			
+			
+		}
+	
+		System.out.println(obj.size());
 		
 	}
 	
