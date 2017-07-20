@@ -5,6 +5,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import uk.ac.qub.objects.Lecture;
+import uk.ac.qub.objects.Room;
+import uk.ac.qub.objects.Student;
+
 public class SearchQueries {
 
 	public static List<Student> searchStudent(int search, String info) {

@@ -66,11 +66,11 @@
             <TextField fx:id="DateTextField" layoutX="170.0" layoutY="150.0" />
             <TextField fx:id="TimeTextField" layoutX="170.0" layoutY="177.0" />
             <TextField fx:id="ReasonTextField" layoutX="170.0" layoutY="204.0" />
-            <TextField fx:id="ApprovedTextField" layoutX="170.0" layoutY="231.0" />
             <TextField fx:id="TypeTextField" layoutX="170.0" layoutY="258.0" />
             <Button layoutX="452.0" layoutY="96.0" mnemonicParsing="false" onAction="#UploadSingleAbsenceButton" text="Upload" />
             <Button layoutX="454.0" layoutY="150.0" mnemonicParsing="false" onAction="#UploadSingleAbsenceCancelButton" text="Cancel" />
             <Label layoutX="28.0" layoutY="203.0" text="Reason :" />
+            <CheckBox fx:id="Approved" layoutX="170.0" layoutY="230.0" mnemonicParsing="false" text="True" />
       </children>
     </AnchorPane>
   </children>

@@ -8,8 +8,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
-import uk.ac.qub.churst.Room;
 import uk.ac.qub.churst.SQL;
+import uk.ac.qub.objects.Room;
+import uk.ac.qub.sql.RoomSQL;
 import uk.ac.qub.churst.CSV;
 
 public class CSVRoomController {
@@ -50,7 +51,7 @@ public class CSVRoomController {
     	*/
     	try {
     		roomList= CSV.readRoomsFromCSV(filePath);
-    		SQL.saveSQLRooms(roomList);
+    		RoomSQL.saveSQLRooms(roomList);
     		//below catch will display error message if exception occurs
     	} catch (Exception e) {
     		GeneralMethods.show("Error with Rooms Upload, please view handbook", "ERROR");
@@ -59,7 +60,7 @@ public class CSVRoomController {
     	/*pop up dialog window will populate of upload is successful and advise of number
     	* rooms that are added 
     	*/
-    	if (uploadError = false) {
+    	if (uploadError == false) {
     		GeneralMethods.show("Upload of Rooms from CSV successful, with "+ roomList.size() +" rooms added to the database", "Rooms Upload Successful");
     	}
     }

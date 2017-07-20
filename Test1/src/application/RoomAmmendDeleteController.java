@@ -11,8 +11,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import uk.ac.qub.churst.Room;
 import uk.ac.qub.churst.SearchQueries;
+import uk.ac.qub.objects.Room;
 
 public class RoomAmmendDeleteController {
 	
@@ -39,7 +39,7 @@ public class RoomAmmendDeleteController {
 
     @FXML
     void roomCodeSearch(ActionEvent event) {
-    	List<Room> roomSearch = SearchQueries.searchRoom(1, roomCode.getText());
+    	List<Room> roomSearch = SearchQueries.searchRoom(1, roomName.getText());
     	ObservableList<Room> roomList = FXCollections.observableArrayList();
     	roomList.addAll(roomSearch);
     	listOfRooms.setItems(roomList);

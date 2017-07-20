@@ -13,6 +13,12 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import uk.ac.qub.objects.Absence;
+import uk.ac.qub.objects.GroupsCon;
+import uk.ac.qub.objects.Lecture;
+import uk.ac.qub.objects.Room;
+import uk.ac.qub.objects.Student;
+
 public class SQL {
 	
 	private static String user="jTurkington";
@@ -446,7 +452,7 @@ public class SQL {
 		statement.executeUpdate();
 	}
 	
-	public static void saveSingleAbsence(List<Absence> absence) throws Exception{
+	public static void saveSingleAbsence(List<String> absenceDetails) throws Exception{
 		//making a connection to the JDBC Driver
 		Class.forName("com.mysql.jdbc.Driver");
 		
@@ -458,8 +464,8 @@ public class SQL {
 		
 		//creating the SQL Query to add details for Single Absence
 		String Statement = "INSERT INTO absence (StudentNumber, LectureID, Date, Time, Reason, Approved, type)"
-				+ "VALUES (" + absence.get(0) + ", '" + absence.get(1) + ", '" + absence.get(2) + ", '" + absence.get(3)
-				+ ", '" + absence.get(4) + ", '" + absence.get(5) + ", '" + absence.get(6)+"');";
+				+ "VALUES (" + absenceDetails.get(0) + ", " + absenceDetails.get(1) + ", '" + absenceDetails.get(2) + "', '" + absenceDetails.get(3)
+				+ "', '" + absenceDetails.get(4) + "', " + absenceDetails.get(5) + ", '" + absenceDetails.get(6)+"');";
 		//printing the SQL statement to Console to ensure it is correctly prepared
 		System.out.println(Statement);
 		//assigning the SQL query to the prepareStatement method

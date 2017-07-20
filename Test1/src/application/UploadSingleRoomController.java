@@ -6,8 +6,10 @@ import java.util.List;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import uk.ac.qub.churst.Room;
+
 import uk.ac.qub.churst.SQL;
+import uk.ac.qub.objects.Room;
+import uk.ac.qub.sql.RoomSQL;
 
 public class UploadSingleRoomController {
 
@@ -29,7 +31,7 @@ public class UploadSingleRoomController {
     	Room singleRoom = new Room(RoomCodeTextField.getText(), RoomNameTextField.getText());
     	roomDetails.add(singleRoom);
     	
-    	SQL.saveSQLRooms(roomDetails);
+    	RoomSQL.saveSQLRooms(roomDetails);
     	GeneralMethods.show("Room has been successfully uploaded to Database", "Room Uploaded");
     	
     }
