@@ -279,41 +279,7 @@ public class SQL {
 		}
 	}
 	
-	public void saveSQLLecturer(List<Lecturer> lecturers) throws Exception {
-
-		//Using the JDBC driver
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-
-		//Creating a connection with 
-		Connection connection = DriverManager.getConnection(url, user, password);
-
 	
-		PreparedStatement statement = null;
-
-		for (Lecturer l : lecturers) {
-			String name = l.getName();
-			String email = l.getEmail();
-			String module =l.getModule();
-
-			name = name.replaceAll("'", "''");
-			email = email.replaceAll("'", "''");
-			String statements=null;
-			try {
-				statements="INSERT INTO lecturers" + "VALUES ('" + name + "', '" + email
-						+ "', '" + module + "')";
-				statement=connection.prepareStatement(statements);
-				statement.executeUpdate();
-			} catch (Exception e) {
-				e.printStackTrace();
-					}
-
-		}
-
-	}
 	
 	public static void GroupsToGroup (List<Lecture> lectures)throws Exception{
 		//Using the JDBC driver

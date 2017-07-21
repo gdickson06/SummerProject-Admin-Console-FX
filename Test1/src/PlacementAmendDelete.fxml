@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PlacementAmendDeleteController">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane prefHeight="779.0" prefWidth="800.0">
+         <children>
+            <TextField fx:id="WeekText" layoutX="107.0" layoutY="40.0" prefHeight="25.0" prefWidth="211.0" />
+            <TextField fx:id="CohortText" layoutX="107.0" layoutY="83.0" prefHeight="25.0" prefWidth="211.0" />
+            <TextField fx:id="TeacherText" layoutX="107.0" layoutY="134.0" prefHeight="25.0" prefWidth="211.0" />
+            <TextField fx:id="LocationText" layoutX="515.0" layoutY="134.0" prefHeight="25.0" prefWidth="211.0" />
+            <TextField fx:id="SubjectText" layoutX="515.0" layoutY="83.0" prefHeight="25.0" prefWidth="211.0" />
+            <TextField fx:id="StartDateText" layoutX="515.0" layoutY="40.0" prefHeight="25.0" prefWidth="211.0" />
+            <Label layoutX="445.0" layoutY="42.0" text="Start Date" />
+            <Label layoutX="458.0" layoutY="87.0" text="Subject" />
+            <Label layoutX="464.0" layoutY="138.0" text="Location" />
+            <Label layoutX="51.0" layoutY="44.0" text="Week" />
+            <Label layoutX="52.0" layoutY="87.0" text="Cohort" />
+            <Label layoutX="52.0" layoutY="138.0" text="Teacher" />
+            <Button fx:id="WeekSearch" layoutX="341.0" layoutY="38.0" mnemonicParsing="false" onAction="#WeekSearch" text="Search" />
+            <Button fx:id="LocationSearch" layoutX="734.0" layoutY="134.0" mnemonicParsing="false" onAction="#LocationSearch" text="Search" />
+            <Button fx:id="CohortSearch" layoutX="341.0" layoutY="83.0" mnemonicParsing="false" onAction="#CohortSearch" text="Search" />
+            <Button fx:id="TeacherSearch" layoutX="341.0" layoutY="134.0" mnemonicParsing="false" onAction="#TeacherSearch" text="Search" />
+            <Button fx:id="SubjectSearch" layoutX="734.0" layoutY="83.0" mnemonicParsing="false" onAction="#SubjectSearch" text="Search" />
+            <Button fx:id="StartDateSearch" layoutX="734.0" layoutY="38.0" mnemonicParsing="false" onAction="#StartDateSearch" text="Search" />
+            <Button fx:id="ComboSearch" layoutX="187.0" layoutY="174.0" mnemonicParsing="false" onAction="#ComboSearch" text="Combo Search" />
+            <Button fx:id="Back" layoutX="595.0" layoutY="181.0" mnemonicParsing="false" onAction="#Back" text="Back" />
+            <ListView fx:id="Placements" layoutX="7.0" layoutY="224.0" onMouseClicked="#PlacementClick" prefHeight="548.0" prefWidth="790.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

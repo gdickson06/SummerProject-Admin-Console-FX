@@ -161,8 +161,8 @@ public class MainMenuController {
     }
 
     @FXML
-    void practicalUploadSingle(ActionEvent event) {
-
+    void practicalUploadSingle(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("UploadSinglePlacement");
     }
 
     @FXML

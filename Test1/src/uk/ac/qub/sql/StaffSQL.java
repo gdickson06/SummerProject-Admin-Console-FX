@@ -18,7 +18,7 @@ public class StaffSQL {
 		String newStatement = null;
 
 		for (User u : users) {
-			String username = u.getUserName();
+			String username = u.getStaffNumber();
 			String name = u.getName();
 			String password = u.getPassword();
 			String type = u.getType();

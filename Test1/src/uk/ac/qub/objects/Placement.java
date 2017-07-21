@@ -2,28 +2,39 @@ package uk.ac.qub.objects;
 
 public class Placement {
 	
-	int Week;
-	String StartDate,Cohort,Subject,Location,Notes;
-	public Placement(int week, String startDate, String cohort, String subject, String location) {
-		Week = week;
+	int id,week,Year;
+	String StartDate,EndDate,Subject,Location,Teacher,Cohort,Note;
+	public Placement(int id, int week, int year, String startDate, String endDate, String subject, String location,
+			String teacher, String cohort, String note) {
+		super();
+		this.id = id;
+		this.week = week;
+		Year = year;
 		StartDate = startDate;
-		Cohort = cohort;
+		EndDate = endDate;
 		Subject = subject;
 		Location = location;
+		Teacher = teacher;
+		Cohort = cohort;
+		Note = note;
 	}
-	public Placement(int week, String startDate, String cohort, String subject, String location, String notes) {
-		Week = week;
-		StartDate = startDate;
-		Cohort = cohort;
-		Subject = subject;
-		Location = location;
-		Notes = notes;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public int getWeek() {
-		return Week;
+		return week;
 	}
 	public void setWeek(int week) {
-		Week = week;
+		this.week = week;
+	}
+	public int getYear() {
+		return Year;
+	}
+	public void setYear(int year) {
+		Year = year;
 	}
 	public String getStartDate() {
 		return StartDate;
@@ -31,11 +42,11 @@ public class Placement {
 	public void setStartDate(String startDate) {
 		StartDate = startDate;
 	}
-	public String getCohort() {
-		return Cohort;
+	public String getEndDate() {
+		return EndDate;
 	}
-	public void setCohort(String cohort) {
-		Cohort = cohort;
+	public void setEndDate(String endDate) {
+		EndDate = endDate;
 	}
 	public String getSubject() {
 		return Subject;
@@ -49,16 +60,23 @@ public class Placement {
 	public void setLocation(String location) {
 		Location = location;
 	}
-	public String getNotes() {
-		return Notes;
+	public String getTeacher() {
+		return Teacher;
 	}
-	public void setNotes(String notes) {
-		Notes = notes;
+	public void setTeacher(String teacher) {
+		Teacher = teacher;
 	}
-	
-	
-	
-	
-
+	public String getCohort() {
+		return Cohort;
+	}
+	public void setCohort(String cohort) {
+		Cohort = cohort;
+	}
+	public String getNote() {
+		return Note;
+	}
+	public void setNote(String note) {
+		Note = note;
+	}
 	
 }
