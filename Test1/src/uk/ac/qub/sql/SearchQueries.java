@@ -364,15 +364,11 @@ public class SearchQueries {
 		switch (search) {
 		// First name
 		case 1:
-			statement = "select * from location where Name = '" + info + "%';";
+			statement = "select * from location where roomCode LIKE '%" + info + "%';";
 			break;
 		// Last Name
 		case 2:
-			statement = "select * from location where Name = '% " + info + "%';";
-			break;
-		// module
-		case 3:
-			statement = "select * from location where Module = '%" + info + "%';";
+			statement = "select * from location where roomName LIKE '%" + info + "%';";
 			break;
 
 		default:
@@ -384,7 +380,7 @@ public class SearchQueries {
 			if (r.next()) {
 
 				do {
-					Room room = new Room(r.getString("Code"), r.getString("Name"));
+					Room room = new Room(r.getString("roomCode"), r.getString("roomName"));
 					rooms.add(room);
 				} while (r.next());
 

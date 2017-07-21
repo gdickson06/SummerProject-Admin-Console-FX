@@ -173,7 +173,7 @@ public class MainMenuController {
     @FXML
     void AmendDeleteRoom(ActionEvent event) throws Exception {
     	//changing scene
-    	GeneralMethods.ChangeScene("RoomAmmendDelete");
+    	GeneralMethods.ChangeScene("SearchRoomAmmendDelete");
     }
 
     @FXML

@@ -7,6 +7,11 @@ public class Room {
 		this.code = code;
 		this.name = name;
 	}
+	
+	@Override
+	public String toString() {
+		return "Room [roomCode=" + code + ", roomName=" + name + "]";
+	}
 
 	public String getCode() {
 		return code;

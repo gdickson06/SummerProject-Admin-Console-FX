@@ -133,12 +133,13 @@ public class SearchQueries {
 		switch (search) {
 		// First name
 		case 1:
-			statement = "select * from location where roomCode LIKE '% " + info + "%';";
+			statement = "select * from location where roomCode LIKE '%" + info + "%';";
 			break;
 		// Last Name
 		case 2:
-			statement = "select * from location where roomName LIKE '% " + info + "%';";
+			statement = "select * from location where roomName LIKE '%" + info + "%';";
 			break;
+
 		default:
 			System.out.println("Error in searching rooms");
 		}

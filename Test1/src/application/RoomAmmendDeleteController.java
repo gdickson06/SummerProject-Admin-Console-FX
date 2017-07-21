@@ -17,6 +17,7 @@ import uk.ac.qub.objects.Room;
 public class RoomAmmendDeleteController {
 	
 	protected static Room SelectedRoom;
+	
 	@FXML
 	private ResourceBundle resources;
 
@@ -31,6 +32,15 @@ public class RoomAmmendDeleteController {
     
     @FXML
     private ListView<Room> listOfRooms;
+    
+    @FXML
+    private Button RoomCodeSearch;
+
+    @FXML
+    private Button roomCancelButton;
+
+    @FXML
+    private Button roomNameSearch;
 
     @FXML
     void roomCancelButton(ActionEvent event) throws Exception {
@@ -39,11 +49,10 @@ public class RoomAmmendDeleteController {
 
     @FXML
     void roomCodeSearch(ActionEvent event) {
-    	List<Room> roomSearch = SearchQueries.searchRoom(1, roomName.getText());
+    	List<Room> roomSearch = SearchQueries.searchRoom(1, roomCode.getText());
     	ObservableList<Room> roomList = FXCollections.observableArrayList();
     	roomList.addAll(roomSearch);
     	listOfRooms.setItems(roomList);
-    	System.out.println(roomSearch.size());
     }
 
     @FXML
@@ -51,23 +60,32 @@ public class RoomAmmendDeleteController {
     	List<Room> roomSearch = SearchQueries.searchRoom(2, roomName.getText());
     	ObservableList<Room> roomList = FXCollections.observableArrayList();
     	roomList.addAll(roomSearch);
-    	listOfRooms.setItems(roomList);
+    	listOfRooms.setItems(roomList);;
     	System.out.println(roomSearch.size());
     }
     
     @FXML
-    void ListClicked(MouseEvent event) throws Exception {
+    void roomTableClicked(MouseEvent event){
     	if(event.getClickCount()==2){
     		SelectedRoom=listOfRooms.getSelectionModel().getSelectedItem();
     		System.out.println("clicked on"+SelectedRoom);
-    		GeneralMethods.ChangeScene("SelectedRoom");
+    		try {
+				GeneralMethods.ChangeScene("SelectRoomAmend");
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
     	}
     }
     
     @FXML
     void initialize(){
-    	assert roomCode != null :"fx:id=\"roomCode\" was not injected: check the FXML file 'RoomAmmendDelete.fxml'.";
-    	assert roomName != null :"fx:id=\"roomName\" was not injected: check the FXML file 'RoomAmmendDelete.fxml'.";
+    	assert RoomCodeSearch != null : "fx:id=\"RoomCodeSearch\" was not injected: check your FXML file 'SearchAbsenceDelete.fxml'.";
+        assert listOfRooms != null : "fx:id=\"listOfRooms\" was not injected: check your FXML file 'SearchAbsenceDelete.fxml'.";
+        assert roomCancelButton != null : "fx:id=\"roomCancelButton\" was not injected: check your FXML file 'SearchAbsenceDelete.fxml'.";
+        assert roomNameSearch != null : "fx:id=\"roomNameSearch\" was not injected: check your FXML file 'SearchAbsenceDelete.fxml'.";
+        assert roomCode != null : "fx:id=\"roomCode\" was not injected: check your FXML file 'SearchAbsenceDelete.fxml'.";
+        assert roomName != null : "fx:id=\"roomName\" was not injected: check your FXML file 'SearchAbsenceDelete.fxml'.";
     }
 
 }
