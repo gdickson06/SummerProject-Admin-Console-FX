@@ -7,7 +7,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LectureAmendController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -55,6 +55,26 @@
             <Font size="18.0" />
           </font>
         </Label>
+            <Button fx:id="WeekSearch" layoutX="242.0" layoutY="27.0" mnemonicParsing="false" onAction="#WeekSearch" text="Search" />
+            <Button fx:id="SubjectSearch" layoutX="242.0" layoutY="62.0" mnemonicParsing="false" onAction="#SubjectSearch" text="Search" />
+            <Button fx:id="GroupsSearch" layoutX="242.0" layoutY="98.0" mnemonicParsing="false" onAction="#GroupsSearch" text="Serach" />
+            <Button fx:id="StaffSearch" layoutX="528.0" layoutY="27.0" mnemonicParsing="false" onAction="#StaffSearch" text="Search" />
+            <Button fx:id="ModuleSearch" layoutX="528.0" layoutY="62.0" mnemonicParsing="false" onAction="#ModuleSearch" text="Search" />
+            <Button fx:id="DateSearch" layoutX="528.0" layoutY="98.0" mnemonicParsing="false" onAction="#DateSearch" text="Search" />
+            <Button fx:id="Back" layoutX="580.0" layoutY="2.0" mnemonicParsing="false" onAction="#Back" text="Back" />
+            <TextField fx:id="WeekText" layoutX="72.0" layoutY="27.0" />
+            <TextField fx:id="SubjectText" layoutX="72.0" layoutY="62.0" />
+            <TextField fx:id="GroupsText" layoutX="72.0" layoutY="98.0" />
+            <TextField fx:id="DateText" layoutX="365.0" layoutY="98.0" />
+            <TextField fx:id="ModuleText" layoutX="365.0" layoutY="62.0" />
+            <TextField fx:id="StaffText" layoutX="365.0" layoutY="27.0" />
+            <ListView fx:id="ListOfLectures" layoutY="147.0" onMouseClicked="#ListClicked" prefHeight="226.0" prefWidth="640.0" />
+            <Label layoutX="14.0" layoutY="31.0" text="Week" />
+            <Label layoutX="15.0" layoutY="66.0" text="Subject" />
+            <Label fx:id="Groups" layoutX="15.0" layoutY="102.0" text="Label" />
+            <Label layoutX="320.0" layoutY="31.0" text="Staff" />
+            <Label fx:id="Module" layoutX="319.0" layoutY="66.0" text="Label" />
+            <Label fx:id="Date" layoutX="319.0" layoutY="102.0" text="Label" />
       </children>
     </AnchorPane>
   </children>

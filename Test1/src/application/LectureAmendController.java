@@ -19,6 +19,9 @@ public class LectureAmendController {
 	protected static Lecture SelectedLecture;
     @FXML
     private TextField WeekText;
+    
+    @FXML
+    private Button Back;
 
     @FXML
     private ListView<Lecture> ListOfLectures;

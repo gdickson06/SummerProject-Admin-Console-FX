@@ -252,8 +252,8 @@ public class MainMenuController {
     }
 
     @FXML
-    void LectureNotes(ActionEvent event) {
-
+    void LectureNotes(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("NoteLecture");
     }
 
     @FXML

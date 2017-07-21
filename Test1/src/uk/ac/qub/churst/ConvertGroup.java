@@ -2,13 +2,12 @@ package uk.ac.qub.churst;
 
 
 
-import java.sql.SQLException;
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 
 import uk.ac.qub.objects.Lecture;
-import uk.ac.qub.objects.Room;
 import uk.ac.qub.objects.Student;
 import uk.ac.qub.sql.SQL;
 import uk.ac.qub.sql.SearchQueries;
@@ -16,7 +15,20 @@ import uk.ac.qub.sql.SearchQueries;
 
 
 public class ConvertGroup {
-
+	
+	public static String DateConvertSQL(String date){
+		
+		String[]q = date.split("/");
+		String answer="";
+		for( int i=2; i>=0; i--){
+			answer=answer+q[i];
+		}
+		
+		
+		
+		return answer;
+		
+	}
 
 	
 	public static List<String> convert (String s) throws InputMismatchException{

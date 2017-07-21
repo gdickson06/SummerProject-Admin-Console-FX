@@ -10,8 +10,9 @@ import uk.ac.qub.sql.SQL;
 public class Test {
 
 	public static void main(String[] args) {
-		Boolean b = true;
-		System.out.println(b.toString());
+		
+		
+		System.out.println(ConvertGroup.DateConvertSQL("12/04/2013"));
 		
 	}
 	

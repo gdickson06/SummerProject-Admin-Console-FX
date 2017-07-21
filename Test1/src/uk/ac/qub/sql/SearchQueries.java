@@ -14,32 +14,32 @@ import uk.ac.qub.objects.Student;
 import uk.ac.qub.objects.User;
 
 public class SearchQueries {
-	
-	public static List<Absence> searchAbsence(int search, String info){
-		
+
+	public static List<Absence> searchAbsence(int search, String info) {
+
 		ResultSet r;
 		String statement = null;
 		List<Absence> absences = new ArrayList<Absence>();
-		
-		switch(search){
+
+		switch (search) {
 		case 1:
-			statement = "select * from absence where StudentNumber = "+ info +";";
+			statement = "select * from absence where StudentNumber = " + info + ";";
 			break;
 		case 2:
-			statement = "select * from absence where Date LIKE '" + info +"%';";
+			statement = "select * from absence where Date LIKE '" + info + "%';";
 			break;
 		case 3:
-			statement = "select * from absence where Time LIKE '" +  info + "%';";
+			statement = "select * from absence where Time LIKE '" + info + "%';";
 			break;
 		case 4:
-			statement = "select * from absence where Type = '" + info +"';";
+			statement = "select * from absence where Type = '" + info + "';";
 			break;
 		case 5:
-			statement = "select * from absence where Approved = " + info +";";
+			statement = "select * from absence where Approved = " + info + ";";
 			break;
-		
+
 		}
-		
+
 		r = SQL.SQLstatements(statement);
 		System.out.println(statement);
 		try {
@@ -47,10 +47,10 @@ public class SearchQueries {
 
 				do {
 					Absence a = new Absence(r.getInt("StudentNumber"), r.getInt("LectureID"), r.getString("Date"),
-							r.getString("Time"),r.getString("Reason"),r.getBoolean("Approved"),r.getString("Type"));
-					
+							r.getString("Time"), r.getString("Reason"), r.getBoolean("Approved"), r.getString("Type"));
+
 					a.setId(r.getInt("id"));
-					System.out.println("Value of ID is"+a.getId());
+					System.out.println("Value of ID is" + a.getId());
 					absences.add(a);
 				} while (r.next());
 
@@ -61,23 +61,22 @@ public class SearchQueries {
 		}
 		return absences;
 	}
-	
-	public static List<Absence> ComboSearchAbsence(Absence A,Boolean boolEmpty){
-		
+
+	public static List<Absence> ComboSearchAbsence(Absence A, Boolean boolEmpty) {
+
 		ResultSet r;
-	
+
 		List<Absence> absences = new ArrayList<Absence>();
-		
-		String statement= "select * from absence ";
-		Boolean start=true;
-		if(boolEmpty==false){
-			statement = statement + " Where Approved = " +Boolean.toString(A.getApproved());
-			start=false;
+
+		String statement = "select * from absence ";
+		Boolean start = true;
+		if (boolEmpty == false) {
+			statement = statement + " Where Approved = " + Boolean.toString(A.getApproved());
+			start = false;
 		}
-		
-		
-		if(A.getStudentNumber()!=0){
-			if(start==false){
+
+		if (A.getStudentNumber() != 0) {
+			if (start == false) {
 				statement = statement + " and ";
 			} else {
 				statement = statement + " where ";
@@ -85,51 +84,51 @@ public class SearchQueries {
 			statement = statement + "StudentNumber =" + A.getStudentNumber();
 			start = false;
 		}
-		
-		if(A.getDate().isEmpty()==false){
-			if(start==false){
+
+		if (A.getDate().isEmpty() == false) {
+			if (start == false) {
 				statement = statement + " and ";
 			} else {
 				statement = statement + " where ";
 			}
 			statement = statement + "Date Like'" + A.getDate() + "%'";
-			start=false;
+			start = false;
 		}
-		
-		if(A.getTime().isEmpty()==false){
+
+		if (A.getTime().isEmpty() == false) {
 			System.out.println(A.getTime().isEmpty());
-			if(start==false){
+			if (start == false) {
 				statement = statement + " and ";
 			} else {
 				statement = statement + " where ";
 			}
-			
+
 			statement = statement + "Time Like'" + A.getTime() + "%'";
-			start=false;
+			start = false;
 		}
-		
-		if(A.getType()!=null){
-			if(start==false){
+
+		if (A.getType() != null) {
+			if (start == false) {
 				statement = statement + " and ";
 			} else {
 				statement = statement + " where ";
 			}
-			
+
 			statement = statement + "Type ='" + A.getType() + "'";
 		}
-		
-		statement = statement+ ";";
-		
+
+		statement = statement + ";";
+
 		System.out.println(statement);
-		
+
 		r = SQL.SQLstatements(statement);
-		
+
 		try {
 			if (r.next()) {
 
 				do {
 					Absence a = new Absence(r.getInt("StudentNumber"), r.getInt("LectureID"), r.getString("Date"),
-							r.getString("Time"),r.getString("Reason"),r.getBoolean("Approved"),r.getString("Type"));
+							r.getString("Time"), r.getString("Reason"), r.getBoolean("Approved"), r.getString("Type"));
 					a.setId(r.getInt("id"));
 					absences.add(a);
 				} while (r.next());
@@ -168,7 +167,7 @@ public class SearchQueries {
 		case 5:
 			statement = "select * from students where Name LIKE '% " + info + "%';";
 			break;
-		//Email Address
+		// Email Address
 		case 6:
 			statement = "select * from students where StudentEmail LIKE '" + info + "%';";
 			break;
@@ -183,7 +182,7 @@ public class SearchQueries {
 
 				do {
 					Student s = new Student(r.getInt("StudentNumber"), r.getString("Name"), r.getString("Cohort"),
-							r.getString("StudentEmail"),r.getInt("IntakeYear"));
+							r.getString("StudentEmail"), r.getInt("IntakeYear"));
 					students.add(s);
 				} while (r.next());
 
@@ -255,8 +254,8 @@ public class SearchQueries {
 		return lectures;
 	}
 
-	public static List<Staff> searchStaff(int search, String info,Boolean x) {
-		ResultSet r,r1;
+	public static List<Staff> searchStaff(int search, String info, Boolean x) {
+		ResultSet r, r1;
 		String statement = null;
 		String statement2 = null;
 		List<Staff> staff = new ArrayList<Staff>();
@@ -267,7 +266,7 @@ public class SearchQueries {
 			statement = "select * from course_coordinator where Name like '" + info + "%';";
 			statement2 = "select * from staff where Name like '" + info + "%';";
 			break;
-			//Last NAme
+		// Last NAme
 		case 2:
 			statement = "select * from course_coordinator where Name like '% " + info + "%';";
 			statement2 = "select * from staff where Name like '% " + info + "%';";
@@ -280,51 +279,54 @@ public class SearchQueries {
 		// type
 		case 4:
 			statement = "select * from course_coordinator;";
-			statement2="select * from staff where type ='"+info+"'";
+			statement2 = "select * from staff where type ='" + info + "'";
 			break;
 		default:
 			System.out.println("Error in searching lecturers");
 		}
 
 		r = SQL.SQLstatements(statement);
-		r1=SQL.SQLstatements(statement2);
+		r1 = SQL.SQLstatements(statement2);
 		System.out.println(statement);
 		System.out.println(statement2);
-		if(x){
-		try {
-			if (r1.next()) {
+		if (x) {
+			try {
+				if (r1.next()) {
 
-				do {
-					User u = new User(r1.getString("Name"),r1.getString("StaffNumber"),  r1.getString("Password"),r1.getString("Type"));
-					staff.add(u);
-				} while (r1.next());
+					do {
+						User u = new User(r1.getString("Name"), r1.getString("StaffNumber"), r1.getString("Password"),
+								r1.getString("Type"));
+						staff.add(u);
+					} while (r1.next());
 
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		try {
-			if(r.next()){
-				do{
-					Coordinator c = new Coordinator(r.getString("Name"),r.getString("Username"),r.getString("Password"),r.getString("Module"),r.getString("Email"));
-					staff.add(c);
-				} while(r.next());
+
+			try {
+				if (r.next()) {
+					do {
+						Coordinator c = new Coordinator(r.getString("Name"), r.getString("Username"),
+								r.getString("Password"), r.getString("Module"), r.getString("Email"));
+						staff.add(c);
+					} while (r.next());
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		} else {
-			if(info.equals("Module Coordinator")){
+			if (info.equals("Module Coordinator")) {
 				try {
-					if (r.next()){
+					if (r.next()) {
 						try {
-							do{
-								Coordinator c = new Coordinator(r.getString("Name"),r.getString("Username"),r.getString("Password"),r.getString("Module"),r.getString("Email"));
+							do {
+								Coordinator c = new Coordinator(r.getString("Name"), r.getString("Username"),
+										r.getString("Password"), r.getString("Module"), r.getString("Email"));
 								staff.add(c);
-							} while(r.next());
+							} while (r.next());
 						} catch (SQLException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -339,7 +341,8 @@ public class SearchQueries {
 					if (r1.next()) {
 
 						do {
-							User u = new User(r1.getString("Name"),r1.getString("StaffNumber"),  r1.getString("Password"),r1.getString("Type"));
+							User u = new User(r1.getString("Name"), r1.getString("StaffNumber"),
+									r1.getString("Password"), r1.getString("Type"));
 							staff.add(u);
 						} while (r1.next());
 
@@ -392,9 +395,5 @@ public class SearchQueries {
 		}
 		return rooms;
 	}
-
-	
-	
-	
 
 }

@@ -3,6 +3,7 @@ package uk.ac.qub.sql;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 import uk.ac.qub.churst.ConvertGroup;
@@ -28,7 +29,7 @@ public class LectureSQL {
 		for (Lecture l : lectures) {
 			int week = l.getWeek();
 			String day = l.getDay();
-			String startDate = l.getStartDate();
+			String startDate = ConvertGroup.DateConvertSQL(l.getStartDate());
 			String startTime = l.getStartTime();
 			String endTime = l.getEndTime();
 			String groups = l.getGroup();
@@ -48,7 +49,7 @@ public class LectureSQL {
 			try {
 				ConvertGroup.convert(groups);
 				statements = "INSERT INTO lectures (Week, Day, StartDate, StartTime, EndTime, Groups, Location, Subject, Theme, Teaching, Description, Staff, Style, Module)"
-						+ "VALUES (" + week + ", '" + day + "', '" + startDate + "', '" + startTime + "','" + endTime
+						+ "VALUES (" + week + ", '" + day + "', " + startDate + ", '" + startTime + "','" + endTime
 						+ "', '" + groups + "', '" + location + "', '" + subject + "', '" + theme + "', '" + format
 						+ "', '" + description + "', '" + staff + "', '" + style + "', '" + module + "');";
 
@@ -112,6 +113,20 @@ public class LectureSQL {
 				+ "VALUES (" + s.get(0) + ", '" + s.get(1) + "', '" + s.get(2) + "', '" + s.get(3) + "','" + s.get(4)
 				+ "', '" + s.get(5) + "', '" + s.get(6) + "', '" + s.get(7) + "', '" + s.get(8) + "', '" + s.get(9)
 				+ "', '" + s.get(10) + "', '" + s.get(11) + "', '" + s.get(12) + "', '" + s.get(13) + "', "+s.get(14)+", '"+s.get(15)+"', '"+s.get(16)+"');";
+		System.out.println(Statement);
+		statement = connection.prepareStatement(Statement);
+		statement.executeUpdate();
+	}
+	
+	public static void UploadNote(String id,String note) throws Exception{
+		Class.forName("com.mysql.jdbc.Driver");
+
+		// Creating a connection with
+		Connection connection = DriverManager.getConnection(SQL.url, SQL.user, SQL.password);
+
+		PreparedStatement statement = null;
+
+		String Statement = "UPDATE lectures SET Notes ='"+ note+ "' WHERE id = " + id + ";";
 		System.out.println(Statement);
 		statement = connection.prepareStatement(Statement);
 		statement.executeUpdate();
