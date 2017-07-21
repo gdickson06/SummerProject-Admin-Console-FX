@@ -75,6 +75,17 @@ public class Lecture {
 		this.notes = notes;
 		Essential = essential;
 	}
+	
+	//creating constructor to be used for ComboSearch method in the LectureAmendController.java class
+	public Lecture(int week, String subject, String group, String staff, String module, String startDate){
+		Week = week;
+		this.subject=subject;
+		this.group=group;
+		this.staff=staff;
+		this.module=module;
+		this.startDate=startDate;
+	}
+	
 	public String getYear() {
 		return year;
 	}
