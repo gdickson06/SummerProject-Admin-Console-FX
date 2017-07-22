@@ -224,6 +224,80 @@ public class SearchQueries {
 			
 		return lectureList;
 	}
+	/**
+	 * ComboSearch Method to search with mutliple values inputted for the StudentAmmendDelete page (Search)
+	 * @param student
+	 * @return
+	 */
+	public static List<Student> ComboSearchStudents(Student student){
+		
+		ResultSet results;
+		List<Student> studentList = new ArrayList<Student>();
+		String statement = "SELECT * FROM students ";
+		Boolean start = true;
+		if(!student.getName().isEmpty()){
+			statement = statement+"WHERE Name LIKE '"+student.getName()+"%'";
+			start=false;
+		}
+		
+		if(student.getStudentNumber()!=0){
+			if(start==false){
+				statement=statement+" AND ";
+			} else {
+				statement=statement+" WHERE ";
+			}
+			statement = statement+"StudentNumber = "+student.getStudentNumber();
+		}
+		
+		if(!student.getFirstGroup().isEmpty()){
+			if(start==false){
+				statement=statement+" AND ";
+			} else {
+				statement=statement+" WHERE ";
+			}
+			
+			statement = statement+"Cohort = '"+student.getFirstGroup()+"'";
+		}
+		
+		if(student.getIntakeYear()!=0){
+			if(start==false){
+				statement = statement+" AND ";
+			} else {
+				statement = statement+" WHERE ";
+			}
+			
+			statement = statement+"IntakeYear = "+student.getIntakeYear();
+		}
+		
+		if(!student.getEmail().isEmpty()){
+			if(start==false){
+				statement=statement+" AND ";
+			} else {
+				statement = statement+" WHERE ";
+			}
+			
+			statement = statement+"StudentEmail = '"+student.getEmail()+"'";
+		}
+		
+		statement = statement+";";
+		
+		System.out.println(statement);
+		
+		results = SQL.SQLstatements(statement);
+		try {
+			if(results.next()){
+				do {
+					Student s = new Student(results.getString("Name"), results.getInt("StudentNumber"), results.getString("Cohort"), results.getInt("IntakeYear"), results.getString("StudentEmail"));
+					studentList.add(s);
+				} while(results.next());
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return studentList;
+	}
 
 	public static List<Student> searchStudent(int search, String info) {
 		ResultSet r;

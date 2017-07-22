@@ -1,6 +1,7 @@
 package application;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -12,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import uk.ac.qub.objects.Lecture;
 import uk.ac.qub.objects.Student;
 import uk.ac.qub.sql.SearchQueries;
 
@@ -47,6 +49,8 @@ public class StudentAmmendDeleteController {
 
 	@FXML
 	private TextField EmailAddress;
+	
+	@FXML Button ComboSearch;
 
 	@FXML
 	void studentCancelButton(ActionEvent event) throws Exception {
@@ -117,7 +121,32 @@ public class StudentAmmendDeleteController {
 		 System.out.println("clicked on " + SelectedStudent);
 		 GeneralMethods.ChangeScene("SelectedStudent");
 	    }
+		 
 	 }
+	 
+	@FXML
+	void StudentComboSearch(ActionEvent event) {
+		Integer studentNumber, intakeYear;
+		if(!StudentNumber.getText().isEmpty()){
+			studentNumber = Integer.parseInt(StudentNumber.getText());
+		} else {
+			studentNumber = 0;
+		}
+		
+		if(!IntakeYear.getText().isEmpty()){
+			intakeYear = Integer.parseInt(IntakeYear.getText());
+		} else {
+			intakeYear = 0;
+		}
+		
+		Student s = new Student(firstName.getText(), studentNumber, Cohort.getText(), intakeYear, EmailAddress.getText());
+		List<Student> searched = SearchQueries.ComboSearchStudents(s);
+		ObservableList<Student> list = FXCollections.observableArrayList();
+		list.addAll(searched);
+		ListOfStudents.setItems(list);
+	}
+	
+	
 	@FXML
 	void initialize() {
 		assert firstName != null : "fx:id=\"firstName\" was not injected: check your FXML file 'StudentAmmendDelete.fxml'.";
