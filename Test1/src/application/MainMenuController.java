@@ -183,7 +183,12 @@ public class MainMenuController {
 
     @FXML
     void AbsenceAmendDelete(ActionEvent event) {
-
+    	try {
+			GeneralMethods.ChangeScene("AbsenceAmendDelete");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
     @FXML
@@ -193,12 +198,7 @@ public class MainMenuController {
 
     @FXML
     void SearchAbsence(ActionEvent event) {
-    	try {
-			GeneralMethods.ChangeScene("AbsenceAmendDelete");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    	
     }
 
     @FXML
