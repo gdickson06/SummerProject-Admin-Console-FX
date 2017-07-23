@@ -3,7 +3,23 @@ package uk.ac.qub.objects;
 public class Student {
 	
 	int studentNumber;
-	String name;
+	String name, firstName, surname;
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return surname;
+	}
+
+	public void setLastName(String lastName) {
+		this.surname = lastName;
+	}
+
 	String firstGroup;
 	String email;
 	int intakeYear;
@@ -23,11 +39,20 @@ public class Student {
 		this.firstGroup = firstGroup;
 		this.email = email;
 	}
+	
+	//creating constructor for ComboSearchStudents in the SearchQueries.java class
+	public Student(String name, int studentNumber, String firstGroup, int intakeYear, String email){
+		this.name=name;
+		this.studentNumber=studentNumber;
+		this.firstGroup=firstGroup;
+		this.intakeYear=intakeYear;
+		this.email=email;
+	}
 
 	@Override
 	public String toString() {
-		return "Student [studentNumber=" + studentNumber + ", name=" + name + ", firstGroup=" + firstGroup
-				+ ", secondGroup=" + email + ", intakeYear=" + intakeYear + "]";
+		return "Student Details [First Name: " + name + ", Student Number: " + studentNumber + ", Cohort: " + firstGroup
+				+ ", Surname: " + name + ", Intake Year: " + intakeYear + ", E-mail Address: "+email+"]";
 	}
 
 	public Student() {

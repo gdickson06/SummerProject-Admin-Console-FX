@@ -22,6 +22,9 @@ public class LectureAmendController {
     
     @FXML
     private Button Back;
+    
+    @FXML
+    private Button ComboSearch;
 
     @FXML
     private ListView<Lecture> ListOfLectures;
@@ -119,6 +122,16 @@ public class LectureAmendController {
     @FXML
     void Back(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("mainMenu");
+    }
+    
+    @FXML
+    void ComboSearch(ActionEvent event) throws Exception {
+    	Integer week = Integer.parseInt(WeekText.getText());
+    	Lecture l = new Lecture(week, SubjectText.getText(), GroupsText.getText(), StaffText.getText(), ModuleText.getText(), DateText.getText());
+    	List<Lecture> searched = SearchQueries.ComboSearchLectures(l);
+		ObservableList<Lecture> list = FXCollections.observableArrayList();
+		list.addAll(searched);
+		ListOfLectures.setItems(list);
     }
 
 }

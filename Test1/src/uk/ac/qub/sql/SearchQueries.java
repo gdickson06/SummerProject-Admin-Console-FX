@@ -140,6 +140,164 @@ public class SearchQueries {
 		}
 		return absences;
 	}
+	
+	public static List<Lecture> ComboSearchLectures(Lecture lectures){
+		
+		//creating a ResultSet to hold our results of the ComboSearch
+		ResultSet results;
+		List<Lecture> lectureList = new ArrayList<Lecture>();
+		String statement = "SELECT * FROM lectures ";
+		Boolean start = true;
+		if(lectures.getWeek() != 0){
+			statement = statement+"WHERE Week = "+lectures.getWeek();
+			start=false;
+		}
+		
+		if(!lectures.getSubject().isEmpty()){
+			if(start==false){
+				statement = statement+" AND ";
+			} else {
+				statement = statement+" WHERE ";
+			}
+			
+			statement = statement + "Subject = '"+lectures.getSubject()+"'";
+		}
+		
+		if(!lectures.getGroup().isEmpty()){
+			if(start==false){
+				statement = statement+" AND ";
+			} else {
+				statement = statement+" WHERE ";
+			}
+				statement = statement +"Groups = '"+lectures.getGroup()+"'";
+		}
+		
+		if(!lectures.getStaff().isEmpty()){
+			if(start==false){
+				statement = statement+" AND ";
+			} else {
+				statement = statement+" WHERE ";
+			}
+				statement = statement+"Staff = '"+lectures.getStaff()+"'";
+		}		
+		
+		if(!lectures.getModule().isEmpty()){
+			if(start==false){
+				statement = statement+" AND ";
+			} else {
+				statement = statement+" WHERE ";
+			}
+				statement = statement+"Module = '"+lectures.getModule()+"'";
+		}
+		
+		if(!lectures.getStartDate().isEmpty()){
+			if(start==false){
+				statement = statement+" AND ";
+			} else {
+				statement = statement+" WHERE ";
+			}
+				statement = statement+"StartDate = '"+lectures.getStartDate()+"'";
+		}
+		
+		statement = statement+";";
+		
+		System.out.println(statement);
+		
+		results = SQL.SQLstatements(statement);
+			try {
+				if(results.next()){
+					do {
+						Lecture l = new Lecture(results.getInt("Week"), results.getString("Day"), 
+								results.getString("StartDate"), results.getString("StartTime"), 
+								results.getString("EndTime"), results.getString("Groups"), 
+								results.getString("Location"), results.getString("Subject"), 
+								results.getString("Theme"), results.getString("Teaching"), 
+								results.getString("Description"), results.getString("Staff"), 
+								results.getString("Style"), results.getString("Module"));
+						lectureList.add(l);
+					} while (results.next());
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		return lectureList;
+	}
+	/**
+	 * ComboSearch Method to search with mutliple values inputted for the StudentAmmendDelete page (Search)
+	 * @param student
+	 * @return
+	 */
+	public static List<Student> ComboSearchStudents(Student student){
+		
+		ResultSet results;
+		List<Student> studentList = new ArrayList<Student>();
+		String statement = "SELECT * FROM students ";
+		Boolean start = true;
+		if(!student.getName().isEmpty()){
+			statement = statement+"WHERE Name LIKE '"+student.getName()+"%'";
+			start=false;
+		}
+		
+		if(student.getStudentNumber()!=0){
+			if(start==false){
+				statement=statement+" AND ";
+			} else {
+				statement=statement+" WHERE ";
+			}
+			statement = statement+"StudentNumber = "+student.getStudentNumber();
+		}
+		
+		if(!student.getFirstGroup().isEmpty()){
+			if(start==false){
+				statement=statement+" AND ";
+			} else {
+				statement=statement+" WHERE ";
+			}
+			
+			statement = statement+"Cohort = '"+student.getFirstGroup()+"'";
+		}
+		
+		if(student.getIntakeYear()!=0){
+			if(start==false){
+				statement = statement+" AND ";
+			} else {
+				statement = statement+" WHERE ";
+			}
+			
+			statement = statement+"IntakeYear = "+student.getIntakeYear();
+		}
+		
+		if(!student.getEmail().isEmpty()){
+			if(start==false){
+				statement=statement+" AND ";
+			} else {
+				statement = statement+" WHERE ";
+			}
+			
+			statement = statement+"StudentEmail = '"+student.getEmail()+"'";
+		}
+		
+		statement = statement+";";
+		
+		System.out.println(statement);
+		
+		results = SQL.SQLstatements(statement);
+		try {
+			if(results.next()){
+				do {
+					Student s = new Student(results.getString("Name"), results.getInt("StudentNumber"), results.getString("Cohort"), results.getInt("IntakeYear"), results.getString("StudentEmail"));
+					studentList.add(s);
+				} while(results.next());
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return studentList;
+	}
 
 	public static List<Student> searchStudent(int search, String info) {
 		ResultSet r;

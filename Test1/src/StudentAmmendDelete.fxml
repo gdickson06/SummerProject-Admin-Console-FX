@@ -8,7 +8,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.StudentAmmendDeleteController">
+<VBox prefHeight="800.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.StudentAmmendDeleteController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -49,7 +49,7 @@
         </Menu>
       </menus>
     </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
             <Label layoutX="25.0" layoutY="14.0" text="Search for student to amend/Delete" />
             <Label layoutX="25.0" layoutY="40.0" text="First Name:" />
@@ -57,7 +57,7 @@
             <TextField id="StudentNumber" fx:id="StudentNumber" layoutX="134.0" layoutY="79.0" prefHeight="25.0" prefWidth="139.0" />
             <Label layoutX="346.0" layoutY="40.0" text="Surname:" />
             <TextField id="LastName" fx:id="lastName" layoutX="427.0" layoutY="36.0" />
-            <Button fx:id="studentCancel" layoutX="565.0" layoutY="10.0" mnemonicParsing="false" onAction="#studentCancelButton" text="Back" />
+            <Button fx:id="studentCancel" layoutX="723.0" layoutY="34.0" mnemonicParsing="false" onAction="#studentCancelButton" text="Back" />
             <Label layoutX="25.0" layoutY="79.0" text="Student Number" />
             <TextField id="IntakeYear" fx:id="IntakeYear" layoutX="427.0" layoutY="75.0" />
             <TextField id="Cohort" fx:id="Cohort" layoutX="134.0" layoutY="114.0" prefHeight="25.0" prefWidth="139.0" />
@@ -66,14 +66,15 @@
             <Label layoutX="25.0" layoutY="118.0" text="Cohort" />
             <Label layoutX="346.0" layoutY="118.0" text="Email Address" />
             <ImageView fitHeight="25.0" fitWidth="21.0" layoutX="283.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true" />
-            <Button id="FirstNameSearch" layoutX="277.0" layoutY="36.0" mnemonicParsing="false" onAction="#FirstNameSearch" text="Button" />
-            <Button id="StudentNumberSearch" layoutX="278.0" layoutY="79.0" mnemonicParsing="false" onAction="#StudentNumberSearch" text="Button" />
-            <Button id="CohortSearch" layoutX="277.0" layoutY="114.0" mnemonicParsing="false" onAction="#CohortSearch" text="Button" />
-            <Button id="SurnameSearch" layoutX="580.0" layoutY="36.0" mnemonicParsing="false" onAction="#SurnameSearch" text="Button" />
-            <Button id="IntakeYearSearch" layoutX="581.0" layoutY="75.0" mnemonicParsing="false" onAction="#IntakeYearSearch" text="Button" />
-            <Button id="EmailSearch" layoutX="579.0" layoutY="113.0" mnemonicParsing="false" onAction="#EmailSearch" text="Button" />
+            <Button id="FirstNameSearch" layoutX="277.0" layoutY="36.0" mnemonicParsing="false" onAction="#FirstNameSearch" text="Search" />
+            <Button id="StudentNumberSearch" layoutX="278.0" layoutY="79.0" mnemonicParsing="false" onAction="#StudentNumberSearch" text="Search" />
+            <Button id="CohortSearch" layoutX="277.0" layoutY="114.0" mnemonicParsing="false" onAction="#CohortSearch" text="Search" />
+            <Button id="SurnameSearch" layoutX="580.0" layoutY="36.0" mnemonicParsing="false" onAction="#SurnameSearch" text="Search" />
+            <Button id="IntakeYearSearch" layoutX="581.0" layoutY="75.0" mnemonicParsing="false" onAction="#IntakeYearSearch" text="Search" />
+            <Button id="EmailSearch" layoutX="579.0" layoutY="113.0" mnemonicParsing="false" onAction="#EmailSearch" text="Search" />
+            <Button fx:id="ComboSearch" layoutX="683.0" layoutY="87.0" mnemonicParsing="false" onAction="#StudentComboSearch" text="Combo Search" />
       </children>
     </AnchorPane>
-      <ListView id="ResultsList" fx:id="ListOfStudents" onMouseClicked="#ListClicked" prefHeight="200.0" prefWidth="200.0" />
+      <ListView id="ResultsList" fx:id="ListOfStudents" onMouseClicked="#ListClicked" prefHeight="592.0" prefWidth="800.0" />
   </children>
 </VBox>
