@@ -41,6 +41,7 @@
             <Button fx:id="UserNameSearch" layoutX="532.0" layoutY="14.0" mnemonicParsing="false" onAction="#UserNameSearch" text="Search" />
             <TextField fx:id="Username" layoutX="290.0" layoutY="14.0" prefHeight="25.0" prefWidth="228.0" />
             <Label layoutX="163.0" layoutY="18.0" text="Username" />
+            <Button layoutX="678.0" layoutY="14.0" mnemonicParsing="false" onAction="#StaffAmmendDeleteHome" text="Home" />
          </children>
       </AnchorPane>
    </children>

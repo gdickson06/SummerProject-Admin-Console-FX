@@ -37,7 +37,6 @@ public class StaffAmendDeleteController {
     @FXML
     private Button FirstNameSearch;
 
-
     @FXML
     private TextField FirstName;
 
@@ -110,6 +109,16 @@ public class StaffAmendDeleteController {
 		list.addAll(searched);
 		UserTable.setItems(list);
 		System.out.println(searched.size());
+    }
+    
+    @FXML
+    void StaffAmmendDeleteHome(ActionEvent event){
+    	try {
+			GeneralMethods.ChangeScene("mainMenu");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
     
