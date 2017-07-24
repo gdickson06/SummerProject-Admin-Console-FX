@@ -126,24 +126,19 @@ public class StudentAmmendDeleteController {
 	 
 	@FXML
 	void StudentComboSearch(ActionEvent event) {
-		Integer studentNumber, intakeYear;
-		if(!StudentNumber.getText().isEmpty()){
-			studentNumber = Integer.parseInt(StudentNumber.getText());
-		} else {
-			studentNumber = 0;
-		}
+		List<String> list = new ArrayList<String>();
 		
-		if(!IntakeYear.getText().isEmpty()){
-			intakeYear = Integer.parseInt(IntakeYear.getText());
-		} else {
-			intakeYear = 0;
-		}
+		list.add(firstName.getText());
+		list.add(lastName.getText());
+		list.add(StudentNumber.getText());
+		list.add(Cohort.getText());
+		list.add(IntakeYear.getText());
+		list.add(EmailAddress.getText());
 		
-		Student s = new Student(firstName.getText(), studentNumber, Cohort.getText(), intakeYear, EmailAddress.getText());
-		List<Student> searched = SearchQueries.ComboSearchStudents(s);
-		ObservableList<Student> list = FXCollections.observableArrayList();
-		list.addAll(searched);
-		ListOfStudents.setItems(list);
+		List<Student> searched = SearchQueries.ComboSearchStudents(list);
+		ObservableList<Student> List = FXCollections.observableArrayList();
+		List.addAll(searched);
+		ListOfStudents.setItems(List);
 	}
 	
 	

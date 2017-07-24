@@ -278,8 +278,8 @@ public class MainMenuController {
     }
 
     @FXML
-    void PracticalNotes(ActionEvent event) {
-
+    void PracticalNotes(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("PlacementNote");
     }
 
     @FXML

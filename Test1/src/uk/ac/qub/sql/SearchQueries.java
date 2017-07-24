@@ -8,6 +8,7 @@ import java.util.List;
 import uk.ac.qub.objects.Absence;
 import uk.ac.qub.objects.Coordinator;
 import uk.ac.qub.objects.Lecture;
+import uk.ac.qub.objects.Placement;
 import uk.ac.qub.objects.Room;
 import uk.ac.qub.objects.Staff;
 import uk.ac.qub.objects.Student;
@@ -229,54 +230,74 @@ public class SearchQueries {
 	 * @param student
 	 * @return
 	 */
-	public static List<Student> ComboSearchStudents(Student student){
+	public static List<Student> ComboSearchStudents(List<String> s){
+		
+		//First Name, Last Name, Student Number, Cohort, YEar, Email
 		
 		ResultSet results;
 		List<Student> studentList = new ArrayList<Student>();
 		String statement = "SELECT * FROM students ";
 		Boolean start = true;
-		if(!student.getName().isEmpty()){
-			statement = statement+"WHERE Name LIKE '"+student.getName()+"%'";
+		if(s.get(0).isEmpty()==false){
+			statement = statement+"WHERE Name LIKE '"+s.get(0)+"%'";
 			start=false;
+			System.out.println(start);
 		}
 		
-		if(student.getStudentNumber()!=0){
-			if(start==false){
-				statement=statement+" AND ";
-			} else {
+		
+		if(s.get(1).isEmpty()==false){
+			if(start){
 				statement=statement+" WHERE ";
+			} else {
+				statement=statement+" AND ";
 			}
-			statement = statement+"StudentNumber = "+student.getStudentNumber();
+			statement = statement+"Name LIKE '% "+s.get(1)+"%'";
+			start=false;
+			System.out.println(start);
 		}
 		
-		if(!student.getFirstGroup().isEmpty()){
-			if(start==false){
-				statement=statement+" AND ";
-			} else {
+		
+		if(s.get(2).isEmpty()==false){
+			if(start){
 				statement=statement+" WHERE ";
+			} else {
+				statement=statement+" AND ";
+			}
+			statement = statement+"StudentNumber = "+s.get(2);
+			start = false;
+		}
+		
+		if(s.get(3).isEmpty()==false){
+			if(start){
+				statement=statement+" WHERE ";
+			} else {
+				statement=statement+" AND ";
 			}
 			
-			statement = statement+"Cohort = '"+student.getFirstGroup()+"'";
+			statement = statement+"Cohort = '"+s.get(3)+"'";
+			start = false;
 		}
-		
-		if(student.getIntakeYear()!=0){
-			if(start==false){
+		System.out.println(start);
+		if(s.get(4).isEmpty()==false){
+			System.out.println(start);
+			if(start){
+				statement = statement+" WHERE ";
+			} else {
 				statement = statement+" AND ";
-			} else {
-				statement = statement+" WHERE ";
 			}
 			
-			statement = statement+"IntakeYear = "+student.getIntakeYear();
+			statement = statement+"IntakeYear = "+s.get(4);
+			start = false;
 		}
 		
-		if(!student.getEmail().isEmpty()){
-			if(start==false){
-				statement=statement+" AND ";
+		if(s.get(5).isEmpty()==false){
+			if(start){
+				statement=statement+" WHERE ";
 			} else {
-				statement = statement+" WHERE ";
+				statement = statement+" AND ";
 			}
 			
-			statement = statement+"StudentEmail = '"+student.getEmail()+"'";
+			statement = statement+"StudentEmail = '"+s.get(5)+"'";
 		}
 		
 		statement = statement+";";
@@ -287,8 +308,8 @@ public class SearchQueries {
 		try {
 			if(results.next()){
 				do {
-					Student s = new Student(results.getString("Name"), results.getInt("StudentNumber"), results.getString("Cohort"), results.getInt("IntakeYear"), results.getString("StudentEmail"));
-					studentList.add(s);
+					Student student = new Student(results.getString("Name"), results.getInt("StudentNumber"), results.getString("Cohort"), results.getInt("IntakeYear"), results.getString("StudentEmail"));
+					studentList.add(student);
 				} while(results.next());
 			}
 		} catch (SQLException e) {
@@ -548,6 +569,59 @@ public class SearchQueries {
 			e.printStackTrace();
 		}
 		return rooms;
+	}
+	
+	public static List<Placement> searchPlacement (int search, String info){
+		ResultSet r;
+		String statement = null;
+		List<Placement> placement = new ArrayList<Placement>();
+
+		switch (search) {
+		// First name
+		case 1:
+			statement = "select * from placement where StartDate = '" + info + "';";
+			break;
+		// Last Name
+		case 2:
+			statement = "select * from placement where ClinicalTeacher Like '%" + info + "%';";
+			break;
+			// Last Name
+		case 3:
+			statement = "select * from placement where YearGroup = " + info + ";";
+			break;
+			// Last Name
+		case 4:
+			statement = "select * from placement where Subject Like '%" + info + "%';";
+			break;
+			// Last Name
+		case 5:
+			statement = "select * from placement where Location Like '%" + info + "%';";
+			break;
+			// Last Name
+		case 6:
+			statement = "select * from placement where Cohort = '" + info + "';";
+			break;
+
+		default:
+			System.out.println("Error in searching rooms");
+		}
+
+		r = SQL.SQLstatements(statement);
+		try {
+			if (r.next()) {
+
+				do {
+					Placement p= new Placement(r.getInt("id"),r.getInt("Week"),r.getInt("YearGroup"),r.getString("StartDate"),r.getString("EndDate"),r.getString("Subject"),r.getString("Location"),r.getString("ClinicalTeacher"),r.getString("Cohort"),r.getString("Note"));
+					placement.add(p);
+				} while (r.next());
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return placement;
+		
 	}
 
 }
