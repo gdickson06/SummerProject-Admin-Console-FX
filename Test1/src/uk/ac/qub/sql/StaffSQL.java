@@ -5,11 +5,13 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.util.List;
 
+import uk.ac.qub.objects.Coordinator;
+import uk.ac.qub.objects.Staff;
 import uk.ac.qub.objects.User;
 
 public class StaffSQL {
 
-	public static void saveSQLStaff(List<User> users) throws Exception {
+	public static void saveSQLStaff(List<Staff> users) throws Exception {
 		Class.forName("com.mysql.jdbc.Driver");
 
 	Connection connection = DriverManager.getConnection(SQL.url, SQL.user, SQL.password);
@@ -17,13 +19,22 @@ public class StaffSQL {
 		PreparedStatement statement = null;
 		String newStatement = null;
 
-		for (User u : users) {
+		for (Staff u : users) {
 			String username = u.getStaffNumber();
 			String name = u.getName();
 			String password = u.getPassword();
-			String type = u.getType();
+			
 			try {
-				newStatement = "INSERT INTO location " + "VALUES ('" + username + "', '" + name+ "', '" + password + "', '" + type + "')";
+				if(u instanceof Coordinator){
+					String email = ((Coordinator) u).getEmail();
+					String module = ((Coordinator) u).getModule();
+				newStatement = "INSERT INTO course_coordinator " + "VALUES ('" + username + "', '" + name+ "', '" + email + "', '" + password + "', '"+module+"')";
+				} else {
+					String type = ((User)u).getType();
+					newStatement = "INSERT INTO staff " + "VALUES ('" + username + "', '" + name+ "', '" + type + "', '" + password + "')";
+					
+				}
+				
 				statement = connection.prepareStatement(newStatement);
 				statement.executeUpdate();
 			} catch (Exception e) {
