@@ -65,9 +65,22 @@ public class UploadCSVPlacementController {
     	
     	List<Placement> placementList = new ArrayList<Placement>();
     	boolean error = false;
-    	
-    		placementList= CSV.readPlacementsFromCSV(path);
-    		PlacementSQL.saveSQLPlacement(placementList, Year);
+    		
+    	    int year = Integer.parseInt(YearTextField.getText());
+    		placementList= CSV.readPlacementsFromCSV(path, year);
+
+    		
+    		try {
+				PlacementSQL.saveSQLPlacement(placementList, year);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				error=true;
+			}
+    		
+    		if(error==false){
+    			GeneralMethods.show("Upload successful, "+placementList.size()+ " placements added to the database", "Upload Successful");
+    		}
    
     }
 

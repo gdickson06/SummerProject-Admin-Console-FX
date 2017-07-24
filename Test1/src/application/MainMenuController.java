@@ -158,8 +158,14 @@ public class MainMenuController {
 
     @FXML
     void practicalUploadCSVButton(ActionEvent event) {
-
+    	try {
+			GeneralMethods.ChangeScene("UploadCSVPlacement");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
+    
 
     @FXML
     void practicalAmendDelete(ActionEvent event) {
