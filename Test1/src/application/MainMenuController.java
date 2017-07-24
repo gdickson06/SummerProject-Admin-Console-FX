@@ -17,6 +17,12 @@ public class MainMenuController {
 
     @FXML
     private Button studentUploadCSVButton;
+    
+    @FXML
+    private Button PlacementUploadCSVButton;
+    
+    @FXML
+    private Button PlacementAmmendDeleteButton;
 
     @FXML
     private Button InputPDF;
@@ -244,6 +250,21 @@ public class MainMenuController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+    }
+    
+    @FXML
+    void PlacementCSVButton(ActionEvent event){
+    	try {
+			GeneralMethods.ChangeScene("UploadCSVPlacement");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    
+    @FXML
+    void PlacementAmmendDeleteButtonClick(ActionEvent event){
+    	
     }
 
     @FXML

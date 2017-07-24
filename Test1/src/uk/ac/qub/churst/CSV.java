@@ -1,5 +1,6 @@
 package uk.ac.qub.churst;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ import java.util.List;
 import com.opencsv.CSVReader;
 
 import uk.ac.qub.objects.Lecture;
+import uk.ac.qub.objects.Placement;
 import uk.ac.qub.objects.Room;
 import uk.ac.qub.objects.Student;
 import uk.ac.qub.objects.User;
@@ -69,6 +71,20 @@ public class CSV {
 		String code = metadata.get(0);
 		String name= metadata.get(1);
 		return new Room(code,name);
+	}
+	//creating placement
+	public static Placement createPlacement(List<String> metadata){
+		int week = Integer.parseInt(metadata.get(0));
+		String startDate = metadata.get(1);
+		String endDate = metadata.get(2);
+		String subject = metadata.get(3);
+		String location = metadata.get(4);
+		String clinicalTeacher = metadata.get(5);
+		String cohort = metadata.get(6);
+		int yearGroup = Integer.parseInt(metadata.get(7));
+		String note = metadata.get(8);
+		
+		return new Placement(week,startDate,endDate, subject, location, clinicalTeacher, cohort, yearGroup, note);	
 	}
 
 	public static List<Room>readRoomsFromCSV(String fileName){
@@ -188,6 +204,28 @@ public static List<User> readUsersFromCSV (String filename){
 		return users;
 	}
 	
-	
+	public static List<Placement> readPlacementsFromCSV(String filename){
+		List<Placement> placements = new ArrayList<Placement>();
+		try {
+			CSVReader fileReader = new CSVReader(new FileReader(filename));
+			List<String[]> attributes = fileReader.readAll();
+			attributes.remove(0);
+			for(String[] s: attributes){
+			List<String> list = Arrays.asList(s);
+			    
+			if(list.get(0).isEmpty()==false){
+					Placement placement = createPlacement(list);
+					placements.add(placement);
+				}
+			}
+			
+			fileReader.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("Error reading placements from CSV");
+		}
+		return placements;
+	}
 
 }

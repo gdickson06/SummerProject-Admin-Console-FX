@@ -18,6 +18,20 @@ public class Placement {
 		Cohort = cohort;
 		Note = note;
 	}
+	public Placement(int week, String startDate, String endDate, String subject, String location,
+			String clinicalTeacher, String cohort, int yearGroup, String note) {
+		// TODO Auto-generated constructor stub
+		this.week=week;
+		this.StartDate=startDate;
+		this.EndDate=endDate;
+		this.Subject=subject;
+		this.Location=location;
+		this.Teacher=clinicalTeacher;
+		this.Cohort=cohort;
+		this.Year=yearGroup;
+		this.Note=note;
+		
+	}
 	public int getId() {
 		return id;
 	}
