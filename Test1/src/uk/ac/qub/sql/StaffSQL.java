@@ -69,7 +69,7 @@ public class StaffSQL {
 	
 	public static void UploadSingleStaff(List<String> s) throws Exception {
 		// This will be in the order of the name,group,email,year.
-		// Using the JDBC driver
+		// Using the JDBC drivers
 
 		Class.forName("com.mysql.jdbc.Driver");
 
