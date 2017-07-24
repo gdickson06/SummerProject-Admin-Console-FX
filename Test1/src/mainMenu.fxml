@@ -86,6 +86,9 @@
             <Button fx:id="Practicals" layoutX="9.0" layoutY="467.0" mnemonicParsing="false" onAction="#PracticalNotes" text="Practicals" />
             <Label layoutX="585.0" layoutY="431.0" text="Personal" />
             <Button fx:id="ChangePassword" layoutX="582.0" layoutY="467.0" mnemonicParsing="false" onAction="#ChangePassword" text="Change Password" />
+            <Label layoutX="214.0" layoutY="400.0" text="Placement" />
+            <Button fx:id="PlacementUploadCSV" layoutX="196.0" layoutY="427.0" mnemonicParsing="false" onAction="#PlacementCSVButton" text="Upload CSV" />
+            <Button fx:id="PlacementAmmendDeleteButton" layoutX="177.0" layoutY="467.0" mnemonicParsing="false" onAction="#PlacementAmmendDeleteButtonClick" text="Amend &amp; Delete" />
       </children>
     </AnchorPane>
   </children>
