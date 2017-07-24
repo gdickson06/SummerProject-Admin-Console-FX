@@ -9,9 +9,11 @@ import java.util.List;
 
 import com.opencsv.CSVReader;
 
+import uk.ac.qub.objects.Coordinator;
 import uk.ac.qub.objects.Lecture;
 import uk.ac.qub.objects.Placement;
 import uk.ac.qub.objects.Room;
+import uk.ac.qub.objects.Staff;
 import uk.ac.qub.objects.Student;
 import uk.ac.qub.objects.User;
 
@@ -26,16 +28,31 @@ public class CSV {
 	 * @param metadata
 	 * @return
 	 */
-
-	
-	private static User createUser(List<String> metadata){
-		String userName = metadata.get(0);
-		String name =metadata.get(1);
-		String password = metadata.get(2);
-		String type = metadata.get(3);
+	private static Coordinator createCoordinator (List<String> metadata){
+		//String name, String StaffNumber, String password, String module, String email
 		
-		return new User(userName,name,password,type);
+		String name = metadata.get(1);
+		String staffNumber = metadata.get(2);
+		String password = metadata.get(3);
+		String module = metadata.get(4);
+		String email = metadata.get(5);
+		
+		return new Coordinator(name,staffNumber,password,module,email);
 	}
+	
+	public static User createUser(List<String> metadata){
+		
+		//String name, String StaffNumber, String password, String type
+		String name = metadata.get(1);
+		String staffNumber = metadata.get(2);
+		String password = metadata.get(3);
+		String type = metadata.get(0);
+		
+		return new User(name, staffNumber, password, type);
+		
+	}
+	
+	
 	private static Lecture createLecture(List<String> metadata) {
 		int week = Integer.parseInt(metadata.get(0));
 		String day = metadata.get(1);
@@ -73,18 +90,19 @@ public class CSV {
 		return new Room(code,name);
 	}
 	//creating placement
-		public static Placement createPlacement(List<String> metadata,int year){
-			int week = Integer.parseInt(metadata.get(0));
-			String startDate = metadata.get(1);
-			String endDate = metadata.get(2);
-			String subject = metadata.get(3);
-			String location = metadata.get(4);
-			String clinicalTeacher = metadata.get(5);
-			String cohort = metadata.get(6);
-			String note = metadata.get(7);
-			
-			return new Placement(week,startDate,endDate, subject, location, clinicalTeacher, cohort, year, note);	
-		}
+	public static Placement createPlacement(List<String> metadata, int year){
+		int week = Integer.parseInt(metadata.get(0));
+		String startDate = metadata.get(1);
+		String endDate = metadata.get(2);
+		String subject = metadata.get(3);
+		String location = metadata.get(4);
+		String clinicalTeacher = metadata.get(5);
+		String cohort = metadata.get(6);
+		int yearGroup = year;
+		String note = metadata.get(7);
+		
+		return new Placement(week,startDate,endDate, subject, location, clinicalTeacher, cohort, yearGroup, note);	
+	}
 
 	public static List<Room>readRoomsFromCSV(String fileName){
 		List<Room> rooms = new ArrayList<>();
@@ -174,9 +192,9 @@ public class CSV {
 	
 	
 	
-public static List<User> readUsersFromCSV (String filename){
+public static List<Staff> readStaffFromCSV (String filename){
 		
-		List<User> users = new ArrayList<User>();
+		List<Staff> users = new ArrayList<Staff>();
 		
 		try  {
 			
@@ -187,8 +205,13 @@ public static List<User> readUsersFromCSV (String filename){
 		    List<String> list = Arrays.asList(s);
 		    
 		    if(list.get(0).isEmpty()==false){
-			User user = createUser(list);
-			users.add(user);
+		    	if(list.get(0).equalsIgnoreCase("Module Coordinator")){
+			Coordinator c = createCoordinator(list);
+			users.add(c);
+		    	} else {
+		    		User u = createUser(list);
+		    		users.add(u);
+		    	}
 		    }
 		     }
 			
@@ -202,6 +225,7 @@ public static List<User> readUsersFromCSV (String filename){
 		
 		return users;
 	}
+	
 	
 public static List<Placement> readPlacementsFromCSV(String filename, int year){
 	List<Placement> placements = new ArrayList<Placement>();
