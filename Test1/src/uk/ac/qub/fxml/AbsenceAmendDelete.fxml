@@ -5,8 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox prefHeight="800.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.AbsenceAmendDeleteController">
+<VBox prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AbsenceAmendDeleteController">
    <children>
       <MenuBar>
         <menus>
@@ -31,22 +30,25 @@
          <children>
             <Label layoutX="11.0" layoutY="28.0" text="Student Number" />
             <Label layoutX="55.0" layoutY="65.0" text="Date" />
-            <Label layoutX="55.0" layoutY="110.0" text="Time" />
+            <Label layoutX="55.0" layoutY="110.0" text="Start Time" />
             <Label layoutX="428.0" layoutY="28.0" text="Type" />
             <Label layoutX="415.0" layoutY="65.0" text="Approved" />
             <TextField fx:id="StudentNumber" layoutX="114.0" layoutY="24.0" prefHeight="25.0" prefWidth="205.0" />
-            <TextField fx:id="Date" layoutX="114.0" layoutY="61.0" prefHeight="25.0" prefWidth="205.0" />
-            <TextField fx:id="Time" layoutX="114.0" layoutY="106.0" prefHeight="25.0" prefWidth="205.0" />
+            <TextField fx:id="StartTime" layoutX="114.0" layoutY="106.0" prefHeight="25.0" prefWidth="205.0" promptText="EG 12:00" />
             <ComboBox fx:id="Type" layoutX="483.0" layoutY="24.0" prefHeight="25.0" prefWidth="193.0" />
             <ComboBox fx:id="Approved" layoutX="483.0" layoutY="61.0" prefHeight="25.0" prefWidth="193.0" />
             <Button fx:id="StudentNumberSearch" layoutX="339.0" layoutY="24.0" mnemonicParsing="false" onAction="#StudentNumberSearch" text="Search" />
             <Button fx:id="DateSearch" layoutX="339.0" layoutY="61.0" mnemonicParsing="false" onAction="#DateSearch" text="Search" />
-            <Button fx:id="TimeSearch" layoutX="339.0" layoutY="106.0" mnemonicParsing="false" onAction="#TimeSearch" text="Search" />
+            <Button fx:id="StartTimeSearch" layoutX="339.0" layoutY="106.0" mnemonicParsing="false" onAction="#StartTimeSearch" text="Search" />
             <Button fx:id="TypeSearch" layoutX="705.0" layoutY="24.0" mnemonicParsing="false" onAction="#TypeSearch" text="Search" />
             <Button fx:id="ApprovedSearch" layoutX="705.0" layoutY="61.0" mnemonicParsing="false" onAction="#ApprovedSearch" text="Search" />
             <ListView fx:id="ListAbsence" layoutY="195.0" onMouseClicked="#TableClick" prefHeight="579.0" prefWidth="800.0" />
-            <Button fx:id="ComboSearch" layoutX="554.0" layoutY="115.0" mnemonicParsing="false" onAction="#ComboSearch" text="Combo Search" />
+            <Button fx:id="ComboSearch" layoutX="553.0" layoutY="159.0" mnemonicParsing="false" onAction="#ComboSearch" text="Combo Search" />
             <Button fx:id="Back" layoutX="30.0" layoutY="159.0" mnemonicParsing="false" onAction="#Back" text="Back" />
+            <DatePicker fx:id="Date" layoutX="114.0" layoutY="61.0" prefHeight="25.0" prefWidth="205.0" />
+            <TextField layoutX="483.0" layoutY="106.0" prefHeight="25.0" prefWidth="193.0" />
+            <Button fx:id="EndTimeSearch" layoutX="705.0" layoutY="106.0" mnemonicParsing="false" onAction="#EndTimeSearch" text="Search" />
+            <Label layoutX="428.0" layoutY="110.0" text="End Time" />
          </children>
       </AnchorPane>
    </children>

@@ -27,16 +27,19 @@ public class SearchQueries {
 			statement = "select * from absence where StudentNumber = " + info + ";";
 			break;
 		case 2:
-			statement = "select * from absence where Date LIKE '" + info + "%';";
+			statement = "select * from absence where Date LIKE '" + info + "';";
 			break;
 		case 3:
-			statement = "select * from absence where Time LIKE '" + info + "%';";
+			statement = "select * from absence where StartTime = '" + info + "';";
 			break;
 		case 4:
 			statement = "select * from absence where Type = '" + info + "';";
 			break;
 		case 5:
 			statement = "select * from absence where Approved = " + info + ";";
+			break;
+		case 6:
+			statement = "select * from absence where EndTime = '" + info + "';";
 			break;
 
 		}
@@ -47,10 +50,10 @@ public class SearchQueries {
 			if (r.next()) {
 
 				do {
-					Absence a = new Absence(r.getInt("StudentNumber"), r.getInt("LectureID"), r.getString("Date"),
-							r.getString("Time"), r.getString("Reason"), r.getBoolean("Approved"), r.getString("Type"));
+					Absence a = new Absence(r.getInt("id"),r.getInt("StudentNumber"), r.getInt("LectureID"), r.getString("Date"),
+							r.getString("StartTime"),r.getString("EndTime"), r.getString("Reason"), r.getBoolean("Approved"), r.getString("Type"));
 
-					a.setId(r.getInt("id"));
+					
 					System.out.println("Value of ID is" + a.getId());
 					absences.add(a);
 				} while (r.next());
@@ -96,15 +99,15 @@ public class SearchQueries {
 			start = false;
 		}
 
-		if (A.getTime().isEmpty() == false) {
-			System.out.println(A.getTime().isEmpty());
+		if (A.getStartTime().isEmpty() == false) {
+			System.out.println(A.getStartTime().isEmpty());
 			if (start == false) {
 				statement = statement + " and ";
 			} else {
 				statement = statement + " where ";
 			}
 
-			statement = statement + "Time Like'" + A.getTime() + "%'";
+			statement = statement + "Time Like'" + A.getStartTime() + "%'";
 			start = false;
 		}
 
@@ -128,9 +131,9 @@ public class SearchQueries {
 			if (r.next()) {
 
 				do {
-					Absence a = new Absence(r.getInt("StudentNumber"), r.getInt("LectureID"), r.getString("Date"),
-							r.getString("Time"), r.getString("Reason"), r.getBoolean("Approved"), r.getString("Type"));
-					a.setId(r.getInt("id"));
+					Absence a = new Absence(r.getInt("id"),r.getInt("StudentNumber"), r.getInt("LectureID"), r.getString("Date"),
+							r.getString("StartTime"),r.getString("EndTime"), r.getString("Reason"), r.getBoolean("Approved"), r.getString("Type"));
+					
 					absences.add(a);
 				} while (r.next());
 

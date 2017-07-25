@@ -11,9 +11,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import uk.ac.qub.churst.ConvertGroup;
 import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.objects.Absence;
 import uk.ac.qub.sql.SearchQueries;
@@ -50,10 +52,16 @@ public class AbsenceAmendDeleteController {
     private ComboBox<String> Approved;
 
     @FXML
-    private TextField Time;
+    private TextField StartTime;
+    
+    @FXML
+    private TextField EndTime;
 
     @FXML
-    private Button TimeSearch;
+    private Button StartTimeSearch;
+    
+    @FXML
+    private Button EndTimeSearch;
 
     @FXML
     private Button ComboSearch;
@@ -65,7 +73,7 @@ public class AbsenceAmendDeleteController {
     private Button TypeSearch;
 
     @FXML
-    private TextField Date;
+    private DatePicker Date;
 
     @FXML
     void StudentNumberSearch(ActionEvent event) {
@@ -77,15 +85,26 @@ public class AbsenceAmendDeleteController {
 
     @FXML
     void DateSearch(ActionEvent event) {
-    	List<Absence> searched = SearchQueries.searchAbsence(2, Date.getText());
+    	List<Absence> searched = SearchQueries.searchAbsence(2, Date.getValue().toString());
 		ObservableList<Absence> list = FXCollections.observableArrayList();
 		list.addAll(searched);
 		ListAbsence.setItems(list);
     }
 
     @FXML
-    void TimeSearch(ActionEvent event) {
-    	List<Absence> searched = SearchQueries.searchAbsence(3, Time.getText());
+    void StartTimeSearch(ActionEvent event) {
+    	
+    	
+    	List<Absence> searched = SearchQueries.searchAbsence(3, ConvertGroup.TimeConvertSQL(StartTime.getText()));
+		ObservableList<Absence> list = FXCollections.observableArrayList();
+		list.addAll(searched);
+		ListAbsence.setItems(list);
+    }
+    
+    @FXML
+    void EndTimeSearch(ActionEvent event) {
+    	
+    	List<Absence> searched = SearchQueries.searchAbsence(6, ConvertGroup.TimeConvertSQL(StartTime.getText()));
 		ObservableList<Absence> list = FXCollections.observableArrayList();
 		list.addAll(searched);
 		ListAbsence.setItems(list);
@@ -137,7 +156,7 @@ public class AbsenceAmendDeleteController {
     
     		i=Integer.parseInt(StudentNumber.getText());
     	}
-    	Absence a = new Absence(i,0, Date.getText(), Time.getText(), "", approved,Type.getValue());
+    	Absence a = new Absence(i,0, Date.getValue().toString(), StartTime.getText(), EndTime.getText(), "", Type.getValue(),approved);
     	Boolean b = false;
     	System.out.println("Value is "+Approved.getValue());
     	if(Approved.getValue()==null){
@@ -177,18 +196,20 @@ List<String>approved= new ArrayList<String>();
     	
     	Approved.getItems().addAll(approved);
     	
-        assert ListAbsence != null : "fx:id=\"ListAbsence\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
-        assert Type != null : "fx:id=\"Type\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
-        assert ApprovedSearch != null : "fx:id=\"ApprovedSearch\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
-        assert StudentNumber != null : "fx:id=\"StudentNumber\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
-        assert StudentNumberSearch != null : "fx:id=\"StudentNumberSearch\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
-        assert Approved != null : "fx:id=\"Approved\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
-        assert Time != null : "fx:id=\"Time\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
-        assert TimeSearch != null : "fx:id=\"TimeSearch\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
-        assert ComboSearch != null : "fx:id=\"ComboSearch\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
-        assert DateSearch != null : "fx:id=\"DateSearch\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
-        assert TypeSearch != null : "fx:id=\"TypeSearch\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
-        assert Date != null : "fx:id=\"Date\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
+    	   assert ListAbsence != null : "fx:id=\"ListAbsence\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
+           assert ApprovedSearch != null : "fx:id=\"ApprovedSearch\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
+           assert StudentNumber != null : "fx:id=\"StudentNumber\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
+           assert StudentNumberSearch != null : "fx:id=\"StudentNumberSearch\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
+           assert StartTime != null : "fx:id=\"StartTime\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
+           assert Approved != null : "fx:id=\"Approved\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
+           assert ComboSearch != null : "fx:id=\"ComboSearch\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
+           assert TypeSearch != null : "fx:id=\"TypeSearch\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
+           assert EndTimeSearch != null : "fx:id=\"EndTimeSearch\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
+           assert Date != null : "fx:id=\"Date\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
+           assert Type != null : "fx:id=\"Type\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
+           assert StartTimeSearch != null : "fx:id=\"StartTimeSearch\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
+           assert Back != null : "fx:id=\"Back\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
+           assert DateSearch != null : "fx:id=\"DateSearch\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
 
     }
 }

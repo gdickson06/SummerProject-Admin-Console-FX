@@ -16,12 +16,21 @@ import uk.ac.qub.sql.SearchQueries;
 
 public class ConvertGroup {
 	
+	public static String TimeConvertSQL(String time){
+		String[] q =  time.split(":");
+		
+		String answer = q[0] + q[1] + "00";
+		
+		return answer;
+		
+	}
+	
 	public static String DateConvertSQL(String date){
 		
-		String[]q = date.split("/");
+		String[]q = date.split("-");
 		String answer="";
-		for( int i=2; i>=0; i--){
-			answer=answer+q[i];
+		for( String s:q){
+			answer=answer+s;
 		}
 		
 		

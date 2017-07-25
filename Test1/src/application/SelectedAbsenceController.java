@@ -122,7 +122,8 @@ List<String>types= new ArrayList<String>();
     	StudentNumber.setText(String.valueOf(a.getStudentNumber()));
     	Lecture.setText(String.valueOf(a.getLectureID()));
     	Date.setText(a.getDate());
-    	Time.setText(a.getTime());
+    	Time.setText(a.getStartTime());
+    	
     	Type.setValue(a.getType());
     	Reason.setText(a.getReason());
     	
