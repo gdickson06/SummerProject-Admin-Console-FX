@@ -114,9 +114,10 @@ public class SQL {
 	 * should be attending the lecture
 	 * 
 	 * @param id
+	 * @return 
 	 * @throws SQLException
 	 */
-	public static void classGroup(int id) throws SQLException {
+	public static List<String> classGroup(int id) throws SQLException {
 
 		List<String> names = new ArrayList<String>();
 		String statement = "select * from lectures where id= " + id;
@@ -127,29 +128,32 @@ public class SQL {
 		List<String> groups = ConvertGroup.convert(groupName);
 
 		for (String group : groups) {
-			String statement2 = "Select * from students where Group1='" + group + "'";
+			String statement2 = "Select * from students where  Cohort='" + group + "'";
 
 			ResultSet students = SQLstatements(statement2);
 
 			while (students.next()) {
-				names.add(students.getString("Group1") + "      " + students.getString("Name"));
+				names.add(students.getString("Cohort") + "      " + students.getString("Name"));
 			}
 		}
-
-		System.out.println(lecture.getString("Description") + " (" + lecture.getString("Module") + ")");
-		System.out.println("Tutorial Group " + lecture.getString("Groups"));
-		System.out.println("Date : " + lecture.getString("StartDate") + "       Time : "
+		
+		List<String> output = new ArrayList<String>();
+		output.add(lecture.getString("Description") + " (" + lecture.getString("Module") + ")");
+		output.add("Tutorial Group " + lecture.getString("Groups"));
+		output.add("Date : " + lecture.getString("StartDate") + "       Time : "
 				+ lecture.getString("StartTime") + " - " + lecture.getString("EndTime"));
-		System.out.println("Tutor Name: " + lecture.getString("Staff"));
-		System.out.println("Tutor Signature");
-		System.out.println(
+		output.add("Tutor Name: " + lecture.getString("Staff"));
+		output.add("Tutor Signature");
+		output.add(
 				"Teaching staff should return completed attendance sheets to the centre for medical education:");
-		System.out.println("MBC Site:Reception, Ground Floor, Whitle medical building");
-		System.out.println("RVH Site: Reception, First Floor, Mulhouse Building");
-		System.out.println("Group         Student         Signature");
+		output.add("MBC Site:Reception, Ground Floor, Whitle medical building");
+		output.add("RVH Site: Reception, First Floor, Mulhouse Building");
+		output.add("Group         Student         Signature");
 		for (String s : names) {
-			System.out.println(s);
+			output.add(s);
 		}
+		
+		return output;
 	}
 	
 	public static Set<String> Modules (){

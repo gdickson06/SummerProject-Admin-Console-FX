@@ -6,5 +6,6 @@
 	<classpathentry kind="lib" path="mysql-connector-java-5.1.42-bin.jar"/>
 	<classpathentry kind="lib" path="pdfbox-app-2.0.6.jar"/>
 	<classpathentry kind="lib" path="opencsv-3.9.jar"/>
+	<classpathentry kind="lib" path="C:/Users/calum/Downloads/itextpdf-5.5.11.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

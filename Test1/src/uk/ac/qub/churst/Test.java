@@ -1,4 +1,6 @@
 package uk.ac.qub.churst;
+import java.sql.SQLException;
+
 
 
 public class Test {
@@ -6,7 +8,15 @@ public class Test {
 	public static void main(String[] args) {
 		
 		
-		System.out.println(ConvertGroup.DateConvertSQL("12/12/2014"));
+		try {
+			PDF pdf = new PDF("C:/Users/calum/Downloads/titsr.pdf");
+			pdf.create(3);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 		
 	}
 	
