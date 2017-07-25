@@ -59,7 +59,7 @@ public class UploadUserCSVController {
 		boolean error = false;
 		try {
 			staff = CSV.readStaffFromCSV(s);
-			StaffSQL.saveSQLStaff(staff);
+			StaffSQL.saveSQLUsers(staff);
 		} catch (Exception e) {
 			e.printStackTrace();
 			GeneralMethods.show("Issue with input please view the handbook", "ERROR");

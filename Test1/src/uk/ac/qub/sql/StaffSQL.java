@@ -10,8 +10,13 @@ import uk.ac.qub.objects.Staff;
 import uk.ac.qub.objects.User;
 
 public class StaffSQL {
-
-	public static void saveSQLStaff(List<Staff> users) throws Exception {
+	/**
+	 * This method spans uploading users and coordinators
+	 * @param users
+	 * @throws Exception
+	 */
+			
+	public static void saveSQLUsers(List<Staff> users) throws Exception {
 		Class.forName("com.mysql.jdbc.Driver");
 
 	Connection connection = DriverManager.getConnection(SQL.url, SQL.user, SQL.password);
@@ -45,31 +50,43 @@ public class StaffSQL {
 		
 
 	}
-	public static void amendStaff(List<String> s) throws Exception {
+	public static void amendUser(List<String> s, Boolean b) throws Exception {
 		Class.forName("com.mysql.jdbc.Driver");
 
 		// Creating a connection with
 		Connection connection = DriverManager.getConnection(SQL.url, SQL.user, SQL.password);
-
+		String Statement;
 		PreparedStatement statement = null;
-
-		String Statement = "UPDATE users SET Name =" + s.get(1) + ", Password='" + s.get(2)+ ", Type='" + s.get(3) + "'" + " WHERE UserName = "
+		if(b){
+		 Statement = "UPDATE staff SET Name ='" + s.get(1) + "', Password='" + s.get(3)+ "', Type='" + s.get(5) + "'" + " WHERE StaffNumber = "
 				+ s.get(0) + ";";
 		System.out.println(Statement);
 		statement = connection.prepareStatement(Statement);
 		statement.executeUpdate();
+		} else {
+			System.out.println("POWER ON");
+			Statement = "INSERT INTO course_coordinator " + "VALUES ('" + s.get(0) + "', '" + s.get(1) + "', '" + s.get(2) + "', '" +s.get(3)
+			+ "', '"+s.get(4)+"')";
+			statement = connection.prepareStatement(Statement);
+			statement.executeUpdate();
+			PreparedStatement ps = connection.prepareStatement("DELETE FROM staff WHERE StaffNumber =" + s.get(0));
+			ps.executeUpdate();
+		}
 	}
 	
-	public static void DeleteStaff(String name) throws Exception {
+
+	public static void DeleteUser(String name) throws Exception {
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection c = DriverManager.getConnection(SQL.url, SQL.user, SQL.password);
-		PreparedStatement ps = c.prepareStatement("DELETE FROM users WHERE UserName =" + name);
+		PreparedStatement ps = c.prepareStatement("DELETE FROM staff WHERE StaffNumber =" + name);
 		ps.executeUpdate();
 	}
 	
-	public static void UploadSingleStaff(List<String> s) throws Exception {
+	
+	
+	public static void UploadSingleUser(List<String> s) throws Exception {
 		// This will be in the order of the name,group,email,year.
-		// Using the JDBC drivers
+		// Using the JDBC driver
 
 		Class.forName("com.mysql.jdbc.Driver");
 

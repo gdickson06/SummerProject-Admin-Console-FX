@@ -56,6 +56,9 @@ public class UploadSingleUserController {
     	if(TypePicker.getValue().equals("Module Coordinator")){
     		ModuleBox.setVisible(true);
     		EmailText.setVisible(true);
+    	} else {
+    		ModuleBox.setVisible(false);
+    		EmailText.setVisible(false);
     	}
     }
 
@@ -72,11 +75,11 @@ public class UploadSingleUserController {
     	
     	if(TypePicker.getValue().equals("Module Coordinator")){
     		attributes.remove(4);
-    		CoordinatorSQL.UploadSingleStaff(attributes);
+    		CoordinatorSQL.UploadSingleCoordinator(attributes);
     	} else {
     		attributes.remove(3);
     		attributes.remove(4);
-    		StaffSQL.UploadSingleStaff(attributes);
+    		StaffSQL.UploadSingleUser(attributes);
     	}
     }
 

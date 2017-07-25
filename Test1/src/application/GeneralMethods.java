@@ -18,7 +18,7 @@ public class GeneralMethods {
 	public static void ChangeScene(String fxml) throws Exception{
 FXMLLoader loader = new FXMLLoader();
 		
-		String FXML = "src/"+fxml+".fxml";
+		String FXML = "src/uk/ac/qub/fxml/"+fxml+".fxml";
 		FileInputStream mainMenu = new FileInputStream(FXML);
 		VBox root = (VBox)loader.load(mainMenu);
 		//Creating a new Scene
