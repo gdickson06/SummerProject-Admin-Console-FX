@@ -3,7 +3,9 @@ package uk.ac.qub.sql;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import uk.ac.qub.churst.ConvertGroup;
@@ -130,6 +132,24 @@ public class LectureSQL {
 		System.out.println(Statement);
 		statement = connection.prepareStatement(Statement);
 		statement.executeUpdate();
+	}
+	
+	public static List<String> finder (String id) throws SQLException{
+		
+		List<String> s = new ArrayList<String>();
+
+    	
+    	String statement = "select * from lectures where id ='" + id + "'";
+    	
+    	ResultSet r = SQL.SQLstatements(statement);
+    	r.next();
+		System.out.println(statement);
+		
+		s.add(r.getString("StartDate"));
+		s.add(r.getString("StartTime"));
+		s.add(r.getString("EndTime"));
+		
+		return s;
 	}
 
 }

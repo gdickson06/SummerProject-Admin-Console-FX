@@ -6,7 +6,7 @@ public class Test {
 	public static void main(String[] args) {
 		
 		
-		System.out.println(ConvertGroup.DateConvertSQL("12/04/2013"));
+		System.out.println(ConvertGroup.DateConvertSQL("12/12/2014"));
 		
 	}
 	

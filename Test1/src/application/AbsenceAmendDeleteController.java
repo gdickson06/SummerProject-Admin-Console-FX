@@ -179,14 +179,7 @@ public class AbsenceAmendDeleteController {
     }
     @FXML
     void initialize() {
-    	List<String>types= new ArrayList<String>();
-    	
-    	types.add("Illness");
-    	types.add("Non Illness Related Absence");
-    	types.add("Missing from class");
-    	
-    	
-    	Type.getItems().addAll(types);
+    	ApplicationMethods.AbsenceTypes(Type);
     	
 List<String>approved= new ArrayList<String>();
     	
