@@ -14,9 +14,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import uk.ac.qub.objects.Lecture;
+import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.objects.Placement;
-import uk.ac.qub.sql.LectureSQL;
 import uk.ac.qub.sql.PlacementSQL;
 import uk.ac.qub.sql.SearchQueries;
 

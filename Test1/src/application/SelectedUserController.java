@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.objects.Coordinator;
 import uk.ac.qub.objects.Staff;
 import uk.ac.qub.objects.User;

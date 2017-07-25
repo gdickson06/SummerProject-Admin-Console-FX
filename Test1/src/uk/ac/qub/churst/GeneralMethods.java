@@ -1,8 +1,9 @@
-package application;
+package uk.ac.qub.churst;
 
 import java.io.File;
 import java.io.FileInputStream;
 
+import application.Main;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -24,7 +25,7 @@ FXMLLoader loader = new FXMLLoader();
 		//Creating a new Scene
 		Scene scene = new Scene(root);
 		//Set the Scene to stage
-		Main.stage.setScene(scene);
+		Main.getStage().setScene(scene);
 	}
 	
 	 public static void show(String message, String title) {

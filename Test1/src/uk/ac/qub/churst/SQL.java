@@ -8,12 +8,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.InputMismatchException;
+
 import java.util.List;
 import java.util.Set;
-import java.util.TreeSet;
 
-import uk.ac.qub.objects.Absence;
 import uk.ac.qub.objects.GroupsCon;
 import uk.ac.qub.objects.Lecture;
 import uk.ac.qub.objects.Room;

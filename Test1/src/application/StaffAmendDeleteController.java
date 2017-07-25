@@ -14,10 +14,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import uk.ac.qub.objects.Coordinator;
+import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.objects.Staff;
-import uk.ac.qub.objects.Student;
-import uk.ac.qub.objects.User;
 import uk.ac.qub.sql.SearchQueries;
 
 public class StaffAmendDeleteController {

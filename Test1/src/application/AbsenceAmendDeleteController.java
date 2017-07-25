@@ -14,6 +14,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.objects.Absence;
 import uk.ac.qub.sql.SearchQueries;
 

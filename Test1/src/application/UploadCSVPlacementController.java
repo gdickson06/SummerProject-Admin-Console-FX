@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import com.sun.javafx.image.impl.General;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import uk.ac.qub.churst.CSV;
+import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.objects.Placement;
 import uk.ac.qub.sql.PlacementSQL;
 
@@ -47,7 +47,7 @@ public class UploadCSVPlacementController {
     void selectFilePlacementCSV(ActionEvent event) {
     	//calling configureFileChooser method from GeneralMethods.java class to select file from CPU
     	GeneralMethods.configureFileChooser(fileChooser);
-    	File fileCSV = fileChooser.showOpenDialog(Main.stage);
+    	File fileCSV = fileChooser.showOpenDialog(Main.getStage());
     	if(fileCSV!=null){
     		file = fileCSV;
     	}

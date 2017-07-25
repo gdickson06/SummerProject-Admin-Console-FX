@@ -13,6 +13,7 @@ public class PDF {
 	
 	private static PDDocument _pdfDocument;
 	 
+	@SuppressWarnings("unused")
 	private static void populateAndCopy(File originalPdf, String targetPdf) throws IOException {
 		_pdfDocument = PDDocument.load(originalPdf);
 		

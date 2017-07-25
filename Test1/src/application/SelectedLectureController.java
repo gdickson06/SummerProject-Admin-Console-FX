@@ -11,10 +11,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.objects.Lecture;
-import uk.ac.qub.objects.Student;
+
 import uk.ac.qub.sql.LectureSQL;
-import uk.ac.qub.sql.SQL;
+
 
 public class SelectedLectureController {
 	

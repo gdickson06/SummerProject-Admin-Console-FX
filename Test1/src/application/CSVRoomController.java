@@ -8,10 +8,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
-import uk.ac.qub.churst.SQL;
 import uk.ac.qub.objects.Room;
 import uk.ac.qub.sql.RoomSQL;
 import uk.ac.qub.churst.CSV;
+import uk.ac.qub.churst.GeneralMethods;
 
 public class CSVRoomController {
 
@@ -32,7 +32,7 @@ public class CSVRoomController {
     @FXML
     void SelectRoomFileButton(ActionEvent event) {
     	GeneralMethods.configureFileChooser(fileChooserWindow);
-    	File csvFile = fileChooserWindow.showOpenDialog(Main.stage);
+    	File csvFile = fileChooserWindow.showOpenDialog(Main.getStage());
     	if(csvFile != null){
     		file = csvFile;
     	}

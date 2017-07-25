@@ -7,7 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import uk.ac.qub.sql.SQL;
+import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.sql.StudentSQL;
 
 public class UploadSingleStudentController {

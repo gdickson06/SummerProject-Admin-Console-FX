@@ -13,6 +13,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.objects.Absence;
 import uk.ac.qub.sql.AbsenceSQL;
 

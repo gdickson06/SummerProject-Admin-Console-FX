@@ -1,4 +1,5 @@
-package application;import java.net.URL;
+package application;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -8,7 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import uk.ac.qub.sql.SQL;
+import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.sql.StudentSQL;
 
 public class StudentSelectController {

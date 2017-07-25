@@ -9,18 +9,17 @@ import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
+
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+
 import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
+
 import javafx.stage.FileChooser;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
+
 import uk.ac.qub.churst.CSV;
+import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.objects.Student;
-import uk.ac.qub.sql.SQL;
+
 import uk.ac.qub.sql.StudentSQL;
 
 public class UploadStudentCSVController {
@@ -52,7 +51,7 @@ public class UploadStudentCSVController {
     void ChooseFile(ActionEvent event) {
     	
 		GeneralMethods.configureFileChooser(fileChooser);  
-		File fileCSV = fileChooser.showOpenDialog(Main.stage);
+		File fileCSV = fileChooser.showOpenDialog(Main.getStage());
 		if (fileCSV != null) {
 			f = fileCSV;
 		}

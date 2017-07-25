@@ -1,11 +1,9 @@
 package uk.ac.qub.churst;
-import java.awt.Desktop;
+
 import java.io.File;
-import java.io.IOException;
+
 import java.util.GregorianCalendar;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

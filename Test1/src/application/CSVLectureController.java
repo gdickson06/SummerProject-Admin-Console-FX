@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import uk.ac.qub.churst.CSV;
+import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.objects.Lecture;
 import uk.ac.qub.sql.LectureSQL;
 
@@ -34,7 +35,7 @@ public class CSVLectureController {
     @FXML
     void SelectFile(ActionEvent event) {
     	GeneralMethods.configureFileChooser(fileChooser);  
-		File fileCSV = fileChooser.showOpenDialog(Main.stage);
+		File fileCSV = fileChooser.showOpenDialog(Main.getStage());
 		if (fileCSV != null) {
 			f = fileCSV;
 		}

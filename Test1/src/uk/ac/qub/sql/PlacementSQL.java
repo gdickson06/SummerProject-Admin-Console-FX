@@ -83,5 +83,19 @@ public class PlacementSQL {
 		statement.executeUpdate();
 
 	}
+	
+	public static void UploadNote(String id,String note) throws Exception{
+		Class.forName("com.mysql.jdbc.Driver");
+
+		// Creating a connection with
+		Connection connection = DriverManager.getConnection(SQL.url, SQL.user, SQL.password);
+
+		PreparedStatement statement = null;
+
+		String Statement = "UPDATE placement SET Note ='"+ note+ "' WHERE id = " + id + ";";
+		System.out.println(Statement);
+		statement = connection.prepareStatement(Statement);
+		statement.executeUpdate();
+	}
 
 }

@@ -1,6 +1,6 @@
 package application;
 
-import java.awt.Checkbox;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
-import uk.ac.qub.objects.Absence;
+import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.churst.SQL;
 
 public class UploadSingleAbsenceController {

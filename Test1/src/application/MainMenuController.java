@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import uk.ac.qub.churst.GeneralMethods;
 
 public class MainMenuController {
 

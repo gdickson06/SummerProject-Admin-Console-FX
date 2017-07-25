@@ -1,30 +1,26 @@
 package application;
 
-import java.util.ResourceBundle;
-import javafx.scene.control.TextArea;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+
 import java.io.IOException;
-import java.net.URL;
+
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
+
 import javafx.scene.layout.*;
-import javafx.scene.control.TextField;
+
 
 
 public class Main extends Application {
-	static Stage stage;
+	private static Stage stage;
 	
 	@Override
 	public void start(Stage primaryStage) throws IOException {
-		stage=primaryStage;
+		setStage(primaryStage);
 		//creating the FXML Loader
 		FXMLLoader loader = new FXMLLoader();
 		
@@ -52,6 +48,14 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		Application.launch(args);
+	}
+
+	public static Stage getStage() {
+		return stage;
+	}
+
+	public static void setStage(Stage stage) {
+		Main.stage = stage;
 	}
 	
 }

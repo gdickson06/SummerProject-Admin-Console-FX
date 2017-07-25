@@ -17,9 +17,6 @@ import uk.ac.qub.churst.ConvertGroup;
 import uk.ac.qub.objects.GroupsCon;
 import uk.ac.qub.objects.Lecture;
 
-import uk.ac.qub.objects.Room;
-import uk.ac.qub.objects.Student;
-import uk.ac.qub.objects.User;
 
 public class SQL {
 	protected static String defaultPassword = "pass";

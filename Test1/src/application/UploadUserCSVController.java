@@ -12,10 +12,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import uk.ac.qub.churst.CSV;
+import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.objects.Staff;
-import uk.ac.qub.objects.Student;
+
 import uk.ac.qub.sql.StaffSQL;
-import uk.ac.qub.sql.StudentSQL;
+
 
 public class UploadUserCSVController {
 
@@ -43,7 +44,7 @@ public class UploadUserCSVController {
     @FXML
     void SelectFile(ActionEvent event) {
     	GeneralMethods.configureFileChooser(fileChooser);  
-		File fileCSV = fileChooser.showOpenDialog(Main.stage);
+		File fileCSV = fileChooser.showOpenDialog(Main.getStage());
 		if (fileCSV != null) {
 			f = fileCSV;
 		}

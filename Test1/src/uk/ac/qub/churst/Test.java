@@ -1,11 +1,5 @@
 package uk.ac.qub.churst;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import uk.ac.qub.objects.GroupsCon;
-import uk.ac.qub.objects.Lecture;
-import uk.ac.qub.sql.SQL;
 
 public class Test {
 
