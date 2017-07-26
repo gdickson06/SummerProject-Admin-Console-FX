@@ -20,29 +20,44 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import uk.ac.qub.objects.Lecture;
+
 public class PDF {
 	private static List<String> names;
 	private static List<String> cohorts;
 	private  static List<String> beginning;
-	private String location;
+	private String location = "C:/";
+	private Lecture l;
 	private static Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 18,
             Font.BOLD);
 
 
-	public PDF(String location) {
-		this.location = location;
+	public PDF(Lecture l) {
+		this.l = l;
 	
 	}
+	
 
-	public void create(int id) throws SQLException {
+
+	public String getLocation() {
+		return location;
+	}
+
+
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+
+
+	public void create() throws SQLException {
 		
 		
 		names = new ArrayList<String>();
 		cohorts = new ArrayList<String>();
-		String statement = "select * from lectures where id= " + id;
-		ResultSet lecture = SQL.SQLstatements(statement);
-		lecture.next();
-		String groupName = lecture.getString("Groups");
+		
+		String groupName = l.getGroup();
 
 		List<String> groups = ConvertGroup.convert(groupName);
 
@@ -58,11 +73,11 @@ public class PDF {
 		}
 		
 		beginning = new ArrayList<String>();
-		beginning.add(lecture.getString("Description") + " (" + lecture.getString("Module") + ")");
-		beginning.add("Tutorial Group " + lecture.getString("Groups"));
-		beginning.add("Date : " + lecture.getString("StartDate") + "       Time : "
-				+ lecture.getString("StartTime") + " - " + lecture.getString("EndTime"));
-		beginning.add("Tutor Name: " + lecture.getString("Staff"));
+		beginning.add(l.getDescription() + " (" + l.getModule() + ")");
+		beginning.add("Tutorial Group " + l.getGroup());
+		beginning.add("Date : " + l.getStartDate() + "       Time : "
+				+ l.getStartTime() + " - " + l.getEndTime());
+		beginning.add("Tutor Name: " + l.getStaff());
 		beginning.add("Tutor Signature");
 		beginning.add(
 				"Teaching staff should return completed attendance sheets to the centre for medical education:");
@@ -73,7 +88,7 @@ public class PDF {
 		try {
 			Document document = new Document();
 
-			PdfWriter.getInstance(document, new FileOutputStream(this.location));
+			PdfWriter.getInstance(document, new FileOutputStream(location+"/"+l.getStartDate()+l.getModule()+".pdf"));
 			document.open();
 			addMetaData(document);
 			addContent(document);

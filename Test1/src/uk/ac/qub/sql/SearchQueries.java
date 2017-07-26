@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import uk.ac.qub.churst.ConvertGroup;
 import uk.ac.qub.objects.Absence;
 import uk.ac.qub.objects.Coordinator;
 import uk.ac.qub.objects.Lecture;
@@ -157,23 +158,25 @@ public class SearchQueries {
 			start=false;
 		}
 		
-		if(!lectures.getSubject().isEmpty()){
+		if(!lectures.getModule().isEmpty()){
 			if(start==false){
 				statement = statement+" AND ";
 			} else {
 				statement = statement+" WHERE ";
 			}
 			
-			statement = statement + "Subject = '"+lectures.getSubject()+"'";
+			statement = statement + "Module = '"+lectures.getModule()+"'";
+			start = false;
 		}
 		
-		if(!lectures.getGroup().isEmpty()){
+		if(!lectures.getYear().isEmpty()){
 			if(start==false){
 				statement = statement+" AND ";
 			} else {
 				statement = statement+" WHERE ";
 			}
-				statement = statement +"Groups = '"+lectures.getGroup()+"'";
+				statement = statement +"Year = '"+lectures.getYear()+"'";
+				start=false;
 		}
 		
 		if(!lectures.getStaff().isEmpty()){
@@ -183,15 +186,17 @@ public class SearchQueries {
 				statement = statement+" WHERE ";
 			}
 				statement = statement+"Staff = '"+lectures.getStaff()+"'";
+				start=false;
 		}		
 		
-		if(!lectures.getModule().isEmpty()){
+		if(!lectures.getStartTime().isEmpty()){
 			if(start==false){
 				statement = statement+" AND ";
 			} else {
 				statement = statement+" WHERE ";
 			}
-				statement = statement+"Module = '"+lectures.getModule()+"'";
+				statement = statement+"StartTime = '"+lectures.getStartTime()+"'";
+				start=false;
 		}
 		
 		if(!lectures.getStartDate().isEmpty()){
@@ -200,7 +205,7 @@ public class SearchQueries {
 			} else {
 				statement = statement+" WHERE ";
 			}
-				statement = statement+"StartDate = '"+lectures.getStartDate()+"'";
+				statement = statement+"StartDate = '"+ConvertGroup.DateConvertSQL(lectures.getStartDate())+"'";
 		}
 		
 		statement = statement+";";
@@ -396,7 +401,7 @@ public class SearchQueries {
 			break;
 		// groups
 		case 4:
-			statement = "select * from lectures where Groups LIKE '%" + info + "%';";
+			statement = "select * from lectures where StartTime = '" + info + "';";
 			break;
 		// staff
 		case 5:
@@ -408,7 +413,7 @@ public class SearchQueries {
 			break;
 		// Subject
 		case 7:
-			statement = "select * from lectures where Subject LIKE '" + info + "%';";
+			statement = "select * from lectures where Year = " + info + "%;";
 			break;
 		default:
 			System.out.println("Error in searching students");

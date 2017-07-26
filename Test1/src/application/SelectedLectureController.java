@@ -20,7 +20,7 @@ import uk.ac.qub.sql.LectureSQL;
 
 public class SelectedLectureController {
 	
-	Lecture l = LectureAmendController.SelectedLecture;
+	Lecture l = LectureAmendController.selectedLecture;
 
     @FXML
     private ResourceBundle resources;

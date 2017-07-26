@@ -220,8 +220,8 @@ public class MainMenuController {
     }
 
     @FXML
-    void CreatePDF(ActionEvent event) {
-
+    void CreatePDF(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("CreatePDF");
     }
 
     @FXML

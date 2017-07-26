@@ -8,13 +8,6 @@ public class Test {
 	public static void main(String[] args) {
 		
 		
-		try {
-			PDF pdf = new PDF("C:/Users/calum/Downloads/titsr.pdf");
-			pdf.create(3);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
 		
 		

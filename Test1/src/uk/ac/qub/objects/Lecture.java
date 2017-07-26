@@ -4,6 +4,15 @@ public class Lecture {
 	
 	int Week,id;
 	
+	public Lecture(int week, String startDate, String startTime, String staff, String module, String year) {
+		super();
+		Week = week;
+		this.startDate = startDate;
+		StartTime = startTime;
+		this.staff = staff;
+		this.module = module;
+		this.year = year;
+	}
 	public Lecture(int id, int week, String day, String startDate, String startTime, String endTime, String group,
 			String location, String subject, String theme, String teachingFormat, String description, String staff,
 			String style, String module) {
@@ -76,15 +85,6 @@ public class Lecture {
 		Essential = essential;
 	}
 	
-	//creating constructor to be used for ComboSearch method in the LectureAmendController.java class
-	public Lecture(int week, String subject, String group, String staff, String module, String startDate){
-		Week = week;
-		this.subject=subject;
-		this.group=group;
-		this.staff=staff;
-		this.module=module;
-		this.startDate=startDate;
-	}
 	
 	public String getYear() {
 		return year;
