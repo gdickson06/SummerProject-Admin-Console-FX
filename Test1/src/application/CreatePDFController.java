@@ -83,11 +83,18 @@ public class CreatePDFController {
 
     @FXML
     void GeneratePDF(ActionEvent event) throws SQLException {
+    	try{
     	if(selectedLecture!=null){
     	PDF pdf = new PDF(selectedLecture);
     	pdf.setLocation(SaveLocation.getText().replace("\\" , "/"));
     	pdf.create();
+    	GeneralMethods.show("PDF created at " + SaveLocation.getText(),"Success");
     	}
+    	} catch (Exception e){
+    		GeneralMethods.show(e.getLocalizedMessage(),"Error");
+    	}
+    	
+    	
     }
 
     @FXML

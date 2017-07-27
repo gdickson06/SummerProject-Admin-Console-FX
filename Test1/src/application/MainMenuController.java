@@ -225,8 +225,8 @@ public class MainMenuController {
     }
 
     @FXML
-    void InputPDF(ActionEvent event) {
-
+    void InputPDF(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("InputPDF");
     }
 
     @FXML

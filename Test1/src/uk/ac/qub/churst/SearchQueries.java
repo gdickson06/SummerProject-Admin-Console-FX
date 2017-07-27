@@ -213,5 +213,6 @@ public class SearchQueries {
 		return placements;
 
 	}
+	
 
 }

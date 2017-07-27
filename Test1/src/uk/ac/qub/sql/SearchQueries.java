@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import uk.ac.qub.churst.ConvertGroup;
+import uk.ac.qub.churst.SQL;
 import uk.ac.qub.objects.Absence;
 import uk.ac.qub.objects.Coordinator;
 import uk.ac.qub.objects.Lecture;
@@ -630,6 +631,26 @@ public class SearchQueries {
 		}
 		return placement;
 		
+	}
+	public static List<Student> studentsInLecture (String cohorts) throws SQLException{
+		List<Student> students = new ArrayList<Student>();
+		
+		
+		
+
+		List<String> groups = ConvertGroup.convert(cohorts);
+
+		for (String group : groups) {
+			String statement2 = "Select * from students where  Cohort='" + group + "'";
+
+			ResultSet student = SQL.SQLstatements(statement2);
+//int studentNumber, String name, String firstGroup, String email, int intakeYear
+			while (student.next()) {
+				students.add(new Student(student.getInt("StudentNumber"), student.getString("Name"), student.getString("Cohort"),student.getString("StudentEmail"),student.getInt("IntakeYear")));
+				
+			}
+		}
+		return students;
 	}
 
 }
