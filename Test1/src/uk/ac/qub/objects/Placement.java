@@ -18,6 +18,19 @@ public class Placement {
 		Cohort = cohort;
 		Note = note;
 	}
+	
+	
+	public Placement(int week, String startDate, String cohort, String subject, String teacher, String location) {
+		super();
+		this.week = week;
+		StartDate = startDate;
+		Subject = subject;
+		Location = location;
+		Teacher = teacher;
+		Cohort = cohort;
+	}
+
+
 	public Placement(int week, String startDate, String endDate, String subject, String location,
 			String clinicalTeacher, String cohort, int yearGroup, String note) {
 		// TODO Auto-generated constructor stub

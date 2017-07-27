@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import uk.ac.qub.churst.ConvertGroup;
-import uk.ac.qub.churst.SQL;
+
 import uk.ac.qub.objects.Absence;
 import uk.ac.qub.objects.Coordinator;
 import uk.ac.qub.objects.Lecture;
@@ -29,7 +29,7 @@ public class SearchQueries {
 			statement = "select * from absence where StudentNumber = " + info + ";";
 			break;
 		case 2:
-			statement = "select * from absence where Date LIKE '" + info + "';";
+			statement = "select * from absence where StartDate LIKE '" + info + "';";
 			break;
 		case 3:
 			statement = "select * from absence where StartTime = '" + info + "';";
@@ -52,8 +52,8 @@ public class SearchQueries {
 			if (r.next()) {
 
 				do {
-					Absence a = new Absence(r.getInt("id"),r.getInt("StudentNumber"), r.getInt("LectureID"), r.getString("Date"),
-							r.getString("StartTime"),r.getString("EndTime"), r.getString("Reason"), r.getBoolean("Approved"), r.getString("Type"));
+					Absence a = new Absence(r.getInt("id"),r.getInt("StudentNumber"), r.getInt("LectureID"), r.getString("StartDate"),r.getString("EndDate"),
+							r.getString("StartTime"),r.getString("EndTime"), r.getString("Reason"), r.getString("Type"), r.getBoolean("Approved"));
 
 					
 					System.out.println("Value of ID is" + a.getId());
@@ -91,13 +91,13 @@ public class SearchQueries {
 			start = false;
 		}
 
-		if (A.getDate().isEmpty() == false) {
+		if (A.getStartDate().isEmpty() == false) {
 			if (start == false) {
 				statement = statement + " and ";
 			} else {
 				statement = statement + " where ";
 			}
-			statement = statement + "Date Like'" + A.getDate() + "%'";
+			statement = statement + "Date Like'" + A.getStartDate() + "%'";
 			start = false;
 		}
 
@@ -133,8 +133,8 @@ public class SearchQueries {
 			if (r.next()) {
 
 				do {
-					Absence a = new Absence(r.getInt("id"),r.getInt("StudentNumber"), r.getInt("LectureID"), r.getString("Date"),
-							r.getString("StartTime"),r.getString("EndTime"), r.getString("Reason"), r.getBoolean("Approved"), r.getString("Type"));
+					Absence a = new Absence(r.getInt("id"),r.getInt("StudentNumber"), r.getInt("LectureID"), r.getString("StartDate"), r.getString("EndDate"),
+							r.getString("StartTime"),r.getString("EndTime"), r.getString("Reason"), r.getString("Type"), r.getBoolean("Approved"));
 					
 					absences.add(a);
 				} while (r.next());
@@ -594,9 +594,9 @@ public class SearchQueries {
 		case 2:
 			statement = "select * from placement where ClinicalTeacher Like '%" + info + "%';";
 			break;
-			// Last Name
+			// Week
 		case 3:
-			statement = "select * from placement where YearGroup = " + info + ";";
+			statement = "select * from placement where Week = " + info + ";";
 			break;
 			// Last Name
 		case 4:
@@ -652,5 +652,86 @@ public class SearchQueries {
 		}
 		return students;
 	}
-
+public static List<Placement> ComboSearchPlacement(Placement p){
+		
+		//creating a ResultSet to hold our results of the ComboSearch
+		ResultSet r;
+		List<Placement> placements = new ArrayList<Placement>();
+		String statement = "SELECT * FROM placement ";
+		Boolean start = true;
+		if(p.getWeek() != 0){
+			statement = statement+"WHERE Week = "+p.getWeek();
+			start=false;
+		}
+		
+		if(!p.getStartDate().isEmpty()){
+			if(start==false){
+				statement = statement+" AND ";
+			} else {
+				statement = statement+" WHERE ";
+			}
+			
+			statement = statement + "StartDate = '"+p.getStartDate()+"'";
+			start = false;
+		}
+		
+		if(!p.getLocation().isEmpty()){
+			if(start==false){
+				statement = statement+" AND ";
+			} else {
+				statement = statement+" WHERE ";
+			}
+				statement = statement +"Location = '"+p.getLocation()+"'";
+				start=false;
+		}
+		
+		if(!p.getCohort().isEmpty()){
+			if(start==false){
+				statement = statement+" AND ";
+			} else {
+				statement = statement+" WHERE ";
+			}
+				statement = statement+"Cohort = '"+p.getCohort()+"'";
+				start=false;
+		}		
+		
+		if(!p.getSubject().isEmpty()){
+			if(start==false){
+				statement = statement+" AND ";
+			} else {
+				statement = statement+" WHERE ";
+			}
+				statement = statement+"Subject = '"+p.getSubject()+"'";
+				start=false;
+		}
+		
+		if(!p.getTeacher().isEmpty()){
+			if(start==false){
+				statement = statement+" AND ";
+			} else {
+				statement = statement+" WHERE ";
+			}
+				statement = statement+"Teacher = '"+p.getTeacher()+"'";
+		}
+		
+		statement = statement+";";
+		
+		System.out.println(statement);
+		
+		r = SQL.SQLstatements(statement);
+			try {
+				if(r.next()){
+					do {
+						Placement placement= new Placement(r.getInt("id"),r.getInt("Week"),r.getInt("YearGroup"),r.getString("StartDate"),r.getString("EndDate"),r.getString("Subject"),r.getString("Location"),r.getString("ClinicalTeacher"),r.getString("Cohort"),r.getString("Note"));
+						
+						placements.add(placement);
+					} while (r.next());
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		return placements;
+	}
 }

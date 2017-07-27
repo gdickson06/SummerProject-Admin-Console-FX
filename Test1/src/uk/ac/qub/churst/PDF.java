@@ -21,6 +21,7 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import uk.ac.qub.objects.Lecture;
+import uk.ac.qub.sql.SQL;
 
 public class PDF {
 	private static List<String> names;

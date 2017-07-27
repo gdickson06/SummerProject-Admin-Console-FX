@@ -19,12 +19,7 @@ public class MainMenuController {
     @FXML
     private Button studentUploadCSVButton;
     
-    @FXML
-    private Button PlacementUploadCSVButton;
-    
-    @FXML
-    private Button PlacementAmmendDeleteButton;
-
+ 
     @FXML
     private Button InputPDF;
 
@@ -169,8 +164,8 @@ public class MainMenuController {
     
 
     @FXML
-    void practicalAmendDelete(ActionEvent event) {
-
+    void practicalAmendDelete(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("PlacementAmendDelete");
     }
 
     @FXML
@@ -210,8 +205,8 @@ public class MainMenuController {
     }
 
     @FXML
-    void SearchAbsence(ActionEvent event) {
-    	
+    void SearchAbsence(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("AbsenceAmendDelete");
     }
 
     @FXML
@@ -259,20 +254,7 @@ public class MainMenuController {
 		}
     }
     
-    @FXML
-    void PlacementCSVButton(ActionEvent event){
-    	try {
-			GeneralMethods.ChangeScene("UploadCSVPlacement");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    }
     
-    @FXML
-    void PlacementAmmendDeleteButtonClick(ActionEvent event){
-    	
-    }
 
     @FXML
     void Help(ActionEvent event) {

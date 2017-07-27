@@ -73,7 +73,7 @@ public class AbsenceAmendDeleteController {
     private Button TypeSearch;
 
     @FXML
-    private DatePicker Date;
+    private DatePicker StartDate;
 
     @FXML
     void StudentNumberSearch(ActionEvent event) {
@@ -85,7 +85,7 @@ public class AbsenceAmendDeleteController {
 
     @FXML
     void DateSearch(ActionEvent event) {
-    	List<Absence> searched = SearchQueries.searchAbsence(2, Date.getValue().toString());
+    	List<Absence> searched = SearchQueries.searchAbsence(2, StartDate.getValue().toString());
 		ObservableList<Absence> list = FXCollections.observableArrayList();
 		list.addAll(searched);
 		ListAbsence.setItems(list);
@@ -156,7 +156,7 @@ public class AbsenceAmendDeleteController {
     
     		i=Integer.parseInt(StudentNumber.getText());
     	}
-    	Absence a = new Absence(i,0, Date.getValue().toString(), StartTime.getText(), EndTime.getText(), "", Type.getValue(),approved);
+    	Absence a = new Absence(i, StartDate.getValue().toString(), StartTime.getText(), EndTime.getText(), Type.getValue(),approved);
     	Boolean b = false;
     	System.out.println("Value is "+Approved.getValue());
     	if(Approved.getValue()==null){
@@ -198,7 +198,7 @@ List<String>approved= new ArrayList<String>();
            assert ComboSearch != null : "fx:id=\"ComboSearch\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
            assert TypeSearch != null : "fx:id=\"TypeSearch\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
            assert EndTimeSearch != null : "fx:id=\"EndTimeSearch\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
-           assert Date != null : "fx:id=\"Date\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
+           assert StartDate != null : "fx:id=\"Date\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
            assert Type != null : "fx:id=\"Type\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
            assert StartTimeSearch != null : "fx:id=\"StartTimeSearch\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
            assert Back != null : "fx:id=\"Back\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";

@@ -57,14 +57,14 @@ public class PlacementSQL {
 		statement.executeUpdate();
 	}
 	
-	public static void DeleteStaff(String id) throws Exception {
+	public static void DeletePlacement(String id) throws Exception {
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection c = DriverManager.getConnection(SQL.url, SQL.user, SQL.password);
 		PreparedStatement ps = c.prepareStatement("DELETE FROM placement WHERE id =" + id);
 		ps.executeUpdate();
 	}
 	
-	public static void UploadSingleStaff(List<String> s) throws Exception {
+	public static void UploadSinglePlacement(List<String> s) throws Exception {
 		// The list will be Week,StartDate,EndDate,Subject,Location,ClinicalTeacher,Cohort,YearGroup,Note
 		// Using the JDBC driver
 

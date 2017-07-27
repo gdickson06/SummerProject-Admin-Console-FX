@@ -1,16 +1,25 @@
 package application;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import uk.ac.qub.churst.GeneralMethods;
+import uk.ac.qub.objects.Absence;
+import uk.ac.qub.objects.Placement;
+import uk.ac.qub.sql.SearchQueries;
 
 public class PlacementAmendDeleteController {
+	
+	protected static Placement selectedPlacement;
 
     @FXML
     private ResourceBundle resources;
@@ -52,7 +61,7 @@ public class PlacementAmendDeleteController {
     private Button Back;
 
     @FXML
-    private ListView<?> Placements;
+    private ListView<Placement> Placements;
 
     @FXML
     private TextField TeacherText;
@@ -65,47 +74,74 @@ public class PlacementAmendDeleteController {
 
     @FXML
     void WeekSearch(ActionEvent event) {
-
+    	List<Placement> searched = SearchQueries.searchPlacement(3, WeekText.getText());
+		ObservableList<Placement> list = FXCollections.observableArrayList();
+		list.addAll(searched);
+		Placements.setItems(list);
     }
 
     @FXML
     void CohortSearch(ActionEvent event) {
-
+    	List<Placement> searched = SearchQueries.searchPlacement(6, CohortText.getText());
+		ObservableList<Placement> list = FXCollections.observableArrayList();
+		list.addAll(searched);
+		Placements.setItems(list);
     }
 
     @FXML
     void TeacherSearch(ActionEvent event) {
-
+    	List<Placement> searched = SearchQueries.searchPlacement(2, TeacherText.getText());
+		ObservableList<Placement> list = FXCollections.observableArrayList();
+		list.addAll(searched);
+		Placements.setItems(list);
     }
 
     @FXML
     void SubjectSearch(ActionEvent event) {
-
+    	List<Placement> searched = SearchQueries.searchPlacement(3, WeekText.getText());
+		ObservableList<Placement> list = FXCollections.observableArrayList();
+		list.addAll(searched);
+		Placements.setItems(list);
     }
 
     @FXML
     void StartDateSearch(ActionEvent event) {
-
+    	List<Placement> searched = SearchQueries.searchPlacement(1, StartDateText.getText());
+		ObservableList<Placement> list = FXCollections.observableArrayList();
+		list.addAll(searched);
+		Placements.setItems(list);
     }
     
     @FXML
     void LocationSearch(ActionEvent event) {
-
+    	List<Placement> searched = SearchQueries.searchPlacement(5, LocationText.getText());
+		ObservableList<Placement> list = FXCollections.observableArrayList();
+		list.addAll(searched);
+		Placements.setItems(list);
     }
 
     @FXML
     void ComboSearch(ActionEvent event) {
-
+    	Placement p = new Placement(Integer.parseInt(WeekText.getText()),StartDateText.getText(),CohortText.getText(),SubjectText.getText(),TeacherText.getText(),LocationText.getText());
+    	List<Placement> searched = SearchQueries.ComboSearchPlacement(p);
+		ObservableList<Placement> list = FXCollections.observableArrayList();
+		list.addAll(searched);
+		Placements.setItems(list);
+    
     }
 
     @FXML
-    void Back(ActionEvent event) {
-
+    void Back(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("mainMenu");
     }
 
     @FXML
-    void PlacementClick(MouseEvent event) {
-
+    void PlacementClick(MouseEvent event) throws Exception {
+    	if(event.getClickCount()==2){
+     		 selectedPlacement=Placements.getSelectionModel().getSelectedItem();
+     		 System.out.println("clicked on " + selectedPlacement);
+     		 GeneralMethods.ChangeScene("SelectedPlacement");
+      	}
     }
 
     @FXML
