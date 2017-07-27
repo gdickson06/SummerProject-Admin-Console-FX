@@ -71,7 +71,7 @@ public class UploadSinglePlacementController {
     	s.add(Year.getText());
     	s.add(Note.getText());
     	
-    	PlacementSQL.UploadSingleStaff(s);
+    	PlacementSQL.UploadSinglePlacement(s);
     	} catch (Exception e) {
     		success=false;
     		GeneralMethods.show(e.toString(), "ERROR");
