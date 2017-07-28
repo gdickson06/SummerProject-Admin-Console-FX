@@ -20,6 +20,7 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import application.ApplicationMethods;
 import uk.ac.qub.objects.Lecture;
 import uk.ac.qub.sql.SQL;
 
@@ -105,7 +106,7 @@ public class PDF {
 	private void addMetaData(Document document) {
 		document.addTitle("Tutorial List");
 		document.addKeywords("Java, PDF, iText");
-		document.addAuthor("Admin name");
+		document.addAuthor(ApplicationMethods.CurrentUser.getName());
 		document.addCreator("Calum Hurst");
 	}
 	

@@ -1,4 +1,7 @@
 package uk.ac.qub.churst;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 
@@ -10,8 +13,13 @@ public class Test {
 
 	public static void main(String[] args) {
 		
-		System.out.println(ApplicationMethods.dtf.format(LocalDate.now()));
-		
+		try {
+   	     if (Desktop.isDesktopSupported()) {
+   	       Desktop.getDesktop().open(new File("StandardStudentList.csv"));
+   	     }
+   	   } catch (IOException ioe) {
+   	     ioe.printStackTrace();
+   	  }
 		
 		
 	}
