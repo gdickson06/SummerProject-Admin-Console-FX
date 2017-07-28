@@ -28,7 +28,8 @@ public class Login extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		primaryStage.setTitle("Java FX Example");
-
+		
+		//adding gridpane
 		GridPane grid = new GridPane();
 		grid.setAlignment(Pos.CENTER);
 		grid.setHgap(10);
