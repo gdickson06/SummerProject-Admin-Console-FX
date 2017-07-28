@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox prefHeight="800.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.SettingsController">
+   <children>
+      <AnchorPane prefHeight="801.0" prefWidth="800.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="249.0" layoutX="28.0" layoutY="25.0" stroke="BLACK" strokeType="INSIDE" width="733.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#107ee4" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <TextField fx:id="DefaultSave" layoutX="194.0" layoutY="311.0" prefHeight="25.0" prefWidth="361.0" />
+            <Label layoutX="28.0" layoutY="315.0" text="Default Save Location" />
+            <Button layoutX="613.0" layoutY="311.0" mnemonicParsing="false" onAction="#ChangeLocation" text="Change" />
+            <Button layoutX="616.0" layoutY="231.0" mnemonicParsing="false" onAction="#ChangePW" text="Change Password" />
+            <TextField fx:id="OldPW" layoutX="187.0" layoutY="60.0" />
+            <TextField fx:id="NewPW" layoutX="187.0" layoutY="116.0" />
+            <TextField fx:id="Repeat" layoutX="187.0" layoutY="172.0" />
+            <Label layoutX="42.0" layoutY="64.0" text="Old Password" />
+            <Label layoutX="42.0" layoutY="120.0" text="New Password" />
+            <Label layoutX="42.0" layoutY="176.0" text="Repeat New Password" />
+            <Label layoutX="599.0" layoutY="64.0" text="Change Password" />
+            <Button layoutX="694.0" layoutY="311.0" mnemonicParsing="false" onAction="#Home" text="Home" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

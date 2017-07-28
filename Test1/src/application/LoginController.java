@@ -38,7 +38,7 @@ public class LoginController {
     @FXML
     void Login(ActionEvent event) throws Exception {
     	Staff user = StaffSQL.login(UsernameText.getText(), PasswordText.getText());
-    	
+    	ApplicationMethods.CurrentUser = user;
     	if(user instanceof Coordinator){
     		GeneralMethods.show("Course coordinator funcationality will be in a future update", "Warning");
     		UsernameText.setText("");
