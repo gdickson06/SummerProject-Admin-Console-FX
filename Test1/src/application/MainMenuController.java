@@ -254,7 +254,10 @@ public class MainMenuController {
 		}
     }
     
-    
+    @FXML
+    void GeneralNotes(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("GeneralNotes");
+    }
 
     @FXML
     void Help(ActionEvent event) {

@@ -1,5 +1,8 @@
 package uk.ac.qub.churst;
 import java.sql.SQLException;
+import java.time.LocalDate;
+
+import application.ApplicationMethods;
 
 
 
@@ -7,7 +10,7 @@ public class Test {
 
 	public static void main(String[] args) {
 		
-		
+		System.out.println(ApplicationMethods.dtf.format(LocalDate.now()));
 		
 		
 		

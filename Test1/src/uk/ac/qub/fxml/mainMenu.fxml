@@ -78,12 +78,13 @@
             <Button fx:id="staffUploadCSV" layoutX="600.0" layoutY="245.0" mnemonicParsing="false" onAction="#staffUploadCSVButton" text="Upload CSV" />
             <Button fx:id="StaffAmendDelete" layoutX="600.0" layoutY="295.0" mnemonicParsing="false" onAction="#StaffAmendDelete" text="Amend &amp; Delete" />
             <Button fx:id="UploadSingleStaff" layoutX="600.0" layoutY="348.0" mnemonicParsing="false" onAction="#UploadSingleStaff" text="Upload Single" />
-            <Button fx:id="Help" layoutX="611.0" layoutY="509.0" mnemonicParsing="false" onAction="#Help" text="Help" />
+            <Button fx:id="Help" layoutX="631.0" layoutY="509.0" mnemonicParsing="false" onAction="#Help" text="Help" />
             <Label layoutX="33.0" layoutY="395.0" text="Notes" />
             <Button fx:id="Lectures" layoutX="9.0" layoutY="427.0" mnemonicParsing="false" onAction="#LectureNotes" text="Lectures" />
             <Button fx:id="Practicals" layoutX="9.0" layoutY="467.0" mnemonicParsing="false" onAction="#PracticalNotes" text="Practicals" />
-            <Label layoutX="585.0" layoutY="431.0" text="Personal" />
-            <Button fx:id="ChangePassword" layoutX="582.0" layoutY="467.0" mnemonicParsing="false" onAction="#ChangePassword" text="Change Password" />
+            <Label layoutX="623.0" layoutY="431.0" text="Personal" />
+            <Button fx:id="ChangePassword" layoutX="625.0" layoutY="467.0" mnemonicParsing="false" onAction="#ChangePassword" text="Settings" />
+            <Button layoutX="9.0" layoutY="509.0" mnemonicParsing="false" onAction="#GeneralNotes" text="General Notes" />
       </children>
     </AnchorPane>
   </children>
