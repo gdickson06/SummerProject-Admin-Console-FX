@@ -29,7 +29,7 @@ public class Login extends Application {
 	public void start(Stage primaryStage) {
 		primaryStage.setTitle("Java FX Example");
 		
-		//adding grid pane to FXML
+		//adding grid pane to FXML file for Login
 		GridPane grid = new GridPane();
 		grid.setAlignment(Pos.CENTER);
 		grid.setHgap(10);
