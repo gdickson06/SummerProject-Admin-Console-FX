@@ -77,8 +77,8 @@ public class UploadSingleUserController {
     		attributes.remove(4);
     		CoordinatorSQL.UploadSingleCoordinator(attributes);
     	} else {
-    		attributes.remove(3);
-    		attributes.remove(4);
+    		attributes.remove(5);
+    		attributes.remove(2);
     		StaffSQL.UploadSingleUser(attributes);
     	}
     }

@@ -3,6 +3,8 @@ package uk.ac.qub.sql;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 import uk.ac.qub.objects.Coordinator;
@@ -95,10 +97,47 @@ public class StaffSQL {
 
 		PreparedStatement statement = null;
 
-		String Statement = "INSERT INTO staff " + "VALUES ('" + s.get(0) + "', '" + s.get(1) + "', '" + s.get(2) + "', '" +s.get(3)
+		String Statement = "INSERT INTO staff " + "VALUES ('" + s.get(0) + "', '" + s.get(1) + "', '" + s.get(3) + "', '" +s.get(2)
 				+ "')";
+		
+		System.out.println(Statement);
 		statement = connection.prepareStatement(Statement);
 		statement.executeUpdate();
+		
+		connection.close();
 
+	}
+	
+	public static Staff login (String Username, String Password) throws SQLException, ClassNotFoundException{
+	
+		
+		Staff answer = null;
+
+	
+		
+		String statement = "select * from staff WHERE StaffNumber = "+Username+" AND Password ='"+Password+"'";
+		ResultSet results = SQL.SQLstatements(statement);
+		
+		System.out.println(statement);
+		
+		try{
+			results.next();
+			answer= new User(results.getString("Name"),results.getString("StaffNumber"),results.getString("Password"),results.getString("Type"));
+		} catch (Exception e){
+			
+		}
+		
+		String statement2 = "select * from course_coordinator WHERE Username = "+Username+" AND Password ='"+Password+"'";
+		ResultSet results2 = SQL.SQLstatements(statement2);
+		System.out.println(statement2);
+		try{
+		results2.next();
+		System.out.println(results2.getString("Name"));
+		answer = new Coordinator(results2.getString("Name"),results2.getString("Username"),results2.getString("Password"),results2.getString("Module"),results2.getString("Email"));
+		} catch (Exception e){
+			
+		}
+		
+		return answer;
 	}
 }

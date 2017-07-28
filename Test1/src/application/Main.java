@@ -25,7 +25,7 @@ public class Main extends Application {
 		FXMLLoader loader = new FXMLLoader();
 		
 		//Creating path to the FXML File
-		String fxmlDocPath = "src/uk/ac/qub/fxml/mainMenu.fxml";
+		String fxmlDocPath = "src/uk/ac/qub/fxml/LoginPage.fxml";
 		FileInputStream fxmlStream = new FileInputStream(fxmlDocPath);
 		
 		//Creating the Pane and all Details
