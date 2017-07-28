@@ -6,11 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javafx.scene.control.ComboBox;
+import uk.ac.qub.objects.Staff;
 
 public class ApplicationMethods {
 	
 
-
+public static Staff CurrentUser;
 
 public static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
