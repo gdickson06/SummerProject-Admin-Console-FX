@@ -74,7 +74,7 @@ public class Login extends Application {
 
 		Scene scene = new Scene(grid, 800, 400);
 		primaryStage.setScene(scene);
-		scene.getStylesheets().add(Login.class.getResource("/Login.css").toExternalForm());
+		scene.getStylesheets().add(Login.class.getResource("Login.css").toExternalForm());
 		primaryStage.show();
 	}
 
