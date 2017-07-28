@@ -140,4 +140,22 @@ public class StaffSQL {
 		
 		return answer;
 	}
+	public static void changePassword(String username, String newPassword) throws ClassNotFoundException, SQLException{
+		Class.forName("com.mysql.jdbc.Driver");
+		
+		//Creating a connection with the database below
+		Connection connection = DriverManager.getConnection(SQL.url, SQL.user, SQL.password);
+		//creating prepared statement
+		PreparedStatement preparedStatement = null;
+		//creating statement to pass through preparedStatement containing our SQL query
+		String statement = "UPDATE staff SET Password = '"+newPassword+"' WHERE StaffNumber ="+username+";";
+		//printing the statement to console for testing purposes
+		System.out.println(statement);
+		//passing string SQL query into the prepared statement
+		preparedStatement = connection.prepareStatement(statement);
+		//executing preparedStatement with executeUpdate method (SQL Query essentially is being executed)
+		preparedStatement.executeUpdate();
+		connection.close();
+	}
+	
 }

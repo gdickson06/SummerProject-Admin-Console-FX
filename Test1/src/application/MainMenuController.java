@@ -275,8 +275,8 @@ public class MainMenuController {
     }
 
     @FXML
-    void ChangePassword(ActionEvent event) {
-
+    void ChangePassword(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("Settings");
     }
 
     @FXML

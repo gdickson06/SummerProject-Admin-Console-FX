@@ -1,5 +1,6 @@
 package application;
 
+import java.io.File;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
@@ -14,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import uk.ac.qub.churst.FileWriter;
 import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.churst.PDF;
 import uk.ac.qub.objects.Lecture;
@@ -83,18 +85,23 @@ public class CreatePDFController {
 
     @FXML
     void GeneratePDF(ActionEvent event) throws SQLException {
+    	File f = new File ("SaveInfo.txt");
+    	if(f.exists()){
     	try{
     	if(selectedLecture!=null){
+    		System.out.println("TESTING");
     	PDF pdf = new PDF(selectedLecture);
-    	pdf.setLocation(SaveLocation.getText().replace("\\" , "/"));
+    	pdf.setLocation(FileWriter.load());
     	pdf.create();
-    	GeneralMethods.show("PDF created at " + SaveLocation.getText(),"Success");
+    	GeneralMethods.show("PDF created at " + FileWriter.load(),"Success");
     	}
     	} catch (Exception e){
     		GeneralMethods.show(e.getLocalizedMessage(),"Error");
     	}
     	
-    	
+    	} else {
+    		GeneralMethods.show("No save location specified go to setttings to specify", "Error");
+    	}
     }
 
     @FXML
