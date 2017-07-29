@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import javafx.scene.control.ProgressBar;
 import uk.ac.qub.churst.ConvertGroup;
 import uk.ac.qub.objects.GroupsCon;
 import uk.ac.qub.objects.Lecture;
@@ -182,7 +183,7 @@ public class SQL {
 		return modules;
 	}
 
-	public static void GroupsToGroup (List<Lecture> lectures)throws Exception{
+	public static void GroupsToGroup (List<Lecture> lectures, ProgressBar p)throws Exception{
 		//Using the JDBC driver
 				try {
 					Class.forName("com.mysql.jdbc.Driver");
@@ -193,8 +194,9 @@ public class SQL {
 				//Creating a connection with 
 				Connection connection = DriverManager.getConnection(url, user, password);
 				
-				Set<GroupsCon> set = new HashSet<GroupsCon>();
 				
+				Set<GroupsCon> set = new HashSet<GroupsCon>();
+				int progress = set.size();
 				for(Lecture l:lectures){
 					List<String> group = new ArrayList<String>();
 					try{
@@ -212,7 +214,9 @@ public class SQL {
 						
 
 					}
+					progress--;
 					
+					p.setProgress(0.7+((set.size()-progress)/set.size())*0.3);
 				}
 				//
 				PreparedStatement statement=null;

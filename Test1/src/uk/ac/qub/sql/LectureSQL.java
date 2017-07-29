@@ -8,13 +8,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.scene.control.ProgressBar;
 import uk.ac.qub.churst.ConvertGroup;
 import uk.ac.qub.objects.Lecture;
 
 public class LectureSQL {
 
 
-	public static void saveSQLLecture(List<Lecture> lectures) throws Exception {
+	public static void saveSQLLecture(List<Lecture> lectures, String Year, ProgressBar p) throws Exception {
 		
 		// Using the JDBC driver
 		try {
@@ -27,7 +28,7 @@ public class LectureSQL {
 		Connection connection = DriverManager.getConnection(SQL.url, SQL.user, SQL.password);
 
 		PreparedStatement statement = null;
-
+		int progress = lectures.size();
 		for (Lecture l : lectures) {
 			int week = l.getWeek();
 			String day = l.getDay();
@@ -50,10 +51,10 @@ public class LectureSQL {
 			String statements = null;
 			try {
 				ConvertGroup.convert(groups);
-				statements = "INSERT INTO lectures (Week, Day, StartDate, StartTime, EndTime, Groups, Location, Subject, Theme, Teaching, Description, Staff, Style, Module)"
+				statements = "INSERT INTO lectures (Week, Day, StartDate, StartTime, EndTime, Groups, Location, Subject, Theme, Teaching, Description, Staff, Style, Module, Year)"
 						+ "VALUES (" + week + ", '" + day + "', " + startDate + ", '" + startTime + "','" + endTime
 						+ "', '" + groups + "', '" + location + "', '" + subject + "', '" + theme + "', '" + format
-						+ "', '" + description + "', '" + staff + "', '" + style + "', '" + module + "');";
+						+ "', '" + description + "', '" + staff + "', '" + style + "', '" + module + "', '" + Year+"');";
 
 				System.out.println(statements);
 				statement = connection.prepareStatement(statements);
@@ -63,9 +64,10 @@ public class LectureSQL {
 				System.err.println("Issue with groups, please check the syntax for week" + l.getWeek() + " day "
 						+ l.getDay() + " startTime " + l.getStartTime() + " the groups input is " + l.getGroup());
 			}
-
+			progress--;
+			p.setProgress((lectures.size()-progress)*0.7);
 		}
-		SQL.GroupsToGroup(lectures);
+		SQL.GroupsToGroup(lectures, p);
 	}
 	
 

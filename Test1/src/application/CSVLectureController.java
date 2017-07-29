@@ -7,6 +7,7 @@ import java.util.List;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import uk.ac.qub.churst.CSV;
@@ -16,6 +17,11 @@ import uk.ac.qub.sql.LectureSQL;
 
 
 public class CSVLectureController {
+	   @FXML
+	    private ProgressBar Progress;
+
+	    @FXML
+	    private TextField Year;
 
     @FXML
     private Button Cancel;
@@ -51,7 +57,7 @@ public class CSVLectureController {
 		boolean error = false;
 		try {
 			lectureList = CSV.readLecturesFromCSV(s);
-			LectureSQL.saveSQLLecture(lectureList);
+			LectureSQL.saveSQLLecture(lectureList,Year.getText(),Progress);
 		} catch (Exception e) {
 			GeneralMethods.show("Issue with input please view the handbook", "ERROR");
 			error = true;
