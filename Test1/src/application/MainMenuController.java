@@ -260,8 +260,8 @@ public class MainMenuController {
     }
 
     @FXML
-    void Help(ActionEvent event) {
-
+    void Help(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("Help");
     }
 
     @FXML

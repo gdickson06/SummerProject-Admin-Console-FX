@@ -95,20 +95,7 @@ public class ConvertGroup {
 	
 	
 	
-	public static void MyLecturesWeek (String StudentNumber,int Week){
-		List<Student> student = SearchQueries.searchStudent(1,StudentNumber);
-		
-		Student s = student.get(0);
-		System.out.println("Hello "+s.getName());
-		System.out.println("Intake Year : " + s.getIntakeYear());
-		List<Lecture> tests = SQL.myLectures(s.getFirstGroup());
-		for(Lecture l:  tests){
-			if(Week==l.getWeek()){
-			System.out.println(l.toString());
-			}
-		}
-		
-	}
+
 	
 public static String timeConvert(String time){
 		try {

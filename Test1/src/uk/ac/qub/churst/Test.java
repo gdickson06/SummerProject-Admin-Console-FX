@@ -4,8 +4,13 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import application.ApplicationMethods;
+import uk.ac.qub.objects.Absence;
+import uk.ac.qub.objects.ExtendedAbsence;
 
 
 
@@ -13,16 +18,26 @@ public class Test {
 
 	public static void main(String[] args) {
 		
-		try {
-   	     if (Desktop.isDesktopSupported()) {
-   	       Desktop.getDesktop().open(new File("StandardStudentList.csv"));
-   	     }
-   	   } catch (IOException ioe) {
-   	     ioe.printStackTrace();
-   	  }
-		
-		
+	ExtendedAbsence ea = new ExtendedAbsence();
+	
+	
+	List <Absence> a = new ArrayList<>();
+	try {
+		a = AbsenceTrends.filteredAbsence(ea);
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
 	}
+		System.out.println(a.size());
+		Map<String, Double> i=AbsenceTrends.DayTrend(a);
+		
+		for(Map.Entry<String, Double> e: i.entrySet()){
+			System.out.println(e.getKey() +" : " +e.getValue());
+		}
+		
+		AbsenceTrends.DateTrend(a);
+	}
+	
 	
 	public static void timeConvert(String time){
 		

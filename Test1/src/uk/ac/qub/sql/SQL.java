@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.InputMismatchException;
@@ -28,7 +29,7 @@ public class SQL {
 	protected static String url = "jdbc:mysql://qub.cjw92whe4wuf.eu-west-2.rds.amazonaws.com:3306/med?autoReconnect=true&useSSL=false&allowMultiQueries=true";
 
 
-	public static List<Lecture> myLectures(String group) {
+	public static List<Lecture> myLectures(String group, LocalDate Date) {
 		List<Lecture> mine = null;
 
 		try {
@@ -40,7 +41,7 @@ public class SQL {
 			// creating the SQL query selecting all information from the fixture
 			// table in the DB
 			String SqlQuery;
-			SqlQuery = "SELECT * FROM lectures";
+			SqlQuery = "SELECT * FROM lectures WHERE StartDate = '"+ Date +"';";
 			Statement statement = connection.createStatement();
 
 			/*
