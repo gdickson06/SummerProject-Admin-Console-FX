@@ -43,6 +43,33 @@ public class AbsenceTrends {
 	 * @return
 	 * @throws SQLException
 	 */
+	
+	public static List<Absence> unfilteredAbsence(){
+		ResultSet r;
+
+		List<Absence> absences = new ArrayList<Absence>();
+		String statement = "SELECT * FROM absences";
+		r = SQL.SQLstatements(statement);
+
+		try {
+			if (r.next()) {
+
+				do {
+					Absence a = new Absence(r.getInt("id"), r.getInt("StudentNumber"), r.getInt("LectureID"),
+							r.getString("StartDate"), r.getString("EndDate"), r.getString("StartTime"),
+							r.getString("EndTime"), r.getString("Reason"), r.getString("Type"),
+							r.getBoolean("Approved"));
+
+					absences.add(a);
+				} while (r.next());
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return absences;
+	}
 	public static List<Absence> filteredAbsence(ExtendedAbsence ea) throws SQLException {
 		ResultSet r;
 
@@ -390,10 +417,11 @@ public class AbsenceTrends {
 		s.addAll(years);
 
 		for (String year : s) {
-			data.put(year, (double) Collections.frequency(years, year));
+			data.put("Year " +String.valueOf(ConvertMethods.DeconvertYear(Integer.parseInt(year))), (double) Collections.frequency(years, year));
 		}
-		// Need to amend this as it doesnt count 0 days
-		double average = absences.size() / s.size();
+		System.out.println(absences.size());
+		double average = (double)(absences.size())/5;
+		System.out.println(average);
 		data.put("Average", average);
 
 		return data;

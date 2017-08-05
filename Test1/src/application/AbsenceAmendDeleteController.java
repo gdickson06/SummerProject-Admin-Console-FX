@@ -15,7 +15,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import uk.ac.qub.churst.ConvertGroup;
+import uk.ac.qub.churst.ConvertMethods;
 import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.objects.Absence;
 import uk.ac.qub.sql.SearchQueries;
@@ -95,7 +95,7 @@ public class AbsenceAmendDeleteController {
     void StartTimeSearch(ActionEvent event) {
     	
     	
-    	List<Absence> searched = SearchQueries.searchAbsence(3, ConvertGroup.TimeConvertSQL(StartTime.getText()));
+    	List<Absence> searched = SearchQueries.searchAbsence(3, ConvertMethods.TimeConvertSQL(StartTime.getText()));
 		ObservableList<Absence> list = FXCollections.observableArrayList();
 		list.addAll(searched);
 		ListAbsence.setItems(list);
@@ -104,7 +104,7 @@ public class AbsenceAmendDeleteController {
     @FXML
     void EndTimeSearch(ActionEvent event) {
     	
-    	List<Absence> searched = SearchQueries.searchAbsence(6, ConvertGroup.TimeConvertSQL(StartTime.getText()));
+    	List<Absence> searched = SearchQueries.searchAbsence(6, ConvertMethods.TimeConvertSQL(StartTime.getText()));
 		ObservableList<Absence> list = FXCollections.observableArrayList();
 		list.addAll(searched);
 		ListAbsence.setItems(list);

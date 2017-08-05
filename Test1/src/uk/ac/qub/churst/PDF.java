@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.itextpdf.text.Anchor;
 import com.itextpdf.text.BadElementException;
+import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Chapter;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -32,6 +33,8 @@ public class PDF {
 	private Lecture l;
 	private static Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 18,
             Font.BOLD);
+	private static Font IDFont = new Font(Font.FontFamily.HELVETICA, 30,
+            Font.BOLDITALIC,BaseColor.RED);
 
 
 	public PDF(Lecture l) {
@@ -61,12 +64,13 @@ public class PDF {
 		
 		String groupName = l.getGroup();
 
-		List<String> groups = ConvertGroup.convert(groupName);
+		List<String> groups = ConvertMethods.convert(groupName);
 
 		for (String group : groups) {
-			String statement2 = "Select * from students where  Cohort='" + group + "'";
-
-			ResultSet students = SQL.SQLstatements(statement2);
+			
+			String statement = "Select * from students where  Cohort='" + group + "' AND IntakeYear =" +ConvertMethods.ConvertYear(Integer.parseInt(l.getYear()));
+			System.out.println(statement);
+			ResultSet students = SQL.SQLstatements(statement);
 
 			while (students.next()) {
 				cohorts.add(students.getString("Cohort"));
@@ -131,6 +135,7 @@ public class PDF {
         c1.setHorizontalAlignment(Element.ALIGN_CENTER);
         table.addCell(c1);
         table.setHeaderRows(1);
+        
         for(int i=0; i<names.size();i++){
         table.addCell(cohorts.get(i));
         table.addCell(names.get(i));
@@ -143,7 +148,7 @@ public class PDF {
 
 	private void addContent(Document document) throws DocumentException {
 		Anchor anchor = new Anchor(beginning.get(0), catFont);
-        anchor.setName("First Chapter");
+       
 
         // Second parameter is the number of the chapter
         Chapter catPart = new Chapter(new Paragraph(anchor),0);
@@ -153,7 +158,7 @@ public class PDF {
         Section subCatPart = catPart.addSection(subPara);
        subCatPart.setNumberDepth(0);
 
-        
+        subCatPart.add(new Phrase(("ID : " + l.getId()),IDFont));
 		for (int i =2; i<beginning.size();i++) {
 			subCatPart.add(new Paragraph (beginning.get(i)));
 			

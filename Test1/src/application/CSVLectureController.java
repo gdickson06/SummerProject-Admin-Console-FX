@@ -74,5 +74,11 @@ public class CSVLectureController {
     void Cancel(ActionEvent event) throws Exception{
     	GeneralMethods.ChangeScene("MainMenu");
     }
+    
+    @FXML
+    void DeleteAll(ActionEvent event) throws Exception {
+    	LectureSQL.DeleteLectureYear(Year.getText());
+    	GeneralMethods.show("ALL LECTURES DELETED", "ALL LECTURES DELETED");
+    }
 
 }

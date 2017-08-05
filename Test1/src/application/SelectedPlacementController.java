@@ -12,7 +12,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import uk.ac.qub.churst.ConvertGroup;
+import uk.ac.qub.churst.ConvertMethods;
 import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.objects.Placement;
 import uk.ac.qub.sql.PlacementSQL;

@@ -14,7 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import uk.ac.qub.churst.ConvertGroup;
+import uk.ac.qub.churst.ConvertMethods;
 import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.objects.Lecture;
 import uk.ac.qub.sql.SQL;
@@ -123,7 +123,7 @@ List<Lecture> searched = SearchQueries.searchLecture(6, Module.getValue());
 
     @FXML
     void DateSearch(ActionEvent event) {
-	List<Lecture> searched = SearchQueries.searchLecture(3, ConvertGroup.DateConvertSQL(DateText.getText()));
+	List<Lecture> searched = SearchQueries.searchLecture(3, ConvertMethods.DateConvertSQL(DateText.getText()));
 		ObservableList<Lecture> list = FXCollections.observableArrayList();
 		list.addAll(searched);
 		ListOfLectures.setItems(list);

@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import application.Main;
 import uk.ac.qub.objects.Coordinator;
 import uk.ac.qub.objects.Staff;
 import uk.ac.qub.objects.User;
@@ -19,9 +20,7 @@ public class StaffSQL {
 	 */
 			
 	public static void saveSQLUsers(List<Staff> users) throws Exception {
-		Class.forName("com.mysql.jdbc.Driver");
 
-	Connection connection = DriverManager.getConnection(SQL.url, SQL.user, SQL.password);
 
 		PreparedStatement statement = null;
 		String newStatement = null;
@@ -42,7 +41,7 @@ public class StaffSQL {
 					
 				}
 				
-				statement = connection.prepareStatement(newStatement);
+				statement = Main.connection.prepareStatement(newStatement);
 				statement.executeUpdate();
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -53,47 +52,37 @@ public class StaffSQL {
 
 	}
 	public static void amendUser(List<String> s, Boolean b) throws Exception {
-		Class.forName("com.mysql.jdbc.Driver");
-
-		// Creating a connection with
-		Connection connection = DriverManager.getConnection(SQL.url, SQL.user, SQL.password);
+	
 		String Statement;
 		PreparedStatement statement = null;
 		if(b){
 		 Statement = "UPDATE staff SET Name ='" + s.get(1) + "', Password='" + s.get(3)+ "', Type='" + s.get(5) + "'" + " WHERE StaffNumber = "
 				+ s.get(0) + ";";
 		System.out.println(Statement);
-		statement = connection.prepareStatement(Statement);
+		statement = Main.connection.prepareStatement(Statement);
 		statement.executeUpdate();
 		} else {
 			System.out.println("POWER ON");
 			Statement = "INSERT INTO course_coordinator " + "VALUES ('" + s.get(0) + "', '" + s.get(1) + "', '" + s.get(2) + "', '" +s.get(3)
 			+ "', '"+s.get(4)+"')";
-			statement = connection.prepareStatement(Statement);
+			statement = Main.connection.prepareStatement(Statement);
 			statement.executeUpdate();
-			PreparedStatement ps = connection.prepareStatement("DELETE FROM staff WHERE StaffNumber =" + s.get(0));
+			PreparedStatement ps = Main.connection.prepareStatement("DELETE FROM staff WHERE StaffNumber =" + s.get(0));
 			ps.executeUpdate();
 		}
 	}
 	
 
 	public static void DeleteUser(String name) throws Exception {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection c = DriverManager.getConnection(SQL.url, SQL.user, SQL.password);
-		PreparedStatement ps = c.prepareStatement("DELETE FROM staff WHERE StaffNumber =" + name);
+	
+		PreparedStatement ps = Main.connection.prepareStatement("DELETE FROM staff WHERE StaffNumber =" + name);
 		ps.executeUpdate();
 	}
 	
 	
 	
 	public static void UploadSingleUser(List<String> s) throws Exception {
-		// This will be in the order of the name,group,email,year.
-		// Using the JDBC driver
-
-		Class.forName("com.mysql.jdbc.Driver");
-
-		// Creating a connection with
-		Connection connection = DriverManager.getConnection(SQL.url, SQL.user, SQL.password);
+	
 
 		PreparedStatement statement = null;
 
@@ -101,10 +90,10 @@ public class StaffSQL {
 				+ "')";
 		
 		System.out.println(Statement);
-		statement = connection.prepareStatement(Statement);
+		statement = Main.connection.prepareStatement(Statement);
 		statement.executeUpdate();
 		
-		connection.close();
+	
 
 	}
 	
@@ -141,10 +130,7 @@ public class StaffSQL {
 		return answer;
 	}
 	public static void changePassword(String username, String newPassword) throws ClassNotFoundException, SQLException{
-		Class.forName("com.mysql.jdbc.Driver");
-		
-		//Creating a connection with the database below
-		Connection connection = DriverManager.getConnection(SQL.url, SQL.user, SQL.password);
+	
 		//creating prepared statement
 		PreparedStatement preparedStatement = null;
 		//creating statement to pass through preparedStatement containing our SQL query
@@ -152,10 +138,10 @@ public class StaffSQL {
 		//printing the statement to console for testing purposes
 		System.out.println(statement);
 		//passing string SQL query into the prepared statement
-		preparedStatement = connection.prepareStatement(statement);
+		preparedStatement = Main.connection.prepareStatement(statement);
 		//executing preparedStatement with executeUpdate method (SQL Query essentially is being executed)
 		preparedStatement.executeUpdate();
-		connection.close();
+		
 	}
 	
 }

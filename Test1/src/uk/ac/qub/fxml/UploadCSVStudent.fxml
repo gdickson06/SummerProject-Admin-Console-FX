@@ -57,6 +57,7 @@
             <Button fx:id="cancelStudentMenu" layoutX="461.0" layoutY="103.0" mnemonicParsing="false" onAction="#cancelButton" text="Cancel" />
             <TextField fx:id="Year" layoutX="104.0" layoutY="103.0" />
             <Label layoutX="28.0" layoutY="107.0" text="Year" />
+            <Button layoutX="269.0" layoutY="212.0" mnemonicParsing="false" onAction="#DeleteYear" text="DELETE ALL FOR YEAR" />
       </children>
     </AnchorPane>
   </children>

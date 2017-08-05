@@ -14,6 +14,7 @@ public class ApplicationMethods {
 
 public static Staff CurrentUser;
 
+
 public static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
 	protected static void AbsenceTypes(ComboBox<String> Type) {

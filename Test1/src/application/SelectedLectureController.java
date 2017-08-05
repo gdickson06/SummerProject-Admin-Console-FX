@@ -11,7 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import uk.ac.qub.churst.ConvertGroup;
+import uk.ac.qub.churst.ConvertMethods;
 import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.objects.Lecture;
 
@@ -92,7 +92,7 @@ public class SelectedLectureController {
 		attributes.add(Integer.toString(l.getId()));
 		attributes.add(WeekText.getText());
 		attributes.add(DayText.getText());
-		attributes.add(ConvertGroup.DateConvertSQL(StartDateText.getText()));
+		attributes.add(ConvertMethods.DateConvertSQL(StartDateText.getText()));
 		attributes.add(StartTimeText.getText());
 		attributes.add(EndTimeText.getText());
 		attributes.add(GroupsText.getText());

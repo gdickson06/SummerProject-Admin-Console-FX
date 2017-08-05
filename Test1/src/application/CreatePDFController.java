@@ -63,7 +63,7 @@ public class CreatePDFController {
     void LectureClick(MouseEvent event) {
     	if(event.getClickCount()==2){
       		 selectedLecture=Lectures.getSelectionModel().getSelectedItem();
-      		 System.out.println("clicked on " + selectedLecture);
+      		
       		 LectureInfo.setText(selectedLecture.toString());
        	}
     }
@@ -96,7 +96,7 @@ public class CreatePDFController {
     	GeneralMethods.show("PDF created at " + FileWriter.load(),"Success");
     	}
     	} catch (Exception e){
-    		GeneralMethods.show(e.getLocalizedMessage(),"Error");
+    		e.printStackTrace();
     	}
     	
     	} else {

@@ -210,8 +210,8 @@ public class MainMenuController {
     }
 
     @FXML
-    void AbsenceTrends(ActionEvent event) {
-
+    void AbsenceTrends(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("AbsenceTrends");
     }
 
     @FXML

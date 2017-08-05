@@ -8,14 +8,16 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import application.Main;
 import javafx.scene.control.ProgressBar;
-import uk.ac.qub.churst.ConvertGroup;
+import uk.ac.qub.churst.ConvertMethods;
 import uk.ac.qub.objects.GroupsCon;
 import uk.ac.qub.objects.Lecture;
 import uk.ac.qub.objects.Student;
@@ -24,9 +26,9 @@ import uk.ac.qub.objects.Student;
 public class SQL {
 	protected static String defaultPassword = "pass";
 
-	protected static String user = "jTurkington";
-	protected static String password = "emily1234";
-	protected static String url = "jdbc:mysql://qub.cjw92whe4wuf.eu-west-2.rds.amazonaws.com:3306/med?autoReconnect=true&useSSL=false&allowMultiQueries=true";
+	public static String user = "jTurkington";
+	public static String password = "emily1234";
+	public static String url = "jdbc:mysql://qub.cjw92whe4wuf.eu-west-2.rds.amazonaws.com:3306/med?autoReconnect=true&useSSL=false&allowMultiQueries=true";
 
 
 	public static List<Lecture> myLectures(String group, LocalDate Date) {
@@ -34,15 +36,13 @@ public class SQL {
 
 		try {
 			mine = new ArrayList<Lecture>();
-			Class.forName("com.mysql.jdbc.Driver");
-
-			Connection connection = DriverManager.getConnection(url, user, password);
+		
 
 			// creating the SQL query selecting all information from the fixture
 			// table in the DB
 			String SqlQuery;
 			SqlQuery = "SELECT * FROM lectures WHERE StartDate = '"+ Date +"';";
-			Statement statement = connection.createStatement();
+			Statement statement = Main.connection.createStatement();
 
 			/*
 			 * Creating an instance of the ResultSet class to go through the
@@ -62,13 +62,13 @@ public class SQL {
 			}
 
 			for (Lecture l : lectures) {
-				List<String> groups = ConvertGroup.convert(l.getGroup());
+				List<String> groups = ConvertMethods.convert(l.getGroup());
 				if (groups.contains(group)) {
 					mine.add(l);
 				}
 			}
 
-		} catch (ClassNotFoundException | SQLException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -84,17 +84,18 @@ public class SQL {
 	 */
 	public static ResultSet SQLstatements(String statementName) {
 		ResultSet results = null;
-		try {
+		
 
-			Class.forName("com.mysql.jdbc.Driver");
-
-			Connection connection = DriverManager.getConnection(url, user, password);
+	
+	
+try{
+	
 
 			// creating the SQL query selecting all information from the fixture
 			// table in the DB
 			String SqlQuery;
 			SqlQuery = statementName;
-			Statement statement = connection.createStatement();
+			Statement statement = Main.connection.createStatement();
 
 			/*
 			 * Creating an instance of the ResultSet class to go through the
@@ -103,12 +104,12 @@ public class SQL {
 			 */
 
 			results = statement.executeQuery(SqlQuery);
-
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Error");
 		}
-
+	
 		return results;
 	}
 
@@ -128,7 +129,7 @@ public class SQL {
 		lecture.next();
 		String groupName = lecture.getString("Groups");
 
-		List<String> groups = ConvertGroup.convert(groupName);
+		List<String> groups = ConvertMethods.convert(groupName);
 
 		for (String group : groups) {
 			String statement2 = "Select * from students where  Cohort='" + group + "'";
@@ -159,6 +160,31 @@ public class SQL {
 		return output;
 	}
 	
+	public static Set<String> Staff (){
+		Set<String> staff = new TreeSet<String>();
+		
+		
+		ResultSet r = SQLstatements("select Staff from lectures");
+		
+		try {
+			if (r.next()) {
+
+				do {
+					staff.addAll(Arrays.asList(r.getString("Staff").split("/")));
+				} while (r.next());
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		for(String s: staff){
+			System.out.println(s);
+		}
+		return staff;
+	}
+	
 	public static Set<String> Modules (){
 		Set<String> modules = new TreeSet<String>();
 		
@@ -185,15 +211,8 @@ public class SQL {
 	}
 
 	public static void GroupsToGroup (List<Lecture> lectures, ProgressBar p)throws Exception{
-		//Using the JDBC driver
-				try {
-					Class.forName("com.mysql.jdbc.Driver");
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
 
-				//Creating a connection with 
-				Connection connection = DriverManager.getConnection(url, user, password);
+	
 				
 				
 				Set<GroupsCon> set = new HashSet<GroupsCon>();
@@ -201,7 +220,7 @@ public class SQL {
 				for(Lecture l:lectures){
 					List<String> group = new ArrayList<String>();
 					try{
-					group = ConvertGroup.convert(l.getGroup());
+					group = ConvertMethods.convert(l.getGroup());
 					} catch (InputMismatchException e){
 						e.printStackTrace();
 					}
@@ -227,7 +246,7 @@ public class SQL {
 				try {
 					
 					statements="INSERT INTO groupConvert " + "VALUES ('" + g.getGroups() + "', '" + g.getCohort() + "')";
-					statement=connection.prepareStatement(statements);
+					statement=Main.connection.prepareStatement(statements);
 					statement.executeUpdate();
 					
 					System.out.println(g.toString());
@@ -242,14 +261,7 @@ public class SQL {
 	}
 	
 	public static void tutorialListAbsences (Lecture lecture, List<Student> students) throws SQLException{
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-
-		//Creating a connection with 
-		Connection connection = DriverManager.getConnection(url, user, password);
+	
 		
 		List<String> statements = new ArrayList<String>();
 		
@@ -262,13 +274,13 @@ public class SQL {
 		
 		}
 		for (String s: statements){
-			PreparedStatement statement=connection.prepareStatement(s);
+			PreparedStatement statement=Main.connection.prepareStatement(s);
 			statement.executeUpdate();
 			
 			System.out.println(s.toString());
 		}
 		
-		connection.close();
+		
 	}
 
 }

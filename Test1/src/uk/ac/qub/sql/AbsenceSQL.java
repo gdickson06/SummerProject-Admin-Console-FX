@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.util.List;
 
+import application.Main;
+
 public class AbsenceSQL {
 
 	public static void AmendAbsence(List<String> s) throws Exception {
@@ -12,10 +14,7 @@ public class AbsenceSQL {
 		// id,Studentnumber,lectureid,date,starttime,endtime,reason,approved,type
 		// Using the JDBC driver
 
-		Class.forName("com.mysql.jdbc.Driver");
-
-		// Creating a connection with
-		Connection connection = DriverManager.getConnection(SQL.url, SQL.user, SQL.password);
+		
 
 		PreparedStatement statement = null;
 
@@ -24,7 +23,7 @@ public class AbsenceSQL {
 				+ "', EndTime = '" + s.get(6) + "', Reason = '" + s.get(7) + "', Approved = " + s.get(8) + ", Type = '"
 				+ s.get(9) + "' WHERE id = " + s.get(0) + ";";
 		System.out.println(Statement);
-		statement = connection.prepareStatement(Statement);
+		statement = Main.connection.prepareStatement(Statement);
 		statement.executeUpdate();
 
 	}
@@ -38,10 +37,7 @@ public class AbsenceSQL {
 
 	public static void saveSingleAbsence(List<String> absenceDetails) throws Exception {
 		// making a connection to the JDBC Driver
-		Class.forName("com.mysql.jdbc.Driver");
-
-		// making a connection with the Medical Timetable Database
-		Connection connection = DriverManager.getConnection(SQL.url, SQL.user, SQL.password);
+	
 
 		// creating the preparedStatement to be used in the below method
 		PreparedStatement singleAbsenceStatement = null;
@@ -56,7 +52,7 @@ public class AbsenceSQL {
 		// prepared
 		System.out.println(Statement);
 		// assigning the SQL query to the prepareStatement method
-		singleAbsenceStatement = connection.prepareStatement(Statement);
+		singleAbsenceStatement = Main.connection.prepareStatement(Statement);
 		// using the executeUpdate method we now update the database with the
 		// Absence
 		singleAbsenceStatement.executeUpdate();

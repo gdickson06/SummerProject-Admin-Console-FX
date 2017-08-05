@@ -83,6 +83,11 @@ public class UploadCSVPlacementController {
     		}
    
     }
+    @FXML
+    void DeleteYear(ActionEvent event) throws Exception {
+    	PlacementSQL.DeleteYearPlacement(YearTextField.getText());
+    	GeneralMethods.show("DELETED ALL FOR YEAR", "DELETED ALL FOR YEAR");
+    }
 
     @FXML
     void CancelPlacementFileButton(ActionEvent event) throws Exception {

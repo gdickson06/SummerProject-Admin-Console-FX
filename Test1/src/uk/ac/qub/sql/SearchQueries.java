@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import uk.ac.qub.churst.ConvertGroup;
+import uk.ac.qub.churst.ConvertMethods;
 
 import uk.ac.qub.objects.Absence;
 import uk.ac.qub.objects.Coordinator;
@@ -159,7 +159,7 @@ public class SearchQueries {
 			start=false;
 		}
 		
-		if(!lectures.getModule().isEmpty()){
+		if(lectures.getModule()!=null){
 			if(start==false){
 				statement = statement+" AND ";
 			} else {
@@ -206,7 +206,7 @@ public class SearchQueries {
 			} else {
 				statement = statement+" WHERE ";
 			}
-				statement = statement+"StartDate = '"+ConvertGroup.DateConvertSQL(lectures.getStartDate())+"'";
+				statement = statement+"StartDate = '"+ConvertMethods.DateConvertSQL(lectures.getStartDate())+"'";
 		}
 		
 		statement = statement+";";
@@ -224,6 +224,9 @@ public class SearchQueries {
 								results.getString("Theme"), results.getString("Teaching"), 
 								results.getString("Description"), results.getString("Staff"), 
 								results.getString("Style"), results.getString("Module"));
+						
+						l.setId(results.getInt("id"));
+						l.setYear(results.getString("Year"));
 						lectureList.add(l);
 					} while (results.next());
 				}
@@ -431,6 +434,9 @@ public class SearchQueries {
 							r.getString("Groups"), r.getString("Location"), r.getString("Subject"),
 							r.getString("Theme"), r.getString("Teaching"), r.getString("Description"),
 							r.getString("Staff"), r.getString("Style"), r.getString("Module"));
+					
+					l.setId(r.getInt("id"));
+					l.setYear(r.getString("Year"));
 					lectures.add(l);
 				} while (r.next());
 
@@ -632,16 +638,16 @@ public class SearchQueries {
 		return placement;
 		
 	}
-	public static List<Student> studentsInLecture (String cohorts) throws SQLException{
+	public static List<Student> studentsInLecture (String cohorts, int Year) throws SQLException{
 		List<Student> students = new ArrayList<Student>();
 		
 		
 		
 
-		List<String> groups = ConvertGroup.convert(cohorts);
+		List<String> groups = ConvertMethods.convert(cohorts);
 
 		for (String group : groups) {
-			String statement2 = "Select * from students where  Cohort='" + group + "'";
+			String statement2 = "Select * from students where  Cohort='" + group + "' AND IntakeYear =" + ConvertMethods.DeconvertYear(Year);
 
 			ResultSet student = SQL.SQLstatements(statement2);
 //int studentNumber, String name, String firstGroup, String email, int intakeYear

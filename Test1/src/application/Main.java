@@ -4,11 +4,14 @@ package application;
 import java.io.FileInputStream;
 
 import java.io.IOException;
-
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import uk.ac.qub.sql.SQL;
 import javafx.scene.Scene;
 
 import javafx.scene.layout.*;
@@ -17,6 +20,8 @@ import javafx.scene.layout.*;
 
 public class Main extends Application {
 	private static Stage stage;
+	
+	public static Connection connection;
 	
 	@Override
 	public void start(Stage primaryStage) throws IOException {
@@ -36,10 +41,22 @@ public class Main extends Application {
 		//Set the Scene to stage
 		primaryStage.setScene(scene);
 		//setting the title to the stage
-		primaryStage.setTitle("First JavaFX stuff");
+		primaryStage.setTitle("SUPER AMAZIN APP");
 		//displaying the stage
 		primaryStage.show();
 		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			// Creating a connection with
+			connection = DriverManager.getConnection(SQL.url, SQL.user, SQL.password);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 		
 		
 		

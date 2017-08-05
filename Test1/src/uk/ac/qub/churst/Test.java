@@ -17,7 +17,7 @@ import uk.ac.qub.objects.ExtendedAbsence;
 public class Test {
 
 	public static void main(String[] args) {
-		
+		/**
 	ExtendedAbsence ea = new ExtendedAbsence();
 	
 	
@@ -36,6 +36,11 @@ public class Test {
 		}
 		
 		AbsenceTrends.DateTrend(a);
+		
+		*/
+		
+		System.out.println(ConvertMethods.ConvertYear(2016));
+		System.out.println(ConvertMethods.DeconvertYear(3));
 	}
 	
 	

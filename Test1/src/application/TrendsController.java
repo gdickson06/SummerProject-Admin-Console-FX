@@ -1,17 +1,23 @@
 package application;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import uk.ac.qub.churst.AbsenceTrends;
+import uk.ac.qub.objects.Absence;
+import uk.ac.qub.objects.ExtendedAbsence;
 import uk.ac.qub.sql.SQL;
 
 public class TrendsController {
@@ -23,7 +29,7 @@ public class TrendsController {
     private URL location;
 
     @FXML
-    private TextField StudentInfo;
+    private  TextField StudentInfo;
 
     @FXML
     private PieChart TrendPie;
@@ -35,19 +41,19 @@ public class TrendsController {
     private ComboBox<String> DayInfo;
 
     @FXML
-    private TextField CohortInfo;
+    private  TextField CohortInfo;
 
     @FXML
-    private ComboBox<String> ModuleInfo;
+    private  ComboBox<String> ModuleInfo;
 
     @FXML
-    private ComboBox<String> YearInfo;
+    private  ComboBox<String> YearInfo;
 
     @FXML
     private BarChart<String, Double> BarChart;
 
     @FXML
-    private DatePicker DateInfo;
+    private  DatePicker DateInfo;
 
     @FXML
     private ComboBox<String> StaffInfo;
@@ -57,12 +63,39 @@ public class TrendsController {
 
     @FXML
     private ComboBox<String> TypeBox;
+    
 
-   
-
-
-    @FXML
-    void Year(ActionEvent event) {
+    @SuppressWarnings("unchecked")
+	@FXML
+    void Year(ActionEvent event) throws SQLException {
+    	 ExtendedAbsence ea = new ExtendedAbsence();
+  	   
+  	   //ea.setCohort(CohortInfo.getText());
+  	   //if(DateInfo!=null){ea.setDate(DateInfo.getValue().toString());}
+  	   //ea.setDay(DayInfo.getValue());
+  	   //ea.setModule(ModuleInfo.getValue());
+  	   //ea.setStaff(StaffInfo.getValue());
+  	   //ea.setStudentNumber(StudentInfo.getText());
+  	   ea.setType(TypeInfo.getValue());
+  	   //ea.setYear(YearInfo.getValue().substring(5));
+    	TypeBox.setValue("Bar Chart");
+    	
+    	List<Absence> absences = AbsenceTrends.filteredAbsence(ea);
+    	Map<String, Double> map = AbsenceTrends.YearTrends(absences);
+    	
+    	XYChart.Series<String, Double> series1 = new XYChart.Series<>();
+        series1.setName("Year");
+        for (Map.Entry<String, Double> entry : map.entrySet()) {
+            String tmpString = entry.getKey();
+            Double tmpValue = entry.getValue();
+            XYChart.Data<String, Double> d = new XYChart.Data<>(tmpString, tmpValue);
+            System.out.println(d);
+            series1.getData().add(d);
+        }
+        BarChart.setTitle(series1.getName());
+        BarChart.getData().addAll(series1);
+    	BarChart.setVisible(true);
+    	
 
     }
 
@@ -103,6 +136,7 @@ public class TrendsController {
 
     @FXML
     void initialize() {
+    	BarChart.setAnimated(false);
     	
 List<String>types= new ArrayList<String>();
 List<String>days = new ArrayList<String>();
@@ -120,15 +154,15 @@ days.add("WEDNESDAY");
 days.add("THURSDAY");
 days.add("FRIDAY");
     	
-    	types.add("Administrator");
-    	types.add("Module Coordinator");
-    	types.add("Lecturer");
     	
     	TypeInfo.getItems().addAll(types);
     	ModuleInfo.getItems().addAll(SQL.Modules());
     	DayInfo.getItems().addAll(days);
     	YearInfo.getItems().addAll(years);
     	ApplicationMethods.AbsenceTypes(TypeInfo);
+    	StaffInfo.getItems().addAll(SQL.Staff());
+    	TypeBox.getItems().add("Pie Chart");
+    	TypeBox.getItems().add("Bar Chart");
     	
     	
     	

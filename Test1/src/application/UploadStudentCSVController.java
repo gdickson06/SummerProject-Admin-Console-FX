@@ -83,7 +83,11 @@ public class UploadStudentCSVController {
     void cancelButton(ActionEvent event)throws Exception {
 	GeneralMethods.ChangeScene("MainMenu");
 	}
-    
+    @FXML
+    void DeleteYear(ActionEvent event) throws Exception {
+    	StudentSQL.DeleteYearStudent(Year.getText());
+    	GeneralMethods.show("DELETED ALL FOR YEAR", "DELETED ALL FOR YEAR");
+    }
 
     @FXML
     void initialize() {

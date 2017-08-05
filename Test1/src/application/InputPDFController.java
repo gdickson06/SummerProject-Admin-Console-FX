@@ -73,7 +73,7 @@ public class InputPDFController {
 
 		LectureInfo.setText(selectedLecture.toString());
 
-		List<Student> students = SearchQueries.studentsInLecture(selectedLecture.getGroup());
+		List<Student> students = SearchQueries.studentsInLecture(selectedLecture.getGroup(),Integer.parseInt(selectedLecture.getYear()));
 
 		ObservableList<Student> list = FXCollections.observableArrayList();
 		list.addAll(students);

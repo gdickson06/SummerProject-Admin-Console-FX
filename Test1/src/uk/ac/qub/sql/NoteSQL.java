@@ -11,16 +11,14 @@ import java.util.Calendar;
 import java.util.List;
 
 import application.ApplicationMethods;
+import application.Main;
 import uk.ac.qub.objects.Note;
 import uk.ac.qub.objects.Student;
 
 public class NoteSQL {
 
 	public static void amendNote(List<String> list) throws ClassNotFoundException, SQLException{
-		Class.forName("com.mysql.jdbc.Driver");
 		
-		//Creating a connection with the database below
-		Connection connection = DriverManager.getConnection(SQL.url, SQL.user, SQL.password);
 		//creating prepared statement
 		PreparedStatement preparedStatement = null;
 		//creating statement to pass through preparedStatement containing our SQL query
@@ -28,36 +26,28 @@ public class NoteSQL {
 		//printing the statement to console for testing purposes
 		System.out.println(statement);
 		//passing string SQL query into the prepared statement
-		preparedStatement = connection.prepareStatement(statement);
+		preparedStatement = Main.connection.prepareStatement(statement);
 		//executing preparedStatement with executeUpdate method (SQL Query essentially is being executed)
 		preparedStatement.executeUpdate();
-		connection.close();
+		
 	}
 	
 	public static void deleteNote(String id) throws ClassNotFoundException, SQLException{
-		Class.forName("com.mysql.jdbc.Driver");
-		//Creating a connection with the database below
-		Connection connection = DriverManager.getConnection(SQL.url, SQL.user, SQL.password);
+	
 		//creating prepared statement to delete room
-		PreparedStatement statement = connection.prepareStatement("DELETE FROM Notes WHERE id ="+id+";");
+		PreparedStatement statement = Main.connection.prepareStatement("DELETE FROM Notes WHERE id ="+id+";");
 		//executing the PreparedStatement/SQL Deletion QUery
 		statement.executeUpdate();
 	}
 	
 	public static void UploadNote(List<String> s) throws Exception {
-		// This will be in the order of the name,group,email,year.
-		// Using the JDBC driver
 
-		Class.forName("com.mysql.jdbc.Driver");
-
-		// Creating a connection with
-		Connection connection = DriverManager.getConnection(SQL.url, SQL.user, SQL.password);
 
 		PreparedStatement statement = null;
 
 		String Statement = "INSERT INTO Notes (dates, yearGroup, Notes) " + "VALUES ('" + s.get(0) + "', '" + s.get(1) + "', '" + s.get(2) +"')";
 		System.out.println(Statement);
-		statement = connection.prepareStatement(Statement);
+		statement = Main.connection.prepareStatement(Statement);
 		statement.executeUpdate();
 
 	}

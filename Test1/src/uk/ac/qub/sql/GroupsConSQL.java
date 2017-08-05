@@ -7,28 +7,21 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import uk.ac.qub.churst.ConvertGroup;
+import application.Main;
+import uk.ac.qub.churst.ConvertMethods;
 import uk.ac.qub.objects.GroupsCon;
 import uk.ac.qub.objects.Lecture;
 
 public class GroupsConSQL {
 
 	public static void GroupsToGroup(List<Lecture> lectures) throws Exception {
-		// Using the JDBC driver
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-
-		// Creating a connection with
-		Connection connection = DriverManager.getConnection(SQL.url, SQL.user, SQL.password);
+		
 
 		Set<GroupsCon> set = new HashSet<GroupsCon>();
 
 		for (Lecture l : lectures) {
 			try {
-				List<String> group = ConvertGroup.convert(l.getGroup());
+				List<String> group = ConvertMethods.convert(l.getGroup());
 
 				for (String s : group) {
 					set.add(new GroupsCon(l.getGroup(), s));
@@ -45,7 +38,7 @@ public class GroupsConSQL {
 		for (GroupsCon g : set) {
 			try {
 				statements = "INSERT INTO groups " + "VALUES ('" + g.getGroups() + "', '" + g.getCohort() + "')";
-				statement = connection.prepareStatement(statements);
+				statement = Main.connection.prepareStatement(statements);
 				statement.executeUpdate();
 			} catch (Exception e) {
 				e.printStackTrace();
