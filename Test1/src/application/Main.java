@@ -27,9 +27,6 @@ public class Main extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) throws IOException {
-		
-<<<<<<< HEAD
-=======
 		ApplicationMethods.Cohorts.add("A1");
 		ApplicationMethods.Cohorts.add("B1"); 
 		ApplicationMethods.Cohorts.add("A2");
@@ -78,7 +75,6 @@ public class Main extends Application {
 		ApplicationMethods.Cohorts.add("B23"); 
 		ApplicationMethods.Cohorts.add("A24");
 		ApplicationMethods.Cohorts.add("B24"); 
->>>>>>> refs/remotes/origin/master
 		setStage(primaryStage);
 		AnchorPane root = FXMLLoader.load(getClass().getResource("/uk/ac/qub/fxml2/Login2.fxml"));
 		Scene scene = new Scene(root, 900, 700);
