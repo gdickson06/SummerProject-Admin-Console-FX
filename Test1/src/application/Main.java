@@ -19,30 +19,21 @@ import javafx.scene.layout.*;
 
 
 public class Main extends Application {
-	private static Stage stage;
+	public static Stage stage;
+	public static Scene scene;
 	
 	public static Connection connection;
 	
 	@Override
 	public void start(Stage primaryStage) throws IOException {
+		
 		setStage(primaryStage);
-		//creating the FXML Loader
-		FXMLLoader loader = new FXMLLoader();
-		
-		//Creating path to the FXML File
-		String fxmlDocPath = "src/uk/ac/qub/fxml/LoginPage.fxml";
-		FileInputStream fxmlStream = new FileInputStream(fxmlDocPath);
-		
-		//Creating the Pane and all Details
-		VBox root = (VBox)loader.load(fxmlStream);
-		
-		//Creating a new Scene
-		Scene scene = new Scene(root);
-		//Set the Scene to stage
+		AnchorPane root = FXMLLoader.load(getClass().getResource("/uk/ac/qub/fxml2/Login2.fxml"));
+		Scene scene = new Scene(root, 900, 700);
+		primaryStage.setTitle("Administration Console");
 		primaryStage.setScene(scene);
-		//setting the title to the stage
-		primaryStage.setTitle("SUPER AMAZIN APP");
-		//displaying the stage
+		scene.getStylesheets().add(Main.class.getResource("/uk/ac/qub/css/login2.css").toExternalForm());
+		primaryStage.setMaximized(true);
 		primaryStage.show();
 		
 		try {

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PDFMenuController">
+   <children>
+      <Button fx:id="returnMainMenuButton" layoutX="545.0" layoutY="607.0" mnemonicParsing="false" onAction="#returnMainMenuButtonClick" text="Return to Main Menu" />
+      <Label layoutX="138.0" layoutY="552.0" />
+      <Button fx:id="logOutButton" layoutX="1060.0" layoutY="139.0" mnemonicParsing="false" onAction="#logOutButtonClick" text="Log Out" />
+      <Button fx:id="inputPDFButton" layoutX="720.0" layoutY="323.0" mnemonicParsing="false" onAction="#inputPDFButtonClick" prefHeight="182.0" prefWidth="429.0" text="Input details from PDF Document for Tutorial" />
+      <Button fx:id="createPDFButton" layoutX="138.0" layoutY="323.0" mnemonicParsing="false" onAction="#createPDFButtonClick" prefHeight="182.0" prefWidth="429.0" text="Create PDF Document for Individual Tutorial" />
+      <Label layoutX="428.0" layoutY="158.0" prefHeight="27.0" prefWidth="268.0" text="PDF Menu" />
+      <Label layoutX="428.0" layoutY="102.0" text="School of Medicine Timetable Administration Portal" />
+      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="75.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

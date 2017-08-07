@@ -9,5 +9,6 @@
 	<classpathentry kind="lib" path="opencsv-3.9.jar"/>
 	<classpathentry kind="lib" path="itextpdf-5.5.11.jar"/>
 	<classpathentry kind="lib" path="controlsfx-8.40.13.jar"/>
+	<classpathentry kind="lib" path="C:/Users/gdick/Downloads/jfoenix.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

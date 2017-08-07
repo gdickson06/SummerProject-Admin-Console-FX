@@ -5,7 +5,7 @@ import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import uk.ac.qub.churst.GeneralMethods;
 
 public class MainMenuController {
@@ -17,295 +17,65 @@ public class MainMenuController {
     private URL location;
 
     @FXML
-    private Button studentUploadCSVButton;
-    
- 
-    @FXML
-    private Button InputPDF;
+    private ImageView Image;
 
     @FXML
-    private Button ChangePassword;
-
-    @FXML
-    private Button Help;
-
-    @FXML
-    private Button practicalUploadCSV;
-
-    @FXML
-    private Button SearchAbsence;
-
-    @FXML
-    private Button uploadSingleStudentButton;
-
-    @FXML
-    private Button UploadSingleStaff;
-
-    @FXML
-    private Button AbsenceAmendDelete;
-
-    @FXML
-    private Button studentAmmendDelete;
-
-    @FXML
-    private Button StaffAmendDelete;
-
-    @FXML
-    private Button LectureUploadSingle;
-
-    @FXML
-    private Button PracticalUploadSingle;
-
-    @FXML
-    private Button AbsenceUploadSingle;
-
-    @FXML
-    private Button RoomUploadSingle;
-
-    @FXML
-    private Button AbsenceTrends;
-
-    @FXML
-    private Button lectureUploadCSV;
-
-    @FXML
-    private Button PracticalAmendDelete;
-
-    @FXML
-    private Button AmendDeleteRoom;
-
-    @FXML
-    private Button CreatePDF;
-
-    @FXML
-    private Button Lectures;
-
-    @FXML
-    private Button roomUploadCSV;
-
-    @FXML
-    private Button Practicals;
-
-    @FXML
-    private Button staffUploadCSV;
-
-    @FXML
-    private Button LectureAmendDelete;
-
-    @FXML
-    void uploadStudentCSV(ActionEvent event) {
-    	try {
-			GeneralMethods.ChangeScene("UploadCSVStudent");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    void Student(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("StudentMenu", "StudentMenu");
     }
 
     @FXML
-    void studentAmmendDeleteButton(ActionEvent event) {
-    	try {
-			GeneralMethods.ChangeScene("StudentAmmendDelete");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    void Lecture(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("LectureMenu", "LectureMenu");
     }
 
     @FXML
-    void uploadSingleStudentClick(ActionEvent event) {
-    	try {
-			GeneralMethods.ChangeScene("UploadSingleStudent");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    void Practical(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("PracticalMenuController", "PracticalPlacementMenu");
     }
 
     @FXML
-    void lectureUploadCSVButton(ActionEvent event) {
-    	try {
-			GeneralMethods.ChangeScene("UploadCSVLecture");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    void Room(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("RoomMenu", "RoomMenu");
     }
 
     @FXML
-    void LectureAmendDelete(ActionEvent event) {
-    	try {
-			GeneralMethods.ChangeScene("LectureAmendDelete");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    void Absence(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("AbsenceMenu", "AbsenceMenu");
     }
 
     @FXML
-    void LectureUploadSingle(ActionEvent event) {
-    	try {
-			GeneralMethods.ChangeScene("UploadSingleLecture");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    void PDF(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("PDFMenu", "PDFMenu");
     }
 
     @FXML
-    void practicalUploadCSVButton(ActionEvent event) {
-    	try {
-			GeneralMethods.ChangeScene("UploadCSVPlacement");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    }
-    
-
-    @FXML
-    void practicalAmendDelete(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("PlacementAmendDelete");
+    void Staff(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("StaffMenu", "StaffMenu");
     }
 
     @FXML
-    void practicalUploadSingle(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("UploadSinglePlacement");
+    void Notes(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("NotesMenu", "NotesMenu");
     }
 
     @FXML
-    void roomUploadCSVButton(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("UploadCSVRoom");
+    void Settings(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("SettingsHelpMenu", "SettingsHelpMenu");
     }
 
     @FXML
-    void AmendDeleteRoom(ActionEvent event) throws Exception {
-    	//changing scene
-    	GeneralMethods.ChangeScene("SearchRoomAmmendDelete");
-    }
-
-    @FXML
-    void RoomUploadSingle(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("UploadSingleRoom");
-    }
-
-    @FXML
-    void AbsenceAmendDelete(ActionEvent event) {
-    	try {
-			GeneralMethods.ChangeScene("AbsenceAmendDelete");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    }
-
-    @FXML
-    void AbsenceUploadSingle(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("UploadSingleAbsence");
-    }
-
-    @FXML
-    void SearchAbsence(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("AbsenceAmendDelete");
-    }
-
-    @FXML
-    void AbsenceTrends(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("AbsenceTrends");
-    }
-
-    @FXML
-    void CreatePDF(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("CreatePDF");
-    }
-
-    @FXML
-    void InputPDF(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("InputPDF");
-    }
-
-    @FXML
-    void staffUploadCSVButton(ActionEvent event) {
-    	try {
-			GeneralMethods.ChangeScene("UploadCSVStaff");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    }
-
-    @FXML
-    void StaffAmendDelete(ActionEvent event) {
-    	try {
-			GeneralMethods.ChangeScene("StaffAmendDelete");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    }
-
-    @FXML
-    void UploadSingleStaff(ActionEvent event) {
-    	try {
-			GeneralMethods.ChangeScene("UploadSingleStaff");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    }
-    
-    @FXML
-    void GeneralNotes(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("GeneralNotes");
-    }
-
-    @FXML
-    void Help(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("Help");
-    }
-
-    @FXML
-    void LectureNotes(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("NoteLecture");
-    }
-
-    @FXML
-    void PracticalNotes(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("PlacementNote");
-    }
-
-    @FXML
-    void ChangePassword(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("Settings");
+    void LogOut(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("Login2", "Login2");
+    	ApplicationMethods.CurrentUser=null;
     }
 
     @FXML
     void initialize() {
-        assert studentUploadCSVButton != null : "fx:id=\"studentUploadCSVButton\" was not injected: check your FXML file 'mainMenu.fxml'.";
-        assert InputPDF != null : "fx:id=\"InputPDF\" was not injected: check your FXML file 'mainMenu.fxml'.";
-        assert ChangePassword != null : "fx:id=\"ChangePassword\" was not injected: check your FXML file 'mainMenu.fxml'.";
-        assert Help != null : "fx:id=\"Help\" was not injected: check your FXML file 'mainMenu.fxml'.";
-        assert practicalUploadCSV != null : "fx:id=\"practicalUploadCSV\" was not injected: check your FXML file 'mainMenu.fxml'.";
-        assert SearchAbsence != null : "fx:id=\"SearchAbsence\" was not injected: check your FXML file 'mainMenu.fxml'.";
-        assert uploadSingleStudentButton != null : "fx:id=\"uploadSingleStudentButton\" was not injected: check your FXML file 'mainMenu.fxml'.";
-        assert UploadSingleStaff != null : "fx:id=\"UploadSingleStaff\" was not injected: check your FXML file 'mainMenu.fxml'.";
-        assert AbsenceAmendDelete != null : "fx:id=\"AbsenceAmendDelete\" was not injected: check your FXML file 'mainMenu.fxml'.";
-        assert studentAmmendDelete != null : "fx:id=\"studentAmmendDelete\" was not injected: check your FXML file 'mainMenu.fxml'.";
-        assert StaffAmendDelete != null : "fx:id=\"StaffDeleteUser\" was not injected: check your FXML file 'mainMenu.fxml'.";
-        assert LectureUploadSingle != null : "fx:id=\"LectureUploadSingle\" was not injected: check your FXML file 'mainMenu.fxml'.";
-        assert PracticalUploadSingle != null : "fx:id=\"PracticalUploadSingle\" was not injected: check your FXML file 'mainMenu.fxml'.";
-        assert AbsenceUploadSingle != null : "fx:id=\"AbsenceUploadSingle\" was not injected: check your FXML file 'mainMenu.fxml'.";
-        assert RoomUploadSingle != null : "fx:id=\"RoomUploadSingle\" was not injected: check your FXML file 'mainMenu.fxml'.";
-        assert AbsenceTrends != null : "fx:id=\"AbsenceTrends\" was not injected: check your FXML file 'mainMenu.fxml'.";
-        assert lectureUploadCSV != null : "fx:id=\"lectureUploadCSV\" was not injected: check your FXML file 'mainMenu.fxml'.";
-        assert PracticalAmendDelete != null : "fx:id=\"PracticalAmendDelete\" was not injected: check your FXML file 'mainMenu.fxml'.";
-        assert AmendDeleteRoom != null : "fx:id=\"AmendDeleteRoom\" was not injected: check your FXML file 'mainMenu.fxml'.";
-        assert CreatePDF != null : "fx:id=\"CreatePDF\" was not injected: check your FXML file 'mainMenu.fxml'.";
-        assert Lectures != null : "fx:id=\"Lectures\" was not injected: check your FXML file 'mainMenu.fxml'.";
-        assert roomUploadCSV != null : "fx:id=\"roomUploadCSV\" was not injected: check your FXML file 'mainMenu.fxml'.";
-        assert Practicals != null : "fx:id=\"Practicals\" was not injected: check your FXML file 'mainMenu.fxml'.";
-        assert staffUploadCSV != null : "fx:id=\"staffUploadCSV\" was not injected: check your FXML file 'mainMenu.fxml'.";
-        assert LectureAmendDelete != null : "fx:id=\"LectureAmendDelete\" was not injected: check your FXML file 'mainMenu.fxml'.";
+    	
+    	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
+    	Image.setImage(i);
+        assert Image != null : "fx:id=\"Image\" was not injected: check your FXML file 'MainMenu3.fxml'.";
 
     }
 }

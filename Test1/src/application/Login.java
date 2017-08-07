@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -74,7 +75,7 @@ public class Login extends Application {
 
 		Scene scene = new Scene(grid, 800, 400);
 		primaryStage.setScene(scene);
-		scene.getStylesheets().add(Login.class.getResource("Login.css").toExternalForm());
+		scene.getStylesheets().add(Login.class.getResource("/Login.css").toExternalForm());
 		primaryStage.show();
 	}
 

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.ac.qub.samples.AmendSingleLectureController">
+   <children>
+      <DatePicker fx:id="StartDate" layoutX="145.0" layoutY="484.0" prefHeight="39.0" prefWidth="157.0" />
+      <JFXTextArea fx:id="DescriptionText" focusColor="WHITE" labelFloat="true" layoutX="1013.0" layoutY="314.0" prefHeight="143.0" prefWidth="209.0" promptText="Enter Description Here" unFocusColor="WHITE" />
+      <Label layoutX="344.0" layoutY="490.0" text="Start Time:" />
+      <Label layoutX="358.0" layoutY="429.0" text="Location:" />
+      <Label layoutX="387.0" layoutY="372.0" text="Staff:" />
+      <Label layoutX="371.0" layoutY="308.0" text="Theme:" />
+      <JFXTextField fx:id="ThemeText" focusColor="WHITE" labelFloat="true" layoutX="467.0" layoutY="305.0" prefHeight="35.0" prefWidth="183.0" promptText="Enter Theme Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="StaffText" focusColor="WHITE" labelFloat="true" layoutX="467.0" layoutY="368.0" prefHeight="35.0" prefWidth="183.0" promptText="Enter Staff Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="LocationText" focusColor="WHITE" labelFloat="true" layoutX="467.0" layoutY="425.0" prefHeight="35.0" prefWidth="183.0" promptText="Enter Location Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="StartTimeText" focusColor="WHITE" labelFloat="true" layoutX="467.0" layoutY="486.0" prefHeight="35.0" prefWidth="183.0" promptText="Enter Start Time Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <ImageView fitHeight="114.0" fitWidth="406.0" layoutX="103.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@qublogo2.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="456.0" layoutY="85.0" text="School of Medicine Timetable Administration Portal" />
+      <Label layoutX="370.0" layoutY="141.0" prefHeight="27.0" prefWidth="990.0" text="Update the fields below and click 'Save Details', otherwise click 'Delete Lecture' to remove lecture from database" />
+      <JFXTextField fx:id="DayText" focusColor="WHITE" labelFloat="true" layoutX="145.0" layoutY="361.0" prefHeight="35.0" prefWidth="157.0" promptText="Enter day Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="WeekText" focusColor="WHITE" labelFloat="true" layoutX="145.0" layoutY="306.0" prefHeight="33.0" prefWidth="157.0" promptText="Enter Week Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <Label layoutX="73.0" layoutY="308.0" text="Week:" />
+      <Label layoutX="87.0" layoutY="365.0" text="Day:" />
+      <Label layoutX="54.0" layoutY="428.0" text="Cohorts:" />
+      <Label layoutX="37.0" layoutY="489.0" text="Start Date:" />
+      <JFXButton fx:id="SaveChanges" layoutX="44.0" layoutY="562.0" onAction="#SaveChanges" text="Save Details" />
+      <JFXButton fx:id="Delete" layoutX="255.0" layoutY="562.0" onAction="#Delete" text="Delete Lecture" />
+      <JFXButton fx:id="ReturnLectureScreen" layoutX="467.0" layoutY="562.0" onAction="#ReturnLectureScreen" text="Return to Lectures Screen" />
+      <JFXButton fx:id="Home" layoutX="755.0" layoutY="562.0" onAction="#Home" text="Return to Main Menu" />
+      <JFXButton fx:id="returnSearch" layoutX="1014.0" layoutY="562.0" onAction="#Back" text="Return to Search" />
+      <JFXTextField fx:id="StyleText" focusColor="WHITE" labelFloat="true" layoutX="802.0" layoutY="485.0" prefHeight="35.0" prefWidth="183.0" promptText="Enter Style Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="TeachingText" focusColor="WHITE" labelFloat="true" layoutX="804.0" layoutY="424.0" prefHeight="35.0" prefWidth="183.0" promptText="Enter Teaching Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="SunjectText" focusColor="WHITE" labelFloat="true" layoutX="803.0" layoutY="368.0" prefHeight="35.0" prefWidth="183.0" promptText="Enter Subject Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="EndTimeText" focusColor="WHITE" labelFloat="true" layoutX="803.0" layoutY="305.0" prefHeight="35.0" prefWidth="183.0" promptText="Enter End Time Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <Label layoutX="678.0" layoutY="309.0" text="End Time:" />
+      <Label layoutX="695.0" layoutY="372.0" text="Subject:" />
+      <Label layoutX="679.0" layoutY="428.0" text="Teaching:" />
+      <Label layoutX="710.0" layoutY="490.0" text="Style:" />
+      <Label layoutX="1013.0" layoutY="490.0" text="Module:" />
+      <JFXTextField fx:id="ModuleText" focusColor="WHITE" labelFloat="true" layoutX="1093.0" layoutY="486.0" prefHeight="35.0" prefWidth="157.0" promptText="Enter Module Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="CohortsText" focusColor="WHITE" labelFloat="true" layoutX="145.0" layoutY="425.0" prefHeight="35.0" prefWidth="157.0" promptText="Enter Cohorts Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+   </children>
+</AnchorPane>

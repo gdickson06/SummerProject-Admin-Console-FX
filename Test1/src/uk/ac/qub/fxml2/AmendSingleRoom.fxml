@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.ac.qub.samples.AmendSingleRoomController">
+   <children>
+      <Label layoutX="295.0" layoutY="151.0" prefHeight="27.0" prefWidth="990.0" text="Update the fields below and click 'Save Details', or click 'Delete Room' to remove the room from the database" />
+      <Label layoutX="466.0" layoutY="95.0" text="School of Medicine Timetable Administration Portal" />
+      <ImageView fitHeight="114.0" fitWidth="406.0" layoutX="113.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@qublogo2.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="returnSearch" layoutX="1034.0" layoutY="582.0" onAction="#Back" text="Return to Search" />
+      <JFXButton fx:id="Home" layoutX="775.0" layoutY="582.0" onAction="#Home" text="Return to Main Menu" />
+      <JFXButton fx:id="ReturnRoomsScreen" layoutX="487.0" layoutY="582.0" onAction="#ReturnRoomsScreen" text="Return to Rooms Screen" />
+      <JFXButton fx:id="Delete" layoutX="275.0" layoutY="582.0" onAction="#Delete" text="Delete Room" />
+      <JFXButton fx:id="SaveChanges" layoutX="64.0" layoutY="582.0" onAction="#SaveChanges" text="Save Details" />
+      <Label layoutX="336.0" layoutY="318.0" text="Room Code:" />
+      <JFXTextField fx:id="RoomCodeTextField" focusColor="WHITE" labelFloat="true" layoutX="527.0" layoutY="314.0" prefHeight="35.0" prefWidth="526.0" promptText="Enter Room Code Here e.g MBC/01/002" unFocusColor="WHITE" />
+      <JFXTextField fx:id="RoomNameTextField" focusColor="WHITE" labelFloat="true" layoutX="527.0" layoutY="418.0" prefHeight="35.0" prefWidth="526.0" promptText="Enter  Room Name Here" unFocusColor="WHITE" />
+      <Label layoutX="330.0" layoutY="422.0" text="Room Name:" />
+   </children>
+</AnchorPane>

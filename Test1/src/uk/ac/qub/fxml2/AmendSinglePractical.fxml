@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.ac.qub.samples.AmendSinglePracticalController">
+   <children>
+      <JFXButton layoutX="1095.0" layoutY="552.0" onAction="#returnSearch" text="Return to Search" />
+      <JFXButton layoutX="863.0" layoutY="552.0" onAction="#Home" text="Return to Main Menu" />
+      <JFXButton layoutX="473.0" layoutY="552.0" onAction="#returnPracticalPlacementScreen" text="Return to Practicals &amp; Placements Screen" />
+      <JFXButton fx:id="Delete" layoutX="197.0" layoutY="552.0" text="Delete Practical/Placement" />
+      <JFXButton layoutX="34.0" layoutY="552.0" onAction="#Save" text="Save Details" />
+      <Label layoutX="52.0" layoutY="479.0" text="End Date:" />
+      <Label layoutX="48.0" layoutY="418.0" text="Start Date:" />
+      <Label layoutX="90.0" layoutY="355.0" text="Year:" />
+      <Label layoutX="79.0" layoutY="293.0" text="Week:" />
+      <JFXTextField fx:id="Week" focusColor="WHITE" labelFloat="true" layoutX="182.0" layoutY="289.0" prefHeight="35.0" prefWidth="324.0" promptText="Enter week Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="Year" focusColor="WHITE" labelFloat="true" layoutX="182.0" layoutY="351.0" prefHeight="35.0" prefWidth="324.0" promptText="Enter Year Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <Label layoutX="322.0" layoutY="179.0" prefHeight="27.0" prefWidth="990.0" text="Update the fields below and click 'Save Details', otherwise click 'Delete Practical/Placement' to remove item from database" />
+      <Label layoutX="448.0" layoutY="122.0" text="School of Medicine Timetable Administration Portal" />
+      <ImageView fitHeight="114.0" fitWidth="406.0" layoutX="95.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@qublogo2.png" />
+         </image>
+      </ImageView>
+      <JFXTextField fx:id="Subject" focusColor="WHITE" labelFloat="true" layoutX="706.0" layoutY="476.0" prefHeight="35.0" prefWidth="259.0" promptText="Enter Subject Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="Cohort" focusColor="WHITE" labelFloat="true" layoutX="706.0" layoutY="419.0" prefHeight="35.0" prefWidth="259.0" promptText="Enter Cohort Here e.g. A1" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="Teacher" focusColor="WHITE" labelFloat="true" layoutX="706.0" layoutY="352.0" prefHeight="35.0" prefWidth="259.0" promptText="Enter Teacher Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="Location" focusColor="WHITE" labelFloat="true" layoutX="711.0" layoutY="290.0" prefHeight="35.0" prefWidth="259.0" promptText="Enter location Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <Label layoutX="568.0" layoutY="294.0" text="Location:" />
+      <Label layoutX="571.0" layoutY="356.0" text="Teacher:" />
+      <Label layoutX="581.0" layoutY="423.0" text="Cohort:" />
+      <Label layoutX="574.0" layoutY="480.0" text="Subject:" />
+      <JFXTextArea fx:id="Note" focusColor="WHITE" labelFloat="true" layoutX="1022.0" layoutY="293.0" prefHeight="215.0" prefWidth="209.0" promptText="Enter Note Here" unFocusColor="WHITE" />
+      <DatePicker fx:id="StartDate" layoutX="174.0" layoutY="412.0" prefHeight="39.0" prefWidth="324.0" />
+      <DatePicker fx:id="EndDate" layoutX="174.0" layoutY="473.0" prefHeight="39.0" prefWidth="324.0" />
+   </children>
+</AnchorPane>

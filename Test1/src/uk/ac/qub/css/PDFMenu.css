@@ -1,0 +1,22 @@
+.root {
+	-fx-background-color: #A10026;
+	-fx-background-size: cover;
+}
+
+.button {
+	-fx-text-fill: #A10000;
+	-fx-font-family: "Avenir";
+	-fx-background-color: linear-gradient(#FFFFFF, #C7B6B6);
+	-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+	-fx-font-size: 16px;
+}
+
+.button:hover{
+	-fx-font-weight:bold;
+}
+
+.label {
+	-fx-text-fill: #FFFFFF;
+	-fx-font-family: "Avenir";
+	-fx-font-size: 22px;
+}

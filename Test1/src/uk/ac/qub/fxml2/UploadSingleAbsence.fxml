@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.ac.qub.samples.UploadSingleAbsenceController">
+   <children>
+      <JFXButton layoutX="929.0" layoutY="573.0" onAction="#mainMenuButtonClick" text="Return to Main Menu" />
+      <JFXButton layoutX="577.0" layoutY="573.0" onAction="#returnAbsenceMenuButtonClick" text="Return to Absence Menu" />
+      <JFXButton layoutX="354.0" layoutY="573.0" onAction="#UploadSingleAbsenceCancelButton" text="Cancel" />
+      <JFXButton layoutX="94.0" layoutY="573.0" onAction="#UploadSingleAbsenceButton" text="Upload Absence" />
+      <JFXTextArea fx:id="Reason" focusColor="WHITE" labelFloat="true" layoutX="890.0" layoutY="251.0" prefHeight="174.0" prefWidth="368.0" promptText="Enter Reason Here" unFocusColor="WHITE" />
+      <JFXTextField fx:id="EndTime" focusColor="WHITE" labelFloat="true" layoutX="623.0" layoutY="339.0" promptText="Enter End Time Here" unFocusColor="WHITE" />
+      <JFXTextField fx:id="StartTime" focusColor="WHITE" labelFloat="true" layoutX="623.0" layoutY="250.0" promptText="Enter Start Time Here" unFocusColor="WHITE" />
+      <JFXTextField fx:id="LectureID" focusColor="WHITE" labelFloat="true" layoutX="225.0" layoutY="339.0" prefHeight="35.0" prefWidth="229.0" promptText="Enter Start Time Here" unFocusColor="WHITE" />
+      <JFXTextField fx:id="StudentNumber" focusColor="WHITE" labelFloat="true" layoutX="225.0" layoutY="249.0" prefHeight="35.0" prefWidth="229.0" promptText="Enter Student Number Here" unFocusColor="WHITE" />
+      <ImageView fitHeight="114.0" fitWidth="406.0" layoutX="65.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@qublogo2.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="418.0" layoutY="92.0" text="School of Medicine Timetable Administration Portal" />
+      <Label layoutX="418.0" layoutY="164.0" text="Please Fill in all mandatory fields to upload a single absence to the database." />
+      <Label layoutX="57.0" layoutY="254.0" text="Student Number:" />
+      <Label layoutX="109.0" layoutY="343.0" text="Lecture ID:" />
+      <Label layoutX="148.0" layoutY="433.0" text="Date:" />
+      <Label layoutX="489.0" layoutY="254.0" text="Start Time:" />
+      <Label layoutX="499.0" layoutY="343.0" text="End Time:" />
+      <Label layoutX="531.0" layoutY="434.0" text="Type:" />
+      <DatePicker fx:id="Date" layoutX="225.0" layoutY="428.0" prefHeight="39.0" prefWidth="229.0" />
+      <JFXComboBox fx:id="Type" focusColor="WHITE" layoutX="623.0" layoutY="428.0" prefHeight="39.0" prefWidth="214.0" promptText="Select Absence Type" unFocusColor="WHITE" />
+      <JFXCheckBox checkedColor="#a10026" layoutX="880.0" layoutY="467.0" prefHeight="39.0" prefWidth="202.0" text="Approved" textFill="WHITE" unCheckedColor="WHITE" />
+   </children>
+</AnchorPane>

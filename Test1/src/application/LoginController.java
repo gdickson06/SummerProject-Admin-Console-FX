@@ -1,14 +1,18 @@
 package application;
 
+import java.io.File;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.objects.Coordinator;
 import uk.ac.qub.objects.Staff;
@@ -22,18 +26,24 @@ public class LoginController {
 
     @FXML
     private URL location;
+    
+    @FXML
+    private ImageView Image;
 
     @FXML
-    private PasswordField PasswordText;
+    private JFXPasswordField PasswordText;
 
     @FXML
-    private TextField UsernameText;
+    private JFXTextField UsernameText;
 
     @FXML
-    private Button LoginButton;
+    private JFXButton LoginButton;
 
     @FXML
-    private Button Clear;
+    private JFXButton Clear;
+    
+    @FXML
+    private JFXButton ForgotPassword;
 
     @FXML
     void Login(ActionEvent event) throws Exception {
@@ -50,7 +60,7 @@ public class LoginController {
     	} else if (user instanceof User && ((User) user).getType().equals("Administrator")){
     		
     		System.out.println(((User) user).getType());
-    		GeneralMethods.ChangeScene("mainMenu");
+    		GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
     	} else {
     		GeneralMethods.show("Username or Password Incorrect", "Error");
     		UsernameText.setText("");
@@ -63,13 +73,20 @@ public class LoginController {
     	UsernameText.setText("");
     	PasswordText.setText("");
     }
+    @FXML
+    void ForgotPassword(ActionEvent event) {
 
+    }
     @FXML
     void initialize() {
-        assert PasswordText != null : "fx:id=\"PasswordText\" was not injected: check your FXML file 'LoginPage.fxml'.";
-        assert UsernameText != null : "fx:id=\"UsernameText\" was not injected: check your FXML file 'LoginPage.fxml'.";
-        assert LoginButton != null : "fx:id=\"LoginButton\" was not injected: check your FXML file 'LoginPage.fxml'.";
-        assert Clear != null : "fx:id=\"Clear\" was not injected: check your FXML file 'LoginPage.fxml'.";
+    	
+    	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
+    	Image.setImage(i);
+    	
+        assert PasswordText != null : "fx:id=\"PasswordText\" was not injected: check your FXML file 'Login2.fxml'.";
+        assert UsernameText != null : "fx:id=\"UsernameText\" was not injected: check your FXML file 'Login2.fxml'.";
+        assert LoginButton != null : "fx:id=\"LoginButton\" was not injected: check your FXML file 'Login2.fxml'.";
+        assert Clear != null : "fx:id=\"Clear\" was not injected: check your FXML file 'Login2.fxml'.";
 
     }
 }

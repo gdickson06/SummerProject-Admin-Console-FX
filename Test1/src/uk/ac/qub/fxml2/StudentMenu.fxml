@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.StudentMenuController">
+   <children>
+      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="398.0" layoutY="72.0" text="School of Medicine Timetable Administration Portal" />
+      <Label layoutX="398.0" layoutY="128.0" prefHeight="27.0" prefWidth="268.0" text="Student Menu" />
+      <Button fx:id="uploadStudentCSVButton" layoutX="108.0" layoutY="293.0" mnemonicParsing="false" onAction="#uploadStudentCSVButtonClick" prefHeight="182.0" prefWidth="302.0" text="Upload List of Students to Database" />
+      <Button fx:id="ammendDeleteStudentsButton" layoutX="461.0" layoutY="293.0" mnemonicParsing="false" onAction="#ammendDeleteStudentsButtonClick" prefHeight="182.0" prefWidth="302.0" text="Ammend &amp; Delete Students" />
+      <Button fx:id="uploadSingleStudentButton" layoutX="817.0" layoutY="293.0" mnemonicParsing="false" onAction="#uploadSingleStudentButtonClick" prefHeight="182.0" prefWidth="302.0" text="Upload Single Student to Database" />
+      <Button fx:id="logOutButton" layoutX="1030.0" layoutY="109.0" mnemonicParsing="false" onAction="#logOutButtonClick" text="Log Out" />
+      <Label layoutX="108.0" layoutY="522.0" />
+      <Button fx:id="returnMainMenuButton" layoutX="515.0" layoutY="577.0" mnemonicParsing="false" onAction="#returnMainMenuButtonClick" text="Return to Main Menu" />
+   </children>
+</AnchorPane>
