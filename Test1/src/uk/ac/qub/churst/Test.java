@@ -38,7 +38,10 @@ public class Test {
 		AbsenceTrends.DateTrend(a);
 		
 		*/
-		
+		for(int i=1; i<25; i++){
+			System.out.println("ApplicationMethods.Cohorts.add(\"A"+ i+ "\");");
+			System.out.println("ApplicationMethods.Cohorts.add(\"B" +i+"\"); ");
+		}
 		System.out.println(ConvertMethods.ConvertYear(2016));
 		System.out.println(ConvertMethods.DeconvertYear(3));
 	}

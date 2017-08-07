@@ -16,7 +16,7 @@ public static Staff CurrentUser;
 
 
 public static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-
+public static List<String> Cohorts =  new ArrayList<String>();
 	protected static void AbsenceTypes(ComboBox<String> Type) {
 		List<String>types= new ArrayList<String>();
     	

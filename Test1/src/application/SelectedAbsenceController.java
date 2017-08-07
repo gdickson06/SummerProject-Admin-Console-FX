@@ -106,6 +106,7 @@ public class SelectedAbsenceController {
     void Delete(ActionEvent event) throws Exception {
     	AbsenceSQL.DeleteAbsence(String.valueOf(a.getId()));
     	GeneralMethods.show("Deleted", "Deleted");
+    	GeneralMethods.ChangeScene("mainMenu");
     }
 
     @FXML

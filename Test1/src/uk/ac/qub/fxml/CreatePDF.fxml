@@ -5,7 +5,6 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.HBox?>
 
-
 <VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CreatePDFController">
    <children>
       <AnchorPane prefHeight="800.0" prefWidth="802.0">
@@ -27,8 +26,6 @@
             <Button layoutX="675.0" layoutY="428.0" mnemonicParsing="false" onAction="#Home" text="Home" />
             <Label fx:id="LectureInfo" layoutX="614.0" layoutY="171.0" prefHeight="136.0" prefWidth="149.0" />
             <TextField fx:id="Staff" layoutX="96.0" layoutY="33.0" prefHeight="25.0" prefWidth="193.0" />
-            <Label layoutX="24.0" layoutY="163.0" text="Save Location" />
-            <TextField fx:id="SaveLocation" layoutX="126.0" layoutY="159.0" prefHeight="25.0" prefWidth="333.0" text="C:/" />
          </children>
       </AnchorPane>
    </children>
