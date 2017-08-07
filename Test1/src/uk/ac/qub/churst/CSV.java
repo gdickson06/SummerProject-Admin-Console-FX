@@ -5,10 +5,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.List;
 
 import com.opencsv.CSVReader;
 
+import application.ApplicationMethods;
 import uk.ac.qub.objects.Coordinator;
 import uk.ac.qub.objects.Lecture;
 import uk.ac.qub.objects.Placement;
@@ -73,15 +75,19 @@ public class CSV {
 		return new Lecture(week, day, startDate, startTime, endTime,group,location,subject,theme,format,desc,staff,style,module);
 	}
 	
-	public static Student createStudent(List<String> metadata){
+	public static Student createStudent(List<String> metadata) throws Exception{
 		
 		int studentNumber = Integer.parseInt(metadata.get(0));
 		String name = metadata.get(1);
-		String firstGroup = metadata.get(2);
+		String cohort = metadata.get(2);
 		String email = metadata.get(3);
 		
+		if(!ApplicationMethods.Cohorts.contains(cohort)){
+			throw new InputMismatchException();
+		}
+		return new Student(studentNumber, name, cohort,email);
 		
-		return new Student(studentNumber, name, firstGroup,email);
+		
 	}
 	
 	public static Room createRoom(List<String>metadata){

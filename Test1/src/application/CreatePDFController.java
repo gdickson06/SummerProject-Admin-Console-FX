@@ -58,7 +58,11 @@ public class CreatePDFController {
 
     @FXML
     private TextField Date;
-
+ /**
+  * This allows the list to be clickable and uses the item that is selected to 
+  * pick a lecture
+  * @param event
+  */
     @FXML
     void LectureClick(MouseEvent event) {
     	if(event.getClickCount()==2){
@@ -67,7 +71,11 @@ public class CreatePDFController {
       		 LectureInfo.setText(selectedLecture.toString());
        	}
     }
-
+/**
+ * This method searches all of the Lectures to and populates a list with the 
+ * information passed.
+ * @param event
+ */
     @FXML
     void Search(ActionEvent event) {
     	int week;
@@ -82,7 +90,12 @@ public class CreatePDFController {
 		list.addAll(searched);
 		Lectures.setItems(list);
     }
-
+/**
+ * This button will Generate the PDF to a predefined save location, if non existant 
+ * save location an error will show a pop up to tell the user to selct a save location.
+ * @param event
+ * @throws SQLException
+ */
     @FXML
     void GeneratePDF(ActionEvent event) throws SQLException {
     	File f = new File ("SaveInfo.txt");
@@ -103,7 +116,11 @@ public class CreatePDFController {
     		GeneralMethods.show("No save location specified go to setttings to specify", "Error");
     	}
     }
-
+/**
+ * This method will return the application to the main menu
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void Home(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("mainMenu");

@@ -4,6 +4,7 @@ package application;
 import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -69,8 +70,15 @@ public class UploadStudentCSVController {
     			studentList = CSV.readStudentsFromCSV(s);
     			StudentSQL.saveSQLStudents(studentList,Year.getText());
     		} catch (Exception e) {
+    			if(e instanceof NumberFormatException){
+    				GeneralMethods.show("Ensure that Student Number is in number format (max 8)", "Error");
+    			} else if ( e instanceof InputMismatchException){
+    				GeneralMethods.show("Error in inputting Cohort", "Error");
+    			} else if (e instanceof Exception){
+    				GeneralMethods.show(e.getMessage(), "Error");
+    			}
     			e.printStackTrace();
-    			GeneralMethods.show("Issue with input please view the handbook", "ERROR");
+    			
     			error = true;
     		}
 
