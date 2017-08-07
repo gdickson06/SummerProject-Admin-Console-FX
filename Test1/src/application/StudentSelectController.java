@@ -52,7 +52,7 @@ public class StudentSelectController {
     	List<String> attributes = new ArrayList<String>();
     	//This will be in the order of the studentNumber,name,group,email,year.
     	
-    	attributes.add(Integer.toString(StudentAmmendDeleteController.SelectedStudent.getStudentNumber()));
+    	attributes.add(Integer.toString(StudentAmendDeleteController.SelectedStudent.getStudentNumber()));
     	attributes.add(StudentName.getText());
     	attributes.add(Cohort.getText());
     	attributes.add(EmailAddress.getText());
@@ -60,7 +60,7 @@ public class StudentSelectController {
     	
     	StudentSQL.AmendStudent(attributes);
     	
-    	GeneralMethods.show("The student number"+Integer.toString(StudentAmmendDeleteController.SelectedStudent.getStudentNumber())+" has been amended", "Record Changed");
+    	GeneralMethods.show("The student number"+Integer.toString(StudentAmendDeleteController.SelectedStudent.getStudentNumber())+" has been amended", "Record Changed");
     	
     }
 
@@ -76,20 +76,20 @@ public class StudentSelectController {
 
     @FXML
     void Delete(ActionEvent event)throws Exception{
-    	StudentSQL.DeleteStudent(Integer.toString(StudentAmmendDeleteController.SelectedStudent.getStudentNumber()));
-    	GeneralMethods.show("The record for "+Integer.toString(StudentAmmendDeleteController.SelectedStudent.getStudentNumber())+" has been deleted.", "Record Deleted");
+    	StudentSQL.DeleteStudent(Integer.toString(StudentAmendDeleteController.SelectedStudent.getStudentNumber()));
+    	GeneralMethods.show("The record for "+Integer.toString(StudentAmendDeleteController.SelectedStudent.getStudentNumber())+" has been deleted.", "Record Deleted");
     	GeneralMethods.ChangeScene("StudentAmmendDelete");
     	
     }
 
     @FXML
     void initialize() {
-    	System.out.println(StudentAmmendDeleteController.SelectedStudent.getEmail());
-    	StudentNumber.setText(Integer.toString(StudentAmmendDeleteController.SelectedStudent.getStudentNumber()));
-    	StudentName.setText(StudentAmmendDeleteController.SelectedStudent.getName());
-    	EmailAddress.setText(StudentAmmendDeleteController.SelectedStudent.getEmail());
-    	Cohort.setText(StudentAmmendDeleteController.SelectedStudent.getFirstGroup());
-    	IntakeYear.setText(Integer.toString(StudentAmmendDeleteController.SelectedStudent.getIntakeYear()));
+    	System.out.println(StudentAmendDeleteController.SelectedStudent.getEmail());
+    	StudentNumber.setText(Integer.toString(StudentAmendDeleteController.SelectedStudent.getStudentNumber()));
+    	StudentName.setText(StudentAmendDeleteController.SelectedStudent.getName());
+    	EmailAddress.setText(StudentAmendDeleteController.SelectedStudent.getEmail());
+    	Cohort.setText(StudentAmendDeleteController.SelectedStudent.getFirstGroup());
+    	IntakeYear.setText(Integer.toString(StudentAmendDeleteController.SelectedStudent.getIntakeYear()));
         assert Delete != null : "fx:id=\"Delete\" was not injected: check your FXML file 'SelectedStudent.fxml'.";
         assert Cohort != null : "fx:id=\"Cohort\" was not injected: check your FXML file 'SelectedStudent.fxml'.";
         assert Back != null : "fx:id=\"Back\" was not injected: check your FXML file 'SelectedStudent.fxml'.";

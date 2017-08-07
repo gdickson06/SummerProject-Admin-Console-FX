@@ -7,13 +7,9 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.ac.qub.samples.AmendDeleteStudentMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.StudentAmendDeleteController">
    <children>
-      <ImageView fitHeight="114.0" fitWidth="406.0" layoutX="85.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@qublogo2.png" />
-         </image>
-      </ImageView>
+      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="85.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="438.0" layoutY="77.0" text="School of Medicine Timetable Administration Portal" />
       <Label layoutX="438.0" layoutY="132.0" prefHeight="27.0" prefWidth="883.0" text="Search for a Student to ammend or delete his/her details using the Search or Combo-Search Buttons" />
       <Label layoutX="124.0" layoutY="240.0" text="First Name:" />
@@ -23,23 +19,23 @@
          <font>
             <Font size="14.0" />
          </font></JFXTextField>
-      <JFXTextField fx:id="studentNumber" focusColor="WHITE" labelFloat="true" layoutX="212.0" layoutY="306.0" prefHeight="35.0" prefWidth="243.0" promptText="Enter Student Number" unFocusColor="WHITE">
+      <JFXTextField fx:id="StudentNumber" focusColor="WHITE" labelFloat="true" layoutX="212.0" layoutY="306.0" prefHeight="35.0" prefWidth="243.0" promptText="Enter Student Number" unFocusColor="WHITE">
          <font>
             <Font size="14.0" />
          </font></JFXTextField>
-      <JFXTextField fx:id="cohort" focusColor="WHITE" labelFloat="true" layoutX="214.0" layoutY="379.0" prefHeight="35.0" prefWidth="243.0" promptText="Enter Cohort e.g. A1" unFocusColor="WHITE">
+      <JFXTextField fx:id="Cohort" focusColor="WHITE" labelFloat="true" layoutX="214.0" layoutY="379.0" prefHeight="35.0" prefWidth="243.0" promptText="Enter Cohort e.g. A1" unFocusColor="WHITE">
          <font>
             <Font size="14.0" />
          </font></JFXTextField>
-      <JFXTextField fx:id="emailAddress" focusColor="WHITE" labelFloat="true" layoutX="695.0" layoutY="385.0" prefHeight="35.0" prefWidth="243.0" promptText="Enter Email Address" unFocusColor="WHITE">
+      <JFXTextField fx:id="EmailAddress" focusColor="WHITE" labelFloat="true" layoutX="695.0" layoutY="385.0" prefHeight="35.0" prefWidth="243.0" promptText="Enter Email Address" unFocusColor="WHITE">
          <font>
             <Font size="14.0" />
          </font></JFXTextField>
-      <JFXTextField fx:id="intakeYear" focusColor="WHITE" labelFloat="true" layoutX="695.0" layoutY="303.0" prefHeight="35.0" prefWidth="243.0" promptText="Enter Intake Year e.g. 2015" unFocusColor="WHITE">
+      <JFXTextField fx:id="IntakeYear" focusColor="WHITE" labelFloat="true" layoutX="695.0" layoutY="303.0" prefHeight="35.0" prefWidth="243.0" promptText="Enter Intake Year e.g. 2015" unFocusColor="WHITE">
          <font>
             <Font size="14.0" />
          </font></JFXTextField>
-      <JFXTextField fx:id="surname" focusColor="WHITE" labelFloat="true" layoutX="695.0" layoutY="233.0" prefHeight="35.0" prefWidth="243.0" promptText="Enter Surname" unFocusColor="WHITE">
+      <JFXTextField fx:id="lastName" focusColor="WHITE" labelFloat="true" layoutX="695.0" layoutY="233.0" prefHeight="35.0" prefWidth="243.0" promptText="Enter Surname" unFocusColor="WHITE">
          <font>
             <Font size="14.0" />
          </font></JFXTextField>
@@ -49,12 +45,12 @@
       <JFXButton layoutX="1121.0" layoutY="234.0" onAction="#comboSearch" text="Combo- Search" />
       <JFXButton layoutX="1121.0" layoutY="298.0" onAction="#returnStudentMenu" text="Return to Student Menu" />
       <JFXButton layoutX="1121.0" layoutY="377.0" onAction="#returnMainMenu" text="Return to Main Menu" />
-      <JFXListView fx:id="listOfStudents" layoutX="121.0" layoutY="446.0" prefHeight="201.0" prefWidth="1099.0" />
-      <JFXButton layoutX="476.0" layoutY="241.0" text="Search" />
-      <JFXButton layoutX="476.0" layoutY="307.0" text="Search" />
-      <JFXButton layoutX="476.0" layoutY="381.0" text="Search" />
-      <JFXButton layoutX="963.0" layoutY="380.0" text="Search" />
-      <JFXButton layoutX="963.0" layoutY="306.0" text="Search" />
-      <JFXButton layoutX="963.0" layoutY="240.0" text="Search" />
+      <JFXListView fx:id="listOfStudents" layoutX="121.0" layoutY="446.0" onMouseClicked="#ListClick" prefHeight="201.0" prefWidth="1099.0" />
+      <JFXButton layoutX="476.0" layoutY="241.0" onAction="#SearchFirstName" text="Search" />
+      <JFXButton layoutX="476.0" layoutY="307.0" onAction="#SearchStudentNumber" text="Search" />
+      <JFXButton layoutX="476.0" layoutY="381.0" onAction="#CohortSearch" text="Search" />
+      <JFXButton layoutX="963.0" layoutY="380.0" onAction="#EmailSearch" text="Search" />
+      <JFXButton layoutX="963.0" layoutY="306.0" onAction="#IntakeYearSearch" text="Search" />
+      <JFXButton layoutX="963.0" layoutY="240.0" onAction="#SearchSurname" text="Search" />
    </children>
 </AnchorPane>
