@@ -52,7 +52,7 @@ public class RoomAmendDeleteController {
     		try {
 				GeneralMethods.ChangeScene("AmendsingleRoom","AmendSingleRoom");
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
     	}
