@@ -6,13 +6,13 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.ac.qub.samples.UploadSinglePracticalController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UploadSinglePlacementController">
    <children>
-      <JFXButton fx:id="MainMenuButton" layoutX="962.0" layoutY="564.0" onAction="#MainMenuButtonClick" text="Return to Main Menu" />
-      <JFXButton fx:id="PracticalMenuButton" layoutX="586.0" layoutY="564.0" onAction="#PracticalMenuButtonClick" text="Return to Practicals &amp; Placements Menu" />
-      <JFXButton fx:id="cancelButton" layoutX="448.0" layoutY="564.0" onAction="#cancelButtonClick" text="Cancel" />
-      <JFXButton fx:id="Upload" layoutX="57.0" layoutY="564.0" onAction="#Upload" text="Add Practical or Placement to Database" />
-      <JFXTextField fx:id="Cohoert" focusColor="WHITE" labelFloat="true" layoutX="593.0" layoutY="268.0" prefHeight="35.0" prefWidth="246.0" promptText="Enter Cohort Here e.g. A1-A16" unFocusColor="WHITE" />
+      <JFXButton layoutX="962.0" layoutY="564.0" onAction="#MainMenuButtonClick" text="Return to Main Menu" />
+      <JFXButton layoutX="586.0" layoutY="564.0" onAction="#PracticalMenuButtonClick" text="Return to Practicals &amp; Placements Menu" />
+      <JFXButton layoutX="448.0" layoutY="564.0" onAction="#cancelButtonClick" text="Cancel" />
+      <JFXButton layoutX="57.0" layoutY="564.0" onAction="#Upload" text="Add Practical or Placement to Database" />
+      <JFXTextField fx:id="Cohort" focusColor="WHITE" labelFloat="true" layoutX="593.0" layoutY="268.0" prefHeight="35.0" prefWidth="246.0" promptText="Enter Cohort Here e.g. A1-A16" unFocusColor="WHITE" />
       <JFXTextField fx:id="Subject" focusColor="WHITE" labelFloat="true" layoutX="191.0" layoutY="482.0" prefHeight="35.0" prefWidth="262.0" promptText="Enter Subject Here" unFocusColor="WHITE" />
       <JFXTextField fx:id="Week" focusColor="WHITE" labelFloat="true" layoutX="189.0" layoutY="268.0" prefHeight="35.0" prefWidth="262.0" promptText="Enter Week Here" unFocusColor="WHITE" />
       <Label layoutX="494.0" layoutY="272.0" text="Cohort:" />
@@ -20,11 +20,7 @@
       <Label layoutX="72.0" layoutY="416.0" text="End Date:" />
       <Label layoutX="68.0" layoutY="347.0" text="Start Date:" />
       <Label layoutX="103.0" layoutY="272.0" text="Week:" />
-      <ImageView fitHeight="114.0" fitWidth="406.0" layoutX="85.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@qublogo2.png" />
-         </image>
-      </ImageView>
+      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="85.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="438.0" layoutY="112.0" text="School of Medicine Timetable Administration Portal" />
       <Label layoutX="348.0" layoutY="168.0" prefHeight="27.0" prefWidth="908.0" text="Upload a Single Practical or Placement to the Database by filling in all Mandatory Fields" />
       <DatePicker fx:id="StartDate" layoutX="189.0" layoutY="341.0" />

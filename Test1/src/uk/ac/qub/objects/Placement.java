@@ -20,14 +20,11 @@ public class Placement {
 	}
 	
 	
-	public Placement(int week, String startDate, String cohort, String subject, String teacher, String location) {
-		super();
-		this.week = week;
-		StartDate = startDate;
+	public Placement(String subject, String teacher, String location) {
 		Subject = subject;
 		Location = location;
 		Teacher = teacher;
-		Cohort = cohort;
+		
 	}
 
 

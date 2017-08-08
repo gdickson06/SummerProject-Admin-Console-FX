@@ -4,17 +4,23 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXListView;
+import com.jfoenix.controls.JFXTextField;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import uk.ac.qub.churst.ConvertMethods;
+
 import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.objects.Lecture;
 import uk.ac.qub.sql.SQL;
@@ -25,59 +31,36 @@ public class LectureAmendController {
 	protected static Lecture selectedLecture;
 
     @FXML
+    private ImageView Image;
+    @FXML
     private ResourceBundle resources;
 
     @FXML
     private URL location;
 
     @FXML
-    private TextField WeekText;
+    private JFXTextField WeekText;
 
     @FXML
-    private ListView<Lecture> ListOfLectures;
+    private JFXListView<Lecture> ListOfLectures;
 
     @FXML
-    private TextField StaffText;
+    private JFXTextField StaffText;
+
 
     @FXML
-    private Button StaffSearch;
+    private DatePicker Date;
+
 
     @FXML
-    private Button ComboSearch;
+    private JFXTextField YearText;
+
 
     @FXML
-    private TextField DateText;
-
-   
+    private JFXTextField StartTimeText;
 
     @FXML
-    private Button StartTimeSearch;
-
-    @FXML
-    private Button ModuleSearch;
-
- 
-
-    @FXML
-    private Button Back;
-
-    @FXML
-    private TextField YearText;
-
-    @FXML
-    private Button WeekSearch;
-
-    @FXML
-    private Button YearSearch;
-
-    @FXML
-    private Button DateSearch;
-
-    @FXML
-    private TextField StartTimeText;
-
-    @FXML
-    private ComboBox<String> Module;
+    private JFXComboBox<String> Module;
 
    
 
@@ -123,15 +106,20 @@ List<Lecture> searched = SearchQueries.searchLecture(6, Module.getValue());
 
     @FXML
     void DateSearch(ActionEvent event) {
-	List<Lecture> searched = SearchQueries.searchLecture(3, ConvertMethods.DateConvertSQL(DateText.getText()));
+	List<Lecture> searched = SearchQueries.searchLecture(3, Date.getValue().toString());
 		ObservableList<Lecture> list = FXCollections.observableArrayList();
 		list.addAll(searched);
 		ListOfLectures.setItems(list);
     }
 
     @FXML
-    void Back(ActionEvent event) throws Exception {
-GeneralMethods.ChangeScene("mainMenu");
+    void ReturnLectureMenu(ActionEvent event) throws Exception {
+GeneralMethods.ChangeScene("LectureMenu","LectureMenu");
+    }
+    
+    @FXML
+    void ReturnMainMenu(ActionEvent event) throws Exception {
+GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
     }
 
     @FXML
@@ -139,7 +127,7 @@ GeneralMethods.ChangeScene("mainMenu");
 if(event.getClickCount()==2){
    		 selectedLecture=ListOfLectures.getSelectionModel().getSelectedItem();
    		 System.out.println("clicked on " + selectedLecture);
-   		 GeneralMethods.ChangeScene("SelectedLecture");
+   		 GeneralMethods.ChangeScene("AmendSingleLecture","AmendSingleLecture");
     	}
     }
 
@@ -151,7 +139,8 @@ if(event.getClickCount()==2){
     	}else {
  week = Integer.parseInt(WeekText.getText());
     	}
-    	Lecture l = new Lecture(week, DateText.getText(), StartTimeText.getText(), StaffText.getText(), Module.getValue(), YearText.getText());
+    	Lecture l = new Lecture(week, StartTimeText.getText(), StaffText.getText(), Module.getValue(), YearText.getText());
+    	if(Date.getValue()!=null){l.setStartDate(Date.getValue().toString());}
     	List<Lecture> searched = SearchQueries.ComboSearchLectures(l);
 		ObservableList<Lecture> list = FXCollections.observableArrayList();
 		list.addAll(searched);
@@ -161,22 +150,8 @@ if(event.getClickCount()==2){
     @FXML
     void initialize() {
     	Module.getItems().addAll(SQL.Modules());
-    	
-        assert WeekText != null : "fx:id=\"WeekText\" was not injected: check your FXML file 'LectureAmendDelete.fxml'.";
-        assert ListOfLectures != null : "fx:id=\"ListOfLectures\" was not injected: check your FXML file 'LectureAmendDelete.fxml'.";
-        assert StaffText != null : "fx:id=\"StaffText\" was not injected: check your FXML file 'LectureAmendDelete.fxml'.";
-        assert StaffSearch != null : "fx:id=\"StaffSearch\" was not injected: check your FXML file 'LectureAmendDelete.fxml'.";
-        assert ComboSearch != null : "fx:id=\"ComboSearch\" was not injected: check your FXML file 'LectureAmendDelete.fxml'.";
-        assert DateText != null : "fx:id=\"DateText\" was not injected: check your FXML file 'LectureAmendDelete.fxml'.";
-        assert StartTimeSearch != null : "fx:id=\"StartTimeSearch\" was not injected: check your FXML file 'LectureAmendDelete.fxml'.";
-        assert ModuleSearch != null : "fx:id=\"ModuleSearch\" was not injected: check your FXML file 'LectureAmendDelete.fxml'.";
-       assert Back != null : "fx:id=\"Back\" was not injected: check your FXML file 'LectureAmendDelete.fxml'.";
-        assert YearText != null : "fx:id=\"YearText\" was not injected: check your FXML file 'LectureAmendDelete.fxml'.";
-        assert WeekSearch != null : "fx:id=\"WeekSearch\" was not injected: check your FXML file 'LectureAmendDelete.fxml'.";
-        assert YearSearch != null : "fx:id=\"YearSearch\" was not injected: check your FXML file 'LectureAmendDelete.fxml'.";
-        assert DateSearch != null : "fx:id=\"DateSearch\" was not injected: check your FXML file 'LectureAmendDelete.fxml'.";
-        assert StartTimeText != null : "fx:id=\"StartTimeText\" was not injected: check your FXML file 'LectureAmendDelete.fxml'.";
-        assert Module != null : "fx:id=\"Module\" was not injected: check your FXML file 'LectureAmendDelete.fxml'.";
-
+    	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
+    	Image.setImage(i);
+   
     }
 }

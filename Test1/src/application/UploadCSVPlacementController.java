@@ -6,11 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextField;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import uk.ac.qub.churst.CSV;
 import uk.ac.qub.churst.GeneralMethods;
@@ -18,25 +21,24 @@ import uk.ac.qub.objects.Placement;
 import uk.ac.qub.sql.PlacementSQL;
 
 public class UploadCSVPlacementController {
-
+	  @FXML
+	    private ImageView Image;
     @FXML
     private ResourceBundle resources;
 
     @FXML
     private URL location;
-    
+ 
     @FXML
-    private TextField YearTextField;
+    private JFXComboBox<Integer> Year;
 
     @FXML
-    private TextField PlacementCSVFilePath;
+    private JFXTextField PlacementCSVFilePath;
     
     private FileChooser fileChooser = new FileChooser();
     private File file;
     
-    private Button uploadPlacementCSV;
-    
-    private Button selectFilePlacementCSVButton;
+   
     
     
     /**creating method that will select the file from the user's computer and display filepath of file
@@ -60,20 +62,19 @@ public class UploadCSVPlacementController {
      * @param event
      */
     @FXML
-    void UploadPlacementCSVButton(ActionEvent event) {
+    void uploadPlacementsCSV(ActionEvent event) {
     	String path = PlacementCSVFilePath.getText();
     	
     	List<Placement> placementList = new ArrayList<Placement>();
     	boolean error = false;
     		
-    	    int year = Integer.parseInt(YearTextField.getText());
+    	    int year = Year.getValue();
     		placementList= CSV.readPlacementsFromCSV(path, year);
 
     		
     		try {
 				PlacementSQL.saveSQLPlacement(placementList, year);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 				error=true;
 			}
@@ -85,20 +86,22 @@ public class UploadCSVPlacementController {
     }
     @FXML
     void DeleteYear(ActionEvent event) throws Exception {
-    	PlacementSQL.DeleteYearPlacement(YearTextField.getText());
+    	PlacementSQL.DeleteYearPlacement(String.valueOf(Year.getValue()));
     	GeneralMethods.show("DELETED ALL FOR YEAR", "DELETED ALL FOR YEAR");
     }
 
     @FXML
-    void CancelPlacementFileButton(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("mainMenu");
+    void returnMainMenu(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
     }
-
+    @FXML
+    void returnPracticalMenu(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("PracticalMenuController", "PracticalPlacementMenu");
+    }
     @FXML
     void initialize() {
-    	assert YearTextField != null : "fx:id=\"YearTextField\" was not injected: check your FXML file 'UploadCSVPlacement.fxml'.";
-    	assert uploadPlacementCSV != null : "fx:id=\"uploadPlacementCSV\" was not injected: check your FXML file 'UploadCSVPlacement.fxml'.";
-        assert PlacementCSVFilePath != null : "fx:id=\"PlacementCSVFilePath\" was not injected: check your FXML file 'UploadCSVPlacement.fxml'.";
-        assert selectFilePlacementCSVButton != null : "fx:id=\"selectFilePlacementCSVButton\" was not injected: check your FXML file 'UploadCSVPlacement.fxml'.";
+    	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
+    	Image.setImage(i);
+    	ApplicationMethods.Years(Year);
     }
 }

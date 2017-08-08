@@ -16,12 +16,12 @@ import uk.ac.qub.objects.Lecture;
 public class LectureSQL {
 
 
-	public static void saveSQLLecture(List<Lecture> lectures, String Year, ProgressBar p) throws Exception {
+	public static void saveSQLLecture(List<Lecture> lectures, String Year) throws Exception {
 		
 	
 
 		PreparedStatement statement = null;
-		int progress = lectures.size();
+	
 		for (Lecture l : lectures) {
 			int week = l.getWeek();
 			String day = l.getDay();
@@ -57,10 +57,9 @@ public class LectureSQL {
 				System.err.println("Issue with groups, please check the syntax for week" + l.getWeek() + " day "
 						+ l.getDay() + " startTime " + l.getStartTime() + " the groups input is " + l.getGroup());
 			}
-			progress--;
-			p.setProgress((lectures.size()-progress)*0.7);
+	
 		}
-		SQL.GroupsToGroup(lectures, p);
+		SQL.GroupsToGroup(lectures);
 	}
 	
 
@@ -101,10 +100,10 @@ public static void DeleteLectureYear(String Year) throws Exception {
 		// This will be in the order of the
 		
 
-		String Statement = "INSERT INTO lectures (Week, Day, StartDate, StartTime, EndTime, Groups, Location, Subject, Theme, Teaching, Description, Staff, Style, Module, Essential, Year, Notes)"
+		String Statement = "INSERT INTO lectures (Week, Day, StartDate, StartTime, EndTime, Groups, Location, Subject, Theme, Teaching, Description, Staff, Style, Module, Essential, Year)"
 				+ "VALUES (" + s.get(0) + ", '" + s.get(1) + "', '" + s.get(2) + "', '" + s.get(3) + "','" + s.get(4)
 				+ "', '" + s.get(5) + "', '" + s.get(6) + "', '" + s.get(7) + "', '" + s.get(8) + "', '" + s.get(9)
-				+ "', '" + s.get(10) + "', '" + s.get(11) + "', '" + s.get(12) + "', '" + s.get(13) + "', "+s.get(14)+", '"+s.get(15)+"', '"+s.get(16)+"');";
+				+ "', '" + s.get(10) + "', '" + s.get(11) + "', '" + s.get(12) + "', '" + s.get(13) + "', "+s.get(14)+", '"+s.get(15)+"');";
 		System.out.println(Statement);
 		statement = Main.connection.prepareStatement(Statement);
 		statement.executeUpdate();

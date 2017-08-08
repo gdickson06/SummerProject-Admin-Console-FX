@@ -5,6 +5,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.jfoenix.controls.JFXComboBox;
+
 import javafx.scene.control.ComboBox;
 import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.objects.Staff;
@@ -26,6 +28,17 @@ public static List<String> Cohorts =  new ArrayList<String>();
     	
     	
     	Type.getItems().addAll(types);
+	}
+	
+	protected static void Years(JFXComboBox<Integer> e){
+		List<Integer> years = new ArrayList<Integer>();
+		years.add(1);
+		years.add(2);
+		years.add(3);
+		years.add(4);
+		years.add(5);
+		
+		e.getItems().addAll(years);
 	}
 	
 	protected static void ErrorMessage (Exception e){

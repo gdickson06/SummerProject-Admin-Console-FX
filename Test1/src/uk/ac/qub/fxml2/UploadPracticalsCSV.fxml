@@ -6,20 +6,18 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.ac.qub.samples.UploadPracticalsCSV">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UploadCSVPlacementController">
    <children>
-      <JFXButton fx:id="returnMainMenuButton" layoutX="759.0" layoutY="512.0" onAction="#returnMainMenu" text="Return To Main Menu" />
-      <JFXButton fx:id="returnPracticalMenuButton" layoutX="291.0" layoutY="512.0" onAction="#returnPracticalMenu" text="Return to Practicals &amp; Placements Menu" />
-      <JFXButton fx:id="cancelButton" layoutX="880.0" layoutY="391.0" onAction="#cancel" text="Cancel" />
-      <JFXButton fx:id="uploadFileButton" layoutX="727.0" layoutY="391.0" onAction="#uploadFile" text="Upload File" />
-      <JFXButton fx:id="chooseCSVButton" layoutX="841.0" layoutY="292.0" onAction="#chooseCSV" text="Choose File" />
-      <JFXTextField fx:id="filePathTextField" focusColor="WHITE" labelFloat="true" layoutX="291.0" layoutY="294.0" prefHeight="35.0" prefWidth="512.0" promptText="File Path" unFocusColor="WHITE" />
+      <JFXButton layoutX="759.0" layoutY="512.0" onAction="#returnMainMenu" text="Return To Main Menu" />
+      <JFXButton layoutX="291.0" layoutY="512.0" onAction="#returnPracticalMenu" text="Return to Practicals &amp; Placements Menu" />
+      <JFXButton layoutX="880.0" layoutY="391.0" onAction="#DeleteYear" text="Delete Year" />
+      <JFXButton layoutX="727.0" layoutY="391.0" onAction="#uploadPlacementsCSV" text="Upload File" />
+      <JFXButton layoutX="841.0" layoutY="292.0" onAction="#selectFilePlacementCSV" text="Choose File" />
+      <JFXTextField fx:id="PlacementCSVFilePath" focusColor="WHITE" labelFloat="true" layoutX="291.0" layoutY="294.0" prefHeight="35.0" prefWidth="512.0" promptText="File Path" unFocusColor="WHITE" />
       <Label layoutX="291.0" layoutY="203.0" text="Please select a CSV file to bulk upload a list of Practicals or Placements to the database." />
       <Label layoutX="408.0" layoutY="82.0" text="School of Medicine Timetable Administration Portal" />
-      <ImageView fitHeight="114.0" fitWidth="406.0" layoutX="55.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@qublogo2.png" />
-         </image>
-      </ImageView>
+      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="55.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" />
+      <JFXComboBox fx:id="Year" layoutX="291.0" layoutY="391.0" prefHeight="25.0" prefWidth="52.0" />
+      <Label layoutX="244.0" layoutY="400.0" text="Year :" />
    </children>
 </AnchorPane>

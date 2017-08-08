@@ -200,15 +200,15 @@ public class SearchQueries {
 				start=false;
 		}
 		
-		if(!lectures.getStartDate().isEmpty()){
+		if(lectures.getStartDate()!=null){
 			if(start==false){
 				statement = statement+" AND ";
 			} else {
 				statement = statement+" WHERE ";
 			}
-				statement = statement+"StartDate = '"+ConvertMethods.DateConvertSQL(lectures.getStartDate())+"'";
+				statement = statement+"StartDate = '"+lectures.getStartDate()+"'";
 		}
-		
+
 		statement = statement+";";
 		
 		System.out.println(statement);
@@ -670,7 +670,7 @@ public static List<Placement> ComboSearchPlacement(Placement p){
 			start=false;
 		}
 		
-		if(!p.getStartDate().isEmpty()){
+		if(p.getStartDate()!=null){
 			if(start==false){
 				statement = statement+" AND ";
 			} else {
@@ -691,7 +691,7 @@ public static List<Placement> ComboSearchPlacement(Placement p){
 				start=false;
 		}
 		
-		if(!p.getCohort().isEmpty()){
+		if(p.getCohort()!=null){
 			if(start==false){
 				statement = statement+" AND ";
 			} else {

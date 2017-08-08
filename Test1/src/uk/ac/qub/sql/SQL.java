@@ -210,13 +210,13 @@ try{
 		return modules;
 	}
 
-	public static void GroupsToGroup (List<Lecture> lectures, ProgressBar p)throws Exception{
+	public static void GroupsToGroup (List<Lecture> lectures)throws Exception{
 
 	
 				
 				
 				Set<GroupsCon> set = new HashSet<GroupsCon>();
-				int progress = set.size();
+				
 				for(Lecture l:lectures){
 					List<String> group = new ArrayList<String>();
 					try{
@@ -234,9 +234,7 @@ try{
 						
 
 					}
-					progress--;
-					
-					p.setProgress(0.7+((set.size()-progress)/set.size())*0.3);
+			
 				}
 				//
 				PreparedStatement statement=null;

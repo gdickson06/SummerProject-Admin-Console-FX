@@ -84,7 +84,8 @@ public class CreatePDFController {
     	}else {
  week = Integer.parseInt(Week.getText());
     	}
-    	Lecture l = new Lecture(week, Date.getText(), StartTime.getText(), Staff.getText(), Module.getValue(), Year.getText());
+    	Lecture l = new Lecture(week, StartTime.getText(), Staff.getText(), Module.getValue(), Year.getText());
+    
     	List<Lecture> searched = SearchQueries.ComboSearchLectures(l);
 		ObservableList<Lecture> list = FXCollections.observableArrayList();
 		list.addAll(searched);

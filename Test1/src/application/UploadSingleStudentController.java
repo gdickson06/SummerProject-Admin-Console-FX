@@ -3,41 +3,37 @@ package application;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.jfoenix.controls.JFXTextField;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.sql.StudentSQL;
 
 public class UploadSingleStudentController {
-	
-	 @FXML
-	    private TextField Year;
+	   @FXML
+	    private ImageView Image;
 
     @FXML
-    private Button updateDetailsButton;
+    private JFXTextField IntakeYear;
 
     @FXML
-    private Button cancelButton;
+    private JFXTextField Cohort;
 
     @FXML
-    private TextField IntakeYear;
+    private JFXTextField StudentNumber;
 
     @FXML
-    private TextField Cohort;
+    private JFXTextField StudentName;
 
     @FXML
-    private TextField StudentNumber;
+    private JFXTextField EmailAddress;
 
     @FXML
-    private TextField StudentName;
-
-    @FXML
-    private TextField EmailAddress;
-
-    @FXML
-    void updateDetailsClick(ActionEvent event) {
+    void updateDetails(ActionEvent event) {
     	//This will be in the order of the Student Number, name,group,email,year.
     	List<String> attributes = new ArrayList<String>();
     	
@@ -58,8 +54,31 @@ public class UploadSingleStudentController {
     }
 
     @FXML
-    void cancelButtonClick(ActionEvent event)throws Exception {
-    	GeneralMethods.ChangeScene("MainMenu");
+    void MainMenu(ActionEvent event)throws Exception {
+    	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
+    }
+    
+    @FXML
+    void StudentMenu(ActionEvent event)throws Exception {
+    	GeneralMethods.ChangeScene("StudentMenu","StudentMenu");
+    }
+    
+    @FXML
+    void Clear(ActionEvent event)throws Exception {
+      IntakeYear.setText("");
+
+     Cohort.setText("");;
+
+       StudentNumber.setText("");;
+
+       StudentName.setText("");;
+
+        EmailAddress.setText("");;
+    }
+    @FXML
+    void initialize() {
+    	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
+    	Image.setImage(i);
     }
 
 }

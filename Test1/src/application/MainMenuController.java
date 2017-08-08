@@ -75,7 +75,6 @@ public class MainMenuController {
     	
     	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
     	Image.setImage(i);
-        assert Image != null : "fx:id=\"Image\" was not injected: check your FXML file 'MainMenu3.fxml'.";
-
+        
     }
 }

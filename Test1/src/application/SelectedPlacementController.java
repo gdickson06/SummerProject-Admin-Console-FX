@@ -6,12 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import com.jfoenix.controls.JFXTextArea;
+import com.jfoenix.controls.JFXTextField;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import uk.ac.qub.churst.ConvertMethods;
 import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.objects.Placement;
@@ -21,45 +25,43 @@ public class SelectedPlacementController {
 	
 	private Placement p = PlacementAmendDeleteController.selectedPlacement;
 
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
 
     @FXML
     private DatePicker StartDate;
 
     @FXML
-    private TextField Year;
+    private JFXTextField Year;
 
     @FXML
-    private TextField Cohort;
+    private JFXTextField Cohort;
 
     @FXML
-    private TextArea Note;
+    private JFXTextArea Note;
 
     @FXML
-    private TextField Teacher;
+    private JFXTextField Teacher;
 
     @FXML
     private Label ID;
 
     @FXML
-    private TextField Week;
+    private ImageView Image;
+
+    @FXML
+    private JFXTextField Week;
 
     @FXML
     private DatePicker EndDate;
 
     @FXML
-    private TextField Subject;
+    private JFXTextField Subject;
 
     @FXML
-    private TextField Location;
+    private JFXTextField Location;
 
     @FXML
     void Home(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("mainMenu");
+    	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
     }
 
     @FXML
@@ -70,7 +72,7 @@ public class SelectedPlacementController {
     }
 
     @FXML
-    void Amend(ActionEvent event) {
+    void Save(ActionEvent event) {
     	// The list will be id,Week,StartDate,EndDate,Subject,Location,ClinicalTeacher,Cohort,YearGroup,Note
     	List<String>s = new ArrayList<String>();
     	
@@ -99,11 +101,19 @@ public class SelectedPlacementController {
 
     @FXML
     void Back(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("PlacementAmendDelete");
+     	GeneralMethods.ChangeScene("AmendDeletePracticalMenu", "AmendDeletePracticalMenu");
+         }
+    
+    @FXML
+    void returnPracticalPlacementScreen(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("PracticalMenuController", "PracticalPlacementMenu");
+    	  
     }
 
     @FXML
     void initialize() {
+    	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
+    	Image.setImage(i);
     	StartDate.setValue(LocalDate.parse(p.getStartDate(), ApplicationMethods.dtf));
     	Year.setText(String.valueOf(p.getYear()));
     	Cohort.setText(p.getCohort());
@@ -114,18 +124,6 @@ public class SelectedPlacementController {
     	EndDate.setValue(LocalDate.parse(p.getEndDate(),ApplicationMethods.dtf));
     	Subject.setText(p.getSubject());
     	Location.setText(p.getLocation());
-    	
-    	
-        assert StartDate != null : "fx:id=\"StartDate\" was not injected: check your FXML file 'SelectedPlacement.fxml'.";
-        assert Year != null : "fx:id=\"Year\" was not injected: check your FXML file 'SelectedPlacement.fxml'.";
-        assert Cohort != null : "fx:id=\"Cohort\" was not injected: check your FXML file 'SelectedPlacement.fxml'.";
-        assert Note != null : "fx:id=\"Note\" was not injected: check your FXML file 'SelectedPlacement.fxml'.";
-        assert Teacher != null : "fx:id=\"Teacher\" was not injected: check your FXML file 'SelectedPlacement.fxml'.";
-        assert ID != null : "fx:id=\"ID\" was not injected: check your FXML file 'SelectedPlacement.fxml'.";
-        assert Week != null : "fx:id=\"Week\" was not injected: check your FXML file 'SelectedPlacement.fxml'.";
-        assert EndDate != null : "fx:id=\"EndDate\" was not injected: check your FXML file 'SelectedPlacement.fxml'.";
-        assert Subject != null : "fx:id=\"Subject\" was not injected: check your FXML file 'SelectedPlacement.fxml'.";
-        assert Location != null : "fx:id=\"Location\" was not injected: check your FXML file 'SelectedPlacement.fxml'.";
 
     }
 }

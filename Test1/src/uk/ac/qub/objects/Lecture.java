@@ -4,10 +4,10 @@ public class Lecture {
 	
 	int Week,id;
 	
-	public Lecture(int week, String startDate, String startTime, String staff, String module, String year) {
+	public Lecture(int week,  String startTime, String staff, String module, String year) {
 		super();
 		Week = week;
-		this.startDate = startDate;
+	
 		StartTime = startTime;
 		this.staff = staff;
 		this.module = module;
@@ -84,6 +84,7 @@ public class Lecture {
 		this.notes = notes;
 		Essential = essential;
 	}
+	
 	
 	
 	public String getYear() {

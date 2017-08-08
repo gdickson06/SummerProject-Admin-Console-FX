@@ -1,15 +1,17 @@
 package application;
 
+import com.jfoenix.controls.JFXTextArea;
+import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.DatePicker;
+import javafx.scene.image.ImageView;
 import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.sql.PlacementSQL;
 
@@ -22,37 +24,58 @@ public class UploadSinglePlacementController {
     private URL location;
 
     @FXML
-    private TextField StartDate;
+    private DatePicker StartDate;
 
     @FXML
-    private TextField Year;
+    private JFXTextField Cohort;
 
     @FXML
-    private TextField Cohort;
+    private JFXTextField Year;
 
     @FXML
-    private TextArea Note;
+    private JFXTextArea Note;
 
     @FXML
-    private TextField Teacher;
+    private JFXTextField Teacher;
 
     @FXML
-    private Button Back;
+    private ImageView Image;
 
     @FXML
-    private Button Upload;
+    private JFXTextField Week;
 
     @FXML
-    private TextField Week;
+    private DatePicker EndDate;
 
     @FXML
-    private TextField EndDate;
+    private JFXTextField Subject;
 
     @FXML
-    private TextField Subject;
+    private JFXTextField Location;
 
     @FXML
-    private TextField Location;
+    void MainMenuButtonClick(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
+    }
+
+    @FXML
+    void PracticalMenuButtonClick(ActionEvent event) throws Exception {
+     	GeneralMethods.ChangeScene("PracticalMenuController", "PracticalPlacementMenu");
+        
+    }
+
+    @FXML
+    void cancelButtonClick(ActionEvent event) {
+    	Week.setText("");
+    	StartDate.setValue(LocalDate.now());
+    	EndDate.setValue(LocalDate.now());
+    	Subject.setText("");
+    	Location.setText("");
+    	Teacher.setText("");
+    	Cohort.setText("");
+    	Year.setText("");
+    	Note.setText("");
+    }
 
     @FXML
     void Upload(ActionEvent event) {
@@ -62,8 +85,8 @@ public class UploadSinglePlacementController {
     	List<String> s = new ArrayList<String>();
     	
     	s.add(Week.getText());
-    	s.add(StartDate.getText());
-    	s.add(EndDate.getText());
+    	s.add(StartDate.getValue().toString());
+    	s.add(EndDate.getValue().toString());
     	s.add(Subject.getText());
     	s.add(Location.getText());
     	s.add(Teacher.getText());
@@ -78,28 +101,14 @@ public class UploadSinglePlacementController {
     	}
     	if(success){
     	GeneralMethods.show("Placement uploaded successfully", "Upload success");
-    }}
-
-    @FXML
-    void Back(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("mainMenu");
     }
-    
-
+    }
 
     @FXML
     void initialize() {
-        assert StartDate != null : "fx:id=\"StartDate\" was not injected: check your FXML file 'UploadSinglePlacement.fxml'.";
-        assert Year != null : "fx:id=\"Year\" was not injected: check your FXML file 'UploadSinglePlacement.fxml'.";
-        assert Cohort != null : "fx:id=\"Cohort\" was not injected: check your FXML file 'UploadSinglePlacement.fxml'.";
-        assert Note != null : "fx:id=\"Note\" was not injected: check your FXML file 'UploadSinglePlacement.fxml'.";
-        assert Teacher != null : "fx:id=\"Teacher\" was not injected: check your FXML file 'UploadSinglePlacement.fxml'.";
-        assert Back != null : "fx:id=\"Back\" was not injected: check your FXML file 'UploadSinglePlacement.fxml'.";
-        assert Upload != null : "fx:id=\"Upload\" was not injected: check your FXML file 'UploadSinglePlacement.fxml'.";
-        assert Week != null : "fx:id=\"Week\" was not injected: check your FXML file 'UploadSinglePlacement.fxml'.";
-        assert EndDate != null : "fx:id=\"EndDate\" was not injected: check your FXML file 'UploadSinglePlacement.fxml'.";
-        assert Subject != null : "fx:id=\"Subject\" was not injected: check your FXML file 'UploadSinglePlacement.fxml'.";
-        assert Location != null : "fx:id=\"Location\" was not injected: check your FXML file 'UploadSinglePlacement.fxml'.";
-
+    	StartDate.setValue(LocalDate.now());
+    	EndDate.setValue(LocalDate.now());
+    	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
+    	Image.setImage(i);
     }
 }

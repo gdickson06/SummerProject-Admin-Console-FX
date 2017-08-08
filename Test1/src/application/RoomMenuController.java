@@ -67,12 +67,6 @@ public class RoomMenuController {
     	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
     	Image.setImage(i);
     	
-        assert returnMainMenuButton != null : "fx:id=\"returnMainMenuButton\" was not injected: check your FXML file 'RoomMenu.fxml'.";
-        assert amendDeleteRoomButton != null : "fx:id=\"ammendDeleteRoomButton\" was not injected: check your FXML file 'RoomMenu.fxml'.";
-        assert logOutButton != null : "fx:id=\"logOutButton\" was not injected: check your FXML file 'RoomMenu.fxml'.";
-        assert uploadSingleRoomButton != null : "fx:id=\"uploadSingleRoomButton\" was not injected: check your FXML file 'RoomMenu.fxml'.";
-        assert uploadRoomCSVButton != null : "fx:id=\"uploadRoomCSVButton\" was not injected: check your FXML file 'RoomMenu.fxml'.";
-        assert Image != null : "fx:id=\"Image\" was not injected: check your FXML file 'RoomMenu.fxml'.";
-
+      
     }
 }

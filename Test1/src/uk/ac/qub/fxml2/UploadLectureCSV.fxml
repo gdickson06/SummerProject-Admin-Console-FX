@@ -6,21 +6,17 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.ac.qub.samples.UploadLecturesCSV">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CSVLectureController">
    <children>
-      <JFXButton fx:id="returnMainMenuButton" layoutX="759.0" layoutY="512.0" onAction="#returnMainMenu" text="Return To Main Menu" />
-      <JFXButton fx:id="returnLectureMenuButton" layoutX="291.0" layoutY="512.0" onAction="#returnLectureMenu" text="Return to Lecture Menu" />
-      <JFXButton fx:id="cancelButton" layoutX="764.0" layoutY="391.0" onAction="#cancel" text="Cancel" />
-      <JFXButton fx:id="uploadFileButton" layoutX="606.0" layoutY="391.0" onAction="#uploadFile" text="Upload FIle" />
-      <JFXTextField fx:id="insertYearTextfield" focusColor="WHITE" labelFloat="true" layoutX="291.0" layoutY="391.0" onAction="#insertYear" prefHeight="35.0" prefWidth="269.0" promptText="Insert Year Here" unFocusColor="WHITE" />
-      <JFXButton fx:id="chooseCSVButton" layoutX="841.0" layoutY="292.0" onAction="#chooseCSV" text="Choose File" />
-      <JFXTextField fx:id="filePathTextField" focusColor="WHITE" labelFloat="true" layoutX="291.0" layoutY="294.0" prefHeight="35.0" prefWidth="512.0" promptText="File Path" unFocusColor="WHITE" />
+      <JFXButton layoutX="759.0" layoutY="512.0" onAction="#returnMainMenu" text="Return To Main Menu" />
+      <JFXButton layoutX="291.0" layoutY="512.0" onAction="#returnLectureMenu" text="Return to Lecture Menu" />
+      <JFXButton layoutX="764.0" layoutY="391.0" onAction="#DeleteAll" text="Delete All" />
+      <JFXButton layoutX="606.0" layoutY="391.0" onAction="#uploadFile" text="Upload File" />
+      <JFXTextField fx:id="Year" focusColor="WHITE" labelFloat="true" layoutX="291.0" layoutY="391.0" prefHeight="35.0" prefWidth="269.0" promptText="Insert Year Here" unFocusColor="WHITE" />
+      <JFXButton layoutX="841.0" layoutY="292.0" onAction="#SelectFile" text="Choose File" />
+      <JFXTextField fx:id="FileInput" focusColor="WHITE" labelFloat="true" layoutX="291.0" layoutY="294.0" prefHeight="35.0" prefWidth="512.0" promptText="File Path" unFocusColor="WHITE" />
       <Label layoutX="291.0" layoutY="203.0" text="Please select a CSV file and Year to bulk upload a list of Lectures to the database." />
       <Label layoutX="408.0" layoutY="82.0" text="School of Medicine Timetable Administration Portal" />
-      <ImageView fitHeight="114.0" fitWidth="406.0" layoutX="55.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@qublogo2.png" />
-         </image>
-      </ImageView>
+      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="55.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

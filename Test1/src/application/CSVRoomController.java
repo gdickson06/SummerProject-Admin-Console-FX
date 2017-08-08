@@ -1,47 +1,52 @@
 package application;
 
+import com.jfoenix.controls.JFXTextField;
+
 import java.io.File;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
-import uk.ac.qub.objects.Room;
-import uk.ac.qub.sql.RoomSQL;
 import uk.ac.qub.churst.CSV;
 import uk.ac.qub.churst.GeneralMethods;
+import uk.ac.qub.objects.Room;
+import uk.ac.qub.sql.RoomSQL;
 
 public class CSVRoomController {
 
     @FXML
-    private TextField SelectedRoomFilePath;
-    
-    //creating an instance of the FileChooser Class from the JavaFX superclass
-    FileChooser fileChooserWindow = new FileChooser();
-    //creating an instance of the file class
-    File file;
-    
-    /*creating the SelectRoomFileButton onClick method, which will 
-     * allow the use to select a CSV file from a filepath. The method
-     * uses the configureFileChooser class from the  GeneralMehtods
-     * class
-     */
-    
+    private ResourceBundle resources;
+
     @FXML
-    void SelectRoomFileButton(ActionEvent event) {
-    	GeneralMethods.configureFileChooser(fileChooserWindow);
-    	File csvFile = fileChooserWindow.showOpenDialog(Main.getStage());
-    	if(csvFile != null){
-    		file = csvFile;
-    	}
-    	SelectedRoomFilePath.setText(file.getAbsolutePath());
+    private URL location;
+
+    @FXML
+    private ImageView Image;
+
+    @FXML
+    private JFXTextField filePathTextField;
+    
+    FileChooser fileChooserWindow = new FileChooser();
+    private File file;
+
+    @FXML
+    void returnMainMenu(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
     }
 
     @FXML
-    void UploadRoomFileButton(ActionEvent event) {
-    	String filePath = SelectedRoomFilePath.getText();
+    void returnRoomMenu(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("RoomMenu","RoomMenu");
+    }
+
+    @FXML
+    void uploadFile(ActionEvent event) {
+String filePath = filePathTextField.getText();
     	
     	List<Room> roomList = new ArrayList<Room>();
     	boolean uploadError = false;
@@ -64,14 +69,21 @@ public class CSVRoomController {
     		GeneralMethods.show("Upload of Rooms from CSV successful, with "+ roomList.size() +" rooms added to the database", "Rooms Upload Successful");
     	}
     }
-    
-    /*the CancelRoomFileButton onClick method will change the scene
-     *from the UploadRoomCSV.fxml file to the mainMenu.fxml file
-     */
-    
+
     @FXML
-    void CancelRoomFileButton(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("mainMenu");
+    void chooseCSV(ActionEvent event) {
+    	GeneralMethods.configureFileChooser(fileChooserWindow);
+    	File csvFile = fileChooserWindow.showOpenDialog(Main.getStage());
+    	if(csvFile != null){
+    		file = csvFile;
+    	}
+    	filePathTextField.setText(file.getAbsolutePath());
     }
 
+    @FXML
+    void initialize() {
+    	
+    	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
+    	Image.setImage(i);
+    }
 }

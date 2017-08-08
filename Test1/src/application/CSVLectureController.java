@@ -4,11 +4,14 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.jfoenix.controls.JFXTextField;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import uk.ac.qub.churst.CSV;
 import uk.ac.qub.churst.GeneralMethods;
@@ -17,23 +20,16 @@ import uk.ac.qub.sql.LectureSQL;
 
 
 public class CSVLectureController {
+	
 	   @FXML
-	    private ProgressBar Progress;
-
+	    private ImageView Image;
 	    @FXML
-	    private TextField Year;
+	    private JFXTextField Year;
+
+  
 
     @FXML
-    private Button Cancel;
-
-    @FXML
-    private Button FileSelect;
-
-    @FXML
-    private Button Upload;
-
-    @FXML
-    private TextField FileInput;
+    private JFXTextField FileInput;
     
     FileChooser fileChooser = new FileChooser();
     File f;
@@ -49,7 +45,7 @@ public class CSVLectureController {
     }
 
     @FXML
-    void Upload(ActionEvent event) {
+    void uploadFile(ActionEvent event) {
     	String s = FileInput.getText();
 
 
@@ -57,7 +53,7 @@ public class CSVLectureController {
 		boolean error = false;
 		try {
 			lectureList = CSV.readLecturesFromCSV(s);
-			LectureSQL.saveSQLLecture(lectureList,Year.getText(),Progress);
+			LectureSQL.saveSQLLecture(lectureList,Year.getText());
 		} catch (Exception e) {
 			GeneralMethods.show("Issue with input please view the handbook", "ERROR");
 			error = true;
@@ -71,8 +67,13 @@ public class CSVLectureController {
     }
 
     @FXML
-    void Cancel(ActionEvent event) throws Exception{
-    	GeneralMethods.ChangeScene("MainMenu");
+    void returnMainMenu(ActionEvent event) throws Exception{
+    	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
+    }
+    
+    @FXML
+    void returnLectureMenu(ActionEvent event) throws Exception{
+    	GeneralMethods.ChangeScene("LectureMenu","LectureMenu");
     }
     
     @FXML
@@ -80,5 +81,13 @@ public class CSVLectureController {
     	LectureSQL.DeleteLectureYear(Year.getText());
     	GeneralMethods.show("ALL LECTURES DELETED", "ALL LECTURES DELETED");
     }
+    @FXML
+    void initialize() {
+    	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
+    	Image.setImage(i);
+        assert Year != null : "fx:id=\"Year\" was not injected: check your FXML file 'UploadLectureCSV.fxml'.";
+        assert FileInput != null : "fx:id=\"fileInput\" was not injected: check your FXML file 'UploadLectureCSV.fxml'.";
+        assert Image != null : "fx:id=\"Image\" was not injected: check your FXML file 'UploadLectureCSV.fxml'.";
 
+    }
 }
