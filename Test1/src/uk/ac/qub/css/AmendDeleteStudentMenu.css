@@ -33,6 +33,11 @@
 	-fx-font-family: "Avenir";
 }
 
+.list-cell .label {
+	-fx-text-fill:#A10026;
+	-fx-font-family: "Avenir";
+}
+
 .text-field {
 	-fx-prompt-text-fill:#FFFFFF;
 	-fx-text-inner-color:#FFFFFF;

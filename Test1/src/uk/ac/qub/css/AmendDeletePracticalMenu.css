@@ -53,3 +53,8 @@
 	-fx-background-color:#A10026;
 	-fx-text-fill: #FFFFFF;
 }
+
+.list-cell .label {
+	-fx-text-fill:#A10026;
+	-fx-font-family: "Avenir";
+}
