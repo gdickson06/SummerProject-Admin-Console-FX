@@ -49,8 +49,8 @@ public class PDFMenuController {
     }
 
     @FXML
-    void createPDFButtonClick(ActionEvent event) {
-    	//to be completed
+    void createPDFButtonClick(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("CreatePDF","CreatePDF");
     }
 
     @FXML
