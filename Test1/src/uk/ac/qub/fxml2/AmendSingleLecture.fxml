@@ -35,11 +35,7 @@
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <ImageView fitHeight="114.0" fitWidth="406.0" layoutX="103.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@qublogo2.png" />
-         </image>
-      </ImageView>
+      <ImageView fitHeight="114.0" fitWidth="406.0" layoutX="103.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="456.0" layoutY="85.0" text="School of Medicine Timetable Administration Portal" />
       <Label layoutX="370.0" layoutY="141.0" prefHeight="27.0" prefWidth="990.0" text="Update the fields below and click 'Save Details', otherwise click 'Delete Lecture' to remove lecture from database" />
       <JFXTextField fx:id="DayText" focusColor="WHITE" labelFloat="true" layoutX="145.0" layoutY="361.0" prefHeight="35.0" prefWidth="157.0" promptText="Enter day Here" unFocusColor="WHITE">

@@ -19,7 +19,7 @@ import uk.ac.qub.sql.SearchQueries;
 
 public class StudentAmendDeleteController {
 
-	protected Student selectedStudent;
+	protected static Student selectedStudent;
     @FXML
     private ResourceBundle resources;
     
@@ -82,7 +82,7 @@ List<String> list = new ArrayList<String>();
     	 if(event.getClickCount()==2){
     		 selectedStudent=listOfStudents.getSelectionModel().getSelectedItem();
     		 System.out.println("clicked on " + selectedStudent);
-    		 GeneralMethods.ChangeScene("SelectedStudent");
+    		 GeneralMethods.ChangeScene("AmendSingleStudent","AmendSingleStudentMenu");
     	    }
     }
 
