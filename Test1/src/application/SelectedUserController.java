@@ -5,12 +5,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextField;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.objects.Coordinator;
 import uk.ac.qub.objects.Staff;
@@ -22,6 +27,10 @@ import uk.ac.qub.sql.StaffSQL;
 public class SelectedUserController {
 	
 	Staff s = StaffAmendDeleteController.s;
+	
+
+    @FXML
+    private ImageView Image;
 
     @FXML
     private ResourceBundle resources;
@@ -30,36 +39,26 @@ public class SelectedUserController {
     private URL location;
 
     @FXML
-    private Button Delete;
-
-    @FXML
-    private ComboBox<String> Type;
+    private JFXComboBox<String> Type;
 
     @FXML
     private Label UserName;
 
-    @FXML
-    private Button Back;
 
     @FXML
-    private Button Change;
+    private JFXTextField EmailText;
 
     @FXML
-    private Button Home;
+    private JFXComboBox<String> ModuleText;
 
     @FXML
-    private TextField EmailText;
+    private JFXTextField Name;
 
     @FXML
-    private ComboBox<String> ModuleText;
-
+    private JFXTextField Password;
+    
     @FXML
-    private TextField Name;
-
-    @FXML
-    private TextField Password;
-    @FXML
-    void Typepick(ActionEvent event) {
+    void TypePick(MouseEvent event) {
     	System.out.println(Type.getValue());
     	if(Type.getValue().equals("Module Coordinator")){
     		ModuleText.setVisible(true);
@@ -69,6 +68,7 @@ public class SelectedUserController {
         	EmailText.setVisible(false);
     	}
     }
+   
     @FXML
     void Change(ActionEvent event) throws Exception {
     	
@@ -113,13 +113,20 @@ List<String> attributes = new ArrayList<String>();
 
     @FXML
     void Back(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("StaffAmendDelete");
+    	GeneralMethods.ChangeScene("AmendSingleStaff","AmendSingleStaff");
     }
 
     @FXML
     void Home(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("mainMenu");
+    	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
     }
+    
+    @FXML
+    void ReturnStaffScreen(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("StaffMenu","StaffMenu");
+    }
+    
+    
 
     @FXML
     void initialize() {
@@ -137,7 +144,7 @@ List<String> attributes = new ArrayList<String>();
     	
     	Name.setText(s.getName());
     	Password.setText(s.getPassword());
-    	UserName.setText(s.getStaffNumber());
+    	//UserName.setText(s.getStaffNumber());
     	
     	if ( s instanceof Coordinator){
     		ModuleText.setVisible(true);
@@ -150,16 +157,8 @@ List<String> attributes = new ArrayList<String>();
     	}
     	
     	System.out.println(Type.getValue());
-        assert Delete != null : "fx:id=\"Delete\" was not injected: check your FXML file 'SelectedStaff.fxml'.";
-        assert Type != null : "fx:id=\"Type\" was not injected: check your FXML file 'SelectedStaff.fxml'.";
-        assert UserName != null : "fx:id=\"UserName\" was not injected: check your FXML file 'SelectedStaff.fxml'.";
-        assert Back != null : "fx:id=\"Back\" was not injected: check your FXML file 'SelectedStaff.fxml'.";
-        assert Change != null : "fx:id=\"Change\" was not injected: check your FXML file 'SelectedStaff.fxml'.";
-        assert Home != null : "fx:id=\"Home\" was not injected: check your FXML file 'SelectedStaff.fxml'.";
-        assert EmailText != null : "fx:id=\"EmailText\" was not injected: check your FXML file 'SelectedStaff.fxml'.";
-        assert ModuleText != null : "fx:id=\"ModuleText\" was not injected: check your FXML file 'SelectedStaff.fxml'.";
-        assert Name != null : "fx:id=\"Name\" was not injected: check your FXML file 'SelectedStaff.fxml'.";
-        assert Password != null : "fx:id=\"Password\" was not injected: check your FXML file 'SelectedStaff.fxml'.";
-
+   
+    	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
+    	Image.setImage(i);
     }
 }

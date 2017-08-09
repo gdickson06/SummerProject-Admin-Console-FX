@@ -69,13 +69,6 @@ public class StaffMenuController {
     	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
     	Image.setImage(i);
     	
-        assert uploadSingleStaffButton != null : "fx:id=\"uploadSingleStaffButton\" was not injected: check your FXML file 'StaffMenu.fxml'.";
-        assert returnMainMenuButton != null : "fx:id=\"returnMainMenuButton\" was not injected: check your FXML file 'StaffMenu.fxml'.";
-        assert logOutButton != null : "fx:id=\"logOutButton\" was not injected: check your FXML file 'StaffMenu.fxml'.";
-        assert uploadStaffCSVButton != null : "fx:id=\"uploadStaffCSVButton\" was not injected: check your FXML file 'StaffMenu.fxml'.";
-        assert amendDeleteStaffButton != null : "fx:id=\"amendDeleteStaffButton\" was not injected: check your FXML file 'StaffMenu.fxml'.";
-        assert Image != null : "fx:id=\"Image\" was not injected: check your FXML file 'StaffMenu.fxml'.";
-
     }
 }
 

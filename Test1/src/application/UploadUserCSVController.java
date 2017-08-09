@@ -1,5 +1,7 @@
 package application;
 
+import com.jfoenix.controls.JFXTextField;
+
 import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
@@ -8,15 +10,12 @@ import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import uk.ac.qub.churst.CSV;
 import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.objects.Staff;
-
 import uk.ac.qub.sql.StaffSQL;
-
 
 public class UploadUserCSVController {
 
@@ -27,33 +26,25 @@ public class UploadUserCSVController {
     private URL location;
 
     @FXML
-    private Button Cancel;
+    private ImageView Image;
 
     @FXML
-    private Button Upload;
-
-    @FXML
-    private TextField FileText;
-
-    @FXML
-    private Button SelectFile;
-    
+    private JFXTextField filePathTextField;
     private FileChooser fileChooser = new FileChooser();
     private File f;
-
     @FXML
-    void SelectFile(ActionEvent event) {
+    void chooseCSV(ActionEvent event) {
     	GeneralMethods.configureFileChooser(fileChooser);  
 		File fileCSV = fileChooser.showOpenDialog(Main.getStage());
 		if (fileCSV != null) {
 			f = fileCSV;
 		}
-		FileText.setText(f.getAbsolutePath());
+		filePathTextField.setText(f.getAbsolutePath());
     }
 
     @FXML
-    void Upload(ActionEvent event) {
-    	String s = FileText.getText();
+    void uploadFile(ActionEvent event) {
+    	String s = filePathTextField.getText();
 
 
 		List<Staff> staff = new ArrayList<Staff>();
@@ -73,17 +64,18 @@ public class UploadUserCSVController {
     }
 
     @FXML
-    void Cancel(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("mainMenu");
+    void returnStaffMenu(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("StaffMenu", "StaffMenu");
+    }
+
+    @FXML
+    void returnMainMenu(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
     }
 
     @FXML
     void initialize() {
-    	
-        assert Cancel != null : "fx:id=\"Cancel\" was not injected: check your FXML file 'UploadCSVUser.fxml'.";
-        assert Upload != null : "fx:id=\"Upload\" was not injected: check your FXML file 'UploadCSVUser.fxml'.";
-        assert FileText != null : "fx:id=\"FileText\" was not injected: check your FXML file 'UploadCSVUser.fxml'.";
-        assert SelectFile != null : "fx:id=\"SelectFile\" was not injected: check your FXML file 'UploadCSVUser.fxml'.";
-
+      	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
+    	Image.setImage(i);
     }
 }
