@@ -19,7 +19,7 @@ public static Staff CurrentUser;
 
 public static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 public static List<String> Cohorts =  new ArrayList<String>();
-	protected static void AbsenceTypes(ComboBox<String> Type) {
+	protected static void AbsenceTypes(JFXComboBox<String> type) {
 		List<String>types= new ArrayList<String>();
     	
     	types.add("Illness");
@@ -27,7 +27,7 @@ public static List<String> Cohorts =  new ArrayList<String>();
     	types.add("Missing from class");
     	
     	
-    	Type.getItems().addAll(types);
+    	type.getItems().addAll(types);
 	}
 	
 	protected static void Years(JFXComboBox<Integer> e){

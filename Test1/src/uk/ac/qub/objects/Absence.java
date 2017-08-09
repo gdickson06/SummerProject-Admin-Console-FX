@@ -37,6 +37,11 @@ public class Absence {
 	}
 
 
+	public Absence() {
+	
+	}
+
+
 	public int getId() {
 		return id;
 	}

@@ -6,22 +6,18 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.ac.qub.samples.UploadSingleRoomController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UploadSingleRoomController">
    <children>
       <Label layoutX="448.0" layoutY="180.0" prefHeight="27.0" prefWidth="908.0" text="Upload a Single Room to the Database by filling in all Mandatory Fields" />
       <Label layoutX="448.0" layoutY="122.0" text="School of Medicine Timetable Administration Portal" />
-      <ImageView fitHeight="114.0" fitWidth="406.0" layoutX="95.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@qublogo2.png" />
-         </image>
-      </ImageView>
+      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="95.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="320.0" layoutY="412.0" text="Room Name:" />
       <JFXTextField fx:id="RoomNameTextField" focusColor="WHITE" labelFloat="true" layoutX="517.0" layoutY="408.0" prefHeight="35.0" prefWidth="526.0" promptText="Enter  Room Name Here" unFocusColor="WHITE" />
       <JFXTextField fx:id="RoomCodeTextField" focusColor="WHITE" labelFloat="true" layoutX="517.0" layoutY="304.0" prefHeight="35.0" prefWidth="526.0" promptText="Enter Room Code Here e.g MBC/01/002" unFocusColor="WHITE" />
       <Label layoutX="326.0" layoutY="308.0" text="Room Code:" />
-      <JFXButton fx:id="UploadSingleRoomUpload" layoutX="95.0" layoutY="573.0" onAction="#UploadSingleRoomUpload" text="Add Room to Database" />
-      <JFXButton fx:id="UploadSingleRoomCancel" layoutX="424.0" layoutY="573.0" onAction="#UploadSingleRoomCancel" text="Cancel" />
-      <JFXButton fx:id="RoomsMenuButton" layoutX="624.0" layoutY="573.0" onAction="#RoomsMenuButtonClick" text="Return to Rooms Menu" />
-      <JFXButton fx:id="MainMenuButton" layoutX="940.0" layoutY="573.0" onAction="#MainMenuButtonClick" text="Return to Main Menu" />
+      <JFXButton layoutX="95.0" layoutY="573.0" onAction="#UploadSingleRoomUpload" text="Add Room to Database" />
+      <JFXButton layoutX="424.0" layoutY="573.0" onAction="#Clear" text="Cancel" />
+      <JFXButton layoutX="624.0" layoutY="573.0" onAction="#RoomsMenuButtonClick" text="Return to Rooms Menu" />
+      <JFXButton layoutX="940.0" layoutY="573.0" onAction="#MainMenuButtonClick" text="Return to Main Menu" />
    </children>
 </AnchorPane>

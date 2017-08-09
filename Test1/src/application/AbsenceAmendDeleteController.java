@@ -1,5 +1,9 @@
 package application;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXListView;
+import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,11 +13,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import uk.ac.qub.churst.ConvertMethods;
 import uk.ac.qub.churst.GeneralMethods;
@@ -31,93 +32,46 @@ public class AbsenceAmendDeleteController {
     private URL location;
 
     @FXML
-    private ListView<Absence> ListAbsence;
-
-    @FXML
-    private ComboBox<String> Type;
-
-    @FXML
-    private Button ApprovedSearch;
-
-    @FXML
-    private TextField StudentNumber;
-
-    @FXML
-    private Button StudentNumberSearch;
-    
-    @FXML
-    private Button Back;
-
-    @FXML
-    private ComboBox<String> Approved;
-
-    @FXML
-    private TextField StartTime;
-    
-    @FXML
-    private TextField EndTime;
-
-    @FXML
-    private Button StartTimeSearch;
-    
-    @FXML
-    private Button EndTimeSearch;
-
-    @FXML
-    private Button ComboSearch;
-
-    @FXML
-    private Button DateSearch;
-
-    @FXML
-    private Button TypeSearch;
-
-    @FXML
     private DatePicker StartDate;
 
     @FXML
-    void StudentNumberSearch(ActionEvent event) {
-    	List<Absence> searched = SearchQueries.searchAbsence(1, StudentNumber.getText());
-		ObservableList<Absence> list = FXCollections.observableArrayList();
-		list.addAll(searched);
-		ListAbsence.setItems(list);
-    }
+    private JFXComboBox<String> Type;
 
     @FXML
-    void DateSearch(ActionEvent event) {
-    	List<Absence> searched = SearchQueries.searchAbsence(2, StartDate.getValue().toString());
-		ObservableList<Absence> list = FXCollections.observableArrayList();
-		list.addAll(searched);
-		ListAbsence.setItems(list);
-    }
+    private JFXButton ApprovedSearch;
 
     @FXML
-    void StartTimeSearch(ActionEvent event) {
-    	
-    	
-    	List<Absence> searched = SearchQueries.searchAbsence(3, ConvertMethods.TimeConvertSQL(StartTime.getText()));
-		ObservableList<Absence> list = FXCollections.observableArrayList();
-		list.addAll(searched);
-		ListAbsence.setItems(list);
-    }
-    
+    private JFXTextField EndTime;
+
     @FXML
-    void EndTimeSearch(ActionEvent event) {
-    	
-    	List<Absence> searched = SearchQueries.searchAbsence(6, ConvertMethods.TimeConvertSQL(StartTime.getText()));
-		ObservableList<Absence> list = FXCollections.observableArrayList();
-		list.addAll(searched);
-		ListAbsence.setItems(list);
-    }
+    private JFXTextField StudentNumber;
+
+    @FXML
+    private JFXButton Back;
+
+    @FXML
+    private JFXTextField StartTime;
+
+    @FXML
+    private JFXComboBox<String> Approved;
+
+    @FXML
+    private JFXListView<Absence> ListAbsence;
+
+    @FXML
+    private JFXButton EndTimeSearch;
+
+    @FXML
+    private ImageView Image;
 
     @FXML
     void TypeSearch(ActionEvent event) {
-    	List<Absence> searched = SearchQueries.searchAbsence(4, Type.getValue());
-		ObservableList<Absence> list = FXCollections.observableArrayList();
-		list.addAll(searched);
-		ListAbsence.setItems(list);
+     	List<Absence> searched = SearchQueries.searchAbsence(4, Type.getValue().toString());
+    		ObservableList<Absence> list = FXCollections.observableArrayList();
+    		list.addAll(searched);
+    		ListAbsence.setItems(list);
     }
-
+    
     @FXML
     void ApprovedSearch(ActionEvent event) {
     	String bool="true";
@@ -131,12 +85,59 @@ public class AbsenceAmendDeleteController {
     }
 
     @FXML
-    void TableClick(MouseEvent event)throws Exception {
+    void SearchEndTime(ActionEvent event) {
+    	List<Absence> searched = SearchQueries.searchAbsence(6, ConvertMethods.TimeConvertSQL(StartTime.getText()));
+		ObservableList<Absence> list = FXCollections.observableArrayList();
+		list.addAll(searched);
+		ListAbsence.setItems(list);
+    }
+
+    @FXML
+    void SearchTime(ActionEvent event) {
+    	List<Absence> searched = SearchQueries.searchAbsence(3, ConvertMethods.TimeConvertSQL(StartTime.getText()));
+		ObservableList<Absence> list = FXCollections.observableArrayList();
+		list.addAll(searched);
+		ListAbsence.setItems(list);
+    }
+
+    @FXML
+    void SearchDate(ActionEvent event) {
+    	List<Absence> searched = SearchQueries.searchAbsence(2, StartDate.getValue().toString());
+		ObservableList<Absence> list = FXCollections.observableArrayList();
+		list.addAll(searched);
+		ListAbsence.setItems(list);
+    }
+
+    @FXML
+    void SearchStudentNumber(ActionEvent event) {
+    	List<Absence> searched = SearchQueries.searchAbsence(1, StudentNumber.getText());
+		ObservableList<Absence> list = FXCollections.observableArrayList();
+		list.addAll(searched);
+		ListAbsence.setItems(list);
+    }
+
+    @FXML
+    void listClick(MouseEvent event) throws Exception {
     	if(event.getClickCount()==2){
-      		 a=ListAbsence.getSelectionModel().getSelectedItem();
-      		 System.out.println("clicked on " + a);
-      		 GeneralMethods.ChangeScene("SelectedAbsence");
-       	}
+     		 a=ListAbsence.getSelectionModel().getSelectedItem();
+     		 System.out.println("clicked on " + a);
+     		 GeneralMethods.ChangeScene("SelectedAbsence");
+      	}
+    }
+
+    @FXML
+    void returnMainMenu(ActionEvent event) {
+    	try {
+			GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+
+    @FXML
+    void Back(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("AbsenceMenu","AbsenceMenu");
     }
 
     @FXML
@@ -156,7 +157,10 @@ public class AbsenceAmendDeleteController {
     
     		i=Integer.parseInt(StudentNumber.getText());
     	}
-    	Absence a = new Absence(i, StartDate.getValue().toString(), StartTime.getText(), EndTime.getText(), Type.getValue(),approved);
+    	Absence a = new Absence();
+    	
+    	if(StartDate.getValue()!=null){a.setStartDate(StartDate.getValue().toString());}
+    	
     	Boolean b = false;
     	System.out.println("Value is "+Approved.getValue());
     	if(Approved.getValue()==null){
@@ -166,43 +170,21 @@ public class AbsenceAmendDeleteController {
 		ObservableList<Absence> list = FXCollections.observableArrayList();
 		list.addAll(searched);
 		ListAbsence.setItems(list);
-	
     }
-    @FXML
-    void Back(ActionEvent event) {
-    	try {
-			GeneralMethods.ChangeScene("mainMenu");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    }
+
     @FXML
     void initialize() {
+    	
+    	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
+    	Image.setImage(i);
     	ApplicationMethods.AbsenceTypes(Type);
     	
-List<String>approved= new ArrayList<String>();
-    	
-    	approved.add("Not Approved");
-    	approved.add("Approved");
-    	
-    	
-    	Approved.getItems().addAll(approved);
-    	
-    	   assert ListAbsence != null : "fx:id=\"ListAbsence\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
-           assert ApprovedSearch != null : "fx:id=\"ApprovedSearch\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
-           assert StudentNumber != null : "fx:id=\"StudentNumber\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
-           assert StudentNumberSearch != null : "fx:id=\"StudentNumberSearch\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
-           assert StartTime != null : "fx:id=\"StartTime\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
-           assert Approved != null : "fx:id=\"Approved\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
-           assert ComboSearch != null : "fx:id=\"ComboSearch\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
-           assert TypeSearch != null : "fx:id=\"TypeSearch\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
-           assert EndTimeSearch != null : "fx:id=\"EndTimeSearch\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
-           assert StartDate != null : "fx:id=\"Date\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
-           assert Type != null : "fx:id=\"Type\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
-           assert StartTimeSearch != null : "fx:id=\"StartTimeSearch\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
-           assert Back != null : "fx:id=\"Back\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
-           assert DateSearch != null : "fx:id=\"DateSearch\" was not injected: check your FXML file 'AbsenceAmendDelete.fxml'.";
-
+    	List<String>approved= new ArrayList<String>();
+    	    	
+    	    	approved.add("Not Approved");
+    	    	approved.add("Approved");
+    	    	
+    	    	
+    	    	Approved.getItems().addAll(approved);
     }
 }

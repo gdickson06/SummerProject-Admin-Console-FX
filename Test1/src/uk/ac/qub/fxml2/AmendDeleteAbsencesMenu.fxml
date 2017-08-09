@@ -7,26 +7,21 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.ac.qub.samples.AmendDeleteAbsenceController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AbsenceAmendDeleteController">
    <children>
-      <JFXButton layoutX="1048.0" layoutY="220.0" text="Search" />
-      <JFXButton layoutX="1047.0" layoutY="275.0" text="Search" />
-      <JFXButton layoutX="1048.0" layoutY="333.0" text="Search" />
-      <JFXButton layoutX="593.0" layoutY="325.0" text="Search" />
-      <JFXButton layoutX="593.0" layoutY="262.0" text="Search" />
-      <JFXButton layoutX="593.0" layoutY="212.0" text="Search" />
-      <JFXListView fx:id="listOfStudents" layoutX="138.0" layoutY="435.0" prefHeight="201.0" prefWidth="1099.0" />
+      <JFXButton layoutX="1048.0" layoutY="220.0" onAction="#TypeSearch" text="Search" />
+      <JFXButton layoutX="1047.0" layoutY="275.0" onAction="#ApprovedSearch" text="Search" />
+      <JFXButton layoutX="1048.0" layoutY="333.0" onAction="#SearchEndTime" text="Search" />
+      <JFXButton layoutX="593.0" layoutY="325.0" onAction="#SearchTime" text="Search" />
+      <JFXButton layoutX="593.0" layoutY="262.0" onAction="#SearchDate" text="Search" />
+      <JFXButton layoutX="593.0" layoutY="212.0" onAction="#SearchStudentNumber" text="Search" />
+      <JFXListView fx:id="ListAbsence" layoutX="138.0" layoutY="435.0" onMouseClicked="#listClick" prefHeight="201.0" prefWidth="1099.0" />
       <JFXButton layoutX="846.0" layoutY="381.0" onAction="#returnMainMenu" text="Return to Main Menu" />
       <JFXButton fx:id="Back" layoutX="534.0" layoutY="381.0" onAction="#Back" text="Return to Absences Menu" />
-      <JFXButton fx:id="ComboSearch" layoutX="331.0" layoutY="381.0" onAction="#ComboSearch" text="Combo- Search" />
+      <JFXButton layoutX="331.0" layoutY="381.0" onAction="#ComboSearch" text="Combo- Search" />
       <Label layoutX="725.0" layoutY="212.0" text="Type:" />
       <Label layoutX="682.0" layoutY="267.0" text="Approved:" />
       <Label layoutX="686.0" layoutY="325.0" text="End Time:" />
-      <JFXTextField fx:id="Type" focusColor="WHITE" labelFloat="true" layoutX="780.0" layoutY="208.0" prefHeight="35.0" prefWidth="243.0" promptText="Enter Type Here e.g. Sickness" unFocusColor="WHITE">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </JFXTextField>
       <JFXTextField fx:id="EndTime" focusColor="WHITE" labelFloat="true" layoutX="777.0" layoutY="321.0" prefHeight="35.0" prefWidth="243.0" promptText="Enter End Time Here" unFocusColor="WHITE">
          <font>
             <Font size="14.0" />
@@ -47,12 +42,9 @@
       <Label layoutX="163.0" layoutY="212.0" text="Student Number:" />
       <Label layoutX="448.0" layoutY="142.0" prefHeight="27.0" prefWidth="883.0" text="Search for an Absence to ammend or delete using the Search or Combo-Search Button" />
       <Label layoutX="448.0" layoutY="87.0" text="School of Medicine Timetable Administration Portal" />
-      <ImageView fitHeight="114.0" fitWidth="406.0" layoutX="95.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@qublogo2.png" />
-         </image>
-      </ImageView>
+      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="95.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true" />
       <DatePicker fx:id="StartDate" layoutX="319.0" layoutY="257.0" prefHeight="39.0" prefWidth="249.0" />
       <JFXComboBox fx:id="Approved" focusColor="WHITE" layoutX="774.0" layoutY="254.0" prefHeight="39.0" prefWidth="243.0" promptText="Select Approval Status" unFocusColor="WHITE" />
+      <JFXComboBox fx:id="Type" layoutX="774.0" layoutY="212.0" prefHeight="25.0" prefWidth="249.0" />
    </children>
 </AnchorPane>
