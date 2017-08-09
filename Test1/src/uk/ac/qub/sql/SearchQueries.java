@@ -91,7 +91,7 @@ public class SearchQueries {
 			start = false;
 		}
 
-		if (A.getStartDate().isEmpty() == false) {
+		if (A.getStartDate()!=null) {
 			if (start == false) {
 				statement = statement + " and ";
 			} else {
@@ -101,7 +101,7 @@ public class SearchQueries {
 			start = false;
 		}
 
-		if (A.getStartTime().isEmpty() == false) {
+		if (A.getStartTime()!=null) {
 			System.out.println(A.getStartTime().isEmpty());
 			if (start == false) {
 				statement = statement + " and ";
@@ -648,7 +648,7 @@ public class SearchQueries {
 
 		for (String group : groups) {
 			String statement2 = "Select * from students where  Cohort='" + group + "' AND IntakeYear =" + ConvertMethods.DeconvertYear(Year);
-
+			System.out.println(statement2);
 			ResultSet student = SQL.SQLstatements(statement2);
 //int studentNumber, String name, String firstGroup, String email, int intakeYear
 			while (student.next()) {

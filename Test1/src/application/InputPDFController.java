@@ -1,55 +1,53 @@
 package application;
 
+import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
-
-import org.controlsfx.control.CheckListView;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 
-import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import uk.ac.qub.churst.GeneralMethods;
-import uk.ac.qub.objects.Lecture;
-
 import uk.ac.qub.objects.Student;
 import uk.ac.qub.sql.SQL;
 import uk.ac.qub.sql.SearchQueries;
 
+import org.controlsfx.control.CheckListView;
+
 public class InputPDFController {
-	private static Lecture selectedLecture;
+	
+    @FXML
+    private Label LectureInfo;
+
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private JFXTextField Lecture;
+
+    @FXML
+    private CheckListView<Student> Students;
+
+    @FXML
+    private ImageView Image;
+
+private static uk.ac.qub.objects.Lecture selectedLecture;
 
 	private static List<Student> selectedItems;
+  
 
-	@FXML
-	private ResourceBundle resources;
-
-	@FXML
-	private URL location;
-
-	@FXML
-	private TextField Lecture;
-
-	@FXML
-	private CheckListView<Student> Students;
-
-	@FXML
-	private Label LectureInfo;
-
-	@FXML
-	void SelectStudents(ActionEvent event) {
-		
-	}
-
-	@FXML
-	void LogAbsences(ActionEvent event) {
-		selectedItems=Students.getCheckModel().getCheckedItems();
+    @FXML
+    void LogAbsences(ActionEvent event) {
+    	selectedItems=Students.getCheckModel().getCheckedItems();
 		System.out.println(selectedItems.size());
 		
 		try {
@@ -58,16 +56,11 @@ public class InputPDFController {
 			// TODO Auto-generated catch block
 			GeneralMethods.show(e.getLocalizedMessage(), "Error");
 		}
-	}
+    }
 
-	@FXML
-	void Back(ActionEvent event) throws Exception {
-		GeneralMethods.ChangeScene("mainMenu");
-	}
-
-	@FXML
-	void ChangeLecture(ActionEvent event) throws SQLException {
-		List<Lecture> lectures = SearchQueries.searchLecture(1, Lecture.getText());
+    @FXML
+    void PickLecture(ActionEvent event) throws NumberFormatException, SQLException {
+    	List<uk.ac.qub.objects.Lecture> lectures = SearchQueries.searchLecture(1, Lecture.getText());
 
 		selectedLecture = lectures.get(0);
 
@@ -77,16 +70,23 @@ public class InputPDFController {
 
 		ObservableList<Student> list = FXCollections.observableArrayList();
 		list.addAll(students);
+		System.out.println(list.size());
 		Students.setItems(list);
+    }
 
-	}
+    @FXML
+    void returnToPDFMenu(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("PDFMenu", "PDFMenu");
+    }
 
-	@FXML
-	void initialize() {
+    @FXML
+    void returnToMainMenu(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
+    }
 
-		assert Lecture != null : "fx:id=\"Lecture\" was not injected: check your FXML file 'InputCSV.fxml'.";
-		assert Students != null : "fx:id=\"Students\" was not injected: check your FXML file 'InputCSV.fxml'.";
-		assert LectureInfo != null : "fx:id=\"LectureInfo\" was not injected: check your FXML file 'InputCSV.fxml'.";
-
-	}
+    @FXML
+    void initialize() {
+    	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
+    	Image.setImage(i);
+    }
 }

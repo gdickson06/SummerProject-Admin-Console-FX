@@ -1,8 +1,11 @@
 package application;
 
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXListView;
+import com.jfoenix.controls.JFXTextField;
+
 import java.io.File;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -10,10 +13,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import uk.ac.qub.churst.FileWriter;
 import uk.ac.qub.churst.GeneralMethods;
@@ -24,9 +26,6 @@ import uk.ac.qub.sql.SearchQueries;
 
 public class CreatePDFController {
 	
-    @FXML
-    private TextField SaveLocation;
-	
 	private Lecture selectedLecture;
 
     @FXML
@@ -36,46 +35,41 @@ public class CreatePDFController {
     private URL location;
 
     @FXML
-    private TextField Year;
+    private JFXTextField Year;
 
     @FXML
-    private TextField Staff;
+    private JFXTextField Staff;
 
     @FXML
-    private TextField StartTime;
+    private JFXTextField StartTime;
 
     @FXML
-    private ComboBox<String> Module;
+    private Label PickedLecture;
 
     @FXML
-    private TextField Week;
+    private ImageView Image;
 
     @FXML
-    private ListView<Lecture> Lectures;
+    private JFXComboBox<String> Module;
 
     @FXML
-    private Label LectureInfo;
+    private JFXTextField Week;
 
     @FXML
-    private TextField Date;
- /**
-  * This allows the list to be clickable and uses the item that is selected to 
-  * pick a lecture
-  * @param event
-  */
+    private JFXListView<Lecture> Lectures;
+
+    @FXML
+    private DatePicker Date;
+
     @FXML
     void LectureClick(MouseEvent event) {
-    	if(event.getClickCount()==2){
-      		 selectedLecture=Lectures.getSelectionModel().getSelectedItem();
-      		
-      		 LectureInfo.setText(selectedLecture.toString());
-       	}
+
+     		 selectedLecture=Lectures.getSelectionModel().getSelectedItem();
+     		
+     		 PickedLecture.setText(selectedLecture.toString());
+      	
     }
-/**
- * This method searches all of the Lectures to and populates a list with the 
- * information passed.
- * @param event
- */
+
     @FXML
     void Search(ActionEvent event) {
     	int week;
@@ -84,21 +78,16 @@ public class CreatePDFController {
     	}else {
  week = Integer.parseInt(Week.getText());
     	}
-    	Lecture l = new Lecture(week, StartTime.getText(), Staff.getText(), Module.getValue(), Year.getText());
+    	Lecture l = new Lecture(week, StartTime.getText(), Staff.getText(), Module.getValue().toString(), Year.getText());
     
     	List<Lecture> searched = SearchQueries.ComboSearchLectures(l);
 		ObservableList<Lecture> list = FXCollections.observableArrayList();
 		list.addAll(searched);
 		Lectures.setItems(list);
     }
-/**
- * This button will Generate the PDF to a predefined save location, if non existant 
- * save location an error will show a pop up to tell the user to selct a save location.
- * @param event
- * @throws SQLException
- */
+
     @FXML
-    void GeneratePDF(ActionEvent event) throws SQLException {
+    void GeneratePDF(ActionEvent event) {
     	File f = new File ("SaveInfo.txt");
     	if(f.exists()){
     	try{
@@ -117,28 +106,21 @@ public class CreatePDFController {
     		GeneralMethods.show("No save location specified go to setttings to specify", "Error");
     	}
     }
-/**
- * This method will return the application to the main menu
- * @param event
- * @throws Exception
- */
+
     @FXML
-    void Home(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("mainMenu");
+    void ReturnPDFMenu(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("PDFMenu", "PDFMenu");
+    }
+
+    @FXML
+    void ReturnMainMenu(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
     }
 
     @FXML
     void initialize() {
     	Module.getItems().addAll(SQL.Modules());
-        assert Year != null : "fx:id=\"Year\" was not injected: check your FXML file 'CreatePDF.fxml'.";
-        assert Staff != null : "fx:id=\"Staff\" was not injected: check your FXML file 'CreatePDF.fxml'.";
-        assert StartTime != null : "fx:id=\"StartTime\" was not injected: check your FXML file 'CreatePDF.fxml'.";
-        assert Module != null : "fx:id=\"Module\" was not injected: check your FXML file 'CreatePDF.fxml'.";
-        assert Week != null : "fx:id=\"Week\" was not injected: check your FXML file 'CreatePDF.fxml'.";
-        assert Lectures != null : "fx:id=\"Lectures\" was not injected: check your FXML file 'CreatePDF.fxml'.";
-        assert LectureInfo != null : "fx:id=\"LectureInfo\" was not injected: check your FXML file 'CreatePDF.fxml'.";
-        assert Date != null : "fx:id=\"Date\" was not injected: check your FXML file 'CreatePDF.fxml'.";
-
+    	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
+    	Image.setImage(i);
     }
 }
-

@@ -46,7 +46,7 @@ public class AbsenceSQL {
 		String Statement = "INSERT INTO absence (StudentNumber, LectureID, StartDate, EndDate, StartTime, EndTime, Reason, Approved, type)"
 				+ "VALUES (" + absenceDetails.get(0) + ", " + absenceDetails.get(1) + ", '" + absenceDetails.get(2)
 				+ "', '" + absenceDetails.get(3) + "', '" + absenceDetails.get(4) + "', '" + absenceDetails.get(5)
-				+ "', " + absenceDetails.get(6) + ", '" + absenceDetails.get(7) + "', '" + absenceDetails.get(8)
+				+ "', '" + absenceDetails.get(6) + "', " + absenceDetails.get(7) + ", '" + absenceDetails.get(8)
 				+ "');";
 		// printing the SQL statement to Console to ensure it is correctly
 		// prepared

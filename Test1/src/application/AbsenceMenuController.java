@@ -66,13 +66,6 @@ public class AbsenceMenuController {
     	
     	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
     	Image.setImage(i);
-    	
-        assert returnMainMenuButton != null : "fx:id=\"returnMainMenuButton\" was not injected: check your FXML file 'AbsenceMenu.fxml'.";
-        assert searchAbsenceButton != null : "fx:id=\"searchAbsenceButton\" was not injected: check your FXML file 'AbsenceMenu.fxml'.";
-        assert logOutButton != null : "fx:id=\"logOutButton\" was not injected: check your FXML file 'AbsenceMenu.fxml'.";
-        assert absenceTrendsButton != null : "fx:id=\"absenceTrendsButton\" was not injected: check your FXML file 'AbsenceMenu.fxml'.";
-        assert uploadSingleAbsenceButton != null : "fx:id=\"uploadSingleAbsenceButton\" was not injected: check your FXML file 'AbsenceMenu.fxml'.";
-        assert Image != null : "fx:id=\"Image\" was not injected: check your FXML file 'AbsenceMenu.fxml'.";
-
+    
     }
 }

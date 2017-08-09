@@ -158,8 +158,13 @@ public class AbsenceAmendDeleteController {
     		i=Integer.parseInt(StudentNumber.getText());
     	}
     	Absence a = new Absence();
-    	
+    	a.setStudentNumber(i);
+    	a.setApproved(approved);
     	if(StartDate.getValue()!=null){a.setStartDate(StartDate.getValue().toString());}
+    	if(!StartTime.getText().isEmpty()){a.setStartTime(ConvertMethods.TimeConvertSQL(StartTime.getText()));}
+    	if(!EndTime.getText().isEmpty()){a.setEndTime(ConvertMethods.TimeConvertSQL(EndTime.getText()));}
+    	if(Type.getValue()!=null){a.setType(Type.getValue());}
+    	
     	
     	Boolean b = false;
     	System.out.println("Value is "+Approved.getValue());
