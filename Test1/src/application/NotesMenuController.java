@@ -47,18 +47,18 @@ public class NotesMenuController {
     }
 
     @FXML
-    void generalNoteButtonClick(ActionEvent event) {
-    	//to be completed
+    void generalNoteButtonClick(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("GeneralNoteMenu", "GeneralNoteMenu");
     }
 
     @FXML
-    void practicalNoteButtonClick(ActionEvent event) {
-    	//to be completed
+    void practicalNoteButtonClick(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("PracticalNoteMenu", "PracticalNoteMenu");
     }
 
     @FXML
-    void lectureNoteButtonClick(ActionEvent event) {
-    	//to be completed
+    void lectureNoteButtonClick(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("LectureNoteMenu", "LectureNoteMenu");
     }
 
     @FXML
