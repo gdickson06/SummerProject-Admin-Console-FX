@@ -43,8 +43,8 @@ public class StaffMenuController {
     }
 
     @FXML
-    void amendDeleteStaffButtonClick(ActionEvent event) {
-    	//to be completed
+    void amendDeleteStaffButtonClick(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("AmendDeleteStaff", "AmendDeleteStaff");
     }
 
     @FXML
