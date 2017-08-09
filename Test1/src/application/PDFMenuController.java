@@ -44,8 +44,8 @@ public class PDFMenuController {
     }
 
     @FXML
-    void inputPDFButtonClick(ActionEvent event) {
-    	//to be completed
+    void inputPDFButtonClick(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("InputPDF", "InputPDF");
     }
 
     @FXML
