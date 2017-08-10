@@ -87,6 +87,10 @@ public class Lecture {
 	
 	
 	
+	public Lecture() {
+	
+	}
+	
 	public String getYear() {
 		return year;
 	}

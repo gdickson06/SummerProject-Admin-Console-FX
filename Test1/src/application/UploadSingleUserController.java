@@ -1,5 +1,7 @@
 package application;
 
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,10 +9,7 @@ import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.sql.CoordinatorSQL;
 import uk.ac.qub.sql.SQL;
@@ -25,37 +24,32 @@ public class UploadSingleUserController {
     private URL location;
 
     @FXML
-    private TextField PasswordText;
+    private JFXTextField PasswordText;
 
     @FXML
-    private ComboBox<String> ModuleBox;
+    private JFXComboBox<String> ModuleBox;
 
     @FXML
-    private Label ModuleTag;
+    private JFXTextField UsernameText;
 
     @FXML
-    private TextField UsernameText;
+    private JFXTextField NameText;
 
     @FXML
-    private Button Cancel;
+    private JFXComboBox<String> TypePicker;
 
     @FXML
-    private TextField NameText;
+    private ImageView Image;
 
     @FXML
-    private Button Upload;
-
-    @FXML
-    private ComboBox<String> TypePicker;
-    
-    @FXML
-    private TextField EmailText;
+    private JFXTextField EmailText;
 
     @FXML
     void TypeDrop(ActionEvent event) {
-    	if(TypePicker.getValue().equals("Module Coordinator")){
+      	if(TypePicker.getValue().equals("Module Coordinator")){
     		ModuleBox.setVisible(true);
     		EmailText.setVisible(true);
+    		System.out.println("TITS");
     	} else {
     		ModuleBox.setVisible(false);
     		EmailText.setVisible(false);
@@ -64,7 +58,7 @@ public class UploadSingleUserController {
 
     @FXML
     void Upload(ActionEvent event) throws Exception {
-    	List<String> attributes = new ArrayList<String>();
+	List<String> attributes = new ArrayList<String>();
     	
     	attributes.add(UsernameText.getText());
     	attributes.add(NameText.getText());
@@ -84,22 +78,29 @@ public class UploadSingleUserController {
     }
 
     @FXML
-    void Cancel(ActionEvent event) {
-    	try {
-			GeneralMethods.ChangeScene("mainMenu");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    void Clear(ActionEvent event) {
+    	UsernameText.setText("");
+    	NameText.setText("");
+    	EmailText.setText("");
+    	PasswordText.setText("");
+    	TypePicker.setValue("");
+    	ModuleBox.setValue("");
     }
 
     @FXML
-    void ModuleDrop(ActionEvent event) {
+    void returnStaffMenuButtonClick(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("StaffMenu", "StaffMenu");
+    }
 
+    @FXML
+    void mainMenuButtonClick(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
     }
 
     @FXML
     void initialize() {
+    	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
+    	Image.setImage(i);
     	ModuleBox.setVisible(false);
     	EmailText.setVisible(false);
     	List<String>types= new ArrayList<String>();
@@ -110,16 +111,5 @@ public class UploadSingleUserController {
     	
     	TypePicker.getItems().addAll(types);
     	ModuleBox.getItems().addAll(SQL.Modules());
-    	
-    	
-        assert PasswordText != null : "fx:id=\"PasswordText\" was not injected: check your FXML file 'UploadSingleStaff.fxml'.";
-        assert ModuleBox != null : "fx:id=\"ModuleBox\" was not injected: check your FXML file 'UploadSingleStaff.fxml'.";
-        assert ModuleTag != null : "fx:id=\"ModuleTag\" was not injected: check your FXML file 'UploadSingleStaff.fxml'.";
-        assert UsernameText != null : "fx:id=\"UsernameText\" was not injected: check your FXML file 'UploadSingleStaff.fxml'.";
-        assert Cancel != null : "fx:id=\"Cancel\" was not injected: check your FXML file 'UploadSingleStaff.fxml'.";
-        assert NameText != null : "fx:id=\"NameText\" was not injected: check your FXML file 'UploadSingleStaff.fxml'.";
-        assert Upload != null : "fx:id=\"Upload\" was not injected: check your FXML file 'UploadSingleStaff.fxml'.";
-        assert TypePicker != null : "fx:id=\"TypePicker\" was not injected: check your FXML file 'UploadSingleStaff.fxml'.";
-
     }
 }

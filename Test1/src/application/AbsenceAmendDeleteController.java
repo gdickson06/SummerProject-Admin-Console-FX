@@ -121,7 +121,7 @@ public class AbsenceAmendDeleteController {
     	if(event.getClickCount()==2){
      		 a=ListAbsence.getSelectionModel().getSelectedItem();
      		 System.out.println("clicked on " + a);
-     		 GeneralMethods.ChangeScene("SelectedAbsence");
+     		 GeneralMethods.ChangeScene("AmendSingleAbsence","AmendSingleAbsence");
       	}
     }
 

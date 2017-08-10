@@ -7,7 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.ac.qub.samples.AmendSingleAbsenceController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SelectedAbsenceController">
    <children>
       <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="105.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="458.0" layoutY="132.0" text="School of Medicine Timetable Administration Portal" />
@@ -32,7 +32,7 @@
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <ImageView fx:id="Image1" fitHeight="114.0" fitWidth="406.0" layoutX="113.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="113.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true" />
       <JFXTextField fx:id="Lecture" focusColor="WHITE" labelFloat="true" layoutX="648.0" layoutY="265.0" prefHeight="35.0" prefWidth="183.0" promptText="Enter Lecture ID Here" unFocusColor="WHITE">
          <font>
             <Font size="16.0" />

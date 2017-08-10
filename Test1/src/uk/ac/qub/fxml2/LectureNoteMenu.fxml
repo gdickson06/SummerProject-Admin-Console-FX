@@ -7,7 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.ac.qub.samples.LectureNoteMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.NoteLectureController">
    <children>
       <Label layoutX="468.0" layoutY="122.0" prefHeight="27.0" prefWidth="883.0" text="Search for a lecture using the search buttons below, and click 'Upload Note' to add note to the database." />
       <Label layoutX="468.0" layoutY="67.0" text="School of Medicine Timetable Administration Portal" />
@@ -19,19 +19,14 @@
       </JFXTextField>
       <Label layoutX="93.0" layoutY="202.0" text="Week:" />
       <Label layoutX="98.0" layoutY="264.0" text="Date:" />
-      <JFXTextField fx:id="Date" focusColor="WHITE" labelFloat="true" layoutX="165.0" layoutY="261.0" prefHeight="33.0" prefWidth="168.0" promptText="Enter Date Here" unFocusColor="WHITE">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </JFXTextField>
       <JFXTextField fx:id="Groups" focusColor="WHITE" labelFloat="true" layoutX="164.0" layoutY="327.0" prefHeight="33.0" prefWidth="168.0" promptText="Enter Groups Here" unFocusColor="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
       <Label layoutX="77.0" layoutY="330.0" text="Groups:" />
-      <Label layoutX="528.0" layoutY="328.0" text="Subject:" />
-      <JFXTextField fx:id="Subject" focusColor="WHITE" labelFloat="true" layoutX="625.0" layoutY="325.0" prefHeight="33.0" prefWidth="168.0" promptText="Enter Subject Here" unFocusColor="WHITE">
+      <Label layoutX="528.0" layoutY="328.0" text="Year:" />
+      <JFXTextField fx:id="Year" focusColor="WHITE" labelFloat="true" layoutX="625.0" layoutY="325.0" prefHeight="33.0" prefWidth="168.0" promptText="Enter Year Here" unFocusColor="WHITE">
          <font>
             <Font size="16.0" />
          </font>
@@ -48,21 +43,17 @@
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <JFXButton layoutX="352.0" layoutY="194.0" onAction="#SearchWeek" text="Search" />
-      <JFXButton layoutX="352.0" layoutY="258.0" onAction="#SearchDate" text="Search" />
-      <JFXButton layoutX="352.0" layoutY="324.0" onAction="#SearchGroups" text="Search" />
-      <JFXButton layoutX="805.0" layoutY="323.0" onAction="#SearchSubject" text="Search" />
-      <JFXButton layoutX="805.0" layoutY="257.0" onAction="#SearchModule" text="Search" />
-      <JFXButton layoutX="805.0" layoutY="193.0" onAction="#SearchStaff" text="Search" />
-      <JFXButton layoutX="1025.0" layoutY="193.0" text="Return to Notes Menu" />
-      <JFXButton layoutX="1032.0" layoutY="256.0" text="Return to Main Menu" />
-      <JFXListView fx:id="TableLectures" layoutX="77.0" layoutY="391.0" prefHeight="226.0" prefWidth="558.0" />
+      <JFXButton layoutX="1025.0" layoutY="193.0" onAction="#ReturnNotesMenu" text="Return to Notes Menu" />
+      <JFXButton layoutX="1032.0" layoutY="256.0" onAction="#ReturnMainMenu" text="Return to Main Menu" />
+      <JFXListView fx:id="TableLectures" layoutX="77.0" layoutY="391.0" onMouseClicked="#TableClick" prefHeight="226.0" prefWidth="558.0" />
       <JFXTextArea fx:id="Note" focusColor="WHITE" layoutX="751.0" layoutY="387.0" prefHeight="226.0" prefWidth="266.0" promptText="Enter Note Here" unFocusColor="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextArea>
       <JFXButton layoutX="1100.0" layoutY="504.0" onAction="#Upload" text="Upload Note" />
-      <JFXButton layoutX="1143.0" layoutY="578.0" onAction="#Cancel" text="Cancel" />
+      <Label fx:id="SelectedLecture" layoutX="1032.0" layoutY="320.0" prefHeight="142.0" prefWidth="279.0" />
+      <JFXButton layoutX="1032.0" layoutY="308.0" onAction="#Search" text="Search" />
+      <DatePicker layoutX="152.0" layoutY="260.0" prefHeight="25.0" prefWidth="194.0" />
    </children>
 </AnchorPane>

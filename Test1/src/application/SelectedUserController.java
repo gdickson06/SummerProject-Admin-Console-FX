@@ -58,14 +58,14 @@ public class SelectedUserController {
     private JFXTextField Password;
     
     @FXML
-    void TypePick(MouseEvent event) {
-    	System.out.println(Type.getValue());
+    void TypePick(ActionEvent event) {
+    	
     	if(Type.getValue().equals("Module Coordinator")){
     		ModuleText.setVisible(true);
-        	EmailText.setVisible(true);
-    	} else{
+    		EmailText.setVisible(true);
+    	} else {
     		ModuleText.setVisible(false);
-        	EmailText.setVisible(false);
+    		EmailText.setVisible(false);
     	}
     }
    
@@ -113,7 +113,7 @@ List<String> attributes = new ArrayList<String>();
 
     @FXML
     void Back(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("AmendSingleStaff","AmendSingleStaff");
+    	GeneralMethods.ChangeScene("AmendDeleteStaff","AmendDeleteStaff");
     }
 
     @FXML

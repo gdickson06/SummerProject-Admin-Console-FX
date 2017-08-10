@@ -1,5 +1,8 @@
 package application;
 
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextArea;
+import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -8,21 +11,17 @@ import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.objects.Absence;
 import uk.ac.qub.sql.AbsenceSQL;
 
 public class SelectedAbsenceController {
-	
-	private Absence a = AbsenceAmendDeleteController.a;
 
+	private Absence a = AbsenceAmendDeleteController.a;
+	
     @FXML
     private ResourceBundle resources;
 
@@ -30,53 +29,59 @@ public class SelectedAbsenceController {
     private URL location;
 
     @FXML
-    private Button Delete;
+    private DatePicker StartDate;
 
     @FXML
-    private ComboBox<String> Type;
+    private JFXTextField Lecture;
 
     @FXML
-    private TextField Lecture;
+    private JFXComboBox<String> Type;
 
     @FXML
-    private TextField StudentNumber;
-    
+    private JFXTextField EndTime;
+
+    @FXML
+    private JFXTextField StudentNumber;
+
     @FXML
     private CheckBox Approved;
 
     @FXML
-    private Button Amend;
+    private JFXTextField StartTime;
 
     @FXML
-    private Button Back;
-
-    @FXML
-    private Label Title;
-
-    @FXML
-    private TextField StartTime;
-    @FXML
-    private TextField EndTime;
-
-    @FXML
-    private Button Home;
+    private ImageView Image;
 
     @FXML
     private DatePicker EndDate;
-    
-    @FXML
-    private DatePicker StartDate;
 
     @FXML
-    private TextArea Reason;
+    private JFXTextArea Reason;
 
     @FXML
-    void LectureChanged(ActionEvent event) {
-    	
+    void Back(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("AmendDeleteAbsencesMenu","AmendDeleteAbsencesMenu");
     }
 
     @FXML
-    void Amend(ActionEvent event) throws Exception {
+    void Home(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
+    }
+
+    @FXML
+    void ReturnAbsencesScreen(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("AbsenceMenu", "AbsenceMenu");
+    }
+
+    @FXML
+    void Delete(ActionEvent event) throws Exception {
+    	AbsenceSQL.DeleteAbsence(String.valueOf(a.getId()));
+    	GeneralMethods.show("Deleted", "Deleted");
+    	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
+    }
+
+    @FXML
+    void SaveChanges(ActionEvent event) throws Exception {
     	// This will be in the order of the id,Studentnumber,lectureid,date,time,reason,approved,type
     	List<String> l = new ArrayList<String>();
     	
@@ -103,23 +108,6 @@ public class SelectedAbsenceController {
     }
 
     @FXML
-    void Delete(ActionEvent event) throws Exception {
-    	AbsenceSQL.DeleteAbsence(String.valueOf(a.getId()));
-    	GeneralMethods.show("Deleted", "Deleted");
-    	GeneralMethods.ChangeScene("mainMenu");
-    }
-
-    @FXML
-    void Back(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("AbsenceAmendDelete");
-    }
-
-    @FXML
-    void Home(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("mainMenu");
-    }
-
-    @FXML
     void initialize() {
 List<String>types= new ArrayList<String>();
     	
@@ -130,7 +118,7 @@ List<String>types= new ArrayList<String>();
     	
     	Type.getItems().addAll(types);
     	
-    	Title.setText("ID : "+String.valueOf(a.getId()));
+   
     	StudentNumber.setText(String.valueOf(a.getStudentNumber()));
     	Lecture.setText(String.valueOf(a.getLectureID()));
     	
@@ -145,23 +133,9 @@ List<String>types= new ArrayList<String>();
     	
     	if(a.getApproved()){
     		Approved.setSelected(true);
-    	}
-    	
-    	
-    	
-        assert Delete != null : "fx:id=\"Delete\" was not injected: check your FXML file 'SelectedAbsence.fxml'.";
-        assert Type != null : "fx:id=\"Type\" was not injected: check your FXML file 'SelectedAbsence.fxml'.";
-        assert Lecture != null : "fx:id=\"Lecture\" was not injected: check your FXML file 'SelectedAbsence.fxml'.";
-        assert Approved != null : "fx:id=\"Approved\" was not injected: check your FXML file 'SelectedAbsence.fxml'.";
-        assert Amend != null : "fx:id=\"Amend\" was not injected: check your FXML file 'SelectedAbsence.fxml'.";
-        assert Back != null : "fx:id=\"Back\" was not injected: check your FXML file 'SelectedAbsence.fxml'.";
-        assert Title != null : "fx:id=\"Title\" was not injected: check your FXML file 'SelectedAbsence.fxml'.";
-        assert StartTime != null : "fx:id=\"StartTime\" was not injected: check your FXML file 'SelectedAbsence.fxml'.";
-        assert EndTime !=null : "fx:id=\"EndTime\" was not injected: check your FXML file 'SelectedAbsence.fxml'.";
-        assert Home != null : "fx:id=\"Home\" was not injected: check your FXML file 'SelectedAbsence.fxml'.";
-        assert StartDate != null : "fx:id=\"StartDate\" was not injected: check your FXML file 'SelectedAbsence.fxml'.";
-        assert EndDate != null : "fx:id=\"EndDate\" was not injected: check your FXML file 'SelectedAbsence.fxml'.";
-        assert Reason != null : "fx:id=\"Reason\" was not injected: check your FXML file 'SelectedAbsence.fxml'.";
-
+    		
     }
+    	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
+    	Image.setImage(i);
+}
 }
