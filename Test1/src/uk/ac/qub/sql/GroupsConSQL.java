@@ -13,6 +13,12 @@ import uk.ac.qub.objects.GroupsCon;
 import uk.ac.qub.objects.Lecture;
 
 public class GroupsConSQL {
+	
+	/**
+	 * This method adds the Groups Conversion for Year 1 and 2
+	 * @param lectures
+	 * @throws Exception
+	 */
 
 	public static void GroupsToGroup(List<Lecture> lectures) throws Exception {
 		
