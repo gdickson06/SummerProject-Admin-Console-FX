@@ -14,41 +14,12 @@ import uk.ac.qub.sql.SQL;
 import uk.ac.qub.sql.SearchQueries;
 
 public class ConvertMethods {
-	private static int ChangeMonth = 8;
-	private static int ChangeDay =9;
-	
-	
-	public static int ConvertYear(int intakeYear){
-		LocalDate localDate = LocalDate.now();
-		int Day = localDate.getDayOfMonth();
-		int Month =localDate.getMonthValue();
-		int Year = localDate.getYear();
-		
-		
-		int YearGroup;
-		YearGroup = Year-intakeYear;
-		
-		if(ChangeMonth<=Month && ChangeDay<=Day){
-			YearGroup+=1;
-		}
-		
-		return YearGroup;
-	}
-	
-	public static int DeconvertYear(int YearGroup){
-		LocalDate localDate = LocalDate.now();
-		int Day = localDate.getDayOfMonth();
-		int Month =localDate.getMonthValue();
-		int Year = localDate.getYear();
-	
-		int intakeYear = Year - YearGroup;
-		if(ChangeMonth<=Month && ChangeDay<=Day){
-			intakeYear+=1;
-		}
-		
-		return intakeYear;
-		
-	}
+
+/**
+ * This method will convert a time inputted into SQL time input
+ * @param time
+ * @return
+ */
 	public static String TimeConvertSQL(String time){
 		String r=time.replace(":","");
 		
@@ -57,7 +28,11 @@ public class ConvertMethods {
 		return answer;
 		
 	}
-	
+/**
+ * This method will conver a time inputted into a SQL date input
+ * @param date
+ * @return
+ */
 	public static String DateConvertSQL(String date){
 		
 		String[]q = date.split("/");
@@ -72,7 +47,12 @@ public class ConvertMethods {
 		
 	}
 
-	
+/**
+ * This method will read in a combination of cohorts and return a list of all the cohorts for first and seconf year
+ * @param s
+ * @return
+ * @throws InputMismatchException
+ */
 	public static List<String> convert (String s) throws InputMismatchException{
 		System.out.println(s);
 		
@@ -128,7 +108,11 @@ public class ConvertMethods {
 	
 	
 	
-
+/**
+ * This method will convert 12 hour time to 24 hour time
+ * @param time
+ * @return
+ */
 	
 public static String timeConvert(String time){
 		try {

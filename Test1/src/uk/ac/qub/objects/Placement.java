@@ -18,6 +18,23 @@ public class Placement {
 		Module = module;
 		ModuleNumber = moduleNumber;
 	}
+	
+	
+	public Placement(int year, String startDate, String endDate, String location, String cohort, String note,
+			String module, String moduleNumber, String preference) {
+		super();
+		Year = year;
+		StartDate = startDate;
+		EndDate = endDate;
+		Location = location;
+		Cohort = cohort;
+		Note = note;
+		Module = module;
+		ModuleNumber = moduleNumber;
+		Preference = preference;
+	}
+
+
 	public Placement() {
 	
 	}

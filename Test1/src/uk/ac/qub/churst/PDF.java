@@ -1,5 +1,6 @@
 package uk.ac.qub.churst;
 
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -55,8 +56,13 @@ public class PDF {
 	}
 
 
-
-	public void create() throws SQLException {
+/**
+ * This method will create the document using the information which is used in the constructor
+ * @throws SQLException
+ * @throws FileNotFoundException
+ * @throws DocumentException
+ */
+	public void create() throws SQLException, FileNotFoundException, DocumentException {
 		
 		
 		names = new ArrayList<String>();
@@ -68,13 +74,12 @@ public class PDF {
 
 		for (String group : groups) {
 			
-			String statement = "Select * from students where  Cohort='" + group + "' AND IntakeYear =" +ConvertMethods.ConvertYear(Integer.parseInt(l.getYear()));
-			System.out.println(statement);
+			String statement = "Select * from Students where  cohort='" + group + "' AND year_group =" +Integer.parseInt(l.getYear());
 			ResultSet students = SQL.SQLstatements(statement);
 
 			while (students.next()) {
-				cohorts.add(students.getString("Cohort"));
-				names.add(students.getString("Name"));
+				cohorts.add(students.getString("cohort"));
+				names.add(students.getString("name"));
 			}
 		}
 		
@@ -91,7 +96,7 @@ public class PDF {
 		beginning.add("RVH Site: Reception, First Floor, Mulhouse Building");
 		
 		
-		try {
+		
 			Document document = new Document();
 
 			PdfWriter.getInstance(document, new FileOutputStream(location+"/"+l.getStartDate()+l.getModule()+".pdf"));
@@ -99,14 +104,13 @@ public class PDF {
 			addMetaData(document);
 			addContent(document);
 			document.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		
 	}
 
-	// iText allows to add metadata to the PDF which can be viewed in your Adobe
-	// Reader
-	// under File -> Properties
+/**
+ * This method will add the metadata to a document
+ * @param document
+ */
 	private void addMetaData(Document document) {
 		document.addTitle("Tutorial List");
 		document.addKeywords("Java, PDF, iText");
@@ -114,14 +118,16 @@ public class PDF {
 		document.addCreator("Calum Hurst");
 	}
 	
+/**
+ * This method will create a table which will be part of a section in a document
+ * @param subCatPart
+ * @throws BadElementException
+ */
 	private static void createTable(Section subCatPart)
             throws BadElementException {
         PdfPTable table = new PdfPTable(3);
 
-        // t.setBorderColor(BaseColor.GRAY);
-        // t.setPadding(4);
-        // t.setSpacing(4);
-        // t.setBorderWidth(1);
+     
 
         PdfPCell c1 = new PdfPCell(new Phrase("Cohort"));
         c1.setHorizontalAlignment(Element.ALIGN_CENTER);
@@ -145,12 +151,16 @@ public class PDF {
         subCatPart.add(table);
 
     }
-
+/**
+ * This method will add the content to a document
+ * @param document
+ * @throws DocumentException
+ */
 	private void addContent(Document document) throws DocumentException {
 		Anchor anchor = new Anchor(beginning.get(0), catFont);
        
 
-        // Second parameter is the number of the chapter
+
         Chapter catPart = new Chapter(new Paragraph(anchor),0);
         catPart.setNumberDepth(0);
         Paragraph subPara = new Paragraph(beginning.get(1));

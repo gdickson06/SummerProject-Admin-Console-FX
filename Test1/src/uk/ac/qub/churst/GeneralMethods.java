@@ -17,18 +17,15 @@ import javafx.stage.Stage;
 
 public class GeneralMethods {
 
-	public static void ChangeScene(String fxml) throws Exception{
-FXMLLoader loader = new FXMLLoader();
-		
-		String FXML = "src/uk/ac/qub/fxml2/"+fxml+".fxml";
-		FileInputStream mainMenu = new FileInputStream(FXML);
-		AnchorPane root = (AnchorPane)loader.load(mainMenu);
-		//Creating a new Scene
-		Scene scene = new Scene(root);
-		//Set the Scene to stage
-		Main.getStage().setScene(scene);
-	}
 	
+
+/**
+ * This method will allow the Scene to be changed will a CSS style sheet
+ * being loaded as well
+ * @param fxml
+ * @param css
+ * @throws Exception
+ */
 	public static void ChangeScene(String fxml, String css) throws Exception {
 		
 		FXMLLoader loader = new FXMLLoader();
@@ -37,16 +34,20 @@ FXMLLoader loader = new FXMLLoader();
 		System.out.println(CSS);
 		FileInputStream mainMenu = new FileInputStream(FXML);
 		AnchorPane root = (AnchorPane)loader.load(mainMenu);
-		
-		//Creating a new Scene
+
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(Main.class.getResource(CSS).toExternalForm());
-		
-		//Set the Scene to stage
+	
 		Main.getStage().setMaximized(true);
 		Main.getStage().setScene(scene);
 	}
+
 	
+/**
+ * This method will allow pop up boxes to appear 
+ * @param message
+ * @param title
+ */
 	 public static void show(String message, String title) {
 			Stage stage = new Stage();
 			stage.initModality(Modality.APPLICATION_MODAL);
@@ -65,7 +66,12 @@ FXMLLoader loader = new FXMLLoader();
 			
 			stage.showAndWait();
 		}
-	 
+
+	 /**
+	  * This method allows a file chooser which is set to only allow CSV files
+	  * as these are the only file that is used in this application.
+	  * @param fileChooser
+	  */
 	 public static void configureFileChooser(FileChooser fileChooser) {
 			fileChooser.setTitle("Pick CSV");
 			fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));

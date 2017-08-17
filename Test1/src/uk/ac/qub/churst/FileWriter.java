@@ -9,7 +9,10 @@ import java.io.FilterWriter;
 import java.io.IOException;
 
 public class FileWriter {
-
+/**
+ * This method will save the local info
+ * @param info
+ */
 	public static void save (String info){
 		try{
 			File f = new File ("SaveInfo.txt");
@@ -28,7 +31,11 @@ public class FileWriter {
 			e.printStackTrace();
 		}
 	}
-	
+/**
+ * This method will load the local data	
+ * @return
+ * @throws IOException
+ */
 	public static String load () throws IOException{
 		
 		File f = new File ("SaveInfo.txt");

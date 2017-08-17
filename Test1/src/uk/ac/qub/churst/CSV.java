@@ -1,6 +1,6 @@
 package uk.ac.qub.churst;
 
-
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,50 +11,37 @@ import java.util.List;
 import com.opencsv.CSVReader;
 
 import application.ApplicationMethods;
-import uk.ac.qub.objects.Coordinator;
+
 import uk.ac.qub.objects.Lecture;
 import uk.ac.qub.objects.Placement;
 import uk.ac.qub.objects.Room;
 import uk.ac.qub.objects.Staff;
 import uk.ac.qub.objects.Student;
-import uk.ac.qub.objects.Staff;
 
 public class CSV {
-	
-	
 
 	/**
-	 * This method takes the String and returns a router with the 1-5 areas of
-	 * the String array
+	 * This method will return staff when fed in a list of metadata
 	 * 
 	 * @param metadata
 	 * @return
 	 */
-	private static Coordinator createCoordinator (List<String> metadata){
-		//String name, String StaffNumber, String password, String module, String email
-		
+	private static Staff createStaff(List<String> metadata) {
+
 		String name = metadata.get(1);
-		String staffNumber = metadata.get(2);
-		String password = metadata.get(3);
-		String module = metadata.get(4);
-		String email = metadata.get(5);
-		
-		return new Coordinator(name,staffNumber,password,module,email);
+		String staffNumber = metadata.get(0);
+		String type = metadata.get(2);
+
+		return new Staff(staffNumber, name, type);
+
 	}
-	
-	public static Staff createUser(List<String> metadata){
-		
-		//String name, String StaffNumber, String password, String type
-		String name = metadata.get(1);
-		String staffNumber = metadata.get(2);
-		String password = metadata.get(3);
-		String type = metadata.get(0);
-		
-		return new Staff(name, staffNumber, password, type);
-		
-	}
-	
-	
+
+	/**
+	 * This method will return lecture when fed in a list of metadata
+	 * 
+	 * @param metadata
+	 * @return
+	 */
 	private static Lecture createLecture(List<String> metadata) {
 		int week = Integer.parseInt(metadata.get(0));
 		String day = metadata.get(1);
@@ -70,191 +57,200 @@ public class CSV {
 		String staff = metadata.get(11);
 		String style = metadata.get(12);
 		String module = metadata.get(13);
-		
 
-		return new Lecture(week, day, startDate, startTime, endTime,group,location,subject,theme,format,desc,staff,style,module);
+		return new Lecture(week, day, startDate, startTime, endTime, group, location, subject, theme, format, desc,
+				staff, style, module);
 	}
-	
-	public static Student createStudent(List<String> metadata) throws Exception{
-		
+
+	/**
+	 * This method will create a Student from a list of metadata
+	 * 
+	 * @param metadata
+	 * @return
+	 * @throws Exception
+	 */
+	private static Student createStudent(List<String> metadata) throws Exception {
+
 		int studentNumber = Integer.parseInt(metadata.get(0));
 		String name = metadata.get(1);
 		String cohort = metadata.get(2);
 		String email = metadata.get(3);
-		
-		if(!ApplicationMethods.Cohorts.contains(cohort)){
+
+		if (!ApplicationMethods.Cohorts.contains(cohort)) {
 			throw new InputMismatchException();
 		}
-		return new Student(studentNumber, name, cohort,email);
-		
-		
-	}
-	
-	public static Room createRoom(List<String>metadata){
-		String code = metadata.get(0);
-		String name= metadata.get(1);
-		return new Room(code,name);
-	}
-	//creating placement
-	public static Placement createPlacement(List<String> metadata, int year){
-		int week = Integer.parseInt(metadata.get(0));
-		String startDate = metadata.get(1);
-		String endDate = metadata.get(2);
-		String subject = metadata.get(3);
-		String location = metadata.get(4);
-		String clinicalTeacher = metadata.get(5);
-		String cohort = metadata.get(6);
-		int yearGroup = year;
-		String note = metadata.get(7);
-		
-		return new Placement(week,startDate,endDate, subject, location, clinicalTeacher, cohort, yearGroup, note);	
+		return new Student(studentNumber, name, cohort, email);
+
 	}
 
-	public static List<Room>readRoomsFromCSV(String fileName){
+	/**
+	 * This method will create a room from a list of metadata
+	 * 
+	 * @param metadata
+	 * @return
+	 */
+	public static Room createRoom(List<String> metadata) {
+		String code = metadata.get(0);
+		String name = metadata.get(1);
+		return new Room(code, name);
+	}
+
+	/**
+	 * This method will create a placement from a list of metadata
+	 * 
+	 * @param metadata
+	 * @param year
+	 * @return
+	 */
+	private static Placement createPlacement(List<String> metadata, int year) {
+
+		String group = metadata.get(2);
+		String module = metadata.get(3);
+		String start = metadata.get(4);
+		String end = metadata.get(5);
+		String moduleNo = metadata.get(6);
+		String hospital = metadata.get(7);
+		String preference = metadata.get(8);
+		String comments = metadata.get(9);
+
+		return new Placement(year, start, end, hospital, group, comments, module, moduleNo, preference);
+	}
+
+	/**
+	 * This method will return a list of rooms from the information fed in from
+	 * a CSV file
+	 * 
+	 * @param fileName
+	 * @return
+	 * @throws IOException
+	 */
+	public static List<Room> readRoomsFromCSV(String fileName) throws IOException {
 		List<Room> rooms = new ArrayList<>();
 
-		try  {
-			
-				CSVReader reader = new CSVReader(new FileReader(fileName));
-			     List<String[]> attributes = reader.readAll();
-			     attributes.remove(0);
-			     for(String[] s: attributes){
-			    List<String> list = Arrays.asList(s);
-			    
-			    if(list.get(0).isEmpty()==false){
+		CSVReader reader = new CSVReader(new FileReader(fileName));
+		List<String[]> attributes = reader.readAll();
+		attributes.remove(0);
+		for (String[] s : attributes) {
+			List<String> list = Arrays.asList(s);
+
+			if (list.get(0).isEmpty() == false) {
 				Room room = createRoom(list);
 				rooms.add(room);
-			    }
-			     }
-				
-			reader.close();
-			
-		} catch (IOException ioe) {
-			ioe.printStackTrace();
-			System.out.println("Error");
+			}
 		}
-		
-		// return the list of lectures
+
+		reader.close();
+
 		return rooms;
 	}
-	
 
-	public static List<Lecture> readLecturesFromCSV(String fileName) {
+	/**
+	 * This method will read create a list of lectures from a CSV file
+	 * 
+	 * @param fileName
+	 * @return
+	 * @throws IOException
+	 */
+	public static List<Lecture> readLecturesFromCSV(String fileName) throws IOException {
 		List<Lecture> lectures = new ArrayList<>();
 
-		try  {
-			
-				CSVReader reader = new CSVReader(new FileReader(fileName));
-			     List<String[]> attributes = reader.readAll();
-			     attributes.remove(0);
-			     for(String[] s: attributes){
-			    List<String> list = Arrays.asList(s);
-			    
-			    if(list.get(0).isEmpty()==false){
+		CSVReader reader = new CSVReader(new FileReader(fileName));
+		List<String[]> attributes = reader.readAll();
+		attributes.remove(0);
+		for (String[] s : attributes) {
+			List<String> list = Arrays.asList(s);
+
+			if (list.get(0).isEmpty() == false) {
 				Lecture lecture = createLecture(list);
 				lectures.add(lecture);
-			    }
-			     }
-				
-			reader.close();
-			
-		} catch (IOException ioe) {
-			ioe.printStackTrace();
-			System.out.println("Error");
+			}
 		}
-		
-		// return the list of lectures
+
+		reader.close();
+
 		return lectures;
 	}
-	
+
+	/**
+	 * This method will create a list of Students from a CSV
+	 * 
+	 * @param fileName
+	 * @return
+	 * @throws Exception
+	 */
 	public static List<Student> readStudentsFromCSV(String fileName) throws Exception {
 		List<Student> students = new ArrayList<>();
 
-		
-			
-				CSVReader reader = new CSVReader(new FileReader(fileName));
-			     List<String[]> attributes = reader.readAll();
-			     attributes.remove(0);
-			     for(String[] s: attributes){
-			    List<String> list = Arrays.asList(s);
-			    
-			    if(list.get(0).isEmpty()==false){
+		CSVReader reader = new CSVReader(new FileReader(fileName));
+		List<String[]> attributes = reader.readAll();
+		attributes.remove(0);
+		for (String[] s : attributes) {
+			List<String> list = Arrays.asList(s);
+
+			if (list.get(0).isEmpty() == false) {
 				Student student = createStudent(list);
 				students.add(student);
-			    }
-			     }
-				
-			reader.close();
-			
-		
-		
-		// return the list of lectures
+			}
+		}
+
+		reader.close();
+
 		return students;
 	}
-	
-	
-	
-	
-	
-	
-	
-public static List<Staff> readStaffFromCSV (String filename){
-		
+
+	/**
+	 * This method will create a list of staff from a CSV file
+	 * 
+	 * @param filename
+	 * @return
+	 * @throws IOException
+	 */
+
+	public static List<Staff> readStaffFromCSV(String filename) throws IOException {
+
 		List<Staff> users = new ArrayList<Staff>();
-		
-		try  {
-			
-			CSVReader reader = new CSVReader(new FileReader(filename));
-		     List<String[]> attributes = reader.readAll();
-		     attributes.remove(0);
-		     for(String[] s: attributes){
-		    List<String> list = Arrays.asList(s);
-		    
-		    if(list.get(0).isEmpty()==false){
-		    	if(list.get(0).equalsIgnoreCase("Module Coordinator")){
-			Coordinator c = createCoordinator(list);
-			users.add(c);
-		    	} else {
-		    		Staff u = createUser(list);
-		    		users.add(u);
-		    	}
-		    }
-		     }
-			
+
+		CSVReader reader = new CSVReader(new FileReader(filename));
+		List<String[]> attributes = reader.readAll();
+		attributes.remove(0);
+		for (String[] s : attributes) {
+			List<String> list = Arrays.asList(s);
+
+			Staff u = createStaff(list);
+			users.add(u);
+		}
+
 		reader.close();
-		
-	} catch (IOException ioe) {
-		ioe.printStackTrace();
-		System.out.println("Error");
-	}
-		
-		
+
 		return users;
 	}
-	
-	
-public static List<Placement> readPlacementsFromCSV(String filename, int year){
-	List<Placement> placements = new ArrayList<Placement>();
-	try {
+
+	/**
+	 * This method will create a list of Placements from a CSV
+	 * 
+	 * @param filename
+	 * @param year
+	 * @return
+	 * @throws IOException
+	 */
+	public static List<Placement> readPlacementsFromCSV(String filename, int year) throws IOException {
+		List<Placement> placements = new ArrayList<Placement>();
+
 		CSVReader fileReader = new CSVReader(new FileReader(filename));
 		List<String[]> attributes = fileReader.readAll();
 		attributes.remove(0);
-		for(String[] s: attributes){
-		List<String> list = Arrays.asList(s);
-		    
-		if(list.get(0).isEmpty()==false){
-				Placement placement = createPlacement(list,year);
+		for (String[] s : attributes) {
+			List<String> list = Arrays.asList(s);
+
+			if (list.get(0).isEmpty() == false) {
+				Placement placement = createPlacement(list, year);
 				placements.add(placement);
 			}
 		}
-		
+
 		fileReader.close();
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-		System.out.println("Error reading placements from CSV");
+
+		return placements;
 	}
-	return placements;
-}
 
 }
