@@ -17,7 +17,7 @@ import uk.ac.qub.objects.Placement;
 import uk.ac.qub.objects.Room;
 import uk.ac.qub.objects.Staff;
 import uk.ac.qub.objects.Student;
-import uk.ac.qub.objects.User;
+import uk.ac.qub.objects.Staff;
 
 public class CSV {
 	
@@ -42,7 +42,7 @@ public class CSV {
 		return new Coordinator(name,staffNumber,password,module,email);
 	}
 	
-	public static User createUser(List<String> metadata){
+	public static Staff createUser(List<String> metadata){
 		
 		//String name, String StaffNumber, String password, String type
 		String name = metadata.get(1);
@@ -50,7 +50,7 @@ public class CSV {
 		String password = metadata.get(3);
 		String type = metadata.get(0);
 		
-		return new User(name, staffNumber, password, type);
+		return new Staff(name, staffNumber, password, type);
 		
 	}
 	
@@ -215,7 +215,7 @@ public static List<Staff> readStaffFromCSV (String filename){
 			Coordinator c = createCoordinator(list);
 			users.add(c);
 		    	} else {
-		    		User u = createUser(list);
+		    		Staff u = createUser(list);
 		    		users.add(u);
 		    	}
 		    }

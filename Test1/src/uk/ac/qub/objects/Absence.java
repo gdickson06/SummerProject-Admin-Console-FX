@@ -7,11 +7,11 @@ public class Absence {
 
 	int id,StudentNumber , LectureID ;
 	String StartDate,EndDate,StartTime, EndTime, Reason ,type;
-	Boolean approved;
+	Boolean approved,viewed;
 	
 	
 	public Absence(int id, int studentNumber, int lectureID, String startDate, String endDate, String startTime,
-			String endTime, String reason, String type, Boolean approved) {
+			String endTime, String reason, String type, Boolean approved, Boolean viewed) {
 		super();
 		this.id = id;
 		StudentNumber = studentNumber;
@@ -23,6 +23,7 @@ public class Absence {
 		Reason = reason;
 		this.type = type;
 		this.approved = approved;
+		this.viewed=viewed;
 	}
 
 

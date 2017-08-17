@@ -2,57 +2,30 @@ package uk.ac.qub.objects;
 
 public class Placement {
 	
-	int id,week,Year;
-	String StartDate,EndDate,Subject,Location,Teacher,Cohort,Note;
-	public Placement(int id, int week, int year, String startDate, String endDate, String subject, String location,
-			String teacher, String cohort, String note) {
+	int id,Year;
+	String StartDate,EndDate,Location,Cohort,Note,Module,ModuleNumber,Preference;
+	public Placement(int id, int year, String startDate, String endDate, String location, String preference, String cohort,
+			String note, String module, String moduleNumber) {
 		super();
 		this.id = id;
-		this.week = week;
 		Year = year;
 		StartDate = startDate;
 		EndDate = endDate;
-		Subject = subject;
 		Location = location;
-		Teacher = teacher;
+		Preference = preference;
 		Cohort = cohort;
 		Note = note;
+		Module = module;
+		ModuleNumber = moduleNumber;
 	}
+	public Placement() {
 	
-	
-	public Placement(String subject, String teacher, String location) {
-		Subject = subject;
-		Location = location;
-		Teacher = teacher;
-		
-	}
-
-
-	public Placement(int week, String startDate, String endDate, String subject, String location,
-			String clinicalTeacher, String cohort, int yearGroup, String note) {
-		// TODO Auto-generated constructor stub
-		this.week=week;
-		this.StartDate=startDate;
-		this.EndDate=endDate;
-		this.Subject=subject;
-		this.Location=location;
-		this.Teacher=clinicalTeacher;
-		this.Cohort=cohort;
-		this.Year=yearGroup;
-		this.Note=note;
-		
 	}
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public int getWeek() {
-		return week;
-	}
-	public void setWeek(int week) {
-		this.week = week;
 	}
 	public int getYear() {
 		return Year;
@@ -72,23 +45,17 @@ public class Placement {
 	public void setEndDate(String endDate) {
 		EndDate = endDate;
 	}
-	public String getSubject() {
-		return Subject;
-	}
-	public void setSubject(String subject) {
-		Subject = subject;
-	}
 	public String getLocation() {
 		return Location;
 	}
 	public void setLocation(String location) {
 		Location = location;
 	}
-	public String getTeacher() {
-		return Teacher;
+	public String getPreference() {
+		return Preference;
 	}
-	public void setTeacher(String teacher) {
-		Teacher = teacher;
+	public void setPreference(String preference) {
+		Preference = preference;
 	}
 	public String getCohort() {
 		return Cohort;
@@ -102,5 +69,19 @@ public class Placement {
 	public void setNote(String note) {
 		Note = note;
 	}
+	public String getModule() {
+		return Module;
+	}
+	public void setModule(String module) {
+		Module = module;
+	}
+	public String getModuleNumber() {
+		return ModuleNumber;
+	}
+	public void setModuleNumber(String moduleNumber) {
+		ModuleNumber = moduleNumber;
+	}
+
+	
 	
 }

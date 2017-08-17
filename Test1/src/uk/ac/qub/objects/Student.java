@@ -3,102 +3,157 @@ package uk.ac.qub.objects;
 public class Student {
 	
 	int studentNumber;
-	String name, firstName, surname;
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
+	String lastName,firstName,middleName,prefix,name,cohort,email,nationality,graduate,comments,portfolio,year;
+	
+	
+	public Student(int studentNumber, String lastName, String firstName, String middleName, String prefix, String name,
+			String cohort, String email, String nationality, String graduate, String comments, String portfolio,
+			String year) {
+		this.studentNumber = studentNumber;
+		this.lastName = lastName;
 		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return surname;
-	}
-
-	public void setLastName(String lastName) {
-		this.surname = lastName;
-	}
-
-	String firstGroup;
-	String email;
-	int intakeYear;
-	String Password;
-
-	public Student(int studentNumber, String name, String firstGroup, String email, int intakeYear) {
-		this.studentNumber = studentNumber;
+		this.middleName = middleName;
+		this.prefix = prefix;
 		this.name = name;
-		this.firstGroup = firstGroup;
+		this.cohort = cohort;
 		this.email = email;
-		this.intakeYear = intakeYear;
-	}
-	
-	public Student(int studentNumber, String name, String firstGroup, String email) {
-		this.studentNumber = studentNumber;
-		this.name = name;
-		this.firstGroup = firstGroup;
-		this.email = email;
-	}
-	
-	//creating constructor for ComboSearchStudents in the SearchQueries.java class
-	public Student(String name, int studentNumber, String firstGroup, int intakeYear, String email){
-		this.name=name;
-		this.studentNumber=studentNumber;
-		this.firstGroup=firstGroup;
-		this.intakeYear=intakeYear;
-		this.email=email;
+		this.nationality = nationality;
+		this.graduate = graduate;
+		this.comments = comments;
+		this.portfolio = portfolio;
+		this.year = year;
 	}
 
-	@Override
-	public String toString() {
-		return "Student Details [First Name: " + name + ", Student Number: " + studentNumber + ", Cohort: " + firstGroup
-				+ ", Surname: " + name + ", Intake Year: " + intakeYear + ", E-mail Address: "+email+"]";
-	}
-
-	public Student() {
-		// TODO Auto-generated constructor stub
-	}
 
 	public int getStudentNumber() {
 		return studentNumber;
 	}
 
+
 	public void setStudentNumber(int studentNumber) {
 		this.studentNumber = studentNumber;
 	}
+
+
+	public String getLastName() {
+		return lastName;
+	}
+
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+
+	public String getMiddleName() {
+		return middleName;
+	}
+
+
+	public void setMiddleName(String middleName) {
+		this.middleName = middleName;
+	}
+
+
+	public String getPrefix() {
+		return prefix;
+	}
+
+
+	public void setPrefix(String prefix) {
+		this.prefix = prefix;
+	}
+
 
 	public String getName() {
 		return name;
 	}
 
+
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public String getFirstGroup() {
-		return firstGroup;
+
+	public String getCohort() {
+		return cohort;
 	}
 
-	public void setFirstGroup(String firstGroup) {
-		this.firstGroup = firstGroup;
+
+	public void setCohort(String cohort) {
+		this.cohort = cohort;
 	}
+
 
 	public String getEmail() {
 		return email;
 	}
 
-	public void setEmail(String secondGroup) {
-		this.email = secondGroup;
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public int getIntakeYear() {
-		return intakeYear;
+
+	public String getNationality() {
+		return nationality;
 	}
 
-	public void setIntakeYear(int intakeYear) {
-		this.intakeYear = intakeYear;
+
+	public void setNationality(String nationality) {
+		this.nationality = nationality;
 	}
-	
+
+
+	public String getGraduate() {
+		return graduate;
+	}
+
+
+	public void setGraduate(String graduate) {
+		this.graduate = graduate;
+	}
+
+
+	public String getComments() {
+		return comments;
+	}
+
+
+	public void setComments(String comments) {
+		this.comments = comments;
+	}
+
+
+	public String getPortfolio() {
+		return portfolio;
+	}
+
+
+	public void setPortfolio(String portfolio) {
+		this.portfolio = portfolio;
+	}
+
+
+	public String getYear() {
+		return year;
+	}
+
+
+	public void setYear(String year) {
+		this.year = year;
+	}
+
 	
 
 }

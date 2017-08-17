@@ -8,140 +8,148 @@ import java.sql.SQLException;
 import java.util.List;
 
 import application.Main;
-import uk.ac.qub.objects.Coordinator;
+
 import uk.ac.qub.objects.Staff;
-import uk.ac.qub.objects.User;
+import uk.ac.qub.objects.Staff;
 
 public class StaffSQL {
 	/**
 	 * This method spans uploading users and coordinators
+	 * 
 	 * @param users
 	 * @throws Exception
 	 */
-			
-	public static void saveSQLUsers(List<Staff> users) throws Exception {
 
+	public static void saveSQLUsers(List<Staff> users) throws Exception {
 
 		PreparedStatement statement = null;
 		String newStatement = null;
 
-		for (Staff u : users) {
-			String username = u.getStaffNumber();
-			String name = u.getName();
-			String password = u.getPassword();
-			
-			try {
-				if(u instanceof Coordinator){
-					String email = ((Coordinator) u).getEmail();
-					String module = ((Coordinator) u).getModule();
-				newStatement = "INSERT INTO course_coordinator " + "VALUES ('" + username + "', '" + name+ "', '" + email + "', '" + password + "', '"+module+"')";
-				} else {
-					String type = ((User)u).getType();
-					newStatement = "INSERT INTO staff " + "VALUES ('" + username + "', '" + name+ "', '" + type + "', '" + password + "')";
-					
-				}
-				
-				statement = Main.connection.prepareStatement(newStatement);
-				statement.executeUpdate();
-			} catch (Exception e) {
-				e.printStackTrace();
+		for (Staff s : users) {
+			String staffNumber = s.getStaff_number();
+			String name = s.getName();
+			String accessLevel = s.getAccess_level();
+
+			{
+
+				newStatement = "INSERT INTO staff VALUES (" + staffNumber + ",' " + name + "', " + accessLevel + ");";
+
 			}
+
+			statement = Main.connection.prepareStatement(newStatement);
+			statement.executeUpdate();
+
 		}
-		
-		
 
 	}
-	public static void amendUser(List<String> s, Boolean b) throws Exception {
-	
+
+	/**
+	 * This method will amend a single staff member
+	 * 
+	 * @param s
+	 * @throws Exception
+	 */
+	public static void amendUser(Staff s) throws Exception {
+
 		String Statement;
 		PreparedStatement statement = null;
-		if(b){
-		 Statement = "UPDATE staff SET Name ='" + s.get(1) + "', Password='" + s.get(3)+ "', Type='" + s.get(5) + "'" + " WHERE StaffNumber = "
-				+ s.get(0) + ";";
-		System.out.println(Statement);
+
+		Statement = "UPDATE Staff SET name ='" + s.getName() + "', accessLevel='" + s.getAccess_level()
+				+ "' WHERE staff_number =" + s.getStaff_number() + ";";
 		statement = Main.connection.prepareStatement(Statement);
 		statement.executeUpdate();
-		} else {
-			System.out.println("POWER ON");
-			Statement = "INSERT INTO course_coordinator " + "VALUES ('" + s.get(0) + "', '" + s.get(1) + "', '" + s.get(2) + "', '" +s.get(3)
-			+ "', '"+s.get(4)+"')";
-			statement = Main.connection.prepareStatement(Statement);
-			statement.executeUpdate();
-			PreparedStatement ps = Main.connection.prepareStatement("DELETE FROM staff WHERE StaffNumber =" + s.get(0));
-			ps.executeUpdate();
-		}
-	}
-	
 
-	public static void DeleteUser(String name) throws Exception {
-	
-		PreparedStatement ps = Main.connection.prepareStatement("DELETE FROM staff WHERE StaffNumber =" + name);
+	}
+
+	/**
+	 * This method will delete a single user
+	 * 
+	 * @param name
+	 * @throws Exception
+	 */
+	public static void DeleteUser(String snumber) throws Exception {
+
+		PreparedStatement ps = Main.connection.prepareStatement("DELETE FROM Staff WHERE staff_number =" + snumber);
 		ps.executeUpdate();
 	}
-	
-	
-	
-	public static void UploadSingleUser(List<String> s) throws Exception {
-	
+
+	/**
+	 * This method will read in a single staff object to the database
+	 * 
+	 * @param s
+	 * @throws Exception
+	 */
+
+	public static void UploadSingleUser(Staff s) throws Exception {
 
 		PreparedStatement statement = null;
 
-		String Statement = "INSERT INTO staff " + "VALUES ('" + s.get(0) + "', '" + s.get(1) + "', '" + s.get(3) + "', '" +s.get(2)
-				+ "')";
-		
-		System.out.println(Statement);
+		String Statement = "INSERT INTO Staff " + "VALUES (" + s.getStaff_number() + ", '" + s.getName() + "', '"
+				+ s.getAccess_level() + "')";
+
 		statement = Main.connection.prepareStatement(Statement);
 		statement.executeUpdate();
-		
-	
 
 	}
-	
-	public static Staff login (String Username, String Password) throws SQLException, ClassNotFoundException{
-	
-		
-		Staff answer = null;
 
-	
-		
-		String statement = "select * from staff WHERE StaffNumber = "+Username+" AND Password ='"+Password+"'";
+	/**
+	 * This method will check to see if staff can be logged in to the app, it
+	 * will check this in three different areas The first is that the username
+	 * and password is correct according to the qsis, If this is correct the
+	 * person logged on is a staff member and not a student If this person is a
+	 * staff member they have full admin privileges however this will be done
+	 * outside of the method by checking the Staff which is returned by this
+	 * method
+	 * 
+	 * @param Username
+	 * @param Password
+	 * @return
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
+	public static Staff login(String Username, String Password) throws SQLException, ClassNotFoundException {
+
+		Staff answer = null;
+		String Usernumber = null;
+
+		String statement = "select * from Qsis WHERE user_number = " + Username + " AND password ='" + Password + "'";
 		ResultSet results = SQL.SQLstatements(statement);
-		
-		System.out.println(statement);
-		
-		try{
-			results.next();
-			answer= new User(results.getString("Name"),results.getString("StaffNumber"),results.getString("Password"),results.getString("Type"));
-		} catch (Exception e){
-			
+
+		results.next();
+		Usernumber = results.getString("user_number");
+
+		// If Usernumber is no longer null the correct username and password has
+		// been entered
+		if (Usernumber != null) {
+			String statement2 = "select * from Staff WHERE Username = " + Username + ";";
+			ResultSet results2 = SQL.SQLstatements(statement2);
+
+			results2.next();
+
+			answer = new Staff(results2.getString("staff_number"), results2.getString("name"),
+					results2.getString("access_level"));
+
 		}
-		
-		String statement2 = "select * from course_coordinator WHERE Username = "+Username+" AND Password ='"+Password+"'";
-		ResultSet results2 = SQL.SQLstatements(statement2);
-		System.out.println(statement2);
-		try{
-		results2.next();
-		System.out.println(results2.getString("Name"));
-		answer = new Coordinator(results2.getString("Name"),results2.getString("Username"),results2.getString("Password"),results2.getString("Module"),results2.getString("Email"));
-		} catch (Exception e){
-			
-		}
-		
 		return answer;
 	}
-	public static void changePassword(String username, String newPassword) throws ClassNotFoundException, SQLException{
-	
-		//creating prepared statement
-		PreparedStatement preparedStatement = null;
-		//creating statement to pass through preparedStatement containing our SQL query
-		String statement = "UPDATE staff SET Password = '"+newPassword+"' WHERE StaffNumber ="+username+";";
-		//printing the statement to console for testing purposes
-		System.out.println(statement);
-		//passing string SQL query into the prepared statement
-		preparedStatement = Main.connection.prepareStatement(statement);
-		//executing preparedStatement with executeUpdate method (SQL Query essentially is being executed)
-		preparedStatement.executeUpdate();
+
+	/**
+	 * This method allows for a password to be changed 
+	 * @param username
+	 * @param newPassword
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
+	public static void changePassword(String username, String newPassword) throws ClassNotFoundException, SQLException {
+
 		
-	}
+		PreparedStatement preparedStatement = null;
 	
+		String statement = "UPDATE Qsis SET password = '" + newPassword + "' WHERE user_number =" + username + ";";
+	
+		preparedStatement = Main.connection.prepareStatement(statement);
+		preparedStatement.executeUpdate();
+
+	}
+
 }

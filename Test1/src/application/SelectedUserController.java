@@ -19,7 +19,7 @@ import javafx.scene.input.MouseEvent;
 import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.objects.Coordinator;
 import uk.ac.qub.objects.Staff;
-import uk.ac.qub.objects.User;
+import uk.ac.qub.objects.Staff;
 import uk.ac.qub.sql.CoordinatorSQL;
 import uk.ac.qub.sql.SQL;
 import uk.ac.qub.sql.StaffSQL;
@@ -83,7 +83,7 @@ List<String> attributes = new ArrayList<String>();
 		attributes.add(Type.getValue());
     	Boolean b = false;
     	
-    	if(Type.getValue().equals("Module Coordinator")&& s instanceof Coordinator || Type.getValue().equals("Administrator")&& s instanceof User || Type.getValue().equals("Lecturer")&& s instanceof User){
+    	if(Type.getValue().equals("Module Coordinator")&& s instanceof Coordinator || Type.getValue().equals("Administrator")&& s instanceof Staff || Type.getValue().equals("Lecturer")&& s instanceof Staff){
     		// this means there is not a change of type 
     		
     		b=true;
@@ -152,8 +152,8 @@ List<String> attributes = new ArrayList<String>();
     		ModuleText.setValue(((Coordinator) s).getModule());
     		EmailText.setText(((Coordinator) s).getEmail());
     		Type.setValue("Module Coordinator");
-    	} else if ( s instanceof User){
-    		Type.setValue(((User) s).getType());
+    	} else if ( s instanceof Staff){
+    		Type.setValue(((Staff) s).getType());
     	}
     	
     	System.out.println(Type.getValue());

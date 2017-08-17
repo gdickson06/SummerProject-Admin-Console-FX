@@ -1,58 +1,39 @@
 package uk.ac.qub.objects;
 
-public abstract class Staff {
+public class Staff {
+
+	String staff_number, name, access_level;
 	
-	@Override
-	public String toString() {
-		return "Staff [Name=" + Name + ", StaffNumber=" + StaffNumber + ", Password=" + Password + "]";
+	
+
+	public Staff(String staff_number, String name, String access_level) {
+		this.staff_number = staff_number;
+		this.name = name;
+		this.access_level = access_level;
 	}
 
-
-
-	String Name,StaffNumber,Password;
-
-	public Staff(String name, String StaffNumber, String password) {
-		Name = name;
-		this.StaffNumber = StaffNumber;
-		Password = password;
+	public String getStaff_number() {
+		return staff_number;
 	}
 
-	
+	public void setStaff_number(String staff_number) {
+		this.staff_number = staff_number;
+	}
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 
-
-
-	public String getPassword() {
-		return Password;
+	public String getAccess_level() {
+		return access_level;
 	}
 
-	public void setPassword(String password) {
-		Password = password;
+	public void setAccess_level(String access_level) {
+		this.access_level = access_level;
 	}
-
-
-
-	public String getStaffNumber() {
-		return StaffNumber;
-	}
-
-
-
-	public void setStaffNumber(String staffNumber) {
-		StaffNumber = staffNumber;
-	}
-
-	
-	
-	
-
-	
 
 }

@@ -1,7 +1,6 @@
 package uk.ac.qub.sql;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
+
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
@@ -11,7 +10,11 @@ import uk.ac.qub.objects.Room;
 
 public class RoomSQL {
 
-
+/**
+ * This method will upload a list of rooms to the SQL database from a list of Rooms created in a seperate method
+ * @param rooms
+ * @throws Exception
+ */
 	public static void saveSQLRooms(List<Room> rooms) throws Exception {
 
 
@@ -22,7 +25,7 @@ public class RoomSQL {
 			String code = r.getCode();
 			String name = r.getName();
 			try {
-				newStatement = "INSERT INTO location " + "VALUES ('" + code + "', '" + name + "')";
+				newStatement = "INSERT INTO LectureLocation " + "VALUES ('" + code + "', '" + name + "')";
 				statement = Main.connection.prepareStatement(newStatement);
 				statement.executeUpdate();
 			} catch (Exception e) {
@@ -31,25 +34,31 @@ public class RoomSQL {
 		}
 	}
 	
+	/**
+	 * This method allows both the room name and room code to be updated from an old room code
+	 * @param list
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public static void amendRoom(List<String> list) throws ClassNotFoundException, SQLException{
 		
-		//creating prepared statement
 		PreparedStatement preparedStatement = null;
-		//creating statement to pass through preparedStatement containing our SQL query
-		String statement = "UPDATE location SET roomCode = '"+list.get(0)+"',roomName = '"+list.get(1)+"' WHERE roomCode ='"+list.get(2)+"';";
-		//printing the statement to console for testing purposes
-		System.out.println(statement);
-		//passing string SQL query into the prepared statement
+		String statement = "UPDATE LectureLocation SET room_code = '"+list.get(0)+"',room_location = '"+list.get(1)+"' WHERE room_code ='"+list.get(2)+"';";
 		preparedStatement = Main.connection.prepareStatement(statement);
-		//executing preparedStatement with executeUpdate method (SQL Query essentially is being executed)
 		preparedStatement.executeUpdate();
 	}
 	
+	/**
+	 * This method will delete a room from the SQL database using the roomcode
+	 * @param roomCode
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public static void deleteRoom(String roomCode) throws ClassNotFoundException, SQLException{
 		
-		//creating prepared statement to delete room
-		PreparedStatement statement = Main.connection.prepareStatement("DELETE FROM location WHERE roomCode ='"+roomCode+"';");
-		//executing the PreparedStatement/SQL Deletion QUery
+
+		PreparedStatement statement = Main.connection.prepareStatement("DELETE FROM LectureLocation WHERE room_code ='"+roomCode+"';");
+	
 		statement.executeUpdate();
 	}
 

@@ -16,7 +16,7 @@ import javafx.scene.input.MouseEvent;
 import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.objects.Coordinator;
 import uk.ac.qub.objects.Staff;
-import uk.ac.qub.objects.User;
+import uk.ac.qub.objects.Staff;
 import uk.ac.qub.sql.StaffSQL;
 
 public class LoginController {
@@ -53,13 +53,13 @@ public class LoginController {
     		GeneralMethods.show("Course coordinator funcationality will be in a future update", "Warning");
     		UsernameText.setText("");
         	PasswordText.setText("");
-    	} else if (user instanceof User && ((User) user).getType().equals("Lecturer")){
+    	} else if (user instanceof Staff && ((Staff) user).getType().equals("Lecturer")){
     		GeneralMethods.show("Lecturer funcationality will be in a future update", "Warning");
     		UsernameText.setText("");
         	PasswordText.setText("");
-    	} else if (user instanceof User && ((User) user).getType().equals("Administrator")){
+    	} else if (user instanceof Staff && ((Staff) user).getType().equals("Administrator")){
     		
-    		System.out.println(((User) user).getType());
+    		System.out.println(((Staff) user).getType());
     		GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
     	} else {
     		GeneralMethods.show("Username or Password Incorrect", "Error");
