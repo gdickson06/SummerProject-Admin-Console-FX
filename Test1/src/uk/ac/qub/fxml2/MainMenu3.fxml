@@ -10,16 +10,16 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainMenuController">
    <children>
-      <JFXButton layoutX="200.0" layoutY="225.0" onAction="#Student" prefHeight="100.0" prefWidth="250.0" ripplerFill="WHITE" text="Student Administration" textFill="WHITE" />
-      <JFXButton layoutX="550.0" layoutY="225.0" onAction="#Lecture" prefHeight="100.0" prefWidth="250.0" text="Lecture Administration" textFill="WHITE" />
-      <JFXButton layoutX="900.0" layoutY="225.0" onAction="#Placement" prefHeight="100.0" prefWidth="250.0" text="Placement Administration" textFill="WHITE" />
-      <JFXButton layoutX="200.0" layoutY="375.0" onAction="#Room" prefHeight="100.0" prefWidth="250.0" text="Room Administration" textFill="WHITE" />
-      <JFXButton layoutX="550.0" layoutY="375.0" onAction="#Absence" prefHeight="100.0" prefWidth="250.0" text="Absence Administration" textFill="WHITE" />
-      <JFXButton layoutX="900.0" layoutY="375.0" onAction="#PDF" prefHeight="100.0" prefWidth="250.0" text="PDF" textFill="WHITE" />
-      <JFXButton layoutX="200.0" layoutY="525.0" onAction="#Staff" prefHeight="100.0" prefWidth="250.0" text="Staff Administration" textFill="WHITE" />
-      <JFXButton layoutX="550.0" layoutY="525.0" onAction="#Notes" prefHeight="100.0" prefWidth="250.0" text="Note Uploads" textFill="WHITE" />
-      <JFXButton layoutX="900.0" layoutY="525.0" onAction="#Settings" prefHeight="100.0" prefWidth="250.0" text="Settings &amp; Help" textFill="WHITE" />
-      <JFXButton layoutX="1047.0" layoutY="55.0" onAction="#LogOut" text="Log Out" />
+      <JFXButton layoutX="160.0" layoutY="205.0" onAction="#Student" prefHeight="100.0" prefWidth="250.0" ripplerFill="WHITE" text="Student Administration" textFill="WHITE" />
+      <JFXButton layoutX="510.0" layoutY="205.0" onAction="#Lecture" prefHeight="100.0" prefWidth="250.0" text="Lecture Administration" textFill="WHITE" />
+      <JFXButton layoutX="860.0" layoutY="205.0" onAction="#Placement" prefHeight="100.0" prefWidth="250.0" text="Placement Administration" textFill="WHITE" />
+      <JFXButton layoutX="160.0" layoutY="355.0" onAction="#Room" prefHeight="100.0" prefWidth="250.0" text="Room Administration" textFill="WHITE" />
+      <JFXButton layoutX="510.0" layoutY="355.0" onAction="#Absence" prefHeight="100.0" prefWidth="250.0" text="Absence Administration" textFill="WHITE" />
+      <JFXButton layoutX="860.0" layoutY="355.0" onAction="#PDF" prefHeight="100.0" prefWidth="250.0" text="PDF" textFill="WHITE" />
+      <JFXButton layoutX="160.0" layoutY="505.0" onAction="#Staff" prefHeight="100.0" prefWidth="250.0" text="Staff Administration" textFill="WHITE" />
+      <JFXButton layoutX="510.0" layoutY="505.0" onAction="#Notes" prefHeight="100.0" prefWidth="250.0" text="Note Uploads" textFill="WHITE" />
+      <JFXButton layoutX="860.0" layoutY="505.0" onAction="#Settings" prefHeight="100.0" prefWidth="250.0" text="Settings &amp; Help" textFill="WHITE" />
+      <JFXButton layoutX="1030.0" layoutY="135.0" onAction="#LogOut" text="Log Out" />
       <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
    </children>
