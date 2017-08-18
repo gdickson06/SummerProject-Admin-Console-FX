@@ -31,40 +31,59 @@ public class PDFMenuController {
 
     @FXML
     private Button createPDFButton;
-
+    /**
+   	 * This method will change the screen to the main menu
+   	 * 
+   	 * @param event
+   	 * @throws Exception
+   	 */
     @FXML
     void returnMainMenuButtonClick(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
     }
-
+    /**
+	 * This method will log the current user out, it will clear the current user
+	 * and change the scene to the login screen
+	 * 
+	 * @param event
+	 * @throws Exception
+	 */
     @FXML
     void logOutButtonClick(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("Login2", "Login2");
     	ApplicationMethods.CurrentUser=null;
     }
-
+    /**
+   	 * This method will change the screen to the input PDF lecture screen
+   	 * 
+   	 * @param event
+   	 * @throws Exception
+   	 */
     @FXML
     void inputPDFButtonClick(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("InputPDF", "InputPDF");
     }
-
+    /**
+   	 * This method will change the screen to the create PDF lecture screen
+   	 * 
+   	 * @param event
+   	 * @throws Exception
+   	 */
     @FXML
     void createPDFButtonClick(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("CreatePDF","CreatePDF");
     }
-
+    /**
+     * The initialize method will do all the work before the page loads up and in this page it will only
+     * load the QUB image in the top right hand corner
+     */
     @FXML
     void initialize() {
     	
     	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
     	Image.setImage(i);
     	
-        assert returnMainMenuButton != null : "fx:id=\"returnMainMenuButton\" was not injected: check your FXML file 'PDFMenu.fxml'.";
-        assert logOutButton != null : "fx:id=\"logOutButton\" was not injected: check your FXML file 'PDFMenu.fxml'.";
-        assert Image != null : "fx:id=\"Image\" was not injected: check your FXML file 'PDFMenu.fxml'.";
-        assert inputPDFButton != null : "fx:id=\"inputPDFButton\" was not injected: check your FXML file 'PDFMenu.fxml'.";
-        assert createPDFButton != null : "fx:id=\"createPDFButton\" was not injected: check your FXML file 'PDFMenu.fxml'.";
-
+   
     }
 }
 

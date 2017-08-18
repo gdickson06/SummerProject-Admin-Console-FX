@@ -34,46 +34,69 @@ public class PracticalMenuController {
 
     @FXML
     private ImageView Image;
-
+    /**
+   	 * This method will change the screen to the main menu
+   	 * 
+   	 * @param event
+   	 * @throws Exception
+   	 */
     @FXML
     void returnMainMenuButtonClick(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
     }
-
+    /**
+   	 * This method will log the current user out, it will clear the current user
+   	 * and change the scene to the login screen
+   	 * 
+   	 * @param event
+   	 * @throws Exception
+   	 */
     @FXML
     void logOutButtonClick(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("Login2", "Login2");
     	ApplicationMethods.CurrentUser=null;
     }
-
+    /**
+   	 * This method will change the screen to the upload single placement screen
+   	 * 
+   	 * @param event
+   	 * @throws Exception
+   	 */
     @FXML
     void uploadSinglePlacementButtonClick(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("UploadSinglePractical", "UploadSinglePractical");
     }
-
+    /**
+   	 * This method will change the screen to the amend delete placement menu
+   	 * 
+   	 * @param event
+   	 * @throws Exception
+   	 */
     @FXML
     void amendDeletePlacementButtonClick(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("AmendDeletePracticalMenu", "AmendDeletePracticalMenu");
     }
-
+    /**
+   	 * This method will change the screen to the upload CSV menu
+   	 * 
+   	 * @param event
+   	 * @throws Exception
+   	 */
     @FXML
     void uploadPlacementCSVButtonClick(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("UploadPracticalsCSV", "UploadPracticalsCSV");
     }
-
+    /**
+     * The initialize method will do all the work before the page loads up and in this page it will only
+     * load the QUB image in the top right hand corner
+     */
     @FXML
     void initialize() {
     	
     	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
     	Image.setImage(i);
     	
-        assert returnMainMenuButton != null : "fx:id=\"returnMainMenuButton\" was not injected: check your FXML file 'PracticalMenuController.fxml'.";
-        assert logOutButton != null : "fx:id=\"logOutButton\" was not injected: check your FXML file 'PracticalMenuController.fxml'.";
-        assert amendDeletePlacementButton != null : "fx:id=\"amendDeletePlacementButton\" was not injected: check your FXML file 'PracticalMenuController.fxml'.";
-        assert uploadPlacementCSVButton != null : "fx:id=\"uploadPlacementCSVButton\" was not injected: check your FXML file 'PracticalMenuController.fxml'.";
-        assert uploadSinglePlacementButton != null : "fx:id=\"uploadSinglePlacementButton\" was not injected: check your FXML file 'PracticalMenuController.fxml'.";
-        assert Image != null : "fx:id=\"Image\" was not injected: check your FXML file 'PracticalMenuController.fxml'.";
-
+    
     }
 }
 
