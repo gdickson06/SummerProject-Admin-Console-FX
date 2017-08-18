@@ -12,7 +12,7 @@
    <children>
       <JFXButton layoutX="200.0" layoutY="225.0" onAction="#Student" prefHeight="100.0" prefWidth="250.0" ripplerFill="WHITE" text="Student Administration" textFill="WHITE" />
       <JFXButton layoutX="550.0" layoutY="225.0" onAction="#Lecture" prefHeight="100.0" prefWidth="250.0" text="Lecture Administration" textFill="WHITE" />
-      <JFXButton layoutX="900.0" layoutY="225.0" onAction="#Practical" prefHeight="100.0" prefWidth="250.0" text="Practical Administration" textFill="WHITE" />
+      <JFXButton layoutX="900.0" layoutY="225.0" onAction="#Placement" prefHeight="100.0" prefWidth="250.0" text="Placement Administration" textFill="WHITE" />
       <JFXButton layoutX="200.0" layoutY="375.0" onAction="#Room" prefHeight="100.0" prefWidth="250.0" text="Room Administration" textFill="WHITE" />
       <JFXButton layoutX="550.0" layoutY="375.0" onAction="#Absence" prefHeight="100.0" prefWidth="250.0" text="Absence Administration" textFill="WHITE" />
       <JFXButton layoutX="900.0" layoutY="375.0" onAction="#PDF" prefHeight="100.0" prefWidth="250.0" text="PDF" textFill="WHITE" />
