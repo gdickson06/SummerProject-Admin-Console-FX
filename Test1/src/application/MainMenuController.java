@@ -18,58 +18,102 @@ public class MainMenuController {
 
     @FXML
     private ImageView Image;
-
+    /**
+     * This method will change the screen to the student menu
+     * @param event
+     * @throws Exception
+     */
     @FXML
     void Student(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("StudentMenu", "StudentMenu");
     }
-
+    /**
+     * This method will change the screen to the lecture menu
+     * @param event
+     * @throws Exception
+     */
     @FXML
     void Lecture(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("LectureMenu", "LectureMenu");
     }
-
+    /**
+     * This method will change the screen to the practical menu
+     * @param event
+     * @throws Exception
+     */
     @FXML
-    void Practical(ActionEvent event) throws Exception {
+    void Placement(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("PracticalMenuController", "PracticalPlacementMenu");
     }
-
+    /**
+     * This method will change the screen to the room menu
+     * @param event
+     * @throws Exception
+     */
     @FXML
     void Room(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("RoomMenu", "RoomMenu");
     }
-
+    /**
+     * This method will change the screen to the Absence menu
+     * @param event
+     * @throws Exception
+     */
     @FXML
     void Absence(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("AbsenceMenu", "AbsenceMenu");
     }
-
+    /**
+     * This method will change the screen to the PDF menu
+     * @param event
+     * @throws Exception
+     */
     @FXML
     void PDF(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("PDFMenu", "PDFMenu");
     }
-
+    /**
+     * This method will change the screen to the staff menu
+     * @param event
+     * @throws Exception
+     */
     @FXML
     void Staff(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("StaffMenu", "StaffMenu");
     }
-
+    /**
+     * This method will change the screen to the notes menu
+     * @param event
+     * @throws Exception
+     */
     @FXML
     void Notes(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("NotesMenu", "NotesMenu");
     }
-
+/**
+ * This method will change the screen to the settings menu
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void Settings(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("SettingsHelpMenu", "SettingsHelpMenu");
     }
-
+/**
+ * This method will log the current user out, it will clear the current user and change the
+ * scene to the login screen
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void LogOut(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("Login2", "Login2");
     	ApplicationMethods.CurrentUser=null;
     }
-
+    /**
+     * The initialize method will do all the work before the page loads up and in this page it will only
+     * load the QUB image in the top right hand corner
+     */
     @FXML
     void initialize() {
     	
