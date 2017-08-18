@@ -11,11 +11,11 @@
       <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
       <Label layoutX="400.0" layoutY="125.0" prefHeight="27.0" prefWidth="268.0" text="Settings &amp; Help Menu" />
-      <Button fx:id="SettingsMenu" layoutX="125.0" layoutY="300.0" mnemonicParsing="false" onAction="#SettingsMenuClick" prefHeight="180.0" prefWidth="300.0" text="Local Settings" />
+      <Button fx:id="localSettingsButton" layoutX="125.0" layoutY="300.0" mnemonicParsing="false" onAction="#localSettingsClick" prefHeight="180.0" prefWidth="300.0" text="Local Settings" />
       <Button fx:id="UserGuide" layoutX="825.0" layoutY="300.0" mnemonicParsing="false" onAction="#UserGuideClick" prefHeight="180.0" prefWidth="300.0" text="User Guide" />
       <Button fx:id="logOutButton" layoutX="1030.0" layoutY="135.0" mnemonicParsing="false" onAction="#logOutButtonClick" text="Log Out" />
       <Label layoutX="148.0" layoutY="562.0" />
       <Button fx:id="returnMainMenuButton" layoutX="540.0" layoutY="580.0" mnemonicParsing="false" onAction="#returnMainMenuButtonClick" text="Return to Main Menu" />
-      <Button layoutX="475.0" layoutY="300.0" mnemonicParsing="false" onAction="#GlobalSettings" prefHeight="180.0" prefWidth="300.0" text="Global Settings" />
+      <Button fx:id="globalSettingsButton" layoutX="475.0" layoutY="300.0" mnemonicParsing="false" onAction="#globalSettingsClick" prefHeight="180.0" prefWidth="300.0" text="Global Settings" />
    </children>
 </AnchorPane>
