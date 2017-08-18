@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import application.Main;
-
+import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.objects.Staff;
 import uk.ac.qub.objects.Staff;
 
@@ -121,7 +121,7 @@ public class StaffSQL {
 		// If Usernumber is no longer null the correct username and password has
 		// been entered
 		if (Usernumber != null) {
-			String statement2 = "select * from Staff WHERE Username = " + Username + ";";
+			String statement2 = "select * from Staff WHERE staff_number = " + Username + ";";
 			ResultSet results2 = SQL.SQLstatements(statement2);
 
 			results2.next();
@@ -129,6 +129,8 @@ public class StaffSQL {
 			answer = new Staff(results2.getString("staff_number"), results2.getString("name"),
 					results2.getString("access_level"));
 
+		} else {
+			GeneralMethods.show("Students should not be using the admin console", "Access Denied");
 		}
 		return answer;
 	}
