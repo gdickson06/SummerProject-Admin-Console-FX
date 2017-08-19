@@ -21,7 +21,10 @@ public class SettingsHelpMenuController {
     private Button returnMainMenuButton;
 
     @FXML
-    private Button SettingsMenu;
+    private Button localSettinsButton;
+    
+    @FXML
+    private Button globalSettingsButton;
 
     @FXML
     private Button logOutButton;
@@ -37,8 +40,21 @@ public class SettingsHelpMenuController {
    	 * @param event
    	 * @throws Exception
    	 */
+    
+    /**
+     * This method will allow changes to be made to any amendable content
+     * within the application, such as QUB email address, contact numbers
+     * and more
+     * @param event
+     */
+    
     @FXML
-    void SettingsMenuClick(ActionEvent event) {
+    void globalSettingsClick(ActionEvent event) {
+    	//to be completed
+    }
+    
+    @FXML
+    void localSettingsClick(ActionEvent event) {
     	//to be completed
     }
     /**

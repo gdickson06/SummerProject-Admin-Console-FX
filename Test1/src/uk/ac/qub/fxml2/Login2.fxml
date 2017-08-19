@@ -10,9 +10,9 @@
    <children>
       <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
       <JFXButton fx:id="ForgotPassword" layoutX="754.0" layoutY="509.0" onAction="#ForgotPassword" text="Forgot Password?" />
-      <Label layoutX="247.0" layoutY="271.0" text="Email Address:" />
+      <Label layoutX="247.0" layoutY="271.0" text="Staff Number:" />
       <Label layoutX="290.0" layoutY="380.0" text="Password: " />
-      <JFXTextField fx:id="UsernameText" focusColor="WHITE" labelFloat="true" layoutX="400.0" layoutY="263.0" prefHeight="35.0" prefWidth="519.0" promptText="Enter Email Address" unFocusColor="WHITE" />
+      <JFXTextField fx:id="UsernameText" focusColor="WHITE" labelFloat="true" layoutX="400.0" layoutY="263.0" prefHeight="35.0" prefWidth="519.0" promptText="Enter Staff Number" unFocusColor="WHITE" />
       <JFXButton fx:id="LoginButton" layoutX="248.0" layoutY="509.0" onAction="#Login" text="Sign in" />
       <JFXButton fx:id="Clear" layoutX="404.0" layoutY="509.0" onAction="#Clear" text="Cancel" />
       <JFXPasswordField fx:id="PasswordText" focusColor="WHITE" labelFloat="true" layoutX="400.0" layoutY="372.0" prefHeight="35.0" prefWidth="519.0" promptText="Enter Password" unFocusColor="WHITE" />

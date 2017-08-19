@@ -7,14 +7,14 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.StaffMenuController">
    <children>
-      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="65.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="418.0" layoutY="92.0" text="School of Medicine Timetable Administration Portal" />
-      <Label layoutX="418.0" layoutY="148.0" prefHeight="27.0" prefWidth="268.0" text="Staff Menu" />
-      <Button fx:id="uploadStaffCSVButton" layoutX="128.0" layoutY="313.0" mnemonicParsing="false" onAction="#uploadStaffCSVButtonClick" prefHeight="182.0" prefWidth="302.0" text="Upload List of Staff to Database" />
-      <Button fx:id="amendDeleteStaffButton" layoutX="481.0" layoutY="313.0" mnemonicParsing="false" onAction="#amendDeleteStaffButtonClick" prefHeight="182.0" prefWidth="302.0" text="Amend &amp; Delete Staff" />
-      <Button fx:id="uploadSingleStaffButton" layoutX="837.0" layoutY="313.0" mnemonicParsing="false" onAction="#uploadSingleStaffButtonClick" prefHeight="182.0" prefWidth="302.0" text="Upload Single Staff Member to Database" />
-      <Button fx:id="logOutButton" layoutX="1050.0" layoutY="129.0" mnemonicParsing="false" onAction="#logOutButtonClick" text="Log Out" />
+      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
+      <Label layoutX="400.0" layoutY="125.0" prefHeight="27.0" prefWidth="268.0" text="Staff Menu" />
+      <Button fx:id="uploadStaffCSVButton" layoutX="125.0" layoutY="300.0" mnemonicParsing="false" onAction="#uploadStaffCSVButtonClick" prefHeight="180.0" prefWidth="300.0" text="Upload List of Staff to Database" />
+      <Button fx:id="amendDeleteStaffButton" layoutX="475.0" layoutY="300.0" mnemonicParsing="false" onAction="#amendDeleteStaffButtonClick" prefHeight="180.0" prefWidth="300.0" text="Amend &amp; Delete Staff" />
+      <Button fx:id="uploadSingleStaffButton" layoutX="825.0" layoutY="300.0" mnemonicParsing="false" onAction="#uploadSingleStaffButtonClick" prefHeight="180.0" prefWidth="300.0" text="Upload Staff Member to Database" />
+      <Button fx:id="logOutButton" layoutX="1030.0" layoutY="135.0" mnemonicParsing="false" onAction="#logOutButtonClick" text="Log Out" />
       <Label layoutX="128.0" layoutY="542.0" />
-      <Button fx:id="returnMainMenuButton" layoutX="535.0" layoutY="597.0" mnemonicParsing="false" onAction="#returnMainMenuButtonClick" text="Return to Main Menu" />
+      <Button fx:id="returnMainMenuButton" layoutX="540.0" layoutY="580.0" mnemonicParsing="false" onAction="#returnMainMenuButtonClick" text="Return to Main Menu" />
    </children>
 </AnchorPane>
