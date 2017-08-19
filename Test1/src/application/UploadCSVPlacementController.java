@@ -1,5 +1,6 @@
 package application;
 
+import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -118,17 +119,20 @@ public class UploadCSVPlacementController {
     }
     
     /**
-     * This method will download the student list on the server to a CSV sheer
+     * This method will download the placement list on the server to a CSV sheer
      * @param event
      * @throws SQLException 
      * @throws IOException 
      */
     @FXML
-    void downloadStudentList(ActionEvent event) throws IOException, SQLException{
+    void downloadCSVList(ActionEvent event) throws IOException, SQLException{
     	if(Year.getValue()==null){
     		GeneralMethods.show("Please pick year first", "Warning");
     	}else {
-    		PlacementSQL.downloadToCSV(Year.getValue().toString());
+    		System.out.println(Year.getValue().toString());
+    		File f =PlacementSQL.downloadToCSV(Year.getValue().toString());
+    		
+    		Desktop.getDesktop().open(f);
     	}
     }
     

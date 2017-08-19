@@ -2,7 +2,9 @@ package uk.ac.qub.churst;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -21,80 +23,82 @@ import uk.ac.qub.sql.SQL;
 
 public class Test {
 
-	public static void main(String[] args) {
-		String e ="Tue 30 Aug 16";
-		String [] split = e.split(" ");
+	public static void main(String[] args) throws IOException, SQLException, ClassNotFoundException {
+		Class.forName("com.mysql.jdbc.Driver");
+		Main.connection = DriverManager.getConnection(SQL.url, SQL.user, SQL.password);
+		List<String>attributes = new ArrayList<String>();
 		
-		String answer = split[1];
-		
-		switch (split[2]){
-		
-		case "Jan":
-			answer +="01";
-			break;
-		case "Feb":
-			answer +="02";
-			break;
-		case "Mar":
-			answer +="03";
-			break;
-		case "Apr":
-			answer +="04";
-			break;
-		case "May":
-			answer +="05";
-			break;
-		case "Jun":
-			answer +="06";
-			break;
-		case "Jul":
-			answer += "07";
-			break;
-		case "Aug":
-			answer +="08";
-			break;
-		case "Sep":
-			answer+= "09";
-			break;
-		case "Oct":
-			answer +="10";
-			break;
-		case "Nov":
-			answer +=11;
-			break;
-		case "Dec":
-			answer +=12;
-			break;
-		default:
-			System.out.println("Error");
-		}
-
-answer +=20+split[3];
-System.out.println(answer);
+		attributes.add("week");
+		attributes.add("day");
+		attributes.add("date");
+		attributes.add("start_time");
+		attributes.add("end_time");
+		attributes.add("groups");
+		attributes.add("location");
+		attributes.add("subject");
+		attributes.add("theme");
+		attributes.add("teaching");
+		attributes.add("description");
+		attributes.add("staff");
+		attributes.add("style");
+		attributes.add("module");
+	downloadToCSV(attributes, "1", "Lectures");
 	}
 	
 	
 	public static void timeConvert(String time){
 		
-		String [] split = time.split(":");
-		int hour = Integer.parseInt(split[0]);
-		
-		if(split[2].charAt(3)=='P'&&split[0].equals("12")==false){
-			split[0]=String.valueOf(hour+=12);
-		}
-		
-		split[2]=split[2].substring(0, 2);
-		
-		String answer="";
-		
-		for(int i=0; i<split.length;i++){
-			if(i!=split.length-1){
-			answer=answer+split[i] + ":";
-			} else {
-				answer = answer+split[i];
-			}
-		}
-		
-		System.out.println(answer);
+		List<String>attributes = new ArrayList<String>();
+	
+		attributes.add("week");
+		attributes.add("day");
+		attributes.add("date");
+		attributes.add("start_time");
+		attributes.add("end_time");
+		attributes.add("groups");
+		attributes.add("location");
+		attributes.add("subject");
+		attributes.add("theme");
+		attributes.add("teaching");
+		attributes.add("description");
+		attributes.add("staff");
+		attributes.add("style");
+		attributes.add("module");
+	}
+	
+	public static void downloadToCSV(List<String>attributes,String year,String type) throws IOException, SQLException {
+		File file =new File("year"+year+"placements.csv");
+		 PrintWriter pw = new PrintWriter(file);
+	        StringBuilder sb = new StringBuilder();
+	        
+	        for(String s : attributes){
+	        	sb.append(',');
+	        	sb.append(s);
+	        	
+	        }
+	        
+	        sb.append('\n');
+	        sb.deleteCharAt(0);
+	        ResultSet r = SQL.SQLstatements("SELECT * FROM "+type+" Where year = '" + year +"'");
+	        if(r.next()){
+	        do{
+	        	for(int i =0; i<attributes.size(); i++){
+	        		if(i!=attributes.size()){
+	        	if(r.getString(attributes.get(i))==null){sb.append(" ");}else{sb.append(r.getString(attributes.get(i)));}
+	        	sb.append(',');
+	        		} else {
+	        			if(r.getString(attributes.get(i))==null){sb.append(" ");}else{sb.append(r.getString(attributes.get(i)));}
+	    	        	
+	        		}
+	        	}
+	        	sb.append('\n');
+	        	
+	        }while (r.next());
+
+	        }
+
+	        pw.write(sb.toString());
+	        pw.close();
+	        Desktop.getDesktop().open(file);
 	}
 }
