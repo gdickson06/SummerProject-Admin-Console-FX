@@ -3,12 +3,14 @@ package uk.ac.qub.churst;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.List;
 
 import com.opencsv.CSVReader;
+import com.opencsv.CSVWriter;
 
 import application.ApplicationMethods;
 
@@ -112,8 +114,17 @@ public class CSV {
 		String hospital = metadata.get(7);
 		String preference = metadata.get(8);
 		String comments = metadata.get(9);
-
-		return new Placement(year, start, end, hospital, group, comments, module, moduleNo, preference);
+	
+		Placement p = new Placement();
+		p.setCohort(group);
+		p.setModule(module);
+		p.setStartDate(start);
+		p.setEndDate(end);
+		p.setModuleNumber(moduleNo);
+		p.setLocation(hospital);
+		p.setPreference(preference);
+		p.setNote(comments);
+		return p;
 	}
 
 	/**
@@ -156,8 +167,10 @@ public class CSV {
 
 		CSVReader reader = new CSVReader(new FileReader(fileName));
 		List<String[]> attributes = reader.readAll();
+		
 		attributes.remove(0);
 		for (String[] s : attributes) {
+			
 			List<String> list = Arrays.asList(s);
 
 			if (list.get(0).isEmpty() == false) {
@@ -237,19 +250,34 @@ public class CSV {
 		List<Placement> placements = new ArrayList<Placement>();
 
 		CSVReader fileReader = new CSVReader(new FileReader(filename));
-		List<String[]> attributes = fileReader.readAll();
+	
+		
+		List<String[]> attributes = new ArrayList<String[]>();
+	
+		Boolean b =true;
+		do{
+			String [] e =(fileReader.readNext());
+			attributes.add(e);
+			if(e==null){ b=false;}
+			
+		}while(b);
+		
+		
 		attributes.remove(0);
+		attributes.remove(attributes.size()-1);
+		
+		
 		for (String[] s : attributes) {
 			List<String> list = Arrays.asList(s);
-
-			if (list.get(0).isEmpty() == false) {
+			
+			
 				Placement placement = createPlacement(list, year);
 				placements.add(placement);
-			}
+			
 		}
 
 		fileReader.close();
-
+		
 		return placements;
 	}
 

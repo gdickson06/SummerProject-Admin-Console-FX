@@ -28,6 +28,62 @@ public class ConvertMethods {
 		return answer;
 		
 	}
+	/**
+	 * This method will convert dates when written in the format Day DD MMM YY
+	 * @param e
+	 * @return
+	 */
+public static String TextDate(String e){
+	String [] split = e.split(" ");
+	
+	String answer = "20" +split[3];
+	
+	switch (split[2]){
+	
+	case "Jan":
+		answer +="01";
+		break;
+	case "Feb":
+		answer +="02";
+		break;
+	case "Mar":
+		answer +="03";
+		break;
+	case "Apr":
+		answer +="04";
+		break;
+	case "May":
+		answer +="05";
+		break;
+	case "Jun":
+		answer +="06";
+		break;
+	case "Jul":
+		answer += "07";
+		break;
+	case "Aug":
+		answer +="08";
+		break;
+	case "Sep":
+		answer+= "09";
+		break;
+	case "Oct":
+		answer +="10";
+		break;
+	case "Nov":
+		answer +=11;
+		break;
+	case "Dec":
+		answer +=12;
+		break;
+	default:
+		System.out.println("Error");
+	}
+
+answer +=split[1];
+
+return answer;
+}
 /**
  * This method will conver a time inputted into a SQL date input
  * @param date

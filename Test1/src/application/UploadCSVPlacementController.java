@@ -1,7 +1,9 @@
 package application;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -11,8 +13,6 @@ import com.jfoenix.controls.JFXTextField;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import uk.ac.qub.churst.CSV;
@@ -41,19 +41,17 @@ public class UploadCSVPlacementController {
    
     
     
-    /**creating method that will select the file from the user's computer and display filepath of file
-     * 
-     * @param event
-     */
+  /**
+   * This method allows a user to select a file from a file chooser
+   * @param event
+   */
     @FXML
     void selectFilePlacementCSV(ActionEvent event) {
-    	//calling configureFileChooser method from GeneralMethods.java class to select file from CPU
     	GeneralMethods.configureFileChooser(fileChooser);
     	File fileCSV = fileChooser.showOpenDialog(Main.getStage());
     	if(fileCSV!=null){
     		file = fileCSV;
     	}
-    	//setting text within TextField to filepath of CSV
     	PlacementCSVFilePath.setText(file.getAbsolutePath());
     }
     
@@ -69,7 +67,12 @@ public class UploadCSVPlacementController {
     	boolean error = false;
     		
     	    int year = Year.getValue();
-    		placementList= CSV.readPlacementsFromCSV(path, year);
+    		try {
+				placementList= CSV.readPlacementsFromCSV(path, year);
+				
+			} catch (IOException e1) {
+				GeneralMethods.show(e1.getLocalizedMessage(), "Error");
+			}
 
     		
     		try {
@@ -84,20 +87,54 @@ public class UploadCSVPlacementController {
     		}
    
     }
+    
+    /**
+     * This method will delete an entire year of placements
+     * @param event
+     * @throws Exception
+     */
     @FXML
     void DeleteYear(ActionEvent event) throws Exception {
     	PlacementSQL.DeleteYearPlacement(String.valueOf(Year.getValue()));
     	GeneralMethods.show("DELETED ALL FOR YEAR", "DELETED ALL FOR YEAR");
     }
-
+    /**
+     * This method will return the user to the main menu
+     * @param event
+     * @throws Exception
+     */
     @FXML
     void returnMainMenu(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
     }
+    /**
+     * This method will return the user to the practical menu
+     * @param event
+     * @throws Exception
+     */
     @FXML
     void returnPracticalMenu(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("PracticalMenuController", "PracticalPlacementMenu");
     }
+    
+    /**
+     * This method will download the student list on the server to a CSV sheer
+     * @param event
+     * @throws SQLException 
+     * @throws IOException 
+     */
+    @FXML
+    void downloadStudentList(ActionEvent event) throws IOException, SQLException{
+    	if(Year.getValue()==null){
+    		GeneralMethods.show("Please pick year first", "Warning");
+    	}else {
+    		PlacementSQL.downloadToCSV(Year.getValue().toString());
+    	}
+    }
+    
+    /**
+     * This method will initialize before the screen loads up by adding an image and populating a combobox
+     */
     @FXML
     void initialize() {
     	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");

@@ -2,6 +2,7 @@ package uk.ac.qub.churst;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -9,41 +10,67 @@ import java.util.List;
 import java.util.Map;
 
 import application.ApplicationMethods;
+import application.Main;
 import uk.ac.qub.objects.Absence;
 import uk.ac.qub.objects.ExtendedAbsence;
+import uk.ac.qub.objects.Placement;
+import uk.ac.qub.sql.PlacementSQL;
+import uk.ac.qub.sql.SQL;
 
 
 
 public class Test {
 
 	public static void main(String[] args) {
-		/**
-	ExtendedAbsence ea = new ExtendedAbsence();
-	
-	
-	List <Absence> a = new ArrayList<>();
-	try {
-		a = AbsenceTrends.filteredAbsence(ea);
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-		System.out.println(a.size());
-		Map<String, Double> i=AbsenceTrends.DayTrend(a);
+		String e ="Tue 30 Aug 16";
+		String [] split = e.split(" ");
 		
-		for(Map.Entry<String, Double> e: i.entrySet()){
-			System.out.println(e.getKey() +" : " +e.getValue());
+		String answer = split[1];
+		
+		switch (split[2]){
+		
+		case "Jan":
+			answer +="01";
+			break;
+		case "Feb":
+			answer +="02";
+			break;
+		case "Mar":
+			answer +="03";
+			break;
+		case "Apr":
+			answer +="04";
+			break;
+		case "May":
+			answer +="05";
+			break;
+		case "Jun":
+			answer +="06";
+			break;
+		case "Jul":
+			answer += "07";
+			break;
+		case "Aug":
+			answer +="08";
+			break;
+		case "Sep":
+			answer+= "09";
+			break;
+		case "Oct":
+			answer +="10";
+			break;
+		case "Nov":
+			answer +=11;
+			break;
+		case "Dec":
+			answer +=12;
+			break;
+		default:
+			System.out.println("Error");
 		}
-		
-		AbsenceTrends.DateTrend(a);
-		
-		*/
-		for(int i=1; i<25; i++){
-			System.out.println("ApplicationMethods.Cohorts.add(\"A"+ i+ "\");");
-			System.out.println("ApplicationMethods.Cohorts.add(\"B" +i+"\"); ");
-		}
-		System.out.println(ConvertMethods.ConvertYear(2016));
-		System.out.println(ConvertMethods.DeconvertYear(3));
+
+answer +=20+split[3];
+System.out.println(answer);
 	}
 	
 	

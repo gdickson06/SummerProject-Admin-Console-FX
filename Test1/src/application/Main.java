@@ -12,6 +12,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import uk.ac.qub.churst.GeneralMethods;
+import uk.ac.qub.sql.PlacementSQL;
 import uk.ac.qub.sql.SQL;
 import javafx.scene.Scene;
 
@@ -44,8 +45,7 @@ public class Main extends Application {
 			GeneralMethods.show("Database connection error, please check your internet connection", "Error");
 		}
 		
-		
-		
+	
 		
 	}
 	

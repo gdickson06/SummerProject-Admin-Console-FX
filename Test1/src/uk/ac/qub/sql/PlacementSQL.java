@@ -1,6 +1,14 @@
 package uk.ac.qub.sql;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 import application.Main;
@@ -25,8 +33,8 @@ public class PlacementSQL {
 		for (Placement p : placements) {
 			String cohort =p.getCohort();
 			String module = p.getModule();
-			String StartDate = ConvertMethods.DateConvertSQL(p.getStartDate());
-			String EndDate =  ConvertMethods.DateConvertSQL(p.getEndDate());
+			String StartDate = ConvertMethods.TextDate(p.getStartDate());
+			String EndDate =  ConvertMethods.TextDate(p.getEndDate());
 			String module_number = p.getModuleNumber();
 			String Location = p.getLocation();
 			String preference = p.getPreference();
@@ -34,7 +42,7 @@ public class PlacementSQL {
 		
 			
 			try {
-				newStatement = "INSERT INTO placement (cohort,module,start_date,end_date,module_number,hospital,preference,comments,year)"
+				newStatement = "INSERT INTO Placements (cohort,module,start_date,end_date,module_number,hospital,preference,comments,year)"
 						+ " VALUES ('" + cohort + "', '" + module+ "', " + StartDate + ", "
 						+ EndDate + ", '" + module_number+ "', '" + Location+ "', '" + preference+ "', '"+comments+"', + "+Year+ ")";
 				statement = Main.connection.prepareStatement(newStatement);
@@ -125,4 +133,67 @@ public class PlacementSQL {
 		statement.executeUpdate();
 	}
 
+	public static File downloadToCSV(String year) throws IOException, SQLException {
+		File file =new File("year"+year+"placements.csv");
+		 PrintWriter pw = new PrintWriter(file);
+	        StringBuilder sb = new StringBuilder();
+	        sb.append("Student ID");
+	        sb.append(',');
+	        sb.append("name");
+	        sb.append(',');
+	        sb.append("cohort");
+	        sb.append(',');
+	        sb.append("module");
+	        sb.append(',');
+	        sb.append("start date");
+	        sb.append(',');
+	        sb.append("end date");
+	        sb.append(',');
+	        sb.append("module number");
+	        sb.append(',');
+	        sb.append("hospital");
+	        sb.append(',');
+	        sb.append("preference");
+	        sb.append(',');
+	        sb.append("comments");
+	        sb.append('\n');
+	        
+	        ResultSet r = SQL.SQLstatements("SELECT * FROM Placements Where year = '" + year +"'");
+	        if(r.next()){
+	        do{
+	        	sb.append(" ");
+	        	sb.append(',');
+	        	sb.append(" ");
+	        	sb.append(',');
+	        	if(r.getString("cohort")==null){sb.append(" ");}else{sb.append(r.getString("cohort"));}
+	        	sb.append(',');
+	        	if(r.getString("module")==null){sb.append(" ");}else{sb.append(r.getString("module"));}
+	       
+	        	sb.append(',');
+	        	if(r.getString("start_date")==null){sb.append(" ");}else{sb.append(r.getString("start_date"));}
+	        	
+	        	sb.append(',');
+	        	if(r.getString("end_date")==null){sb.append(" ");}else{sb.append(r.getString("end_date"));}
+	        	
+	        	sb.append(',');
+	        	if(r.getString("module_number")==null){sb.append(" ");}else{sb.append(r.getString("module_number"));}
+	        	
+	        	sb.append(',');
+	        	if(r.getString("hospital")==null){sb.append(" ");}else{sb.append(r.getString("hospital"));}
+	        	
+	        	sb.append(',');
+	        	if(r.getString("preference")==null){sb.append(" ");}else{sb.append(r.getString("preference"));}
+	        	
+	        	sb.append(',');
+	        	if(r.getString("comments")==null){sb.append(" ");}else{sb.append(r.getString("comments"));}
+	        	
+	        	sb.append('\n');
+	        }while (r.next());
+
+	        }
+
+	        pw.write(sb.toString());
+	        pw.close();
+	       return file;
+	}
 }
