@@ -12,11 +12,12 @@
       <JFXButton layoutX="291.0" layoutY="512.0" onAction="#returnLectureMenu" text="Return to Lecture Menu" />
       <JFXButton layoutX="764.0" layoutY="391.0" onAction="#DeleteAll" text="Delete All" />
       <JFXButton layoutX="606.0" layoutY="391.0" onAction="#uploadFile" text="Upload File" />
-      <JFXTextField fx:id="Year" focusColor="WHITE" labelFloat="true" layoutX="291.0" layoutY="391.0" prefHeight="35.0" prefWidth="269.0" promptText="Insert Year Here" unFocusColor="WHITE" />
       <JFXButton layoutX="841.0" layoutY="292.0" onAction="#SelectFile" text="Choose File" />
       <JFXTextField fx:id="FileInput" focusColor="WHITE" labelFloat="true" layoutX="291.0" layoutY="294.0" prefHeight="35.0" prefWidth="512.0" promptText="File Path" unFocusColor="WHITE" />
       <Label layoutX="291.0" layoutY="203.0" text="Please select a CSV file and Year to bulk upload a list of Lectures to the database." />
       <Label layoutX="408.0" layoutY="82.0" text="School of Medicine Timetable Administration Portal" />
       <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="55.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" />
+      <JFXComboBox fx:id="Year" layoutX="291.0" layoutY="391.0" prefHeight="25.0" prefWidth="193.0" />
+      <JFXButton layoutX="606.0" layoutY="512.0" onAction="#downloadCSVList" text="Download Spreadsheet" />
    </children>
 </AnchorPane>

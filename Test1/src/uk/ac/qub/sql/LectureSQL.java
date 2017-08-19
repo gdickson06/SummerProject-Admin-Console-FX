@@ -50,16 +50,14 @@ public class LectureSQL {
 				statements = "INSERT INTO Lectures (week, day, date, start_time, end_time, groups, location, subject, theme, teaching, description, staff, style, module, optional, year)"
 						+ "VALUES (" + week + ", '" + day + "', " + startDate + ", '" + startTime + "','" + endTime
 						+ "', '" + groups + "', '" + location + "', '" + subject + "', '" + theme + "', '" + format
-						+ "', '" + description + "', '" + staff + "', '" + style + "', '" + module + "', ',false," + Year+"');";
+						+ "', '" + description + "', '" + staff + "', '" + style + "', '" + module + "', false," + Year+");";
 
-				
+				System.out.println(statement);
 				statement = Main.connection.prepareStatement(statements);
 				statement.executeUpdate();
 			} catch (Exception e) {
 
-				System.err.println("Issue with groups, please check the syntax for week" + l.getWeek() + " day "
-						+ l.getDay() + " startTime " + l.getStartTime() + " the groups input is " + l.getGroup());
-			}
+			e.printStackTrace();}
 	
 		}
 		SQL.GroupsToGroup(lectures);

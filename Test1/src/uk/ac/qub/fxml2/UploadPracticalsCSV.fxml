@@ -19,5 +19,6 @@
       <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="55.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" />
       <JFXComboBox fx:id="Year" layoutX="291.0" layoutY="391.0" prefHeight="25.0" prefWidth="52.0" />
       <Label layoutX="244.0" layoutY="400.0" text="Year :" />
+      <JFXButton layoutX="127.0" layoutY="481.0" onAction="#downloadCSVList" text="Download CSV" />
    </children>
 </AnchorPane>

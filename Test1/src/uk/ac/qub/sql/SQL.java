@@ -1,5 +1,9 @@
 package uk.ac.qub.sql;
 
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -40,6 +44,41 @@ public class SQL {
 	 * @return
 	 * @throws SQLException
 	 */
+	public static void downloadToCSV(List<String>attributes,String year,String type) throws IOException, SQLException {
+		File file =new File("year"+year+"placements.csv");
+		 PrintWriter pw = new PrintWriter(file);
+	        StringBuilder sb = new StringBuilder();
+	        
+	        for(String s : attributes){
+	        	sb.append(',');
+	        	sb.append(s);
+	        	
+	        }
+	        
+	        sb.append('\n');
+	        sb.deleteCharAt(0);
+	        ResultSet r = SQL.SQLstatements("SELECT * FROM "+type+" Where year = '" + year +"'");
+	        if(r.next()){
+	        do{
+	        	for(int i =0; i<attributes.size(); i++){
+	        		if(i!=attributes.size()){
+	        	if(r.getString(attributes.get(i))==null){sb.append(" ");}else{sb.append(r.getString(attributes.get(i)));}
+	        	sb.append(',');
+	        		} else {
+	        			if(r.getString(attributes.get(i))==null){sb.append(" ");}else{sb.append(r.getString(attributes.get(i)));}
+	    	        	
+	        		}
+	        	}
+	        	sb.append('\n');
+	        	
+	        }while (r.next());
+
+	        }
+
+	        pw.write(sb.toString());
+	        pw.close();
+	        Desktop.getDesktop().open(file);
+	}
 	public static List<Lecture> myLectures(String group, LocalDate Date) throws SQLException {
 		List<Lecture> mine = null;
 
