@@ -40,7 +40,7 @@
       <Label layoutX="27.0" layoutY="280.0" text="Module:" />
       <Label layoutX="37.0" layoutY="208.0" text="Group:" />
       <Label layoutX="400.0" layoutY="125.0" prefHeight="27.0" prefWidth="883.0" text="Search for a Practical or Placement to ammend or delete using the Search or Combo-Search Buttons" />
-      <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable Administration Portal" />
+      <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
       <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
       <DatePicker fx:id="startDate" layoutX="104.0" layoutY="347.0" prefHeight="39.0" prefWidth="250.0" promptText="Se;lect Start Date Here" />
       <JFXTextField fx:id="module" layoutX="104.0" layoutY="274.0" prefHeight="35.0" prefWidth="250.0" promptText="Enter Module Here" />
