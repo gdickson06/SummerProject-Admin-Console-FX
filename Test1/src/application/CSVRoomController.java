@@ -33,43 +33,52 @@ public class CSVRoomController {
     
     FileChooser fileChooserWindow = new FileChooser();
     private File file;
-
+/**
+ * This method will allow the user to return to the main menu
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void returnMainMenu(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
     }
-
+/**
+ * This method will alow the user to return to the room menu
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void returnRoomMenu(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("RoomMenu","RoomMenu");
     }
-
+    /**
+	 * This method will allow a file to be selected to be uploaded.
+	 * @param event
+	 */
     @FXML
     void uploadFile(ActionEvent event) {
 String filePath = filePathTextField.getText();
     	
     	List<Room> roomList = new ArrayList<Room>();
     	boolean uploadError = false;
-    	/*using the readRoomsFromCSV and saveSQLRooms methods from the CSV and
-    	* SQL classes to read the rooms from a CSV file and save them into the
-    	* database 
-    	*/
+    	
     	try {
     		roomList= CSV.readRoomsFromCSV(filePath);
     		RoomSQL.saveSQLRooms(roomList);
-    		//below catch will display error message if exception occurs
+    		
     	} catch (Exception e) {
     		GeneralMethods.show("Error with Rooms Upload, please view handbook", "ERROR");
     		uploadError=true;
     	}
-    	/*pop up dialog window will populate of upload is successful and advise of number
-    	* rooms that are added 
-    	*/
+    
     	if (uploadError == false) {
     		GeneralMethods.show("Upload of Rooms from CSV successful, with "+ roomList.size() +" rooms added to the database", "Rooms Upload Successful");
     	}
     }
-
+/**
+ * This method will upload a spreadsheet of rooms to the database
+ * @param event
+ */
     @FXML
     void chooseCSV(ActionEvent event) {
     	GeneralMethods.configureFileChooser(fileChooserWindow);
@@ -79,7 +88,9 @@ String filePath = filePathTextField.getText();
     	}
     	filePathTextField.setText(file.getAbsolutePath());
     }
-
+    /**
+     * This will initialize the class by populating the image
+     */
     @FXML
     void initialize() {
     	

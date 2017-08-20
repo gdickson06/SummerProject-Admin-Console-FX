@@ -569,7 +569,7 @@ public class SearchQueries {
 		switch (search) {
 
 		case 1:
-			statement = "select * from Placements where start_date = " + info + ";";
+			statement = "select * from Placements where start_date = '" + info + "';";
 			break;
 	
 		case 2:
@@ -577,7 +577,7 @@ public class SearchQueries {
 			break;
 		
 		case 3:
-			statement = "select * from Placements where end_date = " + info + ";";
+			statement = "select * from Placements where end_date = '" + info + "';";
 			break;
 			
 		case 4:
@@ -597,11 +597,11 @@ public class SearchQueries {
 		}
 
 		r = SQL.SQLstatements(statement);
-		
+		System.out.println(statement);
 			if (r.next()) {
-
+				
 				do {
-					Placement p= new Placement(r.getInt("id"),r.getInt("year"),r.getString("start_date"),r.getString("end_date"),r.getString("location"),r.getString("preference"),r.getString("cohort"),r.getString("note"),r.getString("module"),r.getString("module_number"));
+					Placement p= new Placement(r.getInt("id"),r.getInt("year"),r.getString("start_date"),r.getString("end_date"),r.getString("hospital"),r.getString("preference"),r.getString("cohort"),r.getString("comments"),r.getString("module"),r.getString("module_number"));
 					placement.add(p);
 				} while (r.next());
 
@@ -654,7 +654,7 @@ public static List<Placement> ComboSearchPlacement(Placement p) throws SQLExcept
 		String statement = "SELECT * FROM Placements ";
 		Boolean start = true;
 		if(p.getEndDate() != null){
-			statement = statement+"WHERE end_date = "+p.getEndDate();
+			statement = statement+"WHERE end_date = '"+p.getEndDate()+"'";
 			start=false;
 		}
 		
@@ -679,7 +679,7 @@ public static List<Placement> ComboSearchPlacement(Placement p) throws SQLExcept
 				start=false;
 		}
 		
-		if(p.getCohort()!=null){
+		if(!p.getCohort().isEmpty()){
 			if(start==false){
 				statement = statement+" AND ";
 			} else {
@@ -713,10 +713,11 @@ public static List<Placement> ComboSearchPlacement(Placement p) throws SQLExcept
 	
 		
 		r = SQL.SQLstatements(statement);
+		System.out.println(statement);
 		
 				if(r.next()){
 					do {
-						Placement placement= new Placement(r.getInt("id"),r.getInt("year"),r.getString("start_date"),r.getString("end_date"),r.getString("location"),r.getString("preference"),r.getString("cohort"),r.getString("note"),r.getString("module"),r.getString("module_number"));
+						Placement placement= new Placement(r.getInt("id"),r.getInt("year"),r.getString("start_date"),r.getString("end_date"),r.getString("hospital"),r.getString("preference"),r.getString("cohort"),r.getString("comments"),r.getString("module"),r.getString("module_number"));
 						placements.add(placement);
 					} while (r.next());
 				}

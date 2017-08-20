@@ -32,6 +32,11 @@ public class UploadUserCSVController {
     private JFXTextField filePathTextField;
     private FileChooser fileChooser = new FileChooser();
     private File f;
+    
+	/**
+	 * This method will allow a file to be selected to be uploaded.
+	 * @param event
+	 */
     @FXML
     void chooseCSV(ActionEvent event) {
     	GeneralMethods.configureFileChooser(fileChooser);  
@@ -41,7 +46,10 @@ public class UploadUserCSVController {
 		}
 		filePathTextField.setText(f.getAbsolutePath());
     }
-
+    /**
+     * This method will upload a spreadsheet to the SQL database 
+     * @param event
+     */
     @FXML
     void uploadFile(ActionEvent event) {
     	String s = filePathTextField.getText();
@@ -59,20 +67,30 @@ public class UploadUserCSVController {
 		}
 
 		if (error == false) {
-			GeneralMethods.show("Import successful with " + staff.size() + " students imported", "UPLOAD SUCCESS");
+			GeneralMethods.show("Import successful with " + staff.size() + " staff imported, to use the system ensure the users are registered in QSIS", "UPLOAD SUCCESS");
 		}
     }
-
+/**
+ * This method will return the user to the Staff Menu
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void returnStaffMenu(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("StaffMenu", "StaffMenu");
     }
-
+/**
+ * This method will return the user to the main menu
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void returnMainMenu(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
     }
-
+/**
+ * This will initialize the class by populating the image
+ */
     @FXML
     void initialize() {
       	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");

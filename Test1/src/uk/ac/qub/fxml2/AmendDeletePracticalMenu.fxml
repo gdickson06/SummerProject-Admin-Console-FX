@@ -10,23 +10,16 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PlacementAmendDeleteController">
    <children>
       <JFXButton layoutX="852.0" layoutY="200.0" onAction="#endDateSearch" text="Search" />
-      <JFXButton layoutX="852.0" layoutY="275.0" onAction="#moduleNumberSearch" text="Search" />
       <JFXButton layoutX="852.0" layoutY="350.0" onAction="#hospitalSearch" text="Search" />
       <JFXButton layoutX="374.0" layoutY="350.0" onAction="#startDateSearch" text="Search" />
       <JFXButton layoutX="374.0" layoutY="275.0" onAction="#moduleSearch" text="Search" />
-      <JFXButton layoutX="374.0" layoutY="200.0" onAction="#weekSearch" text="Search" />
+      <JFXButton layoutX="374.0" layoutY="200.0" onAction="#groupSearch" text="Search" />
       <JFXListView fx:id="Placements" layoutX="110.0" layoutY="407.0" onMouseClicked="#PlacementClick" prefHeight="201.0" prefWidth="1099.0" />
-      <JFXButton fx:id="ReturnMainMenu" layoutX="800.0" layoutY="630.0" onAction="#ReturnMainMenu" text="Return to Main Menu" />
-      <JFXButton fx:id="ReturnPlacementMenu" layoutX="400.0" layoutY="630.0" onAction="#ReturnPlacementMenu" text="Return to Placements Menu" />
-      <JFXButton fx:id="ComboSearch" layoutX="1000.0" layoutY="350.0" onAction="#ComboSearch" text="Combo- Search" />
+      <JFXButton layoutX="800.0" layoutY="630.0" onAction="#ReturnMainMenu" text="Return to Main Menu" />
+      <JFXButton layoutX="400.0" layoutY="630.0" onAction="#ReturnPlacementMenu" text="Return to Placements Menu" />
+      <JFXButton layoutX="1000.0" layoutY="350.0" onAction="#ComboSearch" text="Combo- Search" />
       <Label layoutX="12.0" layoutY="354.0" text="Start Date:" />
-      <Label layoutX="453.0" layoutY="280.0" text="Module Number:" />
       <Label layoutX="514.0" layoutY="354.0" text="Hospital:" />
-      <JFXTextField fx:id="moduleNumber" focusColor="WHITE" labelFloat="true" layoutX="592.0" layoutY="274.0" prefHeight="35.0" prefWidth="250.0" promptText="Enter Module Number Here" unFocusColor="WHITE">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </JFXTextField>
       <JFXTextField fx:id="hospital" focusColor="WHITE" labelFloat="true" layoutX="592.0" layoutY="350.0" prefHeight="35.0" prefWidth="250.0" promptText="Enter Hospital Here" unFocusColor="WHITE">
          <font>
             <Font size="14.0" />
@@ -46,8 +39,8 @@
       <JFXTextField fx:id="module" layoutX="104.0" layoutY="274.0" prefHeight="35.0" prefWidth="250.0" promptText="Enter Module Here" />
       <DatePicker fx:id="endDate" layoutX="592.0" layoutY="202.0" prefHeight="39.0" prefWidth="244.0" promptText="Select End Date Here" />
       <Label layoutX="508.0" layoutY="209.0" text="End Date:" />
-      <Label layoutX="944.0" layoutY="209.0" text="Year:" />
-      <ComboBox fx:id="yearDatePicker" layoutX="989.0" layoutY="202.0" prefHeight="39.0" prefWidth="250.0" promptText="Select Year Here" />
-      <JFXButton layoutX="1258.0" layoutY="200.0" onAction="#yearSearch" text="Search" />
+      <Label layoutX="521.0" layoutY="280.0" text="Year:" />
+      <JFXButton layoutX="852.0" layoutY="273.0" onAction="#yearSearch" text="Search" />
+      <JFXComboBox fx:id="Year" layoutX="591.0" layoutY="276.0" prefHeight="25.0" prefWidth="244.0" />
    </children>
 </AnchorPane>

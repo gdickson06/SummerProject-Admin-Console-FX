@@ -30,8 +30,8 @@ public class CSV {
 	 */
 	private static Staff createStaff(List<String> metadata) {
 
-		String name = metadata.get(1);
-		String staffNumber = metadata.get(0);
+		String name = metadata.get(0);
+		String staffNumber = metadata.get(1);
 		String type = metadata.get(2);
 
 		return new Staff(staffNumber, name, type);
@@ -73,15 +73,20 @@ public class CSV {
 	 */
 	private static Student createStudent(List<String> metadata) throws Exception {
 
-		int studentNumber = Integer.parseInt(metadata.get(0));
-		String name = metadata.get(1);
-		String cohort = metadata.get(2);
-		String email = metadata.get(3);
-
-		if (!ApplicationMethods.Cohorts.contains(cohort)) {
-			throw new InputMismatchException();
-		}
-		return new Student(studentNumber, name, cohort, email);
+		Student s = new Student();
+		s.setStudentNumber(Integer.parseInt(metadata.get(0)));
+		s.setLastName(metadata.get(1));
+		s.setFirstName(metadata.get(2));
+		s.setMiddleName(metadata.get(3));
+		s.setPrefix(metadata.get(4));
+		s.setName(metadata.get(5));
+		s.setCohort(metadata.get(6));
+		s.setEmail(metadata.get(7));
+		s.setNationality(metadata.get(8));
+		s.setGraduate(metadata.get(9));
+		s.setComments(metadata.get(10));
+		s.setPortfolio(metadata.get(11));
+		return s;
 
 	}
 
@@ -198,6 +203,7 @@ public class CSV {
 		List<String[]> attributes = reader.readAll();
 		attributes.remove(0);
 		for (String[] s : attributes) {
+			System.out.println(s.length);
 			List<String> list = Arrays.asList(s);
 
 			if (list.get(0).isEmpty() == false) {

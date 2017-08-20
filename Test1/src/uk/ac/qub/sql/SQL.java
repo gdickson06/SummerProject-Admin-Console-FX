@@ -57,7 +57,8 @@ public class SQL {
 	        
 	        sb.append('\n');
 	        sb.deleteCharAt(0);
-	        ResultSet r = SQL.SQLstatements("SELECT * FROM "+type+" Where year = '" + year +"'");
+	        System.out.println("SELECT * FROM "+type + year +"'");
+	        ResultSet r = SQL.SQLstatements("SELECT * FROM "+type + year +";");
 	        if(r.next()){
 	        do{
 	        	for(int i =0; i<attributes.size(); i++){

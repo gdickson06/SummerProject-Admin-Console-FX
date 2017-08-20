@@ -27,15 +27,16 @@ public class StaffSQL {
 
 		for (Staff s : users) {
 			String staffNumber = s.getStaff_number();
+			System.out.println("staffNumber = " + staffNumber);
 			String name = s.getName();
 			String accessLevel = s.getAccess_level();
 
 			{
 
-				newStatement = "INSERT INTO staff VALUES (" + staffNumber + ",' " + name + "', " + accessLevel + ");";
+				newStatement = "INSERT INTO Staff VALUES (" + staffNumber + ", '" + name + "', '" + accessLevel + "');";
 
 			}
-
+System.out.println(newStatement);
 			statement = Main.connection.prepareStatement(newStatement);
 			statement.executeUpdate();
 

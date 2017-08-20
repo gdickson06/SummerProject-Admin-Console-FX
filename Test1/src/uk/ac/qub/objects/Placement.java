@@ -2,6 +2,12 @@ package uk.ac.qub.objects;
 
 public class Placement {
 	
+	@Override
+	public String toString() {
+		return "id:" + id + " Year:" + Year + " StartDate:" + StartDate + " EndDate :" + EndDate
+				+ "Location : " + Location + " Cohort :" + Cohort + " Module=:" + Module
+				;
+	}
 	int id,Year;
 	String StartDate,EndDate,Location,Cohort,Note,Module,ModuleNumber,Preference;
 	public Placement(int id, int year, String startDate, String endDate, String location, String preference, String cohort,

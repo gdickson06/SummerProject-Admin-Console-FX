@@ -111,7 +111,7 @@ public class StudentSQL {
  */
 	public static void DeleteYearStudent(String Year) throws Exception {
 		
-		PreparedStatement ps = Main.connection.prepareStatement("DELETE FROM Students WHERE year =" + Year);
+		PreparedStatement ps = Main.connection.prepareStatement("DELETE FROM Students WHERE year_group =" + Year);
 		ps.executeUpdate();
 	}
 

@@ -13,10 +13,11 @@
       <Label layoutX="281.0" layoutY="193.0" text="Please select a CSV file and Year to bulk upload a list of students to the database." />
       <JFXTextField fx:id="filePathTextField" focusColor="WHITE" labelFloat="true" layoutX="281.0" layoutY="284.0" prefHeight="35.0" prefWidth="512.0" promptText="File Path" unFocusColor="WHITE" />
       <JFXButton layoutX="831.0" layoutY="282.0" onAction="#chooseCSV" text="Choose File" />
-      <JFXTextField fx:id="Year" focusColor="WHITE" labelFloat="true" layoutX="281.0" layoutY="381.0" prefHeight="35.0" prefWidth="269.0" promptText="Insert Year Here" unFocusColor="WHITE" />
       <JFXButton layoutX="596.0" layoutY="381.0" onAction="#uploadFile" text="Upload FIle" />
       <JFXButton layoutX="754.0" layoutY="381.0" onAction="#DeleteYear" text="Delete Year" />
       <JFXButton layoutX="281.0" layoutY="502.0" onAction="#returnStudentMenu" text="Return to Student Menu" />
       <JFXButton layoutX="749.0" layoutY="502.0" onAction="#returnMainMenu" text="Return To Main Menu" />
+      <JFXComboBox fx:id="Year" layoutX="281.0" layoutY="381.0" prefHeight="25.0" prefWidth="215.0" />
+      <JFXButton layoutX="582.0" layoutY="502.0" onAction="#downloadCSVList" text="Download CSV" />
    </children>
 </AnchorPane>

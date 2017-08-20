@@ -78,7 +78,7 @@ public class CSVLectureController {
 		}
     }
     /**
-     * This method will download the Lecture list on the server to a CSV sheer
+     * This method will download the Lecture list on the server to a CSV sheet
      * @param event
      * @throws SQLException 
      * @throws IOException 
@@ -104,7 +104,7 @@ public class CSVLectureController {
     		attributes.add("staff");
     		attributes.add("style");
     		attributes.add("module");
-    	SQL.downloadToCSV(attributes, Year.getValue().toString(), "Lectures");
+    	SQL.downloadToCSV(attributes, Year.getValue().toString(), "Lectures WHERE year=");
     	}
     }
 /**
