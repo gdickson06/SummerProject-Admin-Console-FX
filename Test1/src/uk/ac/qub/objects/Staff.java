@@ -2,6 +2,11 @@ package uk.ac.qub.objects;
 
 public class Staff {
 
+	@Override
+	public String toString() {
+		return "staff number:" + staff_number + " name:" + name + ", access level:" + access_level ;
+	}
+
 	String staff_number, name, access_level;
 	
 	

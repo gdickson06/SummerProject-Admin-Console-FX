@@ -27,11 +27,6 @@
             <Font size="14.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="YearText" focusColor="WHITE" labelFloat="true" layoutX="165.0" layoutY="341.0" prefHeight="35.0" prefWidth="243.0" promptText="Enter Year" unFocusColor="WHITE">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </JFXTextField>
       <JFXTextField fx:id="StartTimeText" focusColor="WHITE" labelFloat="true" layoutX="163.0" layoutY="268.0" prefHeight="35.0" prefWidth="243.0" promptText="Enter Start Time" unFocusColor="WHITE">
          <font>
             <Font size="14.0" />
@@ -50,5 +45,6 @@
       <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="99.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true" />
       <JFXComboBox fx:id="Module" focusColor="WHITE" layoutX="646.0" layoutY="269.0" prefHeight="39.0" prefWidth="243.0" promptText="Select Module" unFocusColor="WHITE" />
       <DatePicker fx:id="Date" layoutX="638.0" layoutY="343.0" prefHeight="25.0" prefWidth="243.0" />
+      <JFXComboBox fx:id="YearText" layoutX="165.0" layoutY="343.0" prefHeight="25.0" prefWidth="216.0" />
    </children>
 </AnchorPane>

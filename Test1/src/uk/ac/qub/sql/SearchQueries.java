@@ -182,7 +182,7 @@ public class SearchQueries {
 			start = false;
 		}
 		
-		if(!lectures.getYear().isEmpty()){
+		if(lectures.getYear()!=null){
 			if(start==false){
 				statement = statement+" AND ";
 			} else {
@@ -229,15 +229,13 @@ public class SearchQueries {
 			
 				if(results.next()){
 					do {
-						Lecture l = new Lecture(results.getInt("week"), results.getInt("id"), results.getString("day"),
+						Lecture l = new Lecture(results.getInt("week"), results.getInt("lecture_id"), results.getString("day"),
 								results.getString("date"), results.getString("start_time"), results.getString("end_time"),
 								results.getString("groups"), results.getString("location"), results.getString("subject"),
 								results.getString("theme"), results.getString("teaching"), results.getString("description"),
 								results.getString("staff"), results.getString("style"), results.getString("module"),
-								results.getBoolean("essential"), results.getString("year"), results.getString("notes"));
-						
-						l.setId(results.getInt("id"));
-						l.setYear(results.getString("Year"));
+								results.getBoolean("optional"), results.getString("year"), results.getString("notes"));
+				
 						lectureList.add(l);
 					} while (results.next());
 				}
@@ -253,78 +251,78 @@ public class SearchQueries {
 	 * @return
 	 * @throws SQLException 
 	 */
-	public static List<Student> ComboSearchStudents(List<String> s) throws SQLException{
+	public static List<Student> ComboSearchStudents(Student s) throws SQLException{
 		
 	
 		ResultSet results;
 		List<Student> studentList = new ArrayList<Student>();
 		String statement = "SELECT * FROM Students ";
 		Boolean start = true;
-		if(s.get(0).isEmpty()==false){
-			statement = statement+"WHERE first_name LIKE '"+s.get(0)+"%'";
+		if(s.getFirstName().isEmpty()==false){
+			statement = statement+"WHERE first_name LIKE '"+s.getFirstName()+"%'";
 			start=false;
-			System.out.println(start);
+			
 		}
 		
 		
-		if(s.get(1).isEmpty()==false){
+		if(s.getLastName().isEmpty()==false){
 			if(start){
 				statement=statement+" WHERE ";
 			} else {
 				statement=statement+" AND ";
 			}
-			statement = statement+"last_name LIKE '"+s.get(1)+"%'";
+			statement = statement+"last_name LIKE '"+s.getLastName()+"%'";
 			start=false;
-			System.out.println(start);
+			
 		}
 		
 		
-		if(s.get(2).isEmpty()==false){
+		if(s.getStudentNumber()!=0){
 			if(start){
 				statement=statement+" WHERE ";
 			} else {
 				statement=statement+" AND ";
 			}
-			statement = statement+"student_number = "+s.get(2);
+			statement = statement+"student_number = "+s.getStudentNumber();
 			start = false;
 		}
 		
-		if(s.get(3).isEmpty()==false){
+		if(s.getCohort().isEmpty()==false){
 			if(start){
 				statement=statement+" WHERE ";
 			} else {
 				statement=statement+" AND ";
 			}
 			
-			statement = statement+"cohort = '"+s.get(3)+"'";
+			statement = statement+"cohort = '"+s.getCohort()+"'";
 			start = false;
 		}
-		System.out.println(start);
-		if(s.get(4).isEmpty()==false){
-			System.out.println(start);
+		
+		if(s.getYear()!=null){
+			
 			if(start){
 				statement = statement+" WHERE ";
 			} else {
 				statement = statement+" AND ";
 			}
 			
-			statement = statement+"year_group = "+s.get(4);
+			statement = statement+"year_group = '"+s.getYear()+"'";
 			start = false;
 		}
 		
-		if(s.get(5).isEmpty()==false){
+		if(s.getEmail().isEmpty()==false){
 			if(start){
 				statement=statement+" WHERE ";
 			} else {
 				statement = statement+" AND ";
 			}
 			
-			statement = statement+"email = '"+s.get(5)+"'";
+			statement = statement+"email = '"+s.getEmail()+"'";
 		}
 		
 		statement = statement+";";
 		
-		
+		System.out.println(statement);
 		
 		results = SQL.SQLstatements(statement);
 	
@@ -332,7 +330,7 @@ public class SearchQueries {
 				do {
 					Student student = new Student(results.getInt("student_number"), results.getString("last_name"), results.getString("first_name"), results.getString("middle_name"), results.getString("prefix"),results.getString("name")
 							,results.getString("cohort"),results.getString("email"),results.getString("nationality"),results.getString("graduate")
-							,results.getString("comment"),results.getString("portfolio"),results.getString("year"));
+							,results.getString("comments"),results.getString("portfolio"),results.getString("year_group"));
 					studentList.add(student);
 				} while(results.next());
 			}
@@ -358,11 +356,11 @@ public class SearchQueries {
 		case 1:
 			statement = "select * from Students where student_number = " + info + ";";
 			break;
-		// IntakeYear
+		
 		case 2:
-			statement = "select * from Students where year = " + info + ";";
+			statement = "select * from Students where year_group = " + info + ";";
 			break;
-		// Group
+	
 		case 3:
 			statement = "select * from Students where cohort = '" + info + "';";
 			break;
@@ -372,11 +370,11 @@ public class SearchQueries {
 			break;
 		// Last Name
 		case 5:
-			statement = "select * from students where last_name LIKE '" + info + "%';";
+			statement = "select * from Students where last_name LIKE '" + info + "%';";
 			break;
 		// Email Address
 		case 6:
-			statement = "select * from students where email LIKE '" + info + "%';";
+			statement = "select * from Students where email LIKE '" + info + "%';";
 			break;
 		default:
 			System.out.println("Error in searching students");
@@ -390,7 +388,7 @@ public class SearchQueries {
 				do {
 					Student s = new Student(results.getInt("student_number"), results.getString("last_name"), results.getString("first_name"), results.getString("middle_name"), results.getString("prefix"),results.getString("name")
 							,results.getString("cohort"),results.getString("email"),results.getString("nationality"),results.getString("graduate")
-							,results.getString("comment"),results.getString("portfolio"),results.getString("year"));;
+							,results.getString("comments"),results.getString("portfolio"),results.getString("year_group"));;
 					students.add(s);
 				} while (results.next());
 
@@ -399,59 +397,56 @@ public class SearchQueries {
 	}
 
 	public static List<Lecture> searchLecture(int search, String info) throws SQLException {
-		ResultSet r;
+		ResultSet results;
 		String statement = null;
 		List<Lecture> lectures = new ArrayList<Lecture>();
 
 		switch (search) {
-		// id
-		case 1:
-			statement = "select * from lectures where id = " + info + ";";
-			break;
-		// week
+	
 		case 2:
-			statement = "select * from lectures where Week = " + info + ";";
+			statement = "select * from Lectures where week = " + info + ";";
 			break;
 		// date
 		case 3:
-			statement = "select * from lectures where StartDate = '" + info + "';";
+			statement = "select * from Lectures where date = '" + info + "';";
 			break;
 		// groups
 		case 4:
-			statement = "select * from lectures where StartTime = '" + info + "';";
+			statement = "select * from Lectures where start_time = '" + info + "';";
 			break;
 		// staff
 		case 5:
-			statement = "select * from lectures where Staff LIKE '%" + info + "%';";
+			statement = "select * from Lectures where staff LIKE '%" + info + "%';";
 			break;
-		// Module
+	
 		case 6:
-			statement = "select * from lectures where Module LIKE '" + info + "%';";
+			statement = "select * from Lectures where module LIKE '" + info + "%';";
 			break;
-		// Subject
+	
 		case 7:
-			statement = "select * from lectures where Year = " + info + "%;";
+			statement = "select * from Lectures where year = '" + info + "';";
 			break;
 		default:
 			System.out.println("Error in searching students");
 		}
 
-		r = SQL.SQLstatements(statement);
+		results = SQL.SQLstatements(statement);
 		System.out.println(statement);
 		try {
-			if (r.next()) {
+			if (results.next()) {
 
 				do {
-					Lecture l = new Lecture(r.getInt("id"), r.getInt("Week"), r.getString("Day"),
-							r.getString("StartDate"), r.getString("StartTime"), r.getString("EndTime"),
-							r.getString("Groups"), r.getString("Location"), r.getString("Subject"),
-							r.getString("Theme"), r.getString("Teaching"), r.getString("Description"),
-							r.getString("Staff"), r.getString("Style"), r.getString("Module"));
+					Lecture l = new Lecture(results.getInt("week"), results.getInt("lecture_id"), results.getString("day"),
+							results.getString("date"), results.getString("start_time"), results.getString("end_time"),
+							results.getString("groups"), results.getString("location"), results.getString("subject"),
+							results.getString("theme"), results.getString("teaching"), results.getString("description"),
+							results.getString("staff"), results.getString("style"), results.getString("module"),
+							results.getBoolean("optional"), results.getString("year"), results.getString("notes"));
+
 					
-					l.setId(r.getInt("id"));
-					l.setYear(r.getString("Year"));
+				
 					lectures.add(l);
-				} while (r.next());
+				} while (results.next());
 
 			}
 		} catch (SQLException e) {
@@ -634,7 +629,7 @@ public class SearchQueries {
 			while (results.next()) {
 				students.add(new Student(results.getInt("student_number"), results.getString("last_name"), results.getString("first_name"), results.getString("middle_name"), results.getString("prefix"),results.getString("name")
 						,results.getString("cohort"),results.getString("email"),results.getString("nationality"),results.getString("graduate")
-						,results.getString("comment"),results.getString("portfolio"),results.getString("year")));
+						,results.getString("comment"),results.getString("portfolio"),results.getString("year_group")));
 
 			}
 		}

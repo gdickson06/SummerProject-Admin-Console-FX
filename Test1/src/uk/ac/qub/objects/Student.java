@@ -2,6 +2,13 @@ package uk.ac.qub.objects;
 
 public class Student {
 	
+	@Override
+	public String toString() {
+		return "student number:" + studentNumber + " name:" + name + " cohort:" + cohort
+				+ " year:" + year ;
+	}
+
+
 	int studentNumber;
 	String lastName,firstName,middleName,prefix,name,cohort,email,nationality,graduate,comments,portfolio,year;
 	

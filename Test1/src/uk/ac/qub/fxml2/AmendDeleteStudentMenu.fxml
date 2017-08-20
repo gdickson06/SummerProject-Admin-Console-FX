@@ -31,10 +31,6 @@
          <font>
             <Font size="14.0" />
          </font></JFXTextField>
-      <JFXTextField fx:id="IntakeYear" focusColor="WHITE" labelFloat="true" layoutX="695.0" layoutY="303.0" prefHeight="35.0" prefWidth="243.0" promptText="Enter Intake Year e.g. 2015" unFocusColor="WHITE">
-         <font>
-            <Font size="14.0" />
-         </font></JFXTextField>
       <JFXTextField fx:id="lastName" focusColor="WHITE" labelFloat="true" layoutX="695.0" layoutY="233.0" prefHeight="35.0" prefWidth="243.0" promptText="Enter Surname" unFocusColor="WHITE">
          <font>
             <Font size="14.0" />
@@ -52,5 +48,6 @@
       <JFXButton layoutX="963.0" layoutY="380.0" onAction="#EmailSearch" text="Search" />
       <JFXButton layoutX="963.0" layoutY="306.0" onAction="#IntakeYearSearch" text="Search" />
       <JFXButton layoutX="963.0" layoutY="240.0" onAction="#SearchSurname" text="Search" />
+      <JFXComboBox fx:id="IntakeYear" layoutX="703.0" layoutY="308.0" />
    </children>
 </AnchorPane>

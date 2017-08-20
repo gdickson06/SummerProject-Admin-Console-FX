@@ -218,7 +218,7 @@ public class SQL {
 	public static Set<String> Modules() throws SQLException {
 		Set<String> modules = new TreeSet<String>();
 
-		ResultSet r = SQLstatements("select Module from lectures");
+		ResultSet r = SQLstatements("select Module from Lectures");
 
 		if (r.next()) {
 
