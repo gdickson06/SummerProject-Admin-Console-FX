@@ -24,11 +24,6 @@
          <font>
             <Font size="16.0" />
          </font></JFXTextField>
-      <JFXTextField fx:id="studentNumber" focusColor="WHITE" labelFloat="true" layoutX="251.0" layoutY="221.0" prefHeight="35.0" prefWidth="205.0" promptText="Enter Student Number Here" unFocusColor="WHITE">
-         <font>
-            <Font size="16.0" />
-         </font></JFXTextField>
-      <Label layoutX="70.0" layoutY="225.0" text="Student Number:" />
       <Label layoutX="115.0" layoutY="287.0" text="First Name:" />
       <Label layoutX="115.0" layoutY="350.0" text="Last Name:" />
       <Label layoutX="88.0" layoutY="411.0" text="Middle Name:" />
