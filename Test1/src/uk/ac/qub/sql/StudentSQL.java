@@ -82,14 +82,13 @@ public class StudentSQL {
  * @throws Exception
  */
 	public static void UploadSingleStudent(Student s) throws Exception {
-//		studentNumber, lastName,firstName,middleName,prefix,name,cohort,email,nationality,graduate,comments,portfolio,year;
-
-	
+//		
 		PreparedStatement statement = null;
 
-		String Statement = "INSERT INTO students " + "VALUES (" + s.getStudentNumber() + ", '" + s.getLastName() + "', '" + s.getFirstName()
-				+ "', '" + s.getMiddleName() + "', " +s.getPrefix() + ", '"+s.getName()+ ", '"+s.getCohort()+ ", '"+s.getEmail()+ ", '"+s.getNationality()
-				+ ", '"+s.getGraduate()+ ", '"+s.getComments()+ ", '"+s.getPortfolio()+ ", "+s.getYear()+")";
+		String Statement = "INSERT INTO Students " + "VALUES (" + s.getStudentNumber() + ", '" + s.getLastName() + "', '" + s.getFirstName()
+				+ "', '" + s.getMiddleName() + "', '" +s.getPrefix() + "', '"+s.getName()+ "', '"+s.getCohort()+ "', '"+s.getEmail()+ "', '"+s.getNationality()
+				+ "', '"+s.getGraduate()+ "', '"+s.getComments()+ "', '"+s.getPortfolio()+ "', "+s.getYear()+")";
+		System.out.println(Statement);
 		statement = Main.connection.prepareStatement(Statement);
 		statement.executeUpdate();
 

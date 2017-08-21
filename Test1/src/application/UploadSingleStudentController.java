@@ -3,6 +3,8 @@ package application;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 
 import javafx.event.ActionEvent;
@@ -11,72 +13,127 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import uk.ac.qub.churst.GeneralMethods;
+import uk.ac.qub.objects.Student;
 import uk.ac.qub.sql.StudentSQL;
 
 public class UploadSingleStudentController {
-	   @FXML
-	    private ImageView Image;
+	@FXML
+    private JFXTextArea comments;
 
     @FXML
-    private JFXTextField IntakeYear;
+    private JFXComboBox<Integer> year;
 
     @FXML
-    private JFXTextField Cohort;
+    private JFXTextField studentNumber;
 
     @FXML
-    private JFXTextField StudentNumber;
+    private JFXTextField prefix;
 
     @FXML
-    private JFXTextField StudentName;
+    private JFXTextField cohort;
 
     @FXML
-    private JFXTextField EmailAddress;
+    private JFXTextField firstName;
 
     @FXML
-    void updateDetails(ActionEvent event) {
-    	//This will be in the order of the Student Number, name,group,email,year.
-    	List<String> attributes = new ArrayList<String>();
-    	
-    	attributes.add(StudentNumber.getText());
-    	attributes.add(StudentName.getText());
-    	attributes.add(Cohort.getText());
-    	attributes.add(EmailAddress.getText());
-    	attributes.add(IntakeYear.getText());
-    	
+    private JFXTextField emailAddress;
+
+    @FXML
+    private JFXTextField nationality;
+
+    @FXML
+    private JFXTextField portfolio;
+
+    @FXML
+    private JFXTextField surname;
+
+    @FXML
+    private JFXTextField name;
+
+    @FXML
+    private JFXTextField middleName;
+
+    @FXML
+    private JFXTextField Graduate;
+    
+    @FXML
+    private ImageView Image;
+
+/**
+ * This method will upload a new student to the database
+ * @param event
+ */
+    @FXML
+    void uploadStudent(ActionEvent event) {
+    	Student s = new Student();
+    	s.setComments(comments.getText());
+    	s.setCohort(cohort.getText());
+    	s.setEmail(emailAddress.getText());
+    	s.setFirstName(firstName.getText());
+    	s.setGraduate(Graduate.getText());
+    	s.setLastName(surname.getText());
+    	s.setMiddleName(middleName.getText());
+    	s.setName(name.getText());
+    	s.setNationality(nationality.getText());
+    	s.setPortfolio(portfolio.getText());
+    	s.setPrefix(prefix.getText());
+    	s.setStudentNumber(Integer.valueOf(studentNumber.getText()));
+    	s.setYear(year.getValue().toString());
     	try {
-			StudentSQL.UploadSingleStudent(attributes);
+			StudentSQL.UploadSingleStudent(s);
+			GeneralMethods.show("Successfully uploaded student", "Success");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			e.printStackTrace();
 			GeneralMethods.show("Error when uploading Student", "ERROR");
 		}
     	
-    	GeneralMethods.show("Student added with name "+StudentName.getText()+" and Student Number "+ StudentNumber.getText(), "Student Added");
-    }
-
+   }
+/**
+ * This method will return the user to the main menu
+ * @param event
+ * @throws Exception
+ */
     @FXML
-    void MainMenu(ActionEvent event)throws Exception {
+    void mainMenu(ActionEvent event)throws Exception {
     	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
     }
-    
+/**
+ * This method will return the user to the student menu 
+ * @param event
+ * @throws Exception
+ */
     @FXML
-    void StudentMenu(ActionEvent event)throws Exception {
+    void studentMenu(ActionEvent event)throws Exception {
     	GeneralMethods.ChangeScene("StudentMenu","StudentMenu");
     }
-    
+ /**
+  * This method will clear all the text on the screen   
+  * @param event
+  * @throws Exception
+  */
     @FXML
-    void Clear(ActionEvent event)throws Exception {
-      IntakeYear.setText("");
-
-     Cohort.setText("");;
-
-       StudentNumber.setText("");;
-
-       StudentName.setText("");;
-
-        EmailAddress.setText("");;
+    void clear(ActionEvent event)throws Exception {
+    	comments.setText("");
+    	cohort.setText("");
+    	emailAddress.setText("");
+    	firstName.setText("");
+    	Graduate.setText("");
+    	surname.setText("");
+    	middleName.setText("");
+    	name.setText("");
+    	nationality.setText("");
+    	portfolio.setText("");
+    	prefix.setText("");
+    	studentNumber.setText("");
+    	year.setValue(null);
     }
+    
+    /**
+     * This intialize method will populate the combobox and the image on the page
+     */
     @FXML
     void initialize() {
+    	ApplicationMethods.Years(year);
     	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
     	Image.setImage(i);
     }
