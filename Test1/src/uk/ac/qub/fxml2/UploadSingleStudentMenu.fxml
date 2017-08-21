@@ -10,7 +10,7 @@
    <children>
       <Label layoutX="400.0" layoutY="125.0" prefHeight="27.0" prefWidth="736.0" text="Upload a Single Student to the Database by filling in all the below fields" />
       <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
-      <ImageView fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="75.0" layoutY="237.0" text="Student Number:" />
       <Label layoutX="122.0" layoutY="314.0" text="First Name:" />
       <Label layoutX="137.0" layoutY="385.0" text="Surname:" />
@@ -21,7 +21,7 @@
       <JFXTextField fx:id="surname" focusColor="WHITE" labelFloat="true" layoutX="237.0" layoutY="377.0" prefHeight="35.0" prefWidth="185.0" promptText="Enter Surname" unFocusColor="WHITE" />
       <JFXTextField fx:id="middleName" focusColor="WHITE" labelFloat="true" layoutX="237.0" layoutY="453.0" prefHeight="35.0" prefWidth="185.0" promptText="Enter Middle Name" unFocusColor="WHITE" />
       <JFXTextField fx:id="emailAddress" focusColor="WHITE" labelFloat="true" layoutX="237.0" layoutY="529.0" prefHeight="35.0" prefWidth="185.0" promptText="Enter Email Address" unFocusColor="WHITE" />
-      <JFXButton layoutX="100.0" layoutY="626.0" onAction="#updateDetails" text="Add Student to Database" />
+      <JFXButton layoutX="100.0" layoutY="626.0" onAction="#uploadStudent" text="Add Student to Database" />
       <JFXButton layoutX="988.0" layoutY="626.0" onAction="#clear" text="Clear" />
       <JFXButton layoutX="679.0" layoutY="626.0" onAction="#studentMenu" text="Return to Student Menu" />
       <JFXButton layoutX="381.0" layoutY="626.0" onAction="#mainMenu" text="Return to Main Menu" />
@@ -29,15 +29,16 @@
       <Label layoutX="524.0" layoutY="314.0" text="Name:" />
       <Label layoutX="517.0" layoutY="385.0" text="Cohort:" />
       <Label layoutX="485.0" layoutY="461.0" text="Nationality:" />
-      <JFXCheckBox fx:id="graduate" layoutX="552.0" layoutY="533.0" text="Graduate" />
       <JFXTextField fx:id="nationality" focusColor="WHITE" labelFloat="true" layoutX="600.0" layoutY="453.0" prefHeight="35.0" prefWidth="185.0" promptText="Enter Nationality" unFocusColor="WHITE" />
       <JFXTextField fx:id="cohort" focusColor="WHITE" labelFloat="true" layoutX="600.0" layoutY="377.0" prefHeight="35.0" prefWidth="185.0" promptText="Enter Cohort e.g. A1" unFocusColor="WHITE" />
       <JFXTextField fx:id="name" focusColor="WHITE" labelFloat="true" layoutX="600.0" layoutY="306.0" prefHeight="35.0" prefWidth="185.0" promptText="Enter Name" unFocusColor="WHITE" />
-      <JFXComboBox fx:id="prefix" focusColor="WHITE" labelFloat="true" layoutX="600.0" layoutY="231.0" prefHeight="35.0" prefWidth="185.0" promptText="Select Prefix" unFocusColor="WHITE" />
       <JFXTextField fx:id="portfolio" focusColor="WHITE" labelFloat="true" layoutX="964.0" layoutY="230.0" prefHeight="35.0" prefWidth="185.0" promptText="Enter Portfolio" unFocusColor="WHITE" />
       <Label layoutX="858.0" layoutY="237.0" text="Portfolio:" />
       <JFXComboBox fx:id="year" focusColor="WHITE" labelFloat="true" layoutX="964.0" layoutY="306.0" prefHeight="35.0" prefWidth="185.0" promptText="Select Year" unFocusColor="WHITE" />
       <Label layoutX="892.0" layoutY="312.0" text="Year:" />
       <JFXTextArea fx:id="comments" focusColor="WHITE" labelFloat="true" layoutX="858.0" layoutY="388.0" prefHeight="194.0" prefWidth="291.0" promptText="Enter Comments Here" unFocusColor="WHITE" />
+      <Label layoutX="485.0" layoutY="538.0" text="Graduate" />
+      <JFXTextField fx:id="Graduate" focusColor="WHITE" labelFloat="true" layoutX="587.0" layoutY="524.0" prefHeight="35.0" prefWidth="185.0" promptText="Enter Graduate Information" unFocusColor="WHITE" />
+      <JFXTextField fx:id="prefix" focusColor="WHITE" labelFloat="true" layoutX="600.0" layoutY="230.0" prefHeight="35.0" prefWidth="185.0" promptText="Enter Prefix" unFocusColor="WHITE" />
    </children>
 </AnchorPane>
