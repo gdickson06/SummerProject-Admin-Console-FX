@@ -28,7 +28,7 @@
       <Label layoutX="115.0" layoutY="350.0" text="Last Name:" />
       <Label layoutX="88.0" layoutY="411.0" text="Middle Name:" />
       <JFXButton layoutX="98.0" layoutY="543.0" onAction="#save" text="Save Details" />
-      <JFXButton layoutX="277.0" layoutY="543.0" onAction="#delete" text="Delete Student" />
+      <JFXButton layoutX="277.0" layoutY="543.0" onAction="#deleteStudent" text="Delete Student" />
       <JFXButton layoutX="506.0" layoutY="543.0" onAction="#returnStudentMenu" text="Return to Student Screen" />
       <JFXButton layoutX="819.0" layoutY="543.0" onAction="#returnMain" text="Return to Main Menu" />
       <JFXButton layoutX="1070.0" layoutY="543.0" onAction="#returnSearch" text="Return to Search" />

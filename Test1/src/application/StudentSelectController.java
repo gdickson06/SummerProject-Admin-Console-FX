@@ -78,7 +78,7 @@ public class StudentSelectController {
  * @throws Exception
  */
 	@FXML
-	void Save(ActionEvent event) throws Exception {
+	void save(ActionEvent event) throws Exception {
 		s.setCohort(cohort.getText());
 		s.setComments(comments.getText());
 		s.setEmail(emailAddress.getText());
@@ -106,7 +106,7 @@ public class StudentSelectController {
  */
 	@FXML
 	void returnSearch(ActionEvent event) throws Exception {
-		GeneralMethods.ChangeScene("StudentAmendDelete", "StudentAmendDelete");
+		GeneralMethods.ChangeScene("AmendDeleteStudentMenu", "AmendDeleteStudentMenu");
 	}
 /**
  * This method will return the user to the main menu
@@ -132,7 +132,8 @@ public class StudentSelectController {
  * @param event
  * @throws Exception
  */
-	void Delete(ActionEvent event) throws Exception {
+	@FXML
+	void deleteStudent(ActionEvent event) throws Exception {
 		StudentSQL.DeleteStudent(Integer.toString(StudentAmendDeleteController.selectedStudent.getStudentNumber()));
 		GeneralMethods.show(
 				"The record for " + Integer.toString(StudentAmendDeleteController.selectedStudent.getStudentNumber())

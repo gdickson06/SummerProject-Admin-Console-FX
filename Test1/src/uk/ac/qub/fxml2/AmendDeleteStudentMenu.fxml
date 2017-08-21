@@ -14,7 +14,6 @@
       <Label layoutX="400.0" layoutY="125.0" prefHeight="27.0" prefWidth="883.0" text="Search for a Student to ammend or delete his/her details using the Search or Combo-Search Buttons" />
       <Label layoutX="104.0" layoutY="250.0" text="First Name:" />
       <Label layoutX="57.0" layoutY="200.0" text="Student Number:" />
-      <Label layoutX="78.0" layoutY="350.0" text="Middle Name:" />
       <JFXTextField fx:id="firstName" focusColor="WHITE" labelFloat="true" layoutX="196.0" layoutY="246.0" prefHeight="35.0" prefWidth="177.0" promptText="Enter First Name" unFocusColor="WHITE">
          <font>
             <Font size="14.0" />
@@ -23,25 +22,16 @@
          <font>
             <Font size="14.0" />
          </font></JFXTextField>
-      <JFXTextField fx:id="middleName" focusColor="WHITE" labelFloat="true" layoutX="194.0" layoutY="347.0" prefHeight="35.0" prefWidth="177.0" promptText="Enter Middle Name" unFocusColor="WHITE">
+      <JFXTextField fx:id="EmailAddress" focusColor="WHITE" labelFloat="true" layoutX="654.0" layoutY="296.0" prefHeight="35.0" prefWidth="177.0" promptText="Enter Email Address" unFocusColor="WHITE">
          <font>
             <Font size="14.0" />
          </font></JFXTextField>
-      <JFXTextField fx:id="emailAddress" focusColor="WHITE" labelFloat="true" layoutX="654.0" layoutY="296.0" prefHeight="35.0" prefWidth="177.0" promptText="Enter Email Address" unFocusColor="WHITE">
-         <font>
-            <Font size="14.0" />
-         </font></JFXTextField>
-      <JFXTextField fx:id="cohort" focusColor="WHITE" labelFloat="true" layoutX="655.0" layoutY="246.0" prefHeight="35.0" prefWidth="177.0" promptText="Enter Cohort" unFocusColor="WHITE">
-         <font>
-            <Font size="14.0" />
-         </font></JFXTextField>
-      <JFXTextField fx:id="name" focusColor="WHITE" labelFloat="true" layoutX="655.0" layoutY="197.0" prefHeight="35.0" prefWidth="177.0" promptText="Enter Name" unFocusColor="WHITE">
+      <JFXTextField fx:id="Cohort" focusColor="WHITE" labelFloat="true" layoutX="655.0" layoutY="246.0" prefHeight="35.0" prefWidth="177.0" promptText="Enter Cohort" unFocusColor="WHITE">
          <font>
             <Font size="14.0" />
          </font></JFXTextField>
       <Label layoutX="528.0" layoutY="299.0" text="Email Address:" />
       <Label layoutX="581.0" layoutY="251.0" text="Cohort:" />
-      <Label layoutX="586.0" layoutY="200.0" text="Name:" />
       <JFXButton layoutX="1013.0" layoutY="294.0" onAction="#comboSearch" text="Combo- Search" />
       <JFXButton layoutX="400.0" layoutY="640.0" onAction="#returnStudentMenu" text="Return to Student Menu" />
       <JFXButton layoutX="800.0" layoutY="640.0" onAction="#returnMainMenu" text="Return to Main Menu" />
@@ -51,28 +41,14 @@
       <JFXButton layoutX="407.0" layoutY="298.0" onAction="#lastNameSearch" text="Search" />
       <JFXButton layoutX="857.0" layoutY="292.0" onAction="#emailSearch" text="Search" />
       <JFXButton layoutX="857.0" layoutY="243.0" onAction="#cohortSearch" text="Search" />
-      <JFXButton layoutX="857.0" layoutY="197.0" onAction="#nameSearch" text="Search" />
       <JFXTextField fx:id="lastName" focusColor="WHITE" labelFloat="true" layoutX="196.0" layoutY="296.0" prefHeight="35.0" prefWidth="177.0" promptText="Enter Last Name" unFocusColor="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </JFXTextField>
       <Label layoutX="104.0" layoutY="300.0" text="Last Name:" />
-      <JFXButton layoutX="407.0" layoutY="347.0" onAction="#middleNameSearch" text="Search" />
-      <Label layoutX="137.0" layoutY="398.0" text="Prefix:" />
-      <JFXButton layoutX="407.0" layoutY="395.0" onAction="#prefixSearch" text="Search" />
-      <ComboBox fx:id="prefix" layoutX="197.0" layoutY="392.0" prefHeight="39.0" prefWidth="177.0" />
-      <Label layoutX="552.0" layoutY="349.0" text="Nationality:" />
-      <JFXTextField fx:id="nationality" focusColor="WHITE" labelFloat="true" layoutX="654.0" layoutY="346.0" prefHeight="35.0" prefWidth="177.0" promptText="Enter Nationality" unFocusColor="WHITE">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </JFXTextField>
-      <JFXCheckBox fx:id="graduate" layoutX="644.0" layoutY="398.0" text="Graduate?" />
-      <JFXButton layoutX="856.0" layoutY="340.0" onAction="#nationalitySearch" text="Search" />
-      <JFXButton layoutX="857.0" layoutY="395.0" onAction="#graduateSearch" text="Search" />
-      <JFXButton layoutX="1195.0" layoutY="194.0" onAction="#yearSearch" text="Search" />
-      <Label layoutX="965.0" layoutY="200.0" text="Year" />
-      <ComboBox layoutX="1012.0" layoutY="194.0" onAction="#year" prefWidth="150.0" promptText="Select Year" />
+      <JFXButton layoutX="857.0" layoutY="184.0" onAction="#yearSearch" text="Search" />
+      <Label layoutX="593.0" layoutY="186.0" text="Year" />
+      <JFXComboBox fx:id="IntakeYear" layoutX="660.0" layoutY="184.0" prefHeight="25.0" prefWidth="160.0" />
    </children>
 </AnchorPane>
