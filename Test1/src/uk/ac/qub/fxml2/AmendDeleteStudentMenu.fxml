@@ -31,34 +31,14 @@
          <font>
             <Font size="14.0" />
          </font></JFXTextField>
-<<<<<<< HEAD
-      <JFXTextField fx:id="lastName" focusColor="WHITE" labelFloat="true" layoutX="695.0" layoutY="233.0" prefHeight="35.0" prefWidth="243.0" promptText="Enter Surname" unFocusColor="WHITE">
-=======
       <JFXTextField fx:id="cohort" focusColor="WHITE" labelFloat="true" layoutX="655.0" layoutY="246.0" prefHeight="35.0" prefWidth="177.0" promptText="Enter Cohort" unFocusColor="WHITE">
          <font>
             <Font size="14.0" />
          </font></JFXTextField>
       <JFXTextField fx:id="name" focusColor="WHITE" labelFloat="true" layoutX="655.0" layoutY="197.0" prefHeight="35.0" prefWidth="177.0" promptText="Enter Name" unFocusColor="WHITE">
->>>>>>> branch 'master' of https://github.com/gdickson06/SummerProject-Admin-Console-FX
          <font>
             <Font size="14.0" />
          </font></JFXTextField>
-<<<<<<< HEAD
-      <Label layoutX="579.0" layoutY="390.0" text="Email Address:" />
-      <Label layoutX="600.0" layoutY="312.0" text="Intake Year:" />
-      <Label layoutX="631.0" layoutY="246.0" text="Surame:" />
-      <JFXButton layoutX="1121.0" layoutY="234.0" onAction="#comboSearch" text="Combo- Search" />
-      <JFXButton layoutX="1121.0" layoutY="298.0" onAction="#returnStudentMenu" text="Return to Student Menu" />
-      <JFXButton layoutX="1121.0" layoutY="377.0" onAction="#returnMainMenu" text="Return to Main Menu" />
-      <JFXListView fx:id="listOfStudents" layoutX="121.0" layoutY="446.0" onMouseClicked="#ListClick" prefHeight="201.0" prefWidth="1099.0" />
-      <JFXButton layoutX="476.0" layoutY="241.0" onAction="#SearchFirstName" text="Search" />
-      <JFXButton layoutX="476.0" layoutY="307.0" onAction="#SearchStudentNumber" text="Search" />
-      <JFXButton layoutX="476.0" layoutY="381.0" onAction="#CohortSearch" text="Search" />
-      <JFXButton layoutX="963.0" layoutY="380.0" onAction="#EmailSearch" text="Search" />
-      <JFXButton layoutX="963.0" layoutY="306.0" onAction="#IntakeYearSearch" text="Search" />
-      <JFXButton layoutX="963.0" layoutY="240.0" onAction="#SearchSurname" text="Search" />
-      <JFXComboBox fx:id="IntakeYear" layoutX="703.0" layoutY="308.0" />
-=======
       <Label layoutX="528.0" layoutY="299.0" text="Email Address:" />
       <Label layoutX="581.0" layoutY="251.0" text="Cohort:" />
       <Label layoutX="586.0" layoutY="200.0" text="Name:" />
@@ -94,6 +74,5 @@
       <JFXButton layoutX="1195.0" layoutY="194.0" onAction="#yearSearch" text="Search" />
       <Label layoutX="965.0" layoutY="200.0" text="Year" />
       <ComboBox layoutX="1012.0" layoutY="194.0" onAction="#year" prefWidth="150.0" promptText="Select Year" />
->>>>>>> branch 'master' of https://github.com/gdickson06/SummerProject-Admin-Console-FX
    </children>
 </AnchorPane>
