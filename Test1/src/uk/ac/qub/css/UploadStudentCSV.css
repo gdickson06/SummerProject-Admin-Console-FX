@@ -35,3 +35,35 @@
 	-fx-font-family: "Avenir";
 	-fx-font-size: 20px;
 }
+
+.combo-box {
+	-fx-font-size: 20px;
+}
+
+.combo-box .list-cell {
+	-fx-text-fill: #FFFFFF;
+	-fx-text-inner-color:#A10026;
+	-fx-font-family: "Avenir";
+	-fx-font-size: 20px;
+	-fx-background-color: #A10026;
+}
+
+.list-cell:filled:selected:focused .list-cell:filled:selected {
+	-fx-background-color:#A10026;
+	-fx-text-fill: #FFFFFF;
+	-fx-font-size: 20px;
+}
+
+.list-view .list-cell:even {
+	-fx-background-color: #FFFFFF;
+	-fx-text-fill: #A10026;
+	-fx-font-family: "Avenir";
+	-fx-font-size: 20px;
+}
+
+.list-view .list-cell:odd {
+	-fx-background-color:#E5E5E5;
+	-fx-text-fill: #A10026;
+	-fx-font-family: "Avenir";
+	-fx-font-size: 20px;
+}
