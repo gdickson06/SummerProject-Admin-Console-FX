@@ -55,7 +55,7 @@ System.out.println(newStatement);
 		String Statement;
 		PreparedStatement statement = null;
 
-		Statement = "UPDATE Staff SET name ='" + s.getName() + "', accessLevel='" + s.getAccess_level()
+		Statement = "UPDATE Staff SET name ='" + s.getName() + "', access_level='" + s.getAccess_level()
 				+ "' WHERE staff_number =" + s.getStaff_number() + ";";
 		statement = Main.connection.prepareStatement(Statement);
 		statement.executeUpdate();
@@ -71,6 +71,7 @@ System.out.println(newStatement);
 	public static void DeleteUser(String snumber) throws Exception {
 
 		PreparedStatement ps = Main.connection.prepareStatement("DELETE FROM Staff WHERE staff_number =" + snumber);
+		System.out.println(ps);
 		ps.executeUpdate();
 	}
 

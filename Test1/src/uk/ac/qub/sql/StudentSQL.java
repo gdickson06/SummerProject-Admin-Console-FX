@@ -68,9 +68,9 @@ public class StudentSQL {
 
 		String Statement = "UPDATE Students SET last_name ='" + s.getLastName() + "', first_name='" + s.getFirstName() + "', middle_name= '"
 				+ s.getMiddleName() + "', prefix = '" + s.getPrefix() + "', name ='"+s.getName()+"', cohort = '"+s.getCohort()+"', email ='"+s.getEmail()+
-				"', nationality = '" +s.getNationality()+"', graduate = '" + s.getGraduate()+"', comments ='"+ s.getComments() + "' portfolio = '" +
-				s.getPortfolio()+"', year =" + s.getYear()+ " WHERE student_number = " + s.getStudentNumber() + ";";
-		
+				"', nationality = '" +s.getNationality()+"', graduate = '" + s.getGraduate()+"', comments ='"+ s.getComments() + "', portfolio = '" +
+				s.getPortfolio()+"', year_group =" + s.getYear()+ " WHERE student_number = " + s.getStudentNumber() + ";";
+		System.out.println(Statement);
 		statement = Main.connection.prepareStatement(Statement);
 		statement.executeUpdate();
 
