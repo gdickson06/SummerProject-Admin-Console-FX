@@ -26,13 +26,13 @@
             <Font size="20.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="group" focusColor="WHITE" labelFloat="true" layoutX="164.0" layoutY="184.0" prefHeight="35.0" prefWidth="250.0" promptText="Enter Group Here" unFocusColor="WHITE">
+      <JFXTextField fx:id="group" focusColor="WHITE" labelFloat="true" layoutX="164.0" layoutY="182.0" prefHeight="35.0" prefWidth="250.0" promptText="Enter Group Here" unFocusColor="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </JFXTextField>
-      <Label layoutX="78.0" layoutY="260.0" text="Module:" />
-      <Label layoutX="89.0" layoutY="188.0" text="Group:" />
+      <Label layoutX="79.0" layoutY="260.0" text="Module:" />
+      <Label layoutX="90.0" layoutY="188.0" text="Group:" />
       <Label layoutX="400.0" layoutY="125.0" prefHeight="27.0" prefWidth="883.0" text="Search for a Placement to amend or delete using the Search or Combo-Search Buttons" />
       <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
       <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
@@ -42,9 +42,9 @@
             <Font size="20.0" />
          </font></JFXTextField>
       <DatePicker fx:id="endDate" layoutX="652.0" layoutY="182.0" prefHeight="39.0" prefWidth="244.0" promptText="Select End Date Here" />
-      <Label layoutX="555.0" layoutY="189.0" text="End Date:" />
+      <Label layoutX="557.0" layoutY="189.0" text="End Date:" />
       <Label layoutX="593.0" layoutY="260.0" text="Year:" />
       <JFXButton layoutX="927.0" layoutY="253.0" onAction="#yearSearch" text="Search" />
-      <JFXComboBox fx:id="Year" focusColor="WHITE" layoutX="651.0" layoutY="260.0" prefHeight="25.0" prefWidth="244.0" promptText="Select Year" stylesheets="@../css/AmendDeletePracticalMenu.css" unFocusColor="WHITE" />
+      <JFXComboBox fx:id="Year" focusColor="WHITE" layoutX="651.0" layoutY="254.0" prefHeight="25.0" prefWidth="244.0" promptText="Select Year" stylesheets="@../css/AmendDeletePracticalMenu.css" unFocusColor="WHITE" />
    </children>
 </AnchorPane>
