@@ -9,7 +9,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UploadCSVPlacementController">
    <children>
       <JFXButton layoutX="700.0" layoutY="500.0" onAction="#returnMainMenu" text="Return To Main Menu" />
-      <JFXButton layoutX="277.0" layoutY="500.0" onAction="#returnPracticalMenu" text="Return to Practicals &amp; Placements Menu" />
+      <JFXButton layoutX="277.0" layoutY="500.0" onAction="#returnPracticalMenu" text="Return to Placements Menu" />
       <JFXButton layoutX="754.0" layoutY="350.0" onAction="#DeleteYear" text="Delete Year" />
       <JFXButton layoutX="590.0" layoutY="350.0" onAction="#uploadPlacementsCSV" text="Upload File" />
       <JFXButton layoutX="831.0" layoutY="254.0" onAction="#selectFilePlacementCSV" text="Choose File" />

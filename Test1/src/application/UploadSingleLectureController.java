@@ -55,19 +55,19 @@ public class UploadSingleLectureController {
    
 
     @FXML
-    private JFXTextField loactionTextField;
+    private JFXTextField locationTextField;
 
     @FXML
     private JFXButton returnLectureMenuButton;
 
     @FXML
-    private JFXCheckBox Optional;
+    private JFXCheckBox optional;
 
     @FXML
     private JFXButton uploadLectureButton;
 
     @FXML
-    private DatePicker Date;
+    private DatePicker startDate;
 
     @FXML
     private JFXButton cancelButton;
@@ -106,7 +106,7 @@ public class UploadSingleLectureController {
     	
     	Lecture l = new Lecture();
     	Boolean essential =false;
-    	if(Optional.isSelected()){
+    	if(optional.isSelected()){
     		essential=true;
     	}
     	
@@ -114,11 +114,11 @@ public class UploadSingleLectureController {
     	
 		l.setWeek(Integer.valueOf(weekTextfield.getText()));
 		l.setDay(dayTextField.getText());
-		l.setStartDate(Date.getValue().toString());
+		l.setStartDate(startDate.getValue().toString());
 		l.setStartTime(startTimeTextfield.getText());
 		l.setEndTime(endTimeTextfield.getText());
 		l.setGroup(cohortTextField.getText());
-		l.setLocation(loactionTextField.getText());
+		l.setLocation(locationTextField.getText());
 		l.setSubject(subjectTextField.getText());
 		l.setTheme(themeTextField.getText());
 		l.setTeachingFormat(teachingTextField.getText());
@@ -126,7 +126,7 @@ public class UploadSingleLectureController {
 		l.setStaff(staffTextField.getText());
 		l.setStyle(styleTextField.getText());
 		l.setModule(moduleTextField.getText());
-		l.setEssential(Optional.isSelected());
+		l.setEssential(optional.isSelected());
 		l.setYear(year.getValue().toString());
 		
 		
@@ -139,11 +139,11 @@ public class UploadSingleLectureController {
     void clear(ActionEvent event) {
     	weekTextfield.setText("");
 		dayTextField.setText("");
-		Date.setValue(LocalDate.now());
+		startDate.setValue(LocalDate.now());
 		startTimeTextfield.setText("");
 		endTimeTextfield.setText("");
 		cohortTextField.setText("");
-		loactionTextField.setText("");
+		locationTextField.setText("");
 		subjectTextField.setText("");
 		themeTextField.setText("");
 		teachingTextField.setText("");
@@ -151,7 +151,7 @@ public class UploadSingleLectureController {
 		staffTextField.setText("");
 		styleTextField.setText("");
 		moduleTextField.setText("");
-		Optional.setSelected(false);
+		optional.setSelected(false);
 		year.setValue(0);
 
     }

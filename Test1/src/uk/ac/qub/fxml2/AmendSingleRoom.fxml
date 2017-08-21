@@ -8,17 +8,17 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SelectedRoomController">
    <children>
-      <Label layoutX="295.0" layoutY="151.0" prefHeight="27.0" prefWidth="990.0" text="Update the fields below and click 'Save Details', or click 'Delete Room' to remove the room from the database" />
-      <Label layoutX="466.0" layoutY="95.0" text="School of Medicine Timetable Administration Portal" />
-      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="113.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true" />
-      <JFXButton layoutX="1034.0" layoutY="582.0" onAction="#Back" text="Return to Search" />
-      <JFXButton layoutX="775.0" layoutY="582.0" onAction="#Home" text="Return to Main Menu" />
-      <JFXButton layoutX="487.0" layoutY="582.0" onAction="#ReturnRoomsScreen" text="Return to Rooms Screen" />
-      <JFXButton layoutX="275.0" layoutY="582.0" onAction="#Delete" text="Delete Room" />
-      <JFXButton layoutX="64.0" layoutY="582.0" onAction="#SaveChanges" text="Save Details" />
-      <Label layoutX="336.0" layoutY="318.0" text="Room Code:" />
-      <JFXTextField fx:id="RoomCodeTextField" focusColor="WHITE" labelFloat="true" layoutX="527.0" layoutY="314.0" prefHeight="35.0" prefWidth="526.0" promptText="Enter Room Code Here e.g MBC/01/002" unFocusColor="WHITE" />
-      <JFXTextField fx:id="RoomNameTextField" focusColor="WHITE" labelFloat="true" layoutX="527.0" layoutY="418.0" prefHeight="35.0" prefWidth="526.0" promptText="Enter  Room Name Here" unFocusColor="WHITE" />
-      <Label layoutX="330.0" layoutY="422.0" text="Room Name:" />
+      <JFXButton layoutX="1044.0" layoutY="541.0" onAction="#Back" text="Return to Search" />
+      <JFXButton layoutX="780.0" layoutY="541.0" onAction="#Home" text="Return to Main Menu" />
+      <JFXButton layoutX="487.0" layoutY="541.0" onAction="#ReturnRoomsScreen" text="Return to Rooms Menus" />
+      <JFXButton layoutX="279.0" layoutY="541.0" onAction="#Delete" text="Delete Room" />
+      <JFXButton layoutX="64.0" layoutY="541.0" onAction="#SaveChanges" text="Save Details" />
+      <Label layoutX="336.0" layoutY="288.0" text="Room Code:" />
+      <JFXTextField fx:id="RoomCodeTextField" focusColor="WHITE" labelFloat="true" layoutX="457.0" layoutY="284.0" prefHeight="35.0" prefWidth="526.0" promptText="Enter Room Code Here e.g MBC/01/002" unFocusColor="WHITE" />
+      <JFXTextField fx:id="RoomNameTextField" focusColor="WHITE" labelFloat="true" layoutX="457.0" layoutY="378.0" prefHeight="35.0" prefWidth="526.0" promptText="Enter Room Name Here" unFocusColor="WHITE" />
+      <Label layoutX="330.0" layoutY="383.0" text="Room Name:" />
+      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
+      <Label layoutX="400.0" layoutY="125.0" text="Update the room by clicking 'Save Details', or click 'Delete Room' to remove from database" />
    </children>
 </AnchorPane>
