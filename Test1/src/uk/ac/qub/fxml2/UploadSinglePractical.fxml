@@ -8,9 +8,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UploadSinglePlacementController">
    <children>
-      <JFXButton layoutX="912.0" layoutY="564.0" onAction="#mainMenuButtonClick" text="Return to Main Menu" />
-      <JFXButton layoutX="566.0" layoutY="564.0" onAction="#placementMenuButtonClick" text="Return to Placements Menu" />
-      <JFXButton layoutX="398.0" layoutY="564.0" onAction="#cancelButtonClick" text="Cancel" />
+      <JFXButton layoutX="912.0" layoutY="564.0" onAction="#MainMenuButtonClick" text="Return to Main Menu" />
+      <JFXButton layoutX="566.0" layoutY="564.0" onAction="#PlacementMenuButtonClick" text="Return to Placements Menu" />
+      <JFXButton layoutX="398.0" layoutY="564.0" onAction="#Clear" text="Clear" />
       <JFXButton layoutX="57.0" layoutY="564.0" onAction="#upload" text="Add Placement to Database" />
       <JFXTextField fx:id="moduleNumber" focusColor="WHITE" labelFloat="true" layoutX="650.0" layoutY="228.0" prefHeight="35.0" prefWidth="246.0" promptText="Enter Module Number Here" unFocusColor="WHITE" />
       <JFXTextField fx:id="module" focusColor="WHITE" labelFloat="true" layoutX="191.0" layoutY="449.0" prefHeight="35.0" prefWidth="262.0" promptText="Enter Module Here" unFocusColor="WHITE" />
@@ -28,9 +28,8 @@
       <Label layoutX="560.0" layoutY="307.0" text="Hospital:" />
       <JFXTextField fx:id="hospital" focusColor="WHITE" labelFloat="true" layoutX="650.0" layoutY="301.0" prefHeight="35.0" prefWidth="246.0" promptText="Enter Hospital Here" unFocusColor="WHITE" />
       <Label layoutX="591.0" layoutY="384.0" text="Year:" />
-      <JFXTextField fx:id="location" focusColor="WHITE" labelFloat="true" layoutX="650.0" layoutY="449.0" prefHeight="35.0" prefWidth="246.0" promptText="Enter Location Here" unFocusColor="WHITE" />
-      <Label layoutX="558.0" layoutY="453.0" text="Location:" />
-      <JFXTextArea fx:id="comments" focusColor="WHITE" labelFloat="true" layoutX="959.0" layoutY="228.0" prefHeight="244.0" prefWidth="238.0" promptText="Enter Comments Here" unFocusColor="WHITE" />
+      <JFXTextField fx:id="preference" focusColor="WHITE" labelFloat="true" layoutX="650.0" layoutY="449.0" prefHeight="35.0" prefWidth="246.0" promptText="Enter Location Here" unFocusColor="WHITE" />
+      <Label layoutX="558.0" layoutY="453.0" text="Preference:" />
       <JFXComboBox fx:id="year" focusColor="WHITE" labelFloat="true" layoutX="650.0" layoutY="378.0" prefHeight="35.0" prefWidth="246.0" promptText="Select Year" unFocusColor="WHITE" />
    </children>
 </AnchorPane>

@@ -99,17 +99,18 @@ public class PlacementSQL {
 	
 /**
  * This method will upload a single placement from a list of Strings
- * @param s
+ * @param p
  * @throws Exception
  */
-	public static void UploadSinglePlacement(List<String> s) throws Exception {
+	public static void UploadSinglePlacement(Placement p) throws Exception {
 		
 
 		PreparedStatement statement = null;
 
-		String Statement = "INSERT INTO placement(cohort,module,start_date,end_date,module_number,hospital,preference,comments,year) VALUES('"+s.get(0)+"','"+s.get(1)+"',"+s.get(2)+","+s.get(3)+",'"+s.get(4)
-		+"','"+s.get(5)+"','"+s.get(6)+"',"+s.get(7)+",'"+s.get(8)+"');";
-
+		String Statement = "INSERT INTO Placements(cohort,module,start_date,end_date,module_number,hospital,preference,year) VALUES('"+p.getCohort()+"',"
+				+ "'"+p.getModule()+"','"+p.getStartDate()+"','"+p.getEndDate()+"','"+p.getModuleNumber()
+		+"','"+p.getLocation()+"','"+p.getPreference()+"', '"+p.getYear()+"');";
+		System.out.println(Statement);
 		
 		statement = Main.connection.prepareStatement(Statement);
 		statement.executeUpdate();

@@ -1,5 +1,6 @@
 package application;
 
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
@@ -13,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.image.ImageView;
 import uk.ac.qub.churst.GeneralMethods;
+import uk.ac.qub.objects.Placement;
 import uk.ac.qub.sql.PlacementSQL;
 
 public class UploadSinglePlacementController {
@@ -24,90 +26,95 @@ public class UploadSinglePlacementController {
     private URL location;
 
     @FXML
-    private DatePicker StartDate;
+    private JFXTextField moduleNumber;
 
     @FXML
-    private JFXTextField Cohort;
+    private DatePicker endDate;
 
     @FXML
-    private JFXTextField Year;
+    private JFXComboBox<Integer> year;
 
     @FXML
-    private JFXTextArea Note;
+    private JFXTextField module;
 
     @FXML
-    private JFXTextField Teacher;
+    private JFXTextField hospital;
 
     @FXML
     private ImageView Image;
 
     @FXML
-    private JFXTextField Week;
+    private JFXTextField preference;
 
     @FXML
-    private DatePicker EndDate;
+    private DatePicker startDate;
 
     @FXML
-    private JFXTextField Subject;
-
-    @FXML
-    private JFXTextField Location;
-
+    private JFXTextField group;
+/**
+ * This method will take the user back to the main menu
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void MainMenuButtonClick(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
     }
-
+/**
+ * This method will return the user to the placement menu
+ * @param event
+ * @throws Exception
+ */
     @FXML
-    void PracticalMenuButtonClick(ActionEvent event) throws Exception {
+    void PlacementMenuButtonClick(ActionEvent event) throws Exception {
      	GeneralMethods.ChangeScene("PracticalMenuController", "PracticalPlacementMenu");
         
     }
-
+/**
+ * This method will clear all information input into the screen
+ * @param event
+ */
     @FXML
-    void cancelButtonClick(ActionEvent event) {
-    	Week.setText("");
-    	StartDate.setValue(LocalDate.now());
-    	EndDate.setValue(LocalDate.now());
-    	Subject.setText("");
-    	Location.setText("");
-    	Teacher.setText("");
-    	Cohort.setText("");
-    	Year.setText("");
-    	Note.setText("");
+    void Clear(ActionEvent event) {
+    	moduleNumber.setText("");
+    	endDate.setValue(LocalDate.now());
+    	startDate.setValue(LocalDate.now());
+    	module.setText("");
+    	preference.setText("");
+    	group.setText("");
+    	hospital.setText("");
+    	year.setValue(0);
     }
 
     @FXML
-    void Upload(ActionEvent event) {
-    	Boolean success = true;
+    void upload(ActionEvent event) {
+    
     	try{
-    	// The list will be Week,StartDate,EndDate,Subject,Location,ClinicalTeacher,Cohort,YearGroup,Note
-    	List<String> s = new ArrayList<String>();
+    	Placement p = new Placement();
+    	p.setModuleNumber(moduleNumber.getText());
+    	p.setEndDate(endDate.getValue().toString());
+    	p.setStartDate(startDate.getValue().toString());
+    	p.setModule(module.getText());
+    	p.setPreference(preference.getText());
+    	p.setCohort(group.getText());
+    	p.setLocation(hospital.getText());
+    	p.setYear(year.getValue());
     	
-    	s.add(Week.getText());
-    	s.add(StartDate.getValue().toString());
-    	s.add(EndDate.getValue().toString());
-    	s.add(Subject.getText());
-    	s.add(Location.getText());
-    	s.add(Teacher.getText());
-    	s.add(Cohort.getText());
-    	s.add(Year.getText());
-    	s.add(Note.getText());
-    	
-    	PlacementSQL.UploadSinglePlacement(s);
+    	PlacementSQL.UploadSinglePlacement(p);
+     	GeneralMethods.show("Placement uploaded successfully", "Upload success");
+        
     	} catch (Exception e) {
-    		success=false;
-    		GeneralMethods.show(e.toString(), "ERROR");
+    		e.printStackTrace();
+    		GeneralMethods.show("Error in uploading placement", "ERROR");
     	}
-    	if(success){
-    	GeneralMethods.show("Placement uploaded successfully", "Upload success");
+    
     }
-    }
-
+/**
+ * The initialize method will populate the comboboxes and image on the screen
+ */
     @FXML
     void initialize() {
-    	StartDate.setValue(LocalDate.now());
-    	EndDate.setValue(LocalDate.now());
+    	ApplicationMethods.Years(year);
     	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
     	Image.setImage(i);
     }
