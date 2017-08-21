@@ -22,16 +22,23 @@
 	-fx-font-weight: bold;
 }
 
+.list-view {
+	-fx-background-radius: 10;
+	-fx-font-size: 16px;
+}
+
 .list-view .list-cell:even {
 	-fx-background-color: #FFFFFF;
 	-fx-text-fill: #A10026;
 	-fx-font-family: "Avenir";
+	-fx-font-size: 16px;
 }
 
 .list-view .list-cell:odd {
 	-fx-background-color:#E5E5E5;
 	-fx-text-fill: #A10026;
 	-fx-font-family: "Avenir";
+	-fx-font-size: 16px;
 }
 
 .text-field {
@@ -40,6 +47,14 @@
 	-fx-font-family: "Avenir";
 	-fx-font-size: 16px;
 	-fx-background-color: #A10026;
+}
+
+.combo-box {
+	-fx-prompt-text-fill: #FFFFFF;
+	-fx-text-inner-color:#A10026;
+	-fx-font-family: "Avenir";
+	-fx-font-size: 16px;
+	-fx-background-color: #A10026;	
 }
 
 .combo-box .list-cell {
@@ -53,9 +68,12 @@
 .list-cell:filled:selected:focused .list-cell:filled:selected {
 	-fx-background-color:#A10026;
 	-fx-text-fill: #FFFFFF;
+	-fx-font-size: 16px;
 }
 
 .list-cell .label {
+	-fx-prompt-text-fill: #FFFFFF;
 	-fx-text-fill:#A10026;
 	-fx-font-family: "Avenir";
+	-fx-font-size: 16px;
 }
