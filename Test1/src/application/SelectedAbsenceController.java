@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -57,58 +58,80 @@ public class SelectedAbsenceController {
 
     @FXML
     private JFXTextArea Reason;
-
+/**
+ * This method will let the user go back to the search through absence menu
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void Back(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("AmendDeleteAbsencesMenu","AmendDeleteAbsencesMenu");
     }
-
+/**
+ * This method will allow the users to go back to the main menu
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void Home(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
     }
-
+/**
+ * This method will allow the user to go to the absences menu
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void ReturnAbsencesScreen(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("AbsenceMenu", "AbsenceMenu");
     }
-
+/**
+ * This method will allow an absence to be deleted
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void Delete(ActionEvent event) throws Exception {
     	AbsenceSQL.DeleteAbsence(String.valueOf(a.getId()));
     	GeneralMethods.show("Deleted", "Deleted");
     	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
     }
-
+/**
+ * This method will allow an absence to be amended
+ * @param event
+ * @throws Exception
+ */
     @FXML
-    void SaveChanges(ActionEvent event) throws Exception {
-    	// This will be in the order of the id,Studentnumber,lectureid,date,time,reason,approved,type
-    	List<String> l = new ArrayList<String>();
+    void SaveChanges(ActionEvent event) {
     	
-    	l.add(String.valueOf(a.getId()));
-    	l.add(String.valueOf(StudentNumber.getText()));
-    	l.add(String.valueOf(Lecture.getText()));
-    	l.add(StartDate.getValue().toString());
-    	l.add(EndDate.getValue().toString());
-    	l.add(StartTime.getText());
-    	l.add(EndTime.getText());
-    	l.add(Reason.getText());
-    	if(Approved.isSelected()){
-    		l.add("true");
-    	} else {
-    		l.add("false");
-    	}
-    	l.add(Type.getValue());
+    	a.setApproved(Approved.isSelected());
+    	a.setStudentNumber(Integer.valueOf(StudentNumber.getText()));
+    	a.setLectureID(a.getLectureID());
+    	a.setStartDate(StartDate.getValue().toString());
+    	a.setEndDate(EndDate.getValue().toString());
+    	a.setStartTime(StartTime.getText());
+    	a.setEndTime(EndTime.getText());
+    	a.setReason(Reason.getText());
+    	a.setType(Type.getValue());
+    
     	
-    	System.out.println(l.size());
+    	try {
+			AbsenceSQL.AmendAbsence(a);
+			GeneralMethods.show("Absence amneded successfully", "Success");
+		} catch (Exception e) {
+			GeneralMethods.show("Error in amending Absence", "Error");
+			e.printStackTrace();
+		}
     	
-    	AbsenceSQL.AmendAbsence(l);
-    	
-    	GeneralMethods.show(a.getId()+" has been updated", "Success");
     }
 
     @FXML
     void initialize() {
+    	try {
+			AbsenceSQL.readAbsence(a.getId());
+		} catch (SQLException e) {
+			GeneralMethods.show("Error in marking absence as read", "Error");
+		}
 List<String>types= new ArrayList<String>();
     	
     	types.add("Illness");

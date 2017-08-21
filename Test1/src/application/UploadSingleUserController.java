@@ -11,8 +11,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import uk.ac.qub.churst.GeneralMethods;
-import uk.ac.qub.sql.CoordinatorSQL;
-import uk.ac.qub.sql.SQL;
+import uk.ac.qub.objects.Staff;
+
 import uk.ac.qub.sql.StaffSQL;
 
 public class UploadSingleUserController {
@@ -22,12 +22,6 @@ public class UploadSingleUserController {
 
     @FXML
     private URL location;
-
-    @FXML
-    private JFXTextField PasswordText;
-
-    @FXML
-    private JFXComboBox<String> ModuleBox;
 
     @FXML
     private JFXTextField UsernameText;
@@ -41,68 +35,66 @@ public class UploadSingleUserController {
     @FXML
     private ImageView Image;
 
-    @FXML
-    private JFXTextField EmailText;
 
+ 
+/**
+ * This method will upload a new user to the database
+ * @param event
+ */
     @FXML
-    void TypeDrop(ActionEvent event) {
-      	if(TypePicker.getValue().equals("Module Coordinator")){
-    		ModuleBox.setVisible(true);
-    		EmailText.setVisible(true);
-    		System.out.println("TITS");
-    	} else {
-    		ModuleBox.setVisible(false);
-    		EmailText.setVisible(false);
-    	}
-    }
-
-    @FXML
-    void Upload(ActionEvent event) throws Exception {
-	List<String> attributes = new ArrayList<String>();
+    void Upload(ActionEvent event) {
+	Staff s = new Staff();
+	s.setAccess_level(TypePicker.getValue());
+	s.setName(NameText.getText());
+	s.setStaff_number(UsernameText.getText());
     	
-    	attributes.add(UsernameText.getText());
-    	attributes.add(NameText.getText());
-    	attributes.add(EmailText.getText());
-    	attributes.add(PasswordText.getText());
-    	attributes.add(TypePicker.getValue());
-    	attributes.add(ModuleBox.getValue());
+    		try {
+				StaffSQL.UploadSingleUser(s);
+				GeneralMethods.show("Success in uploading " + s.getName(), "Success");
+			} catch (Exception e) {
+				GeneralMethods.show("Error with uploading staff member", "Error");
+				e.printStackTrace();
+			}
     	
-    	if(TypePicker.getValue().equals("Module Coordinator")){
-    		attributes.remove(4);
-    		CoordinatorSQL.UploadSingleCoordinator(attributes);
-    	} else {
-    		attributes.remove(5);
-    		attributes.remove(2);
-    		StaffSQL.UploadSingleUser(attributes);
-    	}
     }
-
+/**
+ * This method will clear all inputs to the textboxes
+ * @param event
+ */
     @FXML
     void Clear(ActionEvent event) {
     	UsernameText.setText("");
     	NameText.setText("");
-    	EmailText.setText("");
-    	PasswordText.setText("");
+    
     	TypePicker.setValue("");
-    	ModuleBox.setValue("");
+    	
     }
-
+/**
+ * This method will return the user to the staff menu
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void returnStaffMenuButtonClick(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("StaffMenu", "StaffMenu");
     }
-
+/**
+ * This method will return the user to the main menu
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void mainMenuButtonClick(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
     }
-
+/**
+ * This initialize method will populate the Image and comboboxes on the page
+ */
     @FXML
     void initialize() {
     	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
     	Image.setImage(i);
-    	ModuleBox.setVisible(false);
-    	EmailText.setVisible(false);
+    
     	List<String>types= new ArrayList<String>();
     	
     	types.add("Administrator");
@@ -110,6 +102,6 @@ public class UploadSingleUserController {
     	types.add("Lecturer");
     	
     	TypePicker.getItems().addAll(types);
-    	ModuleBox.getItems().addAll(SQL.Modules());
+    	
     }
 }

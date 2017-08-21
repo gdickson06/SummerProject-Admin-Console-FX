@@ -22,211 +22,190 @@ import uk.ac.qub.objects.Note;
 import uk.ac.qub.sql.NoteSQL;
 
 public class GeneralNotesController {
-	
+
 	private Note n;
 
-    @FXML
-    private ResourceBundle resources;
+	@FXML
+	private ResourceBundle resources;
 
-    @FXML
-    private URL location;
+	@FXML
+	private URL location;
 
-    @FXML
-    private JFXTextArea NoteDetails;
+	@FXML
+	private JFXTextArea NoteDetails;
 
-    @FXML
-    private JFXListView<Note> NoteList;
+	@FXML
+	private JFXListView<Note> NoteList;
 
-    @FXML
-    private JFXComboBox<String> Year;
+	@FXML
+	private JFXComboBox<Integer> Year;
 
-    @FXML
-    private DatePicker NewNoteDate;
+	@FXML
+	private DatePicker NewNoteDate;
 
-    @FXML
-    private JFXTextArea NewNoteDetails;
+	@FXML
+	private JFXTextArea NewNoteDetails;
 
-    @FXML
-    private ImageView Image;
+	@FXML
+	private ImageView Image;
 
-    @FXML
-    private JFXComboBox<String> NewNoteYear;
+	@FXML
+	private JFXComboBox<Integer> NewNoteYear;
 
-    @FXML
-    private DatePicker Date;
+	@FXML
+	private DatePicker Date;
 
-  
+	/**
+	 * This method will delete the selected note, if no note is selected an
+	 * error message will pop up, once the note is deleted the active notes will
+	 * be updated
+	 * 
+	 * @param event
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
+	@FXML
+	void Delete(ActionEvent event) {
+		if (n != null) {
+			try {
+				NoteSQL.deleteNote(String.valueOf(n.getId()));
+			} catch (Exception e) {
+				GeneralMethods.show("Error when deleting notes", "Error");
+				e.printStackTrace();
+			}
 
-    @FXML
-    void Clear(ActionEvent event) throws ClassNotFoundException, SQLException {
-    	NoteSQL.deleteNote(String.valueOf(n.getId()));
-    	try{
-        	List<Note> live = NoteSQL.ActiveNotes();
-    		ObservableList<Note> list = FXCollections.observableArrayList();
-    		list.addAll(live);
-    		NoteList.setItems(list);
-        	} catch (NullPointerException e){
-        		
-        	}
-    }
+			List<Note> live = new ArrayList<Note>();
+			;
+			try {
+				live.addAll(NoteSQL.ActiveNotes());
+			} catch (SQLException e) {
+				GeneralMethods.show("Error when getting live notes", "Error");
+				e.printStackTrace();
+			}
+			ObservableList<Note> list = FXCollections.observableArrayList();
+			list.addAll(live);
+			NoteList.setItems(list);
+			Year.setValue(0);
+			NoteDetails.setText("");
+			Date.setValue(LocalDate.now());
+			n=null;
+			GeneralMethods.show("Note deleted", "Success");
 
-    @FXML
-    void Upload(ActionEvent event) {
-    	List<String> att = new ArrayList<String>();
-    	att.add(String.valueOf(n.getId()));
-    	att.add(Date.getValue().toString());
-    	String year;
-    	switch(Year.getValue()){
- 		case "First Year":
- 			year = "1";
- 			break;
- 		case "Second Year":
- 			year = "2";
- 			break;
- 		case "Third Year":
- 			year = "3";
- 			break;
- 		case "Fourth Year":
- 			year = "4";
- 			break;
- 		case "Fifth Year":
- 			year = "5";
- 			break;
- 		default:
- 			year="All";
- 		}
-    	att.add(year);
-    	
-    	
-    	att.add(NoteDetails.getText());
-    	
-    	try {
-			NoteSQL.amendNote(att);
+		} else {
+			GeneralMethods.show("No note selected", "Warning");
+		}
+	}
+
+	/**
+	 * This method will amend an already existing note
+	 * 
+	 * @param event
+	 */
+	@FXML
+	void Amend(ActionEvent event) {
+		n.setDate(Date.getValue().toString());
+		n.setDetails(NoteDetails.getText());
+		n.setYear(Year.getValue());
+
+		try {
+			NoteSQL.amendNote(n);
 			GeneralMethods.show("Success", "Success");
-			try{
-		    	List<Note> live = NoteSQL.ActiveNotes();
-				ObservableList<Note> list = FXCollections.observableArrayList();
-				list.addAll(live);
-				NoteList.setItems(list);
-		    	} catch (NullPointerException e){
-		    		
-		    	}
+
+			List<Note> live = NoteSQL.ActiveNotes();
+			ObservableList<Note> list = FXCollections.observableArrayList();
+			list.addAll(live);
+			NoteList.setItems(list);
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			GeneralMethods.show(e.getMessage(), "Error");
+			GeneralMethods.show("Error in amending note", "Error");
 			e.printStackTrace();
 		}
-    }
+	}
 
-    @FXML
-    void ReturnMainMenu(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
-    }
+	/**
+	 * This method will return the user to the main menu
+	 * 
+	 * @param event
+	 * @throws Exception
+	 */
+	@FXML
+	void ReturnMainMenu(ActionEvent event) throws Exception {
+		GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
+	}
 
-    @FXML
-    void SelectNote(MouseEvent event) {
-    	if(event.getClickCount()==2){
-    		String year;
-     		 n=NoteList.getSelectionModel().getSelectedItem();
-     		Date.setValue(LocalDate.parse(n.getDate(),ApplicationMethods.dtf));
-     		switch(n.getYear()){
-     		case 1:
-     			year = "First Year";
-     			break;
-     		case 2:
-     			year = "Second Year";
-     			break;
-     		case 3:
-     			year = "Third Year";
-     			break;
-     		case 4:
-     			year = "Fourth Year";
-     			break;
-     		case 5:
-     			year = "Fifth Year";
-     			break;
-     		default:
-     			year="All";
-     		}
-     		
-     		Year.setValue(year);
-     		NoteDetails.setText(n.getDetails());
-      	}
-    }
+	/**
+	 * This will allow the user to select a live note
+	 * 
+	 * @param event
+	 */
+	@FXML
+	void SelectNote(MouseEvent event) {
+		if (event.getClickCount() == 2) {
 
-    @FXML
-    void SaveNewNote(ActionEvent event) {
-    	List<String> att = new ArrayList<String>();
-    	String year;
-    	att.add(NewNoteDate.getValue().toString());
-    	switch(NewNoteYear.getValue()){
- 		case "First Year":
- 			year = "1";
- 			break;
- 		case "Second Year":
- 			year = "2";
- 			break;
- 		case "Third Year":
- 			year = "3";
- 			break;
- 		case "Fourth Year":
- 			year = "4";
- 			break;
- 		case "Fifth Year":
- 			year = "5";
- 			break;
- 		default:
- 			year="All";
- 		}
-    	att.add(year);
-    	
-    	att.add(NewNoteDetails.getText());
-    	
-    	try {
-			NoteSQL.UploadNote(att);
-			try{
-		    	List<Note> live = NoteSQL.ActiveNotes();
-				ObservableList<Note> list = FXCollections.observableArrayList();
-				list.addAll(live);
-				NoteList.setItems(list);
-		    	} catch (NullPointerException e){
-		    		
-		    	}
-			GeneralMethods.show("Success", "Success");
+			n = NoteList.getSelectionModel().getSelectedItem();
+			Date.setValue(LocalDate.parse(n.getDate(), ApplicationMethods.dtf));
+
+			Year.setValue(n.getYear());
+			NoteDetails.setText(n.getDetails());
+		}
+	}
+
+	/**
+	 * This method allows the user to save a new note
+	 * 
+	 * @param event
+	 */
+	@FXML
+	void SaveNewNote(ActionEvent event) {
+		Note n1 = new Note();
+		n1.setDate(NewNoteDate.getValue().toString());
+		n1.setYear(NewNoteYear.getValue());
+		n1.setDetails(NewNoteDetails.getText());
+
+		try {
+			NoteSQL.UploadNote(n1);
+
+			List<Note> live = NoteSQL.ActiveNotes();
+			ObservableList<Note> list = FXCollections.observableArrayList();
+			list.addAll(live);
+			NoteList.setItems(list);
+
+			GeneralMethods.show("Success in uploading new note", "Success");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			GeneralMethods.show(e.getMessage(), "Error");
+			GeneralMethods.show("Error in uploading new note", "Error");
 			e.printStackTrace();
 		}
-    }
+	}
 
-    @FXML
-    void ReturnNotesMenu(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("NotesMenuController", "NotesMenuController");
-    }
+	/**
+	 * This method will return the user to the Notes menu
+	 * 
+	 * @param event
+	 * @throws Exception
+	 */
+	@FXML
+	void ReturnNotesMenu(ActionEvent event) throws Exception {
+		GeneralMethods.ChangeScene("NotesMenu", "NotesMenu");
+	}
 
-    @FXML
-    void initialize() {
-List<String> s = new ArrayList<String>();
-    	
-    	s.add("First Year");
-    	s.add("Second Year");
-    	s.add("Third Year");
-    	s.add("Fourth Year");
-    	s.add("Fifth Year");
-    	
-    	NewNoteYear.getItems().addAll(s);
-    	Year.getItems().addAll(s);
-    	try{
-    	List<Note> live = NoteSQL.ActiveNotes();
+	/**
+	 * This method will populate the image and combo boxes along with the list
+	 * view with all live notes (live being set after the current date)
+	 * 
+	 * @throws SQLException
+	 */
+	@FXML
+	void initialize() throws SQLException {
+		ApplicationMethods.Years(NewNoteYear);
+		ApplicationMethods.Years(Year);
+
+		List<Note> live = NoteSQL.ActiveNotes();
 		ObservableList<Note> list = FXCollections.observableArrayList();
 		list.addAll(live);
 		NoteList.setItems(list);
-    	} catch (NullPointerException e){
-    		System.out.println("be fine");
-    	}
-    	
-    	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
-    	Image.setImage(i);
-    }
+
+		javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
+		Image.setImage(i);
+	}
 }

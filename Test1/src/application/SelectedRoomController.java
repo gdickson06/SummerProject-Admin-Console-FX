@@ -32,31 +32,60 @@ public class SelectedRoomController {
 
     @FXML
     private ImageView Image;
-
+/**
+ * This method will take the user back to the searching room menu
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void Back(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("AmendDeleteRoomsMenu", "AmendDeleteRoomsMenu");
         
     }
-
+/**
+ * This method will return the user to the main menu
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void Home(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
     }
-
+/**
+ * This method will return the user to the room screen
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void ReturnRoomsScreen(ActionEvent event) throws Exception {
      	GeneralMethods.ChangeScene("RoomMenu", "RoomMenu");
         
     }
-
+/**
+ * This method will delete a room from the database
+ * @param event
+ * @throws ClassNotFoundException
+ * @throws SQLException
+ */
     @FXML
-    void Delete(ActionEvent event) throws ClassNotFoundException, SQLException {
+    void Delete(ActionEvent event) {
+    	try{
     	RoomSQL.deleteRoom(r.getCode());
     	GeneralMethods.show(r.getCode()+" has been successfully deleted", "Room Deleted");
-    
+    	GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
+    	} catch (Exception e){
+    		GeneralMethods.show("Error with deleting room", "Error");
+    	}
     }
-
+/**
+ * This method will amend a room on the database, the method is special as unlike
+ * all the other objects we are allowing the user to amend the primary key as these
+ * are likely to be changed such as room codes, this means we will be passing in a 
+ * list of strings rather than an object.
+ * @param event
+ * @throws ClassNotFoundException
+ * @throws SQLException
+ */
     @FXML
     void SaveChanges(ActionEvent event) throws ClassNotFoundException, SQLException {
 	List<String> roomList = new ArrayList<String>();
@@ -70,7 +99,11 @@ public class SelectedRoomController {
     	GeneralMethods.show(r.getCode()+" has been amended successfully.", "Update Successful");
    
     }
-
+/**
+ * The initialize method will populate the fields of the room code and room description
+ * along with the image however in this method we also have a hidden string called
+ * old room code which is populated and will be used in the save changes method
+ */
     @FXML
     void initialize() {
     	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");

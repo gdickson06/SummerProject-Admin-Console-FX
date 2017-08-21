@@ -18,15 +18,15 @@ public class NoteSQL {
 
 /**
  * This method takes in a list of Strings which will be used to amend a Note
- * The id is the first in the list followed by date, year and the text of the ntoe
- * @param list
+ * The id is the first in the list followed by date, year and the text of the note
+ * @param n
  * @throws ClassNotFoundException
  * @throws SQLException
  */
-	public static void amendNote(List<String> list) throws ClassNotFoundException, SQLException{
+	public static void amendNote(Note n) throws ClassNotFoundException, SQLException{
 		
 		PreparedStatement preparedStatement = null;
-		String statement = "UPDATE Notes SET date = '"+list.get(1)+"',year_group = '"+list.get(2)+"', note_text='"+list.get(3)+"' WHERE id ="+list.get(0)+";";
+		String statement = "UPDATE Notes SET date = '"+n.getDate()+"',year_group = "+n.getYear()+", note_text='"+n.getDetails()+"' WHERE id ="+n.getId()+";";
 	preparedStatement = Main.connection.prepareStatement(statement);
 		preparedStatement.executeUpdate();
 		
@@ -49,15 +49,15 @@ public class NoteSQL {
 	
 /**
  * This method will upload a new note from a List of Strings
- * @param s
+ * @param n1
  * @throws Exception
  */
-	public static void UploadNote(List<String> s) throws Exception {
+	public static void UploadNote(Note n1) throws Exception {
 
 
 		PreparedStatement statement = null;
 
-		String Statement = "INSERT INTO Notes (date, year_group, note_text) " + "VALUES ('" + s.get(0) + "', '" + s.get(1) + "', '" + s.get(2) +"')";
+		String Statement = "INSERT INTO Notes (date, year_group, note_text) " + "VALUES ('" + n1.getDate() + "', '" + n1.getYear() + "', '" + n1.getDetails() +"')";
 		statement = Main.connection.prepareStatement(Statement);
 		statement.executeUpdate();
 

@@ -2,6 +2,7 @@ package application;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
@@ -16,6 +17,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.image.ImageView;
 import uk.ac.qub.churst.GeneralMethods;
+import uk.ac.qub.objects.Lecture;
 import uk.ac.qub.sql.LectureSQL;
 
 public class UploadSingleLectureController {
@@ -50,8 +52,7 @@ public class UploadSingleLectureController {
     @FXML
     private ImageView Image;
 
-    @FXML
-    private JFXCheckBox essentialCheckbox;
+   
 
     @FXML
     private JFXTextField loactionTextField;
@@ -60,7 +61,7 @@ public class UploadSingleLectureController {
     private JFXButton returnLectureMenuButton;
 
     @FXML
-    private CheckBox Essential;
+    private JFXCheckBox Optional;
 
     @FXML
     private JFXButton uploadLectureButton;
@@ -72,7 +73,7 @@ public class UploadSingleLectureController {
     private JFXButton cancelButton;
 
     @FXML
-    private JFXTextField yeartextField;
+    private JFXComboBox<Integer> year;
 
     @FXML
     private JFXTextField subjectTextField;
@@ -102,33 +103,35 @@ public class UploadSingleLectureController {
 
     @FXML
     void uploadLectureButtonClick(ActionEvent event) throws Exception {
+    	
+    	Lecture l = new Lecture();
     	Boolean essential =false;
-    	if(Essential.isSelected()){
+    	if(Optional.isSelected()){
     		essential=true;
     	}
-    	List<String>attributes= new ArrayList<String>();
+    	
 		
     	
-		attributes.add(weekTextfield.getText());
-		attributes.add(dayTextField.getText());
-		attributes.add(Date.getValue().toString());
-		attributes.add(startTimeTextfield.getText());
-		attributes.add(endTimeTextfield.getText());
-		attributes.add(cohortTextField.getText());
-		attributes.add(loactionTextField.getText());
-		attributes.add(subjectTextField.getText());
-		attributes.add(themeTextField.getText());
-		attributes.add(teachingTextField.getText());
-		attributes.add(descriptionTextarea.getText());
-		attributes.add(staffTextField.getText());
-		attributes.add(styleTextField.getText());
-		attributes.add(moduleTextField.getText());
-		attributes.add(String.valueOf(essential));
-		attributes.add(yeartextField.getText());
+		l.setWeek(Integer.valueOf(weekTextfield.getText()));
+		l.setDay(dayTextField.getText());
+		l.setStartDate(Date.getValue().toString());
+		l.setStartTime(startTimeTextfield.getText());
+		l.setEndTime(endTimeTextfield.getText());
+		l.setGroup(cohortTextField.getText());
+		l.setLocation(loactionTextField.getText());
+		l.setSubject(subjectTextField.getText());
+		l.setTheme(themeTextField.getText());
+		l.setTeachingFormat(teachingTextField.getText());
+		l.setDescription(descriptionTextarea.getText());
+		l.setStaff(staffTextField.getText());
+		l.setStyle(styleTextField.getText());
+		l.setModule(moduleTextField.getText());
+		l.setEssential(Optional.isSelected());
+		l.setYear(year.getValue().toString());
 		
 		
 		
-		LectureSQL.UploadSingleLecture(attributes);
+		LectureSQL.UploadSingleLecture(l);
 		GeneralMethods.show("Lecture added to database", "Lecture added to database");
     }
 
@@ -148,14 +151,11 @@ public class UploadSingleLectureController {
 		staffTextField.setText("");
 		styleTextField.setText("");
 		moduleTextField.setText("");
-		Essential.setSelected(false);
-		yeartextField.setText("");
+		Optional.setSelected(false);
+		year.setValue(0);
 
     }
-    @FXML
-    void essentialCheckboxClicked(ActionEvent event) {
-
-    }
+   
     @FXML
     void returnLectureMenuButtonClick(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("LectureMenu", "LectureMenu");
@@ -168,6 +168,7 @@ public class UploadSingleLectureController {
 
     @FXML
     void initialize() {
+    	ApplicationMethods.Years(year);
     	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
     	Image.setImage(i);
     }

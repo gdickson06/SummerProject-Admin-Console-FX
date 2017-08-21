@@ -110,10 +110,10 @@ public static void DeleteLectureYear(String Year) throws Exception {
 
 /**
  * This will take in a List of Strings to upload a single lecture
- * @param s
+ * @param l
  * @throws Exception
  */
-	public static void UploadSingleLecture(List<String> s) throws Exception {
+	public static void UploadSingleLecture(Lecture l) throws Exception {
 
 
 		PreparedStatement statement = null;
@@ -121,9 +121,9 @@ public static void DeleteLectureYear(String Year) throws Exception {
 		
 
 		String Statement = "INSERT INTO Lectures (week, day, date, start_time, end_time, groups, location, subject, theme, teaching, description, staff, style, module, optional, year)"
-		+ "VALUES (" + s.get(0) + ", '" + s.get(1) + "', '" + s.get(2) + "', '" + s.get(3) + "','" + s.get(4)
-				+ "', '" + s.get(5) + "', '" + s.get(6) + "', '" + s.get(7) + "', '" + s.get(8) + "', '" + s.get(9)
-				+ "', '" + s.get(10) + "', '" + s.get(11) + "', '" + s.get(12) + "', '" + s.get(13) + "', "+s.get(14)+", "+s.get(15)+", '"+s.get(16)+"');";
+		+ "VALUES (" + l.getWeek() + ", '" + l.getDay() + "', '" + l.getStartDate() + "', '" + l.getStartTime() + "','" + l.getEndTime()
+				+ "', '" + l.getGroup() + "', '" + l.getLocation() + "', '" + l.getSubject() + "', '" + l.getTheme() + "', '" + l.getTeachingFormat()
+				+ "', '" + l.getDescription() + "', '" + l.getStaff() + "', '" + l.getStyle() + "', '" + l.getModule() + "', "+l.getEssential()+", "+l.getYear()+");";
 	
 		statement = Main.connection.prepareStatement(Statement);
 		statement.executeUpdate();

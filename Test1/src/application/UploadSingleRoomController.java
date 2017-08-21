@@ -29,7 +29,11 @@ public class UploadSingleRoomController {
 
     @FXML
     private ImageView Image;
-
+/**
+ * This method will upload a single room
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void UploadSingleRoomUpload(ActionEvent event) throws Exception {
 	List<Room> roomDetails = new ArrayList<Room>();
@@ -41,24 +45,37 @@ public class UploadSingleRoomController {
     	GeneralMethods.show("Room has been successfully uploaded to Database", "Room Uploaded");
     	
     }
-
+/**
+ * This method will clear all data input in the textfields
+ * @param event
+ */
     @FXML
     void Clear(ActionEvent event) {
        RoomNameTextField.setText("");
 
        RoomCodeTextField.setText("");
     }
-
+/**
+ * This method will return the user to the rooms menu
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void RoomsMenuButtonClick(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("RoomMenu","RoomMenu");
     }
-
+/**
+ * This method will return the user to the main menu
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void MainMenuButtonClick(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("MeainMenu3","MainMenu3");
     }
-
+/**
+ * The initialize method will populate the image on the screen
+ */
     @FXML
     void initialize() {
     	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");

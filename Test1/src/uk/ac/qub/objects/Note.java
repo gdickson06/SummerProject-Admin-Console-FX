@@ -11,6 +11,9 @@ public class Note {
 		Date = date;
 		Details = details;
 	}
+	public Note() {
+		// TODO Auto-generated constructor stub
+	}
 	@Override
 	public String toString() {
 		return "Note [id=" + id + ", Year=" + Year + ", Date=" + Date + ", Details=" + Details + "]";

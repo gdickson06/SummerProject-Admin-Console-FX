@@ -17,6 +17,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.image.ImageView;
 import uk.ac.qub.churst.ConvertMethods;
 import uk.ac.qub.churst.GeneralMethods;
+import uk.ac.qub.objects.Absence;
 import uk.ac.qub.sql.AbsenceSQL;
 import uk.ac.qub.sql.LectureSQL;
 
@@ -82,23 +83,23 @@ public class UploadSingleAbsenceController {
 
 	@FXML
 	void UploadSingleAbsenceButton(ActionEvent event) {
-		List<String> attributes = new ArrayList<String>();
+		Absence a = new Absence();
 
-		attributes.add(StudentNumber.getText());
-		attributes.add(LectureID.getText());
-		attributes.add(StartDate.getValue().toString());
-		attributes.add(EndDate.getValue().toString());
-		attributes.add(ConvertMethods.TimeConvertSQL(StartTime.getText()));
-		attributes.add(ConvertMethods.TimeConvertSQL(EndTime.getText()));
-		attributes.add(Reason.getText());
-		attributes.add(String.valueOf(Approved.isSelected()));
-		attributes.add(Type.getValue());
+		if(StudentNumber.getText().isEmpty()==false){a.setStudentNumber(Integer.valueOf(StudentNumber.getText()));}
+		if(LectureID.getText().isEmpty()==false){a.setLectureID(Integer.valueOf(LectureID.getText()));}
+		a.setStartDate(StartDate.getValue().toString());
+		a.setEndDate(EndDate.getValue().toString());
+		a.setStartTime(ConvertMethods.TimeConvertSQL(StartTime.getText()));
+		a.setEndTime(ConvertMethods.TimeConvertSQL(EndTime.getText()));
+		a.setReason(Reason.getText());
+		a.setApproved(Approved.isSelected());
+		a.setType(Type.getValue());
 
 		try {
-			AbsenceSQL.saveSingleAbsence(attributes);
+			AbsenceSQL.saveSingleAbsence(a);
 			GeneralMethods.show("Success", "Success");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			GeneralMethods.show(e.getMessage(), "Error");
 		}
 	}

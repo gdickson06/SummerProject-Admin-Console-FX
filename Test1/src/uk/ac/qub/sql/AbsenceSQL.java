@@ -3,26 +3,29 @@ package uk.ac.qub.sql;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 import application.Main;
+import uk.ac.qub.objects.Absence;
 
 public class AbsenceSQL {
 
 	/**
 	 * This method takes in a list of Strings to amend a specific absence, the first entry on 
 	 * the list of strings is the id of the absence to amend
-	 * @param s
+	 * @param a
 	 * @throws Exception
 	 */
-	public static void AmendAbsence(List<String> s) throws Exception {
+	public static void AmendAbsence(Absence a) throws Exception {
 
 		PreparedStatement statement = null;
 
-		String Statement = "UPDATE Absences SET student_number =" + s.get(1) + ", lecture_id=" + s.get(2)
-				+ ", start_date= '" + s.get(3) + "', end_date= '" + s.get(4) + "', start_time = '" + s.get(5)
-				+ "', end_time = '" + s.get(6) + "', reason = '" + s.get(7) + "', approved = " + s.get(8) + ", type = '"
-				+ s.get(9) + ", viewed = true WHERE absences_id = " + s.get(0) + ";";
+		String Statement = "UPDATE Absences SET student_number =" + a.getStudentNumber() + ", lecture_id=" + a.getLectureID()
+				+ ", start_date= '" + a.getStartDate() + "', end_date= '" + a.getEndDate() + "', start_time = '" + a.getStartTime()
+				+ "', end_time = '" + a.getEndTime() + "', reason = '" + a.getReason() + "', approved = " + a.getApproved() + ", type = '"
+				+ a.getType() + "', viewed = true WHERE absences_id = " + a.getId() + ";";
+		System.out.println(Statement);
 		statement = Main.connection.prepareStatement(Statement);
 		statement.executeUpdate();
 	}
@@ -45,18 +48,30 @@ public class AbsenceSQL {
 	 * @param absenceDetails
 	 * @throws Exception
 	 */
-	public static void saveSingleAbsence(List<String> absenceDetails) throws Exception {
+	public static void saveSingleAbsence(Absence a) throws Exception {
 	
 		PreparedStatement singleAbsenceStatement = null;
 
 
-		String Statement = "INSERT INTO absence (student_number, lecture_id, start_date, end_date, start_time, end_time, reason, approved, type, viewed)"
-				+ "VALUES (" + absenceDetails.get(0) + ", " + absenceDetails.get(1) + ", '" + absenceDetails.get(2)
-				+ "', '" + absenceDetails.get(3) + "', '" + absenceDetails.get(4) + "', '" + absenceDetails.get(5)
-				+ "', '" + absenceDetails.get(6) + "', " + absenceDetails.get(7) + ", '" + absenceDetails.get(8)
+		String Statement = "INSERT INTO Absences (student_number, lecture_id, start_date, end_date, start_time, end_time, reason, approved, type, viewed)"
+				+ "VALUES (" + a.getStudentNumber() + ", " + a.getLectureID() + ", '" + a.getStartDate()
+				+ "', '" + a.getEndDate() + "', '" + a.getStartTime() + "', '" + a.getEndTime()
+				+ "', '" + a.getReason() + "', " + a.getApproved() + ", '" + a.getType()
 				+ "',true);";
+		System.out.println(Statement);
 		singleAbsenceStatement = Main.connection.prepareStatement(Statement);
 		singleAbsenceStatement.executeUpdate();
 	}
-
+	
+	/**
+	 * This method marks an absence as read.
+	 * @param id
+	 * @throws SQLException
+	 */
+	public static void readAbsence(int id) throws SQLException{
+		PreparedStatement ps = null;
+		String Statement = "UPDATE Absences SET  viewed = true WHERE absences_id = " + id + ";";
+		ps=Main.connection.prepareStatement(Statement);
+		ps.executeUpdate();
+	}
 }

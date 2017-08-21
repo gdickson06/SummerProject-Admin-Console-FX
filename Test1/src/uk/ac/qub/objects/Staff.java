@@ -17,6 +17,10 @@ public class Staff {
 		this.access_level = access_level;
 	}
 
+	public Staff() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getStaff_number() {
 		return staff_number;
 	}
