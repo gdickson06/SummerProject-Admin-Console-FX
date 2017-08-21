@@ -59,6 +59,9 @@ public class SelectedPlacementController {
 
 	    @FXML
 	    private JFXTextField group;
+	    
+	    @FXML
+	    private JFXComboBox<String> prefix;
 /**
  * This method will return the user to the main menu
  * @param event
