@@ -8,29 +8,29 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UploadSinglePlacementController">
    <children>
-      <JFXButton layoutX="962.0" layoutY="564.0" onAction="#MainMenuButtonClick" text="Return to Main Menu" />
-      <JFXButton layoutX="586.0" layoutY="564.0" onAction="#PracticalMenuButtonClick" text="Return to Practicals &amp; Placements Menu" />
-      <JFXButton layoutX="448.0" layoutY="564.0" onAction="#cancelButtonClick" text="Cancel" />
-      <JFXButton layoutX="57.0" layoutY="564.0" onAction="#Upload" text="Add Practical or Placement to Database" />
-      <JFXTextField fx:id="Cohort" focusColor="WHITE" labelFloat="true" layoutX="593.0" layoutY="268.0" prefHeight="35.0" prefWidth="246.0" promptText="Enter Cohort Here e.g. A1-A16" unFocusColor="WHITE" />
-      <JFXTextField fx:id="Subject" focusColor="WHITE" labelFloat="true" layoutX="191.0" layoutY="482.0" prefHeight="35.0" prefWidth="262.0" promptText="Enter Subject Here" unFocusColor="WHITE" />
-      <JFXTextField fx:id="Week" focusColor="WHITE" labelFloat="true" layoutX="189.0" layoutY="268.0" prefHeight="35.0" prefWidth="262.0" promptText="Enter Week Here" unFocusColor="WHITE" />
-      <Label layoutX="494.0" layoutY="272.0" text="Cohort:" />
-      <Label layoutX="86.0" layoutY="486.0" text="Subject:" />
-      <Label layoutX="72.0" layoutY="416.0" text="End Date:" />
-      <Label layoutX="68.0" layoutY="347.0" text="Start Date:" />
-      <Label layoutX="103.0" layoutY="272.0" text="Week:" />
-      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="85.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="438.0" layoutY="112.0" text="School of Medicine Timetable Administration Portal" />
-      <Label layoutX="348.0" layoutY="168.0" prefHeight="27.0" prefWidth="908.0" text="Upload a Single Practical or Placement to the Database by filling in all Mandatory Fields" />
-      <DatePicker fx:id="StartDate" layoutX="189.0" layoutY="341.0" />
-      <DatePicker fx:id="EndDate" layoutX="189.0" layoutY="410.0" />
-      <Label layoutX="486.0" layoutY="347.0" text="Teacher:" />
-      <JFXTextField fx:id="Teacher" focusColor="WHITE" labelFloat="true" layoutX="593.0" layoutY="343.0" prefHeight="35.0" prefWidth="246.0" promptText="Enter Subject Here" unFocusColor="WHITE" />
-      <JFXTextField fx:id="Year" focusColor="WHITE" labelFloat="true" layoutX="593.0" layoutY="412.0" prefHeight="35.0" prefWidth="246.0" promptText="Enter Year Here" unFocusColor="WHITE" />
-      <Label layoutX="514.0" layoutY="416.0" text="Year:" />
-      <JFXTextField fx:id="Location" focusColor="WHITE" labelFloat="true" layoutX="593.0" layoutY="482.0" prefHeight="35.0" prefWidth="246.0" promptText="Enter Location Here" unFocusColor="WHITE" />
-      <Label layoutX="478.0" layoutY="486.0" text="Location:" />
-      <JFXTextArea fx:id="Note" focusColor="WHITE" labelFloat="true" layoutX="919.0" layoutY="272.0" prefHeight="244.0" prefWidth="238.0" promptText="Enter Notes Here" unFocusColor="WHITE" />
+      <JFXButton layoutX="912.0" layoutY="564.0" onAction="#mainMenuButtonClick" text="Return to Main Menu" />
+      <JFXButton layoutX="566.0" layoutY="564.0" onAction="#placementMenuButtonClick" text="Return to Placements Menu" />
+      <JFXButton layoutX="398.0" layoutY="564.0" onAction="#cancelButtonClick" text="Cancel" />
+      <JFXButton layoutX="57.0" layoutY="564.0" onAction="#upload" text="Add Placement to Database" />
+      <JFXTextField fx:id="moduleNumber" focusColor="WHITE" labelFloat="true" layoutX="650.0" layoutY="228.0" prefHeight="35.0" prefWidth="246.0" promptText="Enter Module Number Here" unFocusColor="WHITE" />
+      <JFXTextField fx:id="module" focusColor="WHITE" labelFloat="true" layoutX="191.0" layoutY="449.0" prefHeight="35.0" prefWidth="262.0" promptText="Enter Module Here" unFocusColor="WHITE" />
+      <JFXTextField fx:id="group" focusColor="WHITE" labelFloat="true" layoutX="189.0" layoutY="228.0" prefHeight="35.0" prefWidth="262.0" promptText="Enter Group Here" unFocusColor="WHITE" />
+      <Label layoutX="494.0" layoutY="232.0" text="Module Number:" />
+      <Label layoutX="86.0" layoutY="453.0" text="Module:" />
+      <Label layoutX="72.0" layoutY="384.0" text="End Date:" />
+      <Label layoutX="68.0" layoutY="307.0" text="Start Date:" />
+      <Label layoutX="103.0" layoutY="232.0" text="Group:" />
+      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
+      <Label layoutX="400.0" layoutY="125.0" prefHeight="27.0" prefWidth="908.0" text="Upload a Single Placement to the Database by filling in all the below fields" />
+      <DatePicker fx:id="startDate" layoutX="189.0" layoutY="301.0" promptText="Select Start Date" />
+      <DatePicker fx:id="endDate" layoutX="189.0" layoutY="378.0" promptText="Select End Date" />
+      <Label layoutX="560.0" layoutY="307.0" text="Hospital:" />
+      <JFXTextField fx:id="hospital" focusColor="WHITE" labelFloat="true" layoutX="650.0" layoutY="301.0" prefHeight="35.0" prefWidth="246.0" promptText="Enter Hospital Here" unFocusColor="WHITE" />
+      <Label layoutX="591.0" layoutY="384.0" text="Year:" />
+      <JFXTextField fx:id="location" focusColor="WHITE" labelFloat="true" layoutX="650.0" layoutY="449.0" prefHeight="35.0" prefWidth="246.0" promptText="Enter Location Here" unFocusColor="WHITE" />
+      <Label layoutX="558.0" layoutY="453.0" text="Location:" />
+      <JFXTextArea fx:id="comments" focusColor="WHITE" labelFloat="true" layoutX="959.0" layoutY="228.0" prefHeight="244.0" prefWidth="238.0" promptText="Enter Comments Here" unFocusColor="WHITE" />
+      <JFXComboBox fx:id="year" focusColor="WHITE" labelFloat="true" layoutX="650.0" layoutY="378.0" prefHeight="35.0" prefWidth="246.0" promptText="Select Year" unFocusColor="WHITE" />
    </children>
 </AnchorPane>

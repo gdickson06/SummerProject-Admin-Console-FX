@@ -8,13 +8,13 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UploadUserCSVController">
    <children>
-      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="65.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="418.0" layoutY="92.0" text="School of Medicine Timetable Administration Portal" />
-      <Label layoutX="301.0" layoutY="213.0" text="Please select a CSV file to bulk upload a list of Staff to the database." />
-      <JFXTextField fx:id="filePathTextField" focusColor="WHITE" labelFloat="true" layoutX="301.0" layoutY="304.0" prefHeight="35.0" prefWidth="512.0" promptText="File Path" unFocusColor="WHITE" />
-      <JFXButton layoutX="851.0" layoutY="302.0" onAction="#chooseCSV" text="Choose File" />
-      <JFXButton layoutX="737.0" layoutY="401.0" onAction="#uploadFile" text="Upload File" />
-      <JFXButton layoutX="301.0" layoutY="522.0" onAction="#returnStaffMenu" text="Return to Staff Menu" />
-      <JFXButton layoutX="769.0" layoutY="522.0" onAction="#returnMainMenu" text="Return To Main Menu" />
+      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
+      <Label layoutX="400.0" layoutY="125.0" text="Please select a spreadsheet file to bulk upload a list of Staff to the database." />
+      <JFXTextField fx:id="filePathTextField" focusColor="WHITE" labelFloat="true" layoutX="281.0" layoutY="254.0" prefHeight="35.0" prefWidth="512.0" promptText="File Path" unFocusColor="WHITE" />
+      <JFXButton layoutX="831.0" layoutY="254.0" onAction="#chooseCSV" text="Choose File" />
+      <JFXButton layoutX="832.0" layoutY="391.0" onAction="#uploadFile" text="Upload File" />
+      <JFXButton layoutX="277.0" layoutY="500.0" onAction="#returnStaffMenu" text="Return to Staff Menu" />
+      <JFXButton layoutX="700.0" layoutY="500.0" onAction="#returnMainMenu" text="Return To Main Menu" />
    </children>
 </AnchorPane>
