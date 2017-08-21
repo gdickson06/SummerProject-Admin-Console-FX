@@ -9,32 +9,90 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UploadSingleLectureController">
    <children>
-      <Label layoutX="408.0" layoutY="154.0" text="Please Fill in all mandatory fields to upload a single lecture to the database." />
-      <Label layoutX="408.0" layoutY="82.0" text="School of Medicine Timetable Administration Portal" />
-      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="55.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" />
-      <JFXTextField fx:id="weekTextfield" focusColor="WHITE" labelFloat="true" layoutX="40.0" layoutY="241.0" promptText="Enter Week Here" unFocusColor="WHITE" />
-      <JFXTextField fx:id="startTimeTextfield" focusColor="WHITE" labelFloat="true" layoutX="37.0" layoutY="302.0" promptText="Enter Start Time Here" unFocusColor="WHITE" />
-      <JFXTextField fx:id="endTimeTextfield" focusColor="WHITE" labelFloat="true" layoutX="37.0" layoutY="366.0" promptText="Enter End Time Here" unFocusColor="WHITE" />
-      <JFXTextField fx:id="lectureStyleTextfield" focusColor="WHITE" labelFloat="true" layoutX="37.0" layoutY="427.0" promptText="Enter Lecture Style Here" unFocusColor="WHITE" />
-      <JFXTextField fx:id="loactionTextField" focusColor="WHITE" labelFloat="true" layoutX="519.0" layoutY="427.0" promptText="Enter Location Here" unFocusColor="WHITE" />
-      <JFXTextField fx:id="themeTextField" focusColor="WHITE" labelFloat="true" layoutX="276.0" layoutY="241.0" promptText="Enter Theme Here" unFocusColor="WHITE" />
-      <JFXTextField fx:id="dayTextField" focusColor="WHITE" labelFloat="true" layoutX="276.0" layoutY="366.0" promptText="Enter Day Here" unFocusColor="WHITE" />
-      <JFXTextField fx:id="cohortTextField" focusColor="WHITE" labelFloat="true" layoutX="276.0" layoutY="427.0" promptText="Enter Cohort/Group Here" unFocusColor="WHITE" />
-      <JFXTextField fx:id="teachingTextField" focusColor="WHITE" labelFloat="true" layoutX="276.0" layoutY="486.0" promptText="Enter Teaching Here" unFocusColor="WHITE" />
-      <JFXTextField fx:id="subjectTextField" focusColor="WHITE" labelFloat="true" layoutX="37.0" layoutY="486.0" promptText="Enter Subject Here" unFocusColor="WHITE" />
-      <JFXTextField fx:id="moduleTextField" focusColor="WHITE" labelFloat="true" layoutX="516.0" layoutY="486.0" promptText="Enter Module Here" unFocusColor="WHITE" />
-      <JFXTextField fx:id="staffTextField" focusColor="WHITE" labelFloat="true" layoutX="519.0" layoutY="241.0" promptText="Enter Staff Here" unFocusColor="WHITE" />
-      <JFXTextArea fx:id="descriptionTextarea" focusColor="WHITE" layoutX="797.0" layoutY="241.0" prefHeight="229.0" prefWidth="368.0" promptText="Enter Description Here" unFocusColor="WHITE" />
-      <JFXCheckBox fx:id="Optional" checkedColor="#a10026" layoutX="784.0" layoutY="486.0" prefHeight="50.0" prefWidth="221.0" text="Optional" textFill="WHITE" unCheckedColor="WHITE">
+      <Label layoutX="400.0" layoutY="125.0" text="Please Fill in all mandatory fields to upload a single lecture to the database." />
+      <Label layoutX="727.0" layoutY="370.0" text="Year:" />
+      <JFXCheckBox fx:id="optional" checkedColor="#a10026" layoutX="795.0" layoutY="495.0" text="Optional" unCheckedColor="WHITE" />
+      <JFXComboBox fx:id="year" focusColor="WHITE" labelFloat="true" layoutX="795.0" layoutY="365.0" prefHeight="39.0" prefWidth="157.0" promptText="Select Year" unFocusColor="WHITE" />
+      <JFXTextField fx:id="cohortTextField" focusColor="WHITE" labelFloat="true" layoutX="155.0" layoutY="365.0" prefHeight="35.0" prefWidth="157.0" promptText="Enter Cohorts Here" unFocusColor="WHITE">
          <font>
-            <Font size="20.0" />
-         </font></JFXCheckBox>
-      <JFXButton layoutX="40.0" layoutY="563.0" onAction="#uploadLectureButtonClick" text="Upload Lecture" />
-      <JFXButton layoutX="316.0" layoutY="563.0" onAction="#clear" text="Clear" />
-      <JFXButton layoutX="559.0" layoutY="563.0" onAction="#returnLectureMenuButtonClick" text="Return to Lecture Menu" />
-      <JFXButton layoutX="853.0" layoutY="563.0" onAction="#mainMenuButtonClick" text="Return to Main Menu" />
-      <DatePicker fx:id="Date" layoutX="257.0" layoutY="315.0" />
-      <JFXTextField fx:id="styleTextField" focusColor="WHITE" labelFloat="true" layoutX="516.0" layoutY="315.0" promptText="Enter Style Here" unFocusColor="WHITE" />
-      <JFXComboBox fx:id="year" layoutX="517.0" layoutY="366.0" prefHeight="25.0" prefWidth="123.0" />
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="moduleTextField" focusColor="WHITE" labelFloat="true" layoutX="795.0" layoutY="430.0" prefHeight="35.0" prefWidth="157.0" promptText="Enter Module Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <Label layoutX="702.0" layoutY="435.0" text="Module:" />
+      <Label layoutX="724.0" layoutY="310.0" text="Style:" />
+      <Label layoutX="692.0" layoutY="255.0" text="Teaching:" />
+      <Label layoutX="378.0" layoutY="495.0" text="Subject:" />
+      <Label layoutX="364.0" layoutY="435.0" text="End Time:" />
+      <JFXTextField fx:id="endTimeTextfield" focusColor="WHITE" labelFloat="true" layoutX="470.0" layoutY="430.0" prefHeight="35.0" prefWidth="183.0" promptText="Enter End Time Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="subjectTextField" focusColor="WHITE" labelFloat="true" layoutX="470.0" layoutY="490.0" prefHeight="35.0" prefWidth="183.0" promptText="Enter Subject Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="teachingTextField" focusColor="WHITE" labelFloat="true" layoutX="795.0" layoutY="250.0" prefHeight="35.0" prefWidth="183.0" promptText="Enter Teaching Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="styleTextField" focusColor="WHITE" labelFloat="true" layoutX="795.0" layoutY="305.0" prefHeight="35.0" prefWidth="183.0" promptText="Enter Style Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton layoutX="962.0" layoutY="577.0" onAction="#mainMenuButtonClick" text="Return to Main Menu" />
+      <JFXButton layoutX="585.0" layoutY="577.0" onAction="#returnLectureMenuButtonClick" text="Return to Lectures Menu" />
+      <JFXButton layoutX="336.0" layoutY="577.0" onAction="#clear" text="Clear" />
+      <JFXButton layoutX="54.0" layoutY="577.0" onAction="#uploadLectureButtonClick" text="Upload Lecture" />
+      <Label layoutX="51.0" layoutY="435.0" text="Start Date:" />
+      <Label layoutX="68.0" layoutY="370.0" text="Cohorts:" />
+      <Label layoutX="98.0" layoutY="310.0" text="Day:" />
+      <Label layoutX="87.0" layoutY="255.0" text="Week:" />
+      <JFXTextField fx:id="weekTextfield" focusColor="WHITE" labelFloat="true" layoutX="155.0" layoutY="250.0" prefHeight="33.0" prefWidth="157.0" promptText="Enter Week Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="dayTextField" focusColor="WHITE" labelFloat="true" layoutX="155.0" layoutY="305.0" prefHeight="35.0" prefWidth="157.0" promptText="Enter day Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable Administration Portal" />
+      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+      <JFXTextField fx:id="startTimeTextfield" focusColor="WHITE" labelFloat="true" layoutX="470.0" layoutY="365.0" prefHeight="35.0" prefWidth="183.0" promptText="Enter Start Time Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="locationTextField" focusColor="WHITE" labelFloat="true" layoutX="470.0" layoutY="305.0" prefHeight="35.0" prefWidth="183.0" promptText="Enter Location Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="staffTextField" focusColor="WHITE" labelFloat="true" layoutX="470.0" layoutY="250.0" prefHeight="35.0" prefWidth="183.0" promptText="Enter Staff Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="themeTextField" focusColor="WHITE" labelFloat="true" layoutX="153.0" layoutY="490.0" prefHeight="35.0" prefWidth="183.0" promptText="Enter Theme Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <Label layoutX="77.0" layoutY="495.0" text="Theme:" />
+      <Label layoutX="400.0" layoutY="255.0" text="Staff:" />
+      <Label layoutX="370.0" layoutY="310.0" text="Location:" />
+      <Label layoutX="356.0" layoutY="370.0" text="Start Time:" />
+      <JFXTextArea fx:id="descriptionTextarea" focusColor="WHITE" labelFloat="true" layoutX="1024.0" layoutY="370.0" prefHeight="153.0" prefWidth="209.0" promptText="Enter Description Here" unFocusColor="WHITE" />
+      <DatePicker fx:id="startDate" layoutX="155.0" layoutY="430.0" prefHeight="39.0" prefWidth="157.0" promptText="Start Date" />
    </children>
 </AnchorPane>

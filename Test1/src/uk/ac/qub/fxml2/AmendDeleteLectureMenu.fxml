@@ -9,42 +9,42 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LectureAmendController">
    <children>
-      <JFXButton layoutX="914.0" layoutY="202.0" onAction="#StaffSearch" text="Search" />
-      <JFXButton layoutX="914.0" layoutY="268.0" onAction="#ModuleSearch" text="Search" />
-      <JFXButton layoutX="914.0" layoutY="342.0" onAction="#DateSearch" text="Search" />
-      <JFXButton layoutX="427.0" layoutY="343.0" onAction="#YearSearch" text="Search" />
-      <JFXButton layoutX="427.0" layoutY="269.0" onAction="#StartTimeSearch" text="Search" />
-      <JFXButton layoutX="427.0" layoutY="203.0" onAction="#WeekSearch" text="Search" />
-      <JFXListView fx:id="ListOfLectures" layoutX="131.0" layoutY="405.0" onMouseClicked="#ListClicked" prefHeight="201.0" prefWidth="1099.0" />
-      <JFXButton fx:id="ReturnMainMenu" layoutX="1072.0" layoutY="339.0" onAction="#ReturnMainMenu" text="Return to Main Menu" />
-      <JFXButton layoutX="1072.0" layoutY="260.0" onAction="#ReturnLectureMenu" text="Return to Lecture Menu" />
-      <JFXButton layoutX="1072.0" layoutY="196.0" onAction="#ComboSearch" text="Combo- Search" />
-      <Label layoutX="582.0" layoutY="208.0" text="Staff:" />
-      <Label layoutX="561.0" layoutY="274.0" text="Module:" />
-      <Label layoutX="581.0" layoutY="349.0" text="Date:" />
-      <JFXTextField fx:id="StaffText" focusColor="WHITE" labelFloat="true" layoutX="646.0" layoutY="195.0" prefHeight="35.0" prefWidth="243.0" promptText="Enter Staff" unFocusColor="WHITE">
+      <JFXButton layoutX="914.0" layoutY="200.0" onAction="#StaffSearch" text="Search" />
+      <JFXButton layoutX="914.0" layoutY="270.0" onAction="#ModuleSearch" text="Search" />
+      <JFXButton layoutX="914.0" layoutY="350.0" onAction="#DateSearch" text="Search" />
+      <JFXButton layoutX="427.0" layoutY="345.0" onAction="#YearSearch" text="Search" />
+      <JFXButton layoutX="427.0" layoutY="270.0" onAction="#StartTimeSearch" text="Search" />
+      <JFXButton layoutX="427.0" layoutY="200.0" onAction="#WeekSearch" text="Search" />
+      <JFXListView fx:id="ListOfLectures" layoutX="104.0" layoutY="425.0" onMouseClicked="#ListClicked" prefHeight="201.0" prefWidth="1099.0" />
+      <JFXButton fx:id="ReturnMainMenu" layoutX="1072.0" layoutY="345.0" onAction="#ReturnMainMenu" text="Return to Main Menu" />
+      <JFXButton layoutX="1072.0" layoutY="270.0" onAction="#ReturnLectureMenu" text="Return to Lecture Menu" />
+      <JFXButton layoutX="1072.0" layoutY="200.0" onAction="#ComboSearch" text="Combo- Search" />
+      <Label layoutX="582.0" layoutY="205.0" text="Staff:" />
+      <Label layoutX="555.0" layoutY="275.0" text="Module:" />
+      <Label layoutX="581.0" layoutY="359.0" text="Date:" />
+      <JFXTextField fx:id="StaffText" focusColor="WHITE" labelFloat="true" layoutX="646.0" layoutY="200.0" prefHeight="35.0" prefWidth="243.0" promptText="Enter Staff" unFocusColor="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="StartTimeText" focusColor="WHITE" labelFloat="true" layoutX="163.0" layoutY="268.0" prefHeight="35.0" prefWidth="243.0" promptText="Enter Start Time" unFocusColor="WHITE">
+      <JFXTextField fx:id="StartTimeText" focusColor="WHITE" labelFloat="true" layoutX="163.0" layoutY="270.0" prefHeight="35.0" prefWidth="243.0" promptText="Enter Start Time" unFocusColor="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="WeekText" focusColor="WHITE" labelFloat="true" layoutX="165.0" layoutY="198.0" prefHeight="35.0" prefWidth="243.0" promptText="Enter Week" unFocusColor="WHITE">
+      <JFXTextField fx:id="WeekText" focusColor="WHITE" labelFloat="true" layoutX="165.0" layoutY="200.0" prefHeight="35.0" prefWidth="243.0" promptText="Enter Week" unFocusColor="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </JFXTextField>
-      <Label layoutX="104.0" layoutY="345.0" text="Year:" />
-      <Label layoutX="62.0" layoutY="272.0" text="Start Time:" />
-      <Label layoutX="99.0" layoutY="202.0" text="Week:" />
-      <Label layoutX="452.0" layoutY="110.0" prefHeight="27.0" prefWidth="883.0" text="Search for a Lecture to ammend or delete using the Search or Combo-Search Buttons" textFill="WHITE" />
-      <Label layoutX="452.0" layoutY="55.0" text="School of Medicine Timetable Administration Portal" />
-      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="99.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true" />
-      <JFXComboBox fx:id="Module" focusColor="WHITE" layoutX="646.0" layoutY="269.0" prefHeight="39.0" prefWidth="243.0" promptText="Select Module" unFocusColor="WHITE" />
-      <DatePicker fx:id="Date" layoutX="638.0" layoutY="343.0" prefHeight="25.0" prefWidth="243.0" />
-      <JFXComboBox fx:id="YearText" layoutX="165.0" layoutY="343.0" prefHeight="25.0" prefWidth="216.0" />
+      <Label layoutX="108.0" layoutY="350.0" text="Year:" />
+      <Label layoutX="53.0" layoutY="275.0" text="Start Time:" />
+      <Label layoutX="98.0" layoutY="205.0" text="Week:" />
+      <Label layoutX="400.0" layoutY="125.0" prefHeight="27.0" prefWidth="883.0" text="Search for a Lecture to amend or delete using Search or Combo-Search Buttons" textFill="WHITE" />
+      <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
+      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+      <JFXComboBox fx:id="Module" focusColor="WHITE" labelFloat="true" layoutX="646.0" layoutY="270.0" prefHeight="39.0" prefWidth="243.0" promptText="Select Module" unFocusColor="WHITE" />
+      <DatePicker fx:id="Date" layoutX="644.0" layoutY="350.0" prefHeight="25.0" prefWidth="243.0" promptText="Select Date" />
+      <JFXComboBox fx:id="YearText" focusColor="WHITE" labelFloat="true" layoutX="165.0" layoutY="345.0" prefHeight="25.0" prefWidth="216.0" promptText="Select Year" unFocusColor="#fcfcfc" />
    </children>
 </AnchorPane>
