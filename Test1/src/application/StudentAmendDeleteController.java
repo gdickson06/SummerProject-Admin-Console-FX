@@ -115,7 +115,7 @@ public class StudentAmendDeleteController {
  * @param event
  */
     @FXML
-    void SearchFirstName(ActionEvent event) {
+    void firstNameSearch(ActionEvent event) {
     	List<Student> searched = new ArrayList<Student>();
     	try {
 			searched.addAll(SearchQueries.searchStudent(4, firstName.getText()));
@@ -134,7 +134,7 @@ public class StudentAmendDeleteController {
  * @param event
  */
     @FXML
-    void SearchStudentNumber(ActionEvent event) {
+    void studentNumberSearch(ActionEvent event) {
     	List<Student> searched = new ArrayList<Student>();
     	try {
 			searched.addAll(SearchQueries.searchStudent(1, StudentNumber.getText()));
@@ -152,7 +152,7 @@ public class StudentAmendDeleteController {
  * @param event
  */
     @FXML
-    void CohortSearch(ActionEvent event) {
+    void cohortSearch(ActionEvent event) {
     	List<Student> searched = new ArrayList<Student>();
     	try {
 			searched.addAll(SearchQueries.searchStudent(3, Cohort.getText()));
@@ -170,7 +170,7 @@ public class StudentAmendDeleteController {
  * @param event
  */
     @FXML
-    void EmailSearch(ActionEvent event) {
+    void emailSearch(ActionEvent event) {
     	List<Student> searched = new ArrayList<Student>();
     	try {
 			searched.addAll(SearchQueries.searchStudent(6, EmailAddress.getText()));
@@ -188,7 +188,7 @@ public class StudentAmendDeleteController {
  * @param event
  */
     @FXML
-    void IntakeYearSearch(ActionEvent event) {
+    void yearSearch(ActionEvent event) {
     	List<Student> searched = new ArrayList<Student>();
     	try {
 			searched.addAll(SearchQueries.searchStudent(2, IntakeYear.getValue().toString()));
@@ -206,7 +206,7 @@ public class StudentAmendDeleteController {
  * @param event
  */
     @FXML
-    void SearchSurname(ActionEvent event) {
+    void lastNameSearch(ActionEvent event) {
     	List<Student> searched = new ArrayList<Student>();
     	try {
 			searched.addAll(SearchQueries.searchStudent(5, lastName.getText()));
