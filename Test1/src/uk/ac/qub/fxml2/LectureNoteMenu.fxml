@@ -11,7 +11,7 @@
    <children>
       <Label layoutX="468.0" layoutY="122.0" prefHeight="27.0" prefWidth="883.0" text="Search for a lecture using the search buttons below, and click 'Upload Note' to add note to the database." />
       <Label layoutX="468.0" layoutY="67.0" text="School of Medicine Timetable Administration Portal" />
-      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="115.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="110.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true" />
       <JFXTextField fx:id="Week" focusColor="WHITE" labelFloat="true" layoutX="165.0" layoutY="199.0" prefHeight="33.0" prefWidth="168.0" promptText="Enter Week Here" unFocusColor="WHITE">
          <font>
             <Font size="16.0" />
@@ -19,18 +19,13 @@
       </JFXTextField>
       <Label layoutX="93.0" layoutY="202.0" text="Week:" />
       <Label layoutX="98.0" layoutY="264.0" text="Date:" />
-      <JFXTextField fx:id="Groups" focusColor="WHITE" labelFloat="true" layoutX="164.0" layoutY="327.0" prefHeight="33.0" prefWidth="168.0" promptText="Enter Groups Here" unFocusColor="WHITE">
+      <JFXTextField fx:id="StartTime" focusColor="WHITE" labelFloat="true" layoutX="164.0" layoutY="327.0" prefHeight="33.0" prefWidth="168.0" promptText="Enter Start Time Here" unFocusColor="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <Label layoutX="77.0" layoutY="330.0" text="Groups:" />
+      <Label layoutX="77.0" layoutY="330.0" text="Start Time:" />
       <Label layoutX="528.0" layoutY="328.0" text="Year:" />
-      <JFXTextField fx:id="Year" focusColor="WHITE" labelFloat="true" layoutX="625.0" layoutY="325.0" prefHeight="33.0" prefWidth="168.0" promptText="Enter Year Here" unFocusColor="WHITE">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </JFXTextField>
       <JFXTextField fx:id="Module" focusColor="WHITE" labelFloat="true" layoutX="626.0" layoutY="259.0" prefHeight="33.0" prefWidth="168.0" promptText="Enter Module Here" unFocusColor="WHITE">
          <font>
             <Font size="16.0" />
@@ -54,6 +49,7 @@
       <JFXButton layoutX="1100.0" layoutY="504.0" onAction="#Upload" text="Upload Note" />
       <Label fx:id="SelectedLecture" layoutX="1032.0" layoutY="320.0" prefHeight="142.0" prefWidth="279.0" />
       <JFXButton layoutX="1032.0" layoutY="308.0" onAction="#Search" text="Search" />
-      <DatePicker layoutX="152.0" layoutY="260.0" prefHeight="25.0" prefWidth="194.0" />
+      <DatePicker fx:id="LectureDate" layoutX="152.0" layoutY="260.0" prefHeight="25.0" prefWidth="194.0" />
+      <JFXComboBox fx:id="Year" layoutX="626.0" layoutY="326.0" prefHeight="25.0" prefWidth="152.0" />
    </children>
 </AnchorPane>

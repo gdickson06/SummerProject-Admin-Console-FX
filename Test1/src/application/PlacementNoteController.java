@@ -1,20 +1,28 @@
 package application;
 
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXListView;
+import com.jfoenix.controls.JFXTextArea;
+import com.jfoenix.controls.JFXTextField;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import uk.ac.qub.churst.GeneralMethods;
+
 import uk.ac.qub.objects.Placement;
 import uk.ac.qub.sql.PlacementSQL;
 import uk.ac.qub.sql.SearchQueries;
@@ -30,149 +38,116 @@ public class PlacementNoteController {
     private URL location;
 
     @FXML
-    private Button TeacherSearch;
+    private JFXTextField Cohort;
 
     @FXML
-    private TextField CohortText;
+    private JFXTextArea Note;
 
     @FXML
-    private TextArea NoteText;
+    private ImageView Image;
 
     @FXML
-    private Button Upload;
+    private JFXListView<Placement> TablePlacement;
 
     @FXML
-    private TextField SubjectText;
+    private JFXTextField Subject;
 
     @FXML
-    private TextField StartDateText;
+    private DatePicker startDate;
 
     @FXML
-    private TextField LocationText;
+    private JFXTextField Location;
+    
 
     @FXML
-    private Button SubjectSearch;
-
-    @FXML
-    private Button LocationSearch;
-
-    @FXML
-    private TextField YearText;
-
-    @FXML
-    private ListView<Placement> Placements;
-
-    @FXML
-    private Button Back;
-
-    @FXML
-    private TextField TeacherText;
-
-    @FXML
-    private Button YearSearch;
-
-    @FXML
-    private Button DateSearch;
-
+    private DatePicker endDate;
+    
     @FXML
     private Label SelectedPlacement;
-
     @FXML
-    private Button CohortSearch;
-
+    private JFXComboBox<Integer> year;
+ /**
+  * This method allows a combo search on all fields input to find a specific placement
+  * @param event
+  */
     @FXML
-    void DateSearch(ActionEvent event) {
-    	List<Placement> searched = SearchQueries.searchPlacement(1, StartDateText.getText());
-		ObservableList<Placement> list = FXCollections.observableArrayList();
-		list.addAll(searched);
-		Placements.setItems(list);
+    void search(ActionEvent event) {
+    	Placement p1 = new Placement();
+    	if(startDate.getValue()!=null){p1.setStartDate(startDate.getValue().toString());}
+    	p1.setCohort(Cohort.getText());
+    	if(year.getValue()!=null){p1.setYear(year.getValue());}
+    	p1.setLocation(Location.getText());
+    	p1.setModule(Subject.getText());
+    	if(endDate.getValue()!=null){p1.setEndDate(endDate.getValue().toString());}
+    	List<Placement> searched = new ArrayList<Placement>();
+    	try {
+    		searched.addAll(SearchQueries.ComboSearchPlacement(p1));
+    	} catch (SQLException e) {
+    		GeneralMethods.show("Error in searching Lectures", "Error");
+    		e.printStackTrace();
+    	}
+    			ObservableList<Placement> list = FXCollections.observableArrayList();
+    			list.addAll(searched);
+    			TablePlacement.setItems(list);
+    	
     }
-
-    @FXML
-    void YearSearch(ActionEvent event) {
-    	List<Placement> searched = SearchQueries.searchPlacement(3, YearText.getText());
-		ObservableList<Placement> list = FXCollections.observableArrayList();
-		list.addAll(searched);
-		Placements.setItems(list);
-    }
-
-    @FXML
-    void LocationSearch(ActionEvent event) {
-    	List<Placement> searched = SearchQueries.searchPlacement(5, LocationText.getText());
-		ObservableList<Placement> list = FXCollections.observableArrayList();
-		list.addAll(searched);
-		Placements.setItems(list);
-    }
-
-    @FXML
-    void CohortSearch(ActionEvent event) {
-    	List<Placement> searched = SearchQueries.searchPlacement(6, CohortText.getText());
-		ObservableList<Placement> list = FXCollections.observableArrayList();
-		list.addAll(searched);
-		Placements.setItems(list);
-    }
-
-    @FXML
-    void SubjectSearch(ActionEvent event) {
-    	List<Placement> searched = SearchQueries.searchPlacement(4, SubjectText.getText());
-		ObservableList<Placement> list = FXCollections.observableArrayList();
-		list.addAll(searched);
-		Placements.setItems(list);
-    }
-
-    @FXML
-    void TeacherSearch(ActionEvent event) {
-    	List<Placement> searched = SearchQueries.searchPlacement(2, TeacherText.getText());
-		ObservableList<Placement> list = FXCollections.observableArrayList();
-		list.addAll(searched);
-		Placements.setItems(list);
-    }
-
+/**
+ * This method will allow a placement to be selected to upload a note to the database
+ * 
+ * @param event
+ */
     @FXML
     void PlacementSelect(MouseEvent event) {
-    	 p=Placements.getSelectionModel().getSelectedItem();
+    	 p=TablePlacement.getSelectionModel().getSelectedItem();
  		SelectedPlacement.setText(p.toString());
+ 		Note.setText(p.getNote());
     }
-
+/**
+ * This method allows a note to the uploaded to the selected placement
+ * if no placement is selected an error message will inform the user
+ * @param event
+ * @throws Exception
+ */
     @FXML
-    void upload(ActionEvent event) throws Exception {
+    void upload(ActionEvent event) {
     	if(p!=null){
-        	PlacementSQL.UploadNote(String.valueOf(p.getId()), NoteText.getText());
-        	GeneralMethods.show("Uploaded note for placement "+ p.getId(), "Upload Success");
+        	try {
+				PlacementSQL.UploadNote(String.valueOf(p.getId()), Note.getText());
+				GeneralMethods.show("Uploaded note for placement "+ p.getId(), "Upload Success");
+	        	
+        	} catch (Exception e) {
+				GeneralMethods.show("Error in uploading note to placement", "Error");
+				e.printStackTrace();
+			}
         	} else {
         		GeneralMethods.show("No placement selected", "Error");
         	}
     }
-
+/**
+ * This method will allow the user to return to the main menu
+ * @param event
+ * @throws Exception 
+ */
     @FXML
-    void Back(ActionEvent event) {
-    	try {
-			GeneralMethods.ChangeScene("mainMenu");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    void returnToMainMenu(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
     }
-
+/**
+ * This method will allow the user to return to the notes menu
+ * @param event
+ * @throws Exception
+ */
+    @FXML
+    void returnToNoteMenu(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("NotesMenu", "NotesMenu");
+    }
+/**
+ * This intialize method will populate the combo-box and image on the page
+ */
     @FXML
     void initialize() {
-        assert TeacherSearch != null : "fx:id=\"TeacherSearch\" was not injected: check your FXML file 'PlacementNote.fxml'.";
-        assert CohortText != null : "fx:id=\"CohortText\" was not injected: check your FXML file 'PlacementNote.fxml'.";
-        assert NoteText != null : "fx:id=\"NoteText\" was not injected: check your FXML file 'PlacementNote.fxml'.";
-        assert Upload != null : "fx:id=\"Upload\" was not injected: check your FXML file 'PlacementNote.fxml'.";
-        assert SubjectText != null : "fx:id=\"SubjectText\" was not injected: check your FXML file 'PlacementNote.fxml'.";
-        assert StartDateText != null : "fx:id=\"StartDateText\" was not injected: check your FXML file 'PlacementNote.fxml'.";
-        assert LocationText != null : "fx:id=\"LocationText\" was not injected: check your FXML file 'PlacementNote.fxml'.";
-        assert SubjectSearch != null : "fx:id=\"SubjectSearch\" was not injected: check your FXML file 'PlacementNote.fxml'.";
-        assert LocationSearch != null : "fx:id=\"LocationSearch\" was not injected: check your FXML file 'PlacementNote.fxml'.";
-        assert YearText != null : "fx:id=\"YearText\" was not injected: check your FXML file 'PlacementNote.fxml'.";
-        assert Placements != null : "fx:id=\"Placements\" was not injected: check your FXML file 'PlacementNote.fxml'.";
-        assert Back != null : "fx:id=\"Back\" was not injected: check your FXML file 'PlacementNote.fxml'.";
-        assert TeacherText != null : "fx:id=\"TeacherText\" was not injected: check your FXML file 'PlacementNote.fxml'.";
-        assert YearSearch != null : "fx:id=\"YearSearch\" was not injected: check your FXML file 'PlacementNote.fxml'.";
-        assert DateSearch != null : "fx:id=\"DateSearch\" was not injected: check your FXML file 'PlacementNote.fxml'.";
-        assert SelectedPlacement != null : "fx:id=\"SelectedPlacement\" was not injected: check your FXML file 'PlacementNote.fxml'.";
-        assert CohortSearch != null : "fx:id=\"CohortSearch\" was not injected: check your FXML file 'PlacementNote.fxml'.";
-
+    	ApplicationMethods.Years(year);
+    	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
+    	Image.setImage(i);
     }
 }

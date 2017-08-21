@@ -1,9 +1,12 @@
 package application;
 
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -31,7 +34,7 @@ public class NoteLectureController {
     private URL location;
 
     @FXML
-    private JFXTextField Groups;
+    private JFXTextField StartTime;
 
     @FXML
     private JFXTextField Staff;
@@ -52,10 +55,10 @@ public class NoteLectureController {
     private JFXTextField Week;
 
     @FXML
-    private DatePicker Date;
+    private DatePicker LectureDate;
 
     @FXML
-    private JFXTextField Year;
+    private JFXComboBox<Integer> Year;
 
     @FXML
     private JFXListView<Lecture> TableLectures;
@@ -74,18 +77,26 @@ public class NoteLectureController {
     void TableClick(MouseEvent event) {
  l=TableLectures.getSelectionModel().getSelectedItem();
     		SelectedLecture.setText(l.toString());
+    		Note.setText(l.getNotes());
     }
     
     @FXML
     void Search(ActionEvent event) {
     	Lecture l = new Lecture();
-    	l.setYear(Year.getText());
+    	if(Year.getValue()!=null){l.setYear(Year.getValue().toString());}
     	l.setModule(Module.getText());
-    	l.setWeek(Integer.parseInt(Week.getText()));
-    	if(Date.getValue()!=null){l.setStartDate(Date.getValue().toString());}
+    	if(!Week.getText().isEmpty()){l.setWeek(Integer.parseInt(Week.getText()));}
+    	if(LectureDate.getValue()!=null){
+    		l.setStartDate(LectureDate.getValue().toString());}
     	l.setStaff(Staff.getText());
-    	l.setGroup(Groups.getText());
-List<Lecture> searched = SearchQueries.ComboSearchLectures(l);
+    	l.setStartTime(StartTime.getText());
+List<Lecture> searched = new ArrayList<Lecture>();
+try {
+	searched.addAll(SearchQueries.ComboSearchLectures(l));
+} catch (SQLException e) {
+	GeneralMethods.show("Error in searching Lectures", "Error");
+	e.printStackTrace();
+}
 		ObservableList<Lecture> list = FXCollections.observableArrayList();
 		list.addAll(searched);
 		TableLectures.setItems(list);
@@ -103,6 +114,7 @@ List<Lecture> searched = SearchQueries.ComboSearchLectures(l);
 
     @FXML
     void initialize() {
+    	ApplicationMethods.Years(Year);
     	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
     	Image.setImage(i);
     }

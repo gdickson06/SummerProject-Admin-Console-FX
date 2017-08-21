@@ -171,7 +171,7 @@ public class SearchQueries {
 			start=false;
 		}
 		
-		if(lectures.getModule()!=null){
+		if(!lectures.getModule().isEmpty()){
 			if(start==false){
 				statement = statement+" AND ";
 			} else {
@@ -182,7 +182,7 @@ public class SearchQueries {
 			start = false;
 		}
 		
-		if(lectures.getYear()!=null){
+		if(!lectures.getYear().isEmpty()){
 			if(start==false){
 				statement = statement+" AND ";
 			} else {
