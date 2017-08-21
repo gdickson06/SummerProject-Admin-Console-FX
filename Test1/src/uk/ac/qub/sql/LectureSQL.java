@@ -65,20 +65,20 @@ public class LectureSQL {
 	
 /**
  * This method will take in a list of Strings to amend a lecture
- * @param s
+ * @param l
  * @throws Exception
  */
 
-	public static void AmendLecture(List<String> s) throws Exception {
+	public static void AmendLecture(Lecture l) throws Exception {
 		
 
 		PreparedStatement statement = null;
 
-		String Statement = "UPDATE Lectures SET week =" + s.get(1) + ", day='" + s.get(2) + "', date= '" + s.get(3)
-				+ "', start_time= '" + s.get(4) + "', end_time= '" + s.get(5) + "', groups= '" + s.get(6)
-				+ "', location= '" + s.get(7) + "', subject= '" + s.get(8) + "', theme= '" + s.get(9) + "', teaching= '"
-				+ s.get(10) + "', description= '" + s.get(11) + "', staff= '" + s.get(12) + "', style = '" + s.get(13)
-				+ "', module = '" + s.get(14) + "', optional="+s.get(15)+", year ="+s.get(16)+", notes ='"+s.get(17)+"' WHERE lecture_id = " + s.get(0) + ";";
+		String Statement = "UPDATE Lectures SET week =" + l.getWeek() + ", day='" + l.getDay() + "', date= '" + l.getStartDate()
+				+ "', start_time= '" + l.getStartTime() + "', end_time= '" + l.getEndTime() + "', groups= '" + l.getGroup()
+				+ "', location= '" + l.getLocation() + "', subject= '" + l.getSubject() + "', theme= '" + l.getTheme() + "', teaching= '"
+				+ l.getTeachingFormat() + "', description= '" + l.getDescription() + "', staff= '" + l.getStaff() + "', style = '" + l.getStyle()
+				+ "', module = '" + l.getModule() + "', optional="+l.getEssential()+", year ="+l.getYear()+" WHERE lecture_id = " + l.getId() + ";";
 		statement = Main.connection.prepareStatement(Statement);
 		statement.executeUpdate();
 

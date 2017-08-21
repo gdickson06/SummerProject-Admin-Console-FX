@@ -39,8 +39,6 @@
       <JFXButton layoutX="1070.0" layoutY="543.0" onAction="#returnSearch" text="Return to Search" />
       <Label fx:id="studentNumberLabel" layoutX="561.0" layoutY="38.0" text="Label" />
       <Label layoutX="150.0" layoutY="469.0" text="Prefix:" />
-      <ComboBox fx:id="prefix" layoutX="251.0" layoutY="463.0" prefHeight="39.0" prefWidth="205.0" promptText="Select Prefix" />
-      <ComboBox fx:id="year" layoutX="665.0" layoutY="462.0" prefHeight="39.0" prefWidth="205.0" promptText="Select Year" />
       <Label layoutX="574.0" layoutY="468.0" text="Year:" />
       <Label layoutX="520.0" layoutY="410.0" text="Nationality:" />
       <Label layoutX="498.0" layoutY="349.0" text="Email Address:" />
@@ -72,11 +70,13 @@
          </font>
       </JFXTextField>
       <Label layoutX="914.0" layoutY="225.0" text="Portfolio:" />
-      <JFXCheckBox fx:id="graduate" layoutX="905.0" layoutY="287.0" text="Graduate?" />
       <JFXTextArea fx:id="comments" layoutX="912.0" layoutY="351.0" prefHeight="154.0" prefWidth="310.0" promptText="Enter Comments Here">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextArea>
+      <JFXComboBox fx:id="year" layoutX="644.0" layoutY="470.0" prefHeight="25.0" prefWidth="193.0" />
+      <JFXTextField fx:id="prefix" layoutX="237.0" layoutY="465.0" prefHeight="25.0" prefWidth="199.0" promptText="Enter Prefix Here" />
+      <JFXTextField fx:id="graduate" layoutX="914.0" layoutY="291.0" text="Enter Graduate here" />
    </children>
 </AnchorPane>

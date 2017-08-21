@@ -8,6 +8,10 @@ public class Room {
 		this.name = name;
 	}
 	
+	public Room() {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public String toString() {
 		return "Room [roomCode=" + code + ", roomName=" + name + "]";

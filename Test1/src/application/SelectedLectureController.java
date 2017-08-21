@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXCheckBox;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 
@@ -28,6 +30,13 @@ import uk.ac.qub.sql.LectureSQL;
 public class SelectedLectureController {
 	
 	Lecture l = LectureAmendController.selectedLecture;
+
+    @FXML
+    private JFXComboBox<Integer> year;
+
+    
+    @FXML
+    private JFXCheckBox optional;
 
 	 @FXML
 	    private JFXButton Delete;
@@ -91,55 +100,78 @@ public class SelectedLectureController {
 
 	    @FXML
 	    private JFXButton Home;
-
+/**
+ * This method will save the changes made to a lecture
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void SaveChanges(ActionEvent event) throws Exception {
     	
-		List<String>attributes= new ArrayList<String>();
-		attributes.add(Integer.toString(l.getId()));
-		attributes.add(WeekText.getText());
-		attributes.add(DayText.getText());
-		attributes.add(StartDate.getValue().toString());
-		attributes.add(StartTimeText.getText());
-		attributes.add(EndTimeText.getText());
-		attributes.add(CohortsText.getText());
-		attributes.add(LocationText.getText());
-		attributes.add(SubjectText.getText());
-		attributes.add(ThemeText.getText());
-		attributes.add(TeachingText.getText());
-		attributes.add(DescriptionText.getText());
-		attributes.add(StaffText.getText());
-		attributes.add(StyleText.getText());
-		attributes.add(ModuleText.getText());
 		
-		LectureSQL.AmendLecture(attributes);
+		l.setWeek(Integer.valueOf(WeekText.getText()));
+		l.setDay(DayText.getText());
+		l.setStartDate(StartDate.getValue().toString());
+		l.setStartTime(StartTimeText.getText());
+		l.setEndTime(EndTimeText.getText());
+		l.setGroup(CohortsText.getText());
+		l.setLocation(LocationText.getText());
+		l.setSubject(SubjectText.getText());
+		l.setTheme(ThemeText.getText());
+		l.setTeachingFormat(TeachingText.getText());
+		l.setDescription(DescriptionText.getText());
+		l.setStaff(StaffText.getText());
+		l.setStyle(StyleText.getText());
+		l.setModule(ModuleText.getText());
+		
+		LectureSQL.AmendLecture(l);
 		
 		GeneralMethods.show("The lecture occuring on "+StartDate.getValue().toString()+" at "+StartTimeText.getText()+"-"+ EndTimeText.getText() + " located in "+LocationText.getText()+" has been sucessfully amended", "Lecture"+Integer.toString(l.getId())+" amendeded");
 		
     }
-
+/**
+ * This method will delete a lecture
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void Delete(ActionEvent event)throws Exception {
     	LectureSQL.DeleteLecture(Integer.toString(l.getId()));
     	GeneralMethods.show("The lecture occuring on "+StartDate.getValue().toString()+" at "+StartTimeText.getText()+"-"+ EndTimeText.getText() + " located in "+LocationText.getText()+" has been sucessfully deleted", "Lecture Deleted");
     	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
     }
-
+/**
+ * This method will return the user to the main menu
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void Home(ActionEvent event) throws Exception{
     	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
     }
-
+/**
+ * This method will return the user to the searching lecture menu
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void Back(ActionEvent event)throws Exception {
     	GeneralMethods.ChangeScene("AmendDeleteLectureMenu","AmendDeleteLectureMenu");
     }
     
-    
+   /**
+    * This method will return the user to the lecture menu screen
+    * @param event
+    * @throws Exception
+    */
     @FXML
     void ReturnLectureScreen(ActionEvent event)throws Exception {
     	GeneralMethods.ChangeScene("LectureMenu","LectureMenu");
     }
+    /**
+     * This intialize method will populate the image and the combo box in the screen
+     * along with populating the values of the selected lecture.
+     */
     @FXML
     void initialize() {
     	
@@ -158,8 +190,10 @@ public class SelectedLectureController {
     	CohortsText.setText(l.getGroup());
     	ModuleText.setText(l.getModule());
     	ThemeText.setText(l.getTheme());
+    	optional.setSelected(l.getEssential());
+    	year.setValue(Integer.valueOf(l.getYear()));
     	
-    	
+    	ApplicationMethods.Years(year);
     	
     	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
     	Image.setImage(i);

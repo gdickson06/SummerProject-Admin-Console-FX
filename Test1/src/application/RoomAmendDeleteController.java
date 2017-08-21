@@ -4,6 +4,8 @@
 
 package application;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.jfoenix.controls.JFXListView;
@@ -22,28 +24,37 @@ import uk.ac.qub.sql.SearchQueries;
 public class RoomAmendDeleteController {
 
 	protected static Room SelectedRoom;
-    @FXML // fx:id="RoomName"
-    private JFXTextField RoomName; // Value injected by FXMLLoader
-
-    @FXML // fx:id="RoomCode"
-    private JFXTextField RoomCode; // Value injected by FXMLLoader
-
-    @FXML // fx:id="RoomList"
-    private JFXListView<Room> RoomList; // Value injected by FXMLLoader
-
-    @FXML // fx:id="Image"
-    private ImageView Image; // Value injected by FXMLLoader
-
+ @FXML
+    private JFXTextField RoomName; 
+ @FXML
+    private JFXTextField RoomCode; 
+ @FXML
+    private JFXListView<Room> RoomList; 
+ @FXML
+    private ImageView Image;
+/**
+ * This method will return the user to the main menu
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void returnMainMenu(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
     }
-
+/**
+ * This method will return the user to the rooms menu
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void returnRoomsMenu(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("RoomMenu", "RoomMenu");
     }
-
+/**
+ * This method will allow the user to click on a room to go to the amend 
+ * delete room menu with that room selected
+ * @param event
+ */
     @FXML
     void ListClick(MouseEvent event) {
     	if(event.getClickCount()==2){
@@ -57,27 +68,54 @@ public class RoomAmendDeleteController {
 			}
     	}
     }
-
+/**
+ * This method will allow a user to search rooms by the room code
+ * @param event
+ */
     @FXML
     void RoomCodeSearch(ActionEvent event) {
-    	List<Room> roomSearch = SearchQueries.searchRoom(1, RoomCode.getText());
+    
+    	System.out.println(RoomCode.getText());
+    	List<Room> roomSearch = new ArrayList<Room>();
+    	try {
+    		
+    		List<Room>r = SearchQueries.searchRoom(1, RoomCode.getText());
+			roomSearch.addAll(r);
+		} catch (SQLException e) {
+			GeneralMethods.show("Error when Searching rooms", "Error");
+			e.printStackTrace();
+		}
     	ObservableList<Room> roomList = FXCollections.observableArrayList();
     	roomList.addAll(roomSearch);
     	RoomList.setItems(roomList);
     }
-
+/**
+ * This method will allow a user to search rooms by room name
+ * @param event
+ */
     @FXML
     void RoomNameSearch(ActionEvent event) {
-    	List<Room> roomSearch = SearchQueries.searchRoom(2, RoomName.getText());
+    	List<Room> roomSearch = new ArrayList<Room>();
+    	try {
+			roomSearch.addAll(SearchQueries.searchRoom(2, RoomName.getText()));
+		} catch (SQLException e) {
+			GeneralMethods.show("Error when Searching rooms", "Error");
+			e.printStackTrace();
+		}
     	ObservableList<Room> roomList = FXCollections.observableArrayList();
     	roomList.addAll(roomSearch);
-    	RoomList.setItems(roomList);;
-    	System.out.println(roomSearch.size());
+    	RoomList.setItems(roomList);
+    	
     }
+    
+    /**
+     * This intiailize method will populate the image on the page
+     */
     @FXML
     void initialize() {
     	
     	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
     	Image.setImage(i);
+    	
     }
 }

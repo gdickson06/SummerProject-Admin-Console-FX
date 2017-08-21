@@ -54,6 +54,6 @@
       <DatePicker fx:id="startDate" layoutX="174.0" layoutY="362.0" prefHeight="39.0" prefWidth="235.0" />
       <DatePicker fx:id="endDate" layoutX="174.0" layoutY="423.0" prefHeight="39.0" prefWidth="235.0" />
       <Label fx:id="ID" layoutX="587.0" layoutY="43.0" text="Label" />
-      <ComboBox fx:id="year" layoutX="639.0" layoutY="362.0" prefHeight="39.0" prefWidth="235.0" />
+      <JFXComboBox fx:id="year" layoutX="639.0" layoutY="369.0" prefHeight="25.0" prefWidth="168.0" />
    </children>
 </AnchorPane>

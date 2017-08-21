@@ -205,7 +205,7 @@ public class LectureAmendController {
 	void ListClicked(MouseEvent event) throws Exception {
 		if (event.getClickCount() == 2) {
 			selectedLecture = ListOfLectures.getSelectionModel().getSelectedItem();
-			System.out.println("clicked on " + selectedLecture);
+			System.out.println("clicked on " + selectedLecture.getYear());
 			GeneralMethods.ChangeScene("AmendSingleLecture", "AmendSingleLecture");
 		}
 	}

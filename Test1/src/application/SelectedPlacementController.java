@@ -6,11 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -25,105 +27,121 @@ public class SelectedPlacementController {
 	
 	private Placement p = PlacementAmendDeleteController.selectedPlacement;
 
+	   @FXML
+	    private JFXTextField moduleNumber;
 
-    @FXML
-    private DatePicker StartDate;
+	    @FXML
+	    private JFXTextArea comments;
 
-    @FXML
-    private JFXTextField Year;
+	    @FXML
+	    private DatePicker endDate;
 
-    @FXML
-    private JFXTextField Cohort;
+	    @FXML
+	    private JFXComboBox<Integer> year;
 
-    @FXML
-    private JFXTextArea Note;
+	    @FXML
+	    private JFXTextField module;
 
-    @FXML
-    private JFXTextField Teacher;
+	    @FXML
+	    private JFXTextField preference;
 
-    @FXML
-    private Label ID;
+	    @FXML
+	    private Label ID;
 
-    @FXML
-    private ImageView Image;
+	    @FXML
+	    private ImageView Image;
 
-    @FXML
-    private JFXTextField Week;
+	    @FXML
+	    private JFXTextField hospital;
 
-    @FXML
-    private DatePicker EndDate;
+	    @FXML
+	    private DatePicker startDate;
 
-    @FXML
-    private JFXTextField Subject;
-
-    @FXML
-    private JFXTextField Location;
-
+	    @FXML
+	    private JFXTextField group;
+/**
+ * This method will return the user to the main menu
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void Home(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
     }
-
+/**
+ * This method will delete the selected Placement
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void Delete(ActionEvent event) throws Exception {
     	PlacementSQL.DeletePlacement(String.valueOf(p.getId()));
     	GeneralMethods.show("Deleted", "Deleted");
-    	GeneralMethods.ChangeScene("mainMenu");
+    	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
     }
-
+/**
+ * This method will save any changes to the placement
+ * @param event
+ */
     @FXML
     void Save(ActionEvent event) {
-    	// The list will be id,Week,StartDate,EndDate,Subject,Location,ClinicalTeacher,Cohort,YearGroup,Note
-    	List<String>s = new ArrayList<String>();
-    	
-    	s.add(String.valueOf(p.getId()));
-    	s.add(Week.getText());
-    	System.out.println(StartDate.getValue().toString());
-    	s.add((StartDate.getValue().toString()));
-    	s.add((EndDate.getValue().toString()));
-    	s.add(Subject.getText());
-    	s.add(Location.getText());
-    	s.add(Teacher.getText());
-    	s.add(Cohort.getText());
-    	s.add(String.valueOf(Year.getText()));
-    	s.add(Note.getText());
+    	p.setCohort(group.getText());
+    	p.setEndDate(endDate.getValue().toString());
+    	p.setLocation(hospital.getText());
+    	p.setModule(module.getText());
+    	p.setModuleNumber(moduleNumber.getText());
+    	p.setNote(comments.getText());
+    	p.setPreference(preference.getText());
+    	p.setStartDate(startDate.getValue().toString());
+    	p.setYear(year.getValue());
     	
     	try {
-			PlacementSQL.amendPlacement(s);
-			GeneralMethods.show("Success", "Success");
+			PlacementSQL.amendPlacement(p);
+			GeneralMethods.show("Success in amending placement, placement "+p.getId()+" is amended", "Success");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			GeneralMethods.show(e.getMessage(),"Error");
+			
+			GeneralMethods.show("Error in amending Placement","Error");
 			e.printStackTrace();
 		}
     	
     }
-
+    /**
+     * This method will take the user back to the search menu for placements
+     * @param event
+     * @throws Exception
+     */
     @FXML
     void Back(ActionEvent event) throws Exception {
      	GeneralMethods.ChangeScene("AmendDeletePracticalMenu", "AmendDeletePracticalMenu");
          }
-    
+    /**
+     * This method will take the user back to the placement menu
+     * @param event
+     * @throws Exception
+     */
     @FXML
-    void returnPracticalPlacementScreen(ActionEvent event) throws Exception {
+    void returnPlacementScreen(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("PracticalMenuController", "PracticalPlacementMenu");
     	  
     }
-
+/**
+ * The initialize method will populate all of the field with the pre existing data of the
+ * selected placement along with populating the image
+ */
     @FXML
     void initialize() {
     	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
     	Image.setImage(i);
-    	StartDate.setValue(LocalDate.parse(p.getStartDate(), ApplicationMethods.dtf));
-    	Year.setText(String.valueOf(p.getYear()));
-    	Cohort.setText(p.getCohort());
-    	Note.setText(p.getNote());
-    	Teacher.setText(p.getTeacher());
+    	startDate.setValue(LocalDate.parse(p.getStartDate()));
     	ID.setText(String.valueOf(p.getId()));
-    	Week.setText(String.valueOf(p.getWeek()));
-    	EndDate.setValue(LocalDate.parse(p.getEndDate(),ApplicationMethods.dtf));
-    	Subject.setText(p.getSubject());
-    	Location.setText(p.getLocation());
-
+    	endDate.setValue(LocalDate.parse(p.getEndDate()));
+    	hospital.setText(p.getLocation());
+    	group.setText(p.getCohort());
+    	comments.setText(p.getNote());
+    	moduleNumber.setText(p.getModuleNumber());
+    	year.setValue(p.getYear());
+    	preference.setText(p.getPreference());
+    	module.setText(p.getModule());
+    	ApplicationMethods.Years(year);
     }
 }

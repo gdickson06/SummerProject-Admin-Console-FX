@@ -76,7 +76,7 @@ public class SearchQueries {
 	 * @return
 	 * @throws SQLException 
 	 */
-	public static List<Absence> ComboSearchAbsence(Absence A, Boolean boolEmpty) throws SQLException {
+	public static List<Absence> ComboSearchAbsence(Absence A) throws SQLException {
 
 		ResultSet r;
 
@@ -84,7 +84,7 @@ public class SearchQueries {
 
 		String statement = "select * from Absences ";
 		Boolean start = true;
-		if (boolEmpty == false) {
+		if (A.getApproved()!=null) {
 			statement = statement + " Where approved = " + Boolean.toString(A.getApproved());
 			start = false;
 		}
@@ -516,6 +516,7 @@ public class SearchQueries {
 	 */
 
 	public static List<Room> searchRoom(int search, String info) throws SQLException {
+		
 		ResultSet r;
 		String statement = null;
 		List<Room> rooms = new ArrayList<Room>();
@@ -533,7 +534,7 @@ public class SearchQueries {
 		default:
 			System.out.println("Error in searching rooms");
 		}
-
+		System.out.println(statement);
 		r = SQL.SQLstatements(statement);
 	
 			if (r.next()) {
@@ -588,7 +589,7 @@ public class SearchQueries {
 			break;
 
 		default:
-			System.out.println("Error in searching rooms");
+			System.out.println("Error in searching placements");
 		}
 
 		r = SQL.SQLstatements(statement);

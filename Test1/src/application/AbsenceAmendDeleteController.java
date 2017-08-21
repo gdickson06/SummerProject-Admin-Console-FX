@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -63,59 +64,119 @@ public class AbsenceAmendDeleteController {
 
     @FXML
     private ImageView Image;
-
+/**
+ * This method will allow absences to be searched by type
+ * @param event
+ */
     @FXML
     void TypeSearch(ActionEvent event) {
-     	List<Absence> searched = SearchQueries.searchAbsence(4, Type.getValue().toString());
+    	List<Absence> searched = new ArrayList<Absence>();
+     	try {
+			searched.addAll(SearchQueries.searchAbsence(4, Type.getValue().toString()));
+		} catch (SQLException e) {
+			GeneralMethods.show("Error when searching absences", "Error");
+			e.printStackTrace();
+		}
     		ObservableList<Absence> list = FXCollections.observableArrayList();
     		list.addAll(searched);
     		ListAbsence.setItems(list);
     }
-    
+ /**
+  * This method will allow absences to be searched by whether they are approved or not 
+  * @param event
+  */
     @FXML
     void ApprovedSearch(ActionEvent event) {
     	String bool="true";
     	if(Approved.getValue().equals("Approved")){
     		bool="true";
     	}
-    	List<Absence> searched = SearchQueries.searchAbsence(5, bool);
+    	List<Absence> searched = new ArrayList<Absence>();
+    	
+    	try {
+			searched.addAll(SearchQueries.searchAbsence(5, bool));
+		} catch (SQLException e) {
+			GeneralMethods.show("Error when searching absences", "Error");
+			e.printStackTrace();
+		}
 		ObservableList<Absence> list = FXCollections.observableArrayList();
 		list.addAll(searched);
 		ListAbsence.setItems(list);
     }
-
+/**
+ * This allows absences to be searched by end time
+ * @param event
+ */
     @FXML
     void SearchEndTime(ActionEvent event) {
-    	List<Absence> searched = SearchQueries.searchAbsence(6, ConvertMethods.TimeConvertSQL(StartTime.getText()));
-		ObservableList<Absence> list = FXCollections.observableArrayList();
-		list.addAll(searched);
-		ListAbsence.setItems(list);
+    	List<Absence> searched = new ArrayList<Absence>();
+     	try {
+			searched.addAll(SearchQueries.searchAbsence(6, ConvertMethods.TimeConvertSQL(EndTime.getText())));
+		} catch (SQLException e) {
+			GeneralMethods.show("Error when searching absences", "Error");
+			e.printStackTrace();
+		}
+    		ObservableList<Absence> list = FXCollections.observableArrayList();
+    		list.addAll(searched);
+    		ListAbsence.setItems(list);
     }
-
+/**
+ * This allows absences to be searched by start time
+ * @param event
+ */
     @FXML
     void SearchTime(ActionEvent event) {
-    	List<Absence> searched = SearchQueries.searchAbsence(3, ConvertMethods.TimeConvertSQL(StartTime.getText()));
-		ObservableList<Absence> list = FXCollections.observableArrayList();
-		list.addAll(searched);
-		ListAbsence.setItems(list);
+    	List<Absence> searched = new ArrayList<Absence>();
+     	try {
+			searched.addAll(SearchQueries.searchAbsence(6, ConvertMethods.TimeConvertSQL(StartTime.getText())));
+		} catch (SQLException e) {
+			GeneralMethods.show("Error when searching absences", "Error");
+			e.printStackTrace();
+		}
+    		ObservableList<Absence> list = FXCollections.observableArrayList();
+    		list.addAll(searched);
+    		ListAbsence.setItems(list);
     }
-
+/**
+ * This allows absences to be searched by the start date of the absence
+ * @param event
+ */
     @FXML
     void SearchDate(ActionEvent event) {
-    	List<Absence> searched = SearchQueries.searchAbsence(2, StartDate.getValue().toString());
-		ObservableList<Absence> list = FXCollections.observableArrayList();
-		list.addAll(searched);
-		ListAbsence.setItems(list);
+    	List<Absence> searched = new ArrayList<Absence>();
+     	try {
+			searched.addAll(SearchQueries.searchAbsence(2, StartDate.getValue().toString()));
+		} catch (SQLException e) {
+			GeneralMethods.show("Error when searching absences", "Error");
+			e.printStackTrace();
+		}
+    		ObservableList<Absence> list = FXCollections.observableArrayList();
+    		list.addAll(searched);
+    		ListAbsence.setItems(list);
     }
-
+/**
+ * This allows absences to be searched by student number
+ * @param event
+ */
     @FXML
     void SearchStudentNumber(ActionEvent event) {
-    	List<Absence> searched = SearchQueries.searchAbsence(1, StudentNumber.getText());
-		ObservableList<Absence> list = FXCollections.observableArrayList();
-		list.addAll(searched);
-		ListAbsence.setItems(list);
+    	List<Absence> searched = new ArrayList<Absence>();
+     	try {
+			searched.addAll(SearchQueries.searchAbsence(1, StudentNumber.getText()));
+		} catch (SQLException e) {
+			GeneralMethods.show("Error when searching absences", "Error");
+			e.printStackTrace();
+		}
+    		ObservableList<Absence> list = FXCollections.observableArrayList();
+    		list.addAll(searched);
+    		ListAbsence.setItems(list);
     }
-
+/**
+ * This allows the user to click on an absence and be taken to the amend and delete page
+ * with the selected absence
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void listClick(MouseEvent event) throws Exception {
     	if(event.getClickCount()==2){
@@ -124,22 +185,30 @@ public class AbsenceAmendDeleteController {
      		 GeneralMethods.ChangeScene("AmendSingleAbsence","AmendSingleAbsence");
       	}
     }
-
+/**
+ * This method will return the user to the main menu
+ * @param event
+ * @throws Exception
+ */
     @FXML
-    void returnMainMenu(ActionEvent event) {
-    	try {
+    void returnMainMenu(ActionEvent event) throws Exception {
+ 
 			GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	
     }
-
+/**
+ * This method will return the user to the absence menu
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void Back(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("AbsenceMenu","AbsenceMenu");
     }
-
+/**
+ * This method will search the absence on multiple fields
+ * @param event
+ */
     @FXML
     void ComboSearch(ActionEvent event) {
     	int i=0;
@@ -166,17 +235,21 @@ public class AbsenceAmendDeleteController {
     	if(Type.getValue()!=null){a.setType(Type.getValue());}
     	
     	
-    	Boolean b = false;
-    	System.out.println("Value is "+Approved.getValue());
-    	if(Approved.getValue()==null){
-    		b=true;
-    	}
-    	List<Absence> searched = SearchQueries.ComboSearchAbsence(a,b);
+    
+    	List<Absence> searched = new ArrayList<Absence>();
+		try {
+			searched.addAll(SearchQueries.ComboSearchAbsence(a));
+		} catch (SQLException e) {
+			GeneralMethods.show("Error when searching absences", "Error");
+			e.printStackTrace();
+		}
 		ObservableList<Absence> list = FXCollections.observableArrayList();
 		list.addAll(searched);
 		ListAbsence.setItems(list);
     }
-
+/**
+ * This intialize method will populate the iamges and combo boxes on the page
+ */
     @FXML
     void initialize() {
     	

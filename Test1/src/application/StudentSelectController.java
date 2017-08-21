@@ -1,9 +1,13 @@
 package application;
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import com.jfoenix.controls.JFXCheckBox;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 
 import javafx.event.ActionEvent;
@@ -11,84 +15,168 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import uk.ac.qub.churst.GeneralMethods;
+import uk.ac.qub.objects.Student;
 import uk.ac.qub.sql.StudentSQL;
 
 public class StudentSelectController {
-	  @FXML
-	    private Label StudentNumber;
+	@FXML
+	private Label StudentNumber;
 
-    @FXML
-    private ResourceBundle resources;
+	@FXML
+	private ResourceBundle resources;
 
-    @FXML
-    private URL location;
+	@FXML
+	private URL location;
 
-  
+	Student s = StudentAmendDeleteController.selectedStudent;
+	@FXML
+	private JFXTextField lastName;
 
-    @FXML
-    private JFXTextField Cohort;
+	@FXML
+	private JFXTextArea comments;
 
+	@FXML
+	private JFXComboBox<Integer> year;
 
-    @FXML
-    private JFXTextField StudentName;
+	@FXML
+	private JFXTextField prefix;
 
- 
-    @FXML
-    private JFXTextField EmailAddress;
-    
-    @FXML
-    private JFXTextField IntakeYear;
- 
+	@FXML
+	private JFXTextField cohort;
 
-    @FXML
-    void Save(ActionEvent event) throws Exception{
-    	List<String> attributes = new ArrayList<String>();
-    	//This will be in the order of the studentNumber,name,group,email,year.
-    	
-    	attributes.add(Integer.toString(StudentAmendDeleteController.selectedStudent.getStudentNumber()));
-    	attributes.add(StudentName.getText());
-    	attributes.add(Cohort.getText());
-    	attributes.add(EmailAddress.getText());
-    	attributes.add(IntakeYear.getText());
-    	
-    	StudentSQL.AmendStudent(attributes);
-    	
-    	GeneralMethods.show("The student number"+Integer.toString(StudentAmendDeleteController.selectedStudent.getStudentNumber())+" has been amended", "Record Changed");
-    	
-    }
+	@FXML
+	private ImageView Image;
 
-    @FXML
-    void returnSearch(ActionEvent event)throws Exception {
-    	GeneralMethods.ChangeScene("StudentAmendDelete","StudentAmendDelete");
-    }
+	@FXML
+	private Label studentNumberLabel;
 
-    @FXML
-    void returnMain(ActionEvent event) throws Exception{
-    	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
-    }
-    
-    @FXML
-    void returnStudentMenu(ActionEvent event) throws Exception{
-    	GeneralMethods.ChangeScene("StudentMenu","StudentMenu");
-    }
+	@FXML
+	private JFXTextField firstName;
 
-    @FXML
-    void Delete(ActionEvent event)throws Exception{
-    	StudentSQL.DeleteStudent(Integer.toString(StudentAmendDeleteController.selectedStudent.getStudentNumber()));
-    	GeneralMethods.show("The record for "+Integer.toString(StudentAmendDeleteController.selectedStudent.getStudentNumber())+" has been deleted.", "Record Deleted");
-    	GeneralMethods.ChangeScene("StudentAmmendDelete");
-    	
-    }
+	@FXML
+	private JFXTextField emailAddress;
 
-    @FXML
-    void initialize() {
-    	
-    	StudentNumber.setText(Integer.toString(StudentAmendDeleteController.selectedStudent.getStudentNumber()));
-    	StudentName.setText(StudentAmendDeleteController.selectedStudent.getName());
-    	EmailAddress.setText(StudentAmendDeleteController.selectedStudent.getEmail());
-    	Cohort.setText(StudentAmendDeleteController.selectedStudent.getFirstGroup());
-    	IntakeYear.setText(Integer.toString(StudentAmendDeleteController.selectedStudent.getIntakeYear()));
-    
-    }
+	@FXML
+	private JFXTextField nationality;
+
+	@FXML
+	private JFXTextField portfolio;
+
+	@FXML
+	private JFXTextField graduate;
+
+	@FXML
+	private JFXTextField name;
+
+	@FXML
+	private JFXTextField middleName;
+/**
+ * This method will save all the changes made to a student
+ * @param event
+ * @throws Exception
+ */
+	@FXML
+	void Save(ActionEvent event) throws Exception {
+		s.setCohort(cohort.getText());
+		s.setComments(comments.getText());
+		s.setEmail(emailAddress.getText());
+		s.setFirstName(firstName.getText());
+		s.setGraduate(graduate.getText());
+		s.setLastName(lastName.getText());
+		s.setMiddleName(middleName.getText());
+		s.setName(name.getText());
+		s.setNationality(nationality.getText());
+		s.setPortfolio(portfolio.getText());
+		s.setPrefix(prefix.getText());
+		s.setYear(year.getValue().toString());
+		StudentSQL.AmendStudent(s);
+
+		GeneralMethods.show(
+				"The student number" + Integer.toString(StudentAmendDeleteController.selectedStudent.getStudentNumber())
+						+ " has been amended",
+				"Record Changed");
+
+	}
+/**
+ * This method will return the user to the search menu
+ * @param event
+ * @throws Exception
+ */
+	@FXML
+	void returnSearch(ActionEvent event) throws Exception {
+		GeneralMethods.ChangeScene("StudentAmendDelete", "StudentAmendDelete");
+	}
+/**
+ * This method will return the user to the main menu
+ * @param event
+ * @throws Exception
+ */
+	@FXML
+	void returnMain(ActionEvent event) throws Exception {
+		GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
+	}
+/**
+ * This method will return the user to the Student menu
+ * @param event
+ * @throws Exception
+ */
+	@FXML
+	void returnStudentMenu(ActionEvent event) throws Exception {
+		GeneralMethods.ChangeScene("StudentMenu", "StudentMenu");
+	}
+
+/**
+ * 	This method will delete a selected Student
+ * @param event
+ * @throws Exception
+ */
+	void Delete(ActionEvent event) throws Exception {
+		StudentSQL.DeleteStudent(Integer.toString(StudentAmendDeleteController.selectedStudent.getStudentNumber()));
+		GeneralMethods.show(
+				"The record for " + Integer.toString(StudentAmendDeleteController.selectedStudent.getStudentNumber())
+						+ " has been deleted.",
+				"Record Deleted");
+		GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
+
+	}
+/**
+ * The initialize method will populate all of the fields with the values of
+ * the selected student and populate the year combo box and the imageview
+ */
+	@FXML
+	void initialize() {
+
+		studentNumberLabel.setText(Integer.toString(StudentAmendDeleteController.selectedStudent.getStudentNumber()));
+		lastName.setText(s.getLastName());
+		
+
+		comments.setText(s.getComments());
+
+		year.setValue(Integer.valueOf(s.getYear()));
+
+		prefix.setText(s.getPrefix());
+
+		cohort.setText(s.getCohort());
+
+		firstName.setText(s.getEmail());
+
+		emailAddress.setText(s.getEmail());
+
+		nationality.setText(s.getNationality());
+
+		portfolio.setText(s.getPortfolio());
+
+		graduate.setText(s.getGraduate());
+
+		name.setText(s.getName());
+
+		middleName.setText(s.getMiddleName());
+
+		ApplicationMethods.Years(year);
+
+		javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
+		Image.setImage(i);
+	}
 }

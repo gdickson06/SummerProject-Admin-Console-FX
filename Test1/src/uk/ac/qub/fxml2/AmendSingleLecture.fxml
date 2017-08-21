@@ -93,6 +93,7 @@
          </font>
       </JFXTextField>
       <Label fx:id="IDLabel" layoutX="605.0" layoutY="183.0" text="Label" />
-      <CheckBox fx:id="Essential" layoutX="1013.0" layoutY="460.0" mnemonicParsing="false" text="Essential" />
+      <JFXComboBox fx:id="year" layoutX="1019.0" layoutY="234.0" />
+      <JFXCheckBox fx:id="optional" layoutX="1004.0" layoutY="451.0" text="Optional" />
    </children>
 </AnchorPane>

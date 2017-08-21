@@ -57,20 +57,19 @@ public class PlacementSQL {
 	}
 	
 	/**
-	 * This method will amend a single placement with a list of Strings holding the information 
+	 * This method will amend a single placement with an amended placement holding the information
 	 * @param s
 	 * @throws Exception
 	 */
-	public static void amendPlacement(List<String> s) throws Exception {
+	public static void amendPlacement(Placement p) throws Exception {
 	
 
 		PreparedStatement statement = null;
-		// cohort,module,start_date,end_date,module_number,hospital,preference,comments,year
-		String Statement = "UPDATE Placements SET cohort =" + s.get(1) + ", module='" + s.get(2)+ "', start_date=" + s.get(3) + 
-				", end_date = "+s.get(4)+",module_number = '" +s.get(5)+"', hospital ='"+s.get(6)+
-				"', preference = '"+s.get(7)+"', comments ='"+s.get(8)+"', year="+s.get(9) + " WHERE id= "
-				+ s.get(0) + ";";
-		
+		String Statement = "UPDATE Placements SET cohort ='" + p.getCohort() + "', module='" + p.getModule()+ "', start_date='" + p.getStartDate() + 
+				"', end_date = '"+p.getEndDate()+"',module_number = '" +p.getModuleNumber()+"', hospital ='"+p.getLocation()+
+				"', preference = '"+p.getPreference()+"', comments ='"+p.getNote()+"', year="+p.getYear() + " WHERE id= "
+				+ p.getId() + ";";
+		System.out.println(Statement);
 		statement = Main.connection.prepareStatement(Statement);
 		statement.executeUpdate();
 	}
