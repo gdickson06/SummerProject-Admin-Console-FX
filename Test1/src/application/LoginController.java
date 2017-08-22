@@ -55,17 +55,18 @@ public class LoginController {
  */
     @FXML
     void Login(ActionEvent event) throws Exception {
+    	if(UsernameText.getText().isEmpty()||PasswordText.getText().isEmpty()){
+    		GeneralMethods.show("Username or password field empty", "Warning");
+    	} else {
     	Staff user = StaffSQL.login(UsernameText.getText(), PasswordText.getText());
-    	if(user==null){
-    		GeneralMethods.show("Error in username or password", "Error");
-    	}
+    	
     	ApplicationMethods.CurrentUser = user;
     	if(user.getAccess_level().equals("Administrator")){
     		GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
     	} else {
     		GeneralMethods.show("Functionality for non admin staff will be implemented in a future update", "Warning");
     	}
-    }
+    }}
 /**
  * This method will clear the username and password field
  * @param event

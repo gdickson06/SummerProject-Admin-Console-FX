@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
 import application.Main;
@@ -110,15 +111,32 @@ System.out.println(newStatement);
 	 * @throws ClassNotFoundException
 	 */
 	public static Staff login(String Username, String Password) throws SQLException, ClassNotFoundException {
+		ResultSet results = null;
+		Connection connection = null;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			connection = DriverManager.getConnection(SQL.url, SQL.user, SQL.password);
+		} catch (Exception e) {
+			GeneralMethods.show("Database connection error, please check your internet connection", "Error");
+		}
+		
+		Statement statement = connection.createStatement();
 
+		results = statement.executeQuery("select * from Qsis WHERE user_number = " + Username + " AND password ='" + Password + "'");
+
+	
 		Staff answer = null;
 		String Usernumber = null;
 
-		String statement = "select * from Qsis WHERE user_number = " + Username + " AND password ='" + Password + "'";
-		ResultSet results = SQL.SQLstatements(statement);
+		
+		 if (results.next() == false) {
+		        GeneralMethods.show("Username or password incorrect", "Warning");
+		      } else {
 
-		results.next();
-		Usernumber = results.getString("user_number");
+		     
+		        	Usernumber = results.getString("user_number");
+		     }
+		
 
 		// If Usernumber is no longer null the correct username and password has
 		// been entered
@@ -126,13 +144,16 @@ System.out.println(newStatement);
 			String statement2 = "select * from Staff WHERE staff_number = " + Username + ";";
 			ResultSet results2 = SQL.SQLstatements(statement2);
 
-			results2.next();
+			if(!results2.next()){
+				GeneralMethods.show("User not registered as staff within the admin console, please contact a current"
+						+ "admin user to add you" , "Warning");
+			}else {
 
 			answer = new Staff(results2.getString("staff_number"), results2.getString("name"),
 					results2.getString("access_level"));
 
-		} else {
-			GeneralMethods.show("Students should not be using the admin console", "Access Denied");
+		}
+		
 		}
 		return answer;
 	}

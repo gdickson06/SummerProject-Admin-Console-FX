@@ -34,7 +34,9 @@ public class SQL {
 	public static String user = "jTurkington";
 	public static String password = "emily1234";
 	public static String url = "jdbc:mysql://qub.cjw92whe4wuf.eu-west-2.rds.amazonaws.com:3306/med?autoReconnect=true&useSSL=false&allowMultiQueries=true";
-
+	public static String QsisUser="QSIS";
+	public static String QsisPassword ="James123";
+	public static String QsisUrl ="jdbc:mysql://qsis.cjw92whe4wuf.eu-west-2.rds.amazonaws.com:3306/QSIS?autoReconnect=true&useSSL=false&allowMultiQueries=true";
 	/**
 	 * This method will take in a cohort and a date and return a list of
 	 * Lectures for the date
