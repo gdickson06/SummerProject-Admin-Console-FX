@@ -46,11 +46,12 @@ public class SettingsHelpMenuController {
      * within the application, such as QUB email address, contact numbers
      * and more
      * @param event
+     * @throws Exception 
      */
     
     @FXML
-    void globalSettingsClick(ActionEvent event) {
-    	//to be completed
+    void globalSettingsClick(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("GlobalSettings", "GlobalSettings");
     }
     
     @FXML
