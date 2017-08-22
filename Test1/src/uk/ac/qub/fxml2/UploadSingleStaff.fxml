@@ -8,18 +8,18 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UploadSingleUserController">
    <children>
-      <JFXComboBox fx:id="TypePicker" focusColor="WHITE" layoutX="873.0" layoutY="436.0" prefHeight="39.0" prefWidth="214.0" promptText="Select Staff Type" unFocusColor="WHITE" />
-      <Label layoutX="804.0" layoutY="442.0" text="Type:" />
-      <Label layoutX="295.0" layoutY="440.0" text="Name:" />
-      <Label layoutX="249.0" layoutY="262.0" text="User Name:" />
-      <Label layoutX="428.0" layoutY="174.0" text="Please Fill in all mandatory fields to upload a single staff member to the database." />
-      <Label layoutX="428.0" layoutY="102.0" text="School of Medicine Timetable Administration Portal" />
-      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="75.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" />
-      <JFXTextField fx:id="UsernameText" focusColor="WHITE" labelFloat="true" layoutX="372.0" layoutY="256.0" prefHeight="35.0" prefWidth="214.0" promptText="Enter User Name Here" unFocusColor="WHITE" />
-      <JFXButton layoutX="104.0" layoutY="583.0" onAction="#Upload" text="Upload Staff Member" />
-      <JFXButton layoutX="402.0" layoutY="583.0" onAction="#Clear" text="Clear" />
-      <JFXButton layoutX="587.0" layoutY="583.0" onAction="#returnStaffMenuButtonClick" text="Return to Staff Menu" />
-      <JFXButton layoutX="904.0" layoutY="583.0" onAction="#mainMenuButtonClick" text="Return to Main Menu" />
-      <JFXTextField fx:id="NameText" focusColor="WHITE" labelFloat="true" layoutX="372.0" layoutY="436.0" prefHeight="35.0" prefWidth="214.0" promptText="Enter Name Here" unFocusColor="WHITE" />
+      <JFXComboBox fx:id="accessLevel" focusColor="WHITE" layoutX="490.0" layoutY="414.0" prefHeight="39.0" prefWidth="425.0" promptText="Select Access Level" unFocusColor="WHITE" />
+      <Label layoutX="357.0" layoutY="420.0" text="Access Level:" />
+      <Label layoutX="408.0" layoutY="346.0" text="Name:" />
+      <Label layoutX="349.0" layoutY="272.0" text="Staff Number:" />
+      <JFXTextField fx:id="staffNumber" focusColor="WHITE" labelFloat="true" layoutX="490.0" layoutY="266.0" prefHeight="35.0" prefWidth="425.0" promptText="Enter Staff Number Here" unFocusColor="WHITE" />
+      <JFXButton layoutX="104.0" layoutY="523.0" onAction="#uploadStaffMember" text="Upload Staff Member" />
+      <JFXButton layoutX="402.0" layoutY="523.0" onAction="#clear" text="Clear" />
+      <JFXButton layoutX="587.0" layoutY="523.0" onAction="#returnStaffMenuButtonClick" text="Return to Staff Menu" />
+      <JFXButton layoutX="904.0" layoutY="523.0" onAction="#mainMenuButtonClick" text="Return to Main Menu" />
+      <JFXTextField fx:id="name" focusColor="WHITE" labelFloat="true" layoutX="490.0" layoutY="340.0" prefHeight="35.0" prefWidth="425.0" promptText="Enter Name Here" unFocusColor="WHITE" />
+      <ImageView fx:id="image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
+      <Label layoutX="400.0" layoutY="125.0" prefHeight="27.0" prefWidth="908.0" text="Click 'Upload Staff Member' to upload staff to database, or click 'Clear' to empty the fields" />
    </children>
 </AnchorPane>

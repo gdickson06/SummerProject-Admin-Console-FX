@@ -24,16 +24,16 @@ public class UploadSingleUserController {
     private URL location;
 
     @FXML
-    private JFXTextField UsernameText;
+    private JFXTextField staffNumber;
 
     @FXML
-    private JFXTextField NameText;
+    private JFXTextField name;
 
     @FXML
-    private JFXComboBox<String> TypePicker;
+    private JFXComboBox<String> accessLevel;
 
     @FXML
-    private ImageView Image;
+    private ImageView image;
 
 
  
@@ -42,11 +42,11 @@ public class UploadSingleUserController {
  * @param event
  */
     @FXML
-    void Upload(ActionEvent event) {
+    void uploadStaffMember(ActionEvent event) {
 	Staff s = new Staff();
-	s.setAccess_level(TypePicker.getValue());
-	s.setName(NameText.getText());
-	s.setStaff_number(UsernameText.getText());
+	s.setAccess_level(accessLevel.getValue());
+	s.setName(name.getText());
+	s.setStaff_number(staffNumber.getText());
     	
     		try {
 				StaffSQL.UploadSingleUser(s);
@@ -62,11 +62,11 @@ public class UploadSingleUserController {
  * @param event
  */
     @FXML
-    void Clear(ActionEvent event) {
-    	UsernameText.setText("");
-    	NameText.setText("");
+    void clear(ActionEvent event) {
+    	staffNumber.setText("");
+    	name.setText("");
     
-    	TypePicker.setValue("");
+    	accessLevel.setValue("");
     	
     }
 /**
@@ -93,7 +93,7 @@ public class UploadSingleUserController {
     @FXML
     void initialize() {
     	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
-    	Image.setImage(i);
+    	image.setImage(i);
     
     	List<String>types= new ArrayList<String>();
     	
@@ -101,7 +101,7 @@ public class UploadSingleUserController {
     	types.add("Module Coordinator");
     	types.add("Lecturer");
     	
-    	TypePicker.getItems().addAll(types);
+    	accessLevel.getItems().addAll(types);
     	
     }
 }

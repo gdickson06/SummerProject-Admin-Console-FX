@@ -30,38 +30,38 @@ public class StaffAmendDeleteController {
     private URL location;
 
     @FXML
-    private JFXComboBox<String> Type;
+    private JFXComboBox<String> accessLevel;
 
     @FXML
-    private JFXListView<Staff> UserTable;
+    private JFXListView<Staff> userTable;
 
     @FXML
     private ImageView Image;
 
     @FXML
-    private JFXTextField Username;
+    private JFXTextField staffNumber;
 
     @FXML
     private JFXTextField LastName;
 
     @FXML
-    private JFXTextField FirstName;
+    private JFXTextField name;
 /**
  * This method will search staff by their first name
  * @param event
  */
     @FXML
-    void FirstNameSearch(ActionEvent event) {
+    void nameSearch(ActionEvent event) {
     	List<Staff> searched = new ArrayList<Staff>();
     	try {
-			searched.addAll(SearchQueries.searchStaff(1, FirstName.getText()));
+			searched.addAll(SearchQueries.searchStaff(1, name.getText()));
 		} catch (SQLException e) {
 			GeneralMethods.show("There was an error with searching Staff", "Error");
 			e.printStackTrace();
 		}
 		ObservableList<Staff> list = FXCollections.observableArrayList();
 		list.addAll(searched);
-		UserTable.setItems(list);
+		userTable.setItems(list);
     }
 /**
  * This method will search Staff by their last name
@@ -78,41 +78,41 @@ public class StaffAmendDeleteController {
 		}
 		ObservableList<Staff> list = FXCollections.observableArrayList();
 		list.addAll(searched);
-		UserTable.setItems(list);
+		userTable.setItems(list);
     }
 /**
  * This method will search Staff by their staff number
  * @param event
  */
     @FXML
-    void UserNameSearch(ActionEvent event) {
+    void staffNumberSearch(ActionEvent event) {
     	List<Staff> searched = new ArrayList<Staff>();
     	try {
-			searched.addAll(SearchQueries.searchStaff(3, Username.getText()));
+			searched.addAll(SearchQueries.searchStaff(3, staffNumber.getText()));
 		} catch (SQLException e) {
 			GeneralMethods.show("There was an error with searching Staff", "Error");
 			e.printStackTrace();
 		}
 		ObservableList<Staff> list = FXCollections.observableArrayList();
 		list.addAll(searched);
-		UserTable.setItems(list);
+		userTable.setItems(list);
     }
 /**
  * This method will search staff by type
  * @param event
  */
     @FXML
-    void TypeSearch(ActionEvent event) {
+    void accessLevelSearch(ActionEvent event) {
     	List<Staff> searched = new ArrayList<Staff>();
     	try {
-			searched.addAll(SearchQueries.searchStaff(4, Type.getValue()));
+			searched.addAll(SearchQueries.searchStaff(4, accessLevel.getValue()));
 		} catch (SQLException e) {
 			GeneralMethods.show("There was an error with searching Staff", "Error");
 			e.printStackTrace();
 		}
 		ObservableList<Staff> list = FXCollections.observableArrayList();
 		list.addAll(searched);
-		UserTable.setItems(list);
+		userTable.setItems(list);
 		
     }
 
@@ -122,7 +122,7 @@ public class StaffAmendDeleteController {
  * @throws Exception
  */
     @FXML
-    void Home(ActionEvent event) throws Exception {
+    void home(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
     }
 /**
@@ -131,7 +131,7 @@ public class StaffAmendDeleteController {
  * @throws Exception
  */
     @FXML
-    void ReturnStaffScreen(ActionEvent event) throws Exception {
+    void returnStaffScreen(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("StaffMenu", "StaffMenu");
     }
 /**
@@ -145,7 +145,7 @@ public class StaffAmendDeleteController {
     void ListClick(MouseEvent event) throws Exception {
     	if (event.getClickCount() == 2) {
 
-			s = UserTable.getSelectionModel().getSelectedItem();
+			s = userTable.getSelectionModel().getSelectedItem();
 			GeneralMethods.ChangeScene("AmendSingleStaff","AmendSingleStaff");
 		}
     }
@@ -161,7 +161,7 @@ public class StaffAmendDeleteController {
 		types.add("Module Coordinator");
 		types.add("Lecturer");
 
-		Type.getItems().addAll(types);
+		accessLevel.getItems().addAll(types);
 		
 	  	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
     	Image.setImage(i);

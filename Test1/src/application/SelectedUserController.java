@@ -29,7 +29,7 @@ public class SelectedUserController {
 	
 
     @FXML
-    private ImageView Image;
+    private ImageView image;
 
     @FXML
     private ResourceBundle resources;
@@ -38,15 +38,15 @@ public class SelectedUserController {
     private URL location;
 
     @FXML
-    private JFXComboBox<String> Type;
+    private JFXComboBox<String> accessLevel;
 
     @FXML
-    private Label UserName;
+    private Label staffNumber;
 
 
 
     @FXML
-    private JFXTextField Name;
+    private JFXTextField name;
 
     
   /**
@@ -56,9 +56,9 @@ public class SelectedUserController {
    */
    
     @FXML
-    void Change(ActionEvent event)  {
-    	s.setAccess_level(Type.getValue());
-    	s.setName(Name.getText());
+    void saveDetails(ActionEvent event)  {
+    	s.setAccess_level(accessLevel.getValue());
+    	s.setName(name.getText());
     	
     	try {
 			StaffSQL.amendUser(s);
@@ -75,10 +75,10 @@ public class SelectedUserController {
  * @param event
  */
     @FXML
-    void Delete(ActionEvent event) {
+    void deleteStaffMember(ActionEvent event) {
     	
     		try {
-				StaffSQL.DeleteUser(UserName.getText());
+				StaffSQL.DeleteUser(staffNumber.getText());
 				GeneralMethods.show(s.getName() + " has been deleted", "Success");
 				GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
 			} catch (Exception e) {
@@ -93,7 +93,7 @@ public class SelectedUserController {
  * @throws Exception
  */
     @FXML
-    void Back(ActionEvent event) throws Exception {
+    void back(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("AmendDeleteStaff","AmendDeleteStaff");
     }
 /**
@@ -102,7 +102,7 @@ public class SelectedUserController {
  * @throws Exception
  */
     @FXML
-    void Home(ActionEvent event) throws Exception {
+    void home(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
     }
  /**
@@ -111,7 +111,7 @@ public class SelectedUserController {
   * @throws Exception
   */
     @FXML
-    void ReturnStaffScreen(ActionEvent event) throws Exception {
+    void returnStaffMenu(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("StaffMenu","StaffMenu");
     }
     
@@ -130,12 +130,12 @@ public class SelectedUserController {
     	types.add("Module Coordinator");
     	types.add("Lecturer");
     	
-    	Type.getItems().addAll(types);
+    	accessLevel.getItems().addAll(types);
     
-    	Name.setText(s.getName());
-    	Type.setValue(s.getAccess_level());
-    	UserName.setText(s.getStaff_number());
+    	name.setText(s.getName());
+    	accessLevel.setValue(s.getAccess_level());
+    	staffNumber.setText(s.getStaff_number());
     	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
-    	Image.setImage(i);
+    	image.setImage(i);
     }
 }
