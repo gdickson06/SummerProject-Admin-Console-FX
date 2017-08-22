@@ -61,7 +61,13 @@ public class GlobalSettingsController {
 
     @FXML
     private JFXTextField absencesEmailAddress;
-
+    
+    @FXML
+    private JFXTextField changePassword;
+    
+    @FXML
+    private JFXTextField changeFileLocation;
+    
     @FXML
     void saveDetails(ActionEvent event) {
 
