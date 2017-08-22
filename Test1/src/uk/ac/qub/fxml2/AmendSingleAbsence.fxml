@@ -9,46 +9,54 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SelectedAbsenceController">
    <children>
-      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="105.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="458.0" layoutY="132.0" text="School of Medicine Timetable Administration Portal" />
-      <Label layoutX="458.0" layoutY="188.0" prefHeight="27.0" prefWidth="901.0" text="Update the fields below and click 'Save Details', otherwise click 'Delete Absence' to delete from database." />
-      <CheckBox fx:id="Approved" layoutX="555.0" layoutY="453.0" mnemonicParsing="false" text="Approved" textFill="WHITE" />
-      <JFXTextField fx:id="StartTime" focusColor="WHITE" labelFloat="true" layoutX="232.0" layoutY="384.0" prefHeight="35.0" prefWidth="202.0" promptText="Enter Start Time Here" unFocusColor="WHITE">
+      <JFXTextField fx:id="StartTime" focusColor="WHITE" layoutX="230.0" layoutY="405.0" prefHeight="35.0" prefWidth="225.0" promptText="Enter Start Time Here" unFocusColor="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <JFXButton layoutX="1024.0" layoutY="572.0" onAction="#Back" text="Return to Search" />
-      <JFXButton layoutX="765.0" layoutY="572.0" onAction="#Home" text="Return to Main Menu" />
-      <JFXButton layoutX="477.0" layoutY="572.0" onAction="#ReturnAbsencesScreen" text="Return to Absences Screen" />
-      <JFXButton layoutX="259.0" layoutY="572.0" onAction="#Delete" text="Delete Absence" />
-      <JFXButton layoutX="54.0" layoutY="572.0" onAction="#SaveChanges" text="Save Details" />
-      <Label layoutX="137.0" layoutY="453.0" text="End Time:" />
-      <Label layoutX="133.0" layoutY="387.0" text="Start Time:" />
-      <Label layoutX="133.0" layoutY="324.0" text="Start Date:" />
-      <Label layoutX="91.0" layoutY="268.0" text="Student Number:" />
-      <JFXTextField fx:id="StudentNumber" focusColor="WHITE" labelFloat="true" layoutX="232.0" layoutY="265.0" prefHeight="33.0" prefWidth="202.0" promptText="Enter Student Number Here" unFocusColor="WHITE">
+      <JFXButton layoutX="1055.0" layoutY="572.0" onAction="#Back" text="Return to Search" />
+      <JFXButton layoutX="796.0" layoutY="572.0" onAction="#Home" text="Return to Main Menu" />
+      <JFXButton layoutX="492.0" layoutY="572.0" onAction="#ReturnAbsencesScreen" text="Return to Absences Screen" />
+      <JFXButton layoutX="270.0" layoutY="572.0" onAction="#Delete" text="Delete Absence" />
+      <JFXButton layoutX="68.0" layoutY="572.0" onAction="#SaveChanges" text="Save Details" />
+      <Label layoutX="129.0" layoutY="475.0" text="End Time:" />
+      <Label layoutX="120.0" layoutY="410.0" text="Start Time:" />
+      <Label layoutX="123.0" layoutY="340.0" text="Start Date:" />
+      <Label layoutX="68.0" layoutY="270.0" text="Student Number:" />
+      <JFXTextField fx:id="StudentNumber" focusColor="WHITE" layoutX="230.0" layoutY="265.0" prefHeight="33.0" prefWidth="225.0" promptText="Enter Student Number Here" unFocusColor="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="113.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true" />
-      <JFXTextField fx:id="Lecture" focusColor="WHITE" labelFloat="true" layoutX="648.0" layoutY="265.0" prefHeight="35.0" prefWidth="183.0" promptText="Enter Lecture ID Here" unFocusColor="WHITE">
+      <JFXTextField fx:id="Lecture" focusColor="WHITE" layoutX="648.0" layoutY="265.0" prefHeight="35.0" prefWidth="225.0" promptText="Enter Lecture ID Here" unFocusColor="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <Label layoutX="547.0" layoutY="269.0" text="Lecture ID:" />
-      <Label layoutX="589.0" layoutY="337.0" text="Type:" />
-      <Label layoutX="555.0" layoutY="389.0" text="End Date:" />
-      <JFXTextArea fx:id="Reason" focusColor="WHITE" labelFloat="true" layoutX="947.0" layoutY="265.0" prefHeight="216.0" prefWidth="249.0" promptText="Enter Reason Here" unFocusColor="WHITE" />
-      <DatePicker fx:id="StartDate" layoutX="232.0" layoutY="318.0" prefHeight="39.0" prefWidth="202.0" />
-      <JFXTextField fx:id="EndTime" focusColor="WHITE" labelFloat="true" layoutX="232.0" layoutY="444.0" prefHeight="35.0" prefWidth="202.0" promptText="Enter End Time Here" unFocusColor="WHITE">
+      <Label layoutX="537.0" layoutY="270.0" text="Lecture ID:" />
+      <Label layoutX="580.0" layoutY="340.0" text="Type:" />
+      <Label layoutX="544.0" layoutY="410.0" text="End Date:" />
+      <JFXTextArea fx:id="Reason" focusColor="WHITE" labelFloat="true" layoutX="947.0" layoutY="268.0" prefHeight="181.0" prefWidth="249.0" promptText="Enter Reason Here" unFocusColor="WHITE" />
+      <DatePicker fx:id="StartDate" layoutX="230.0" layoutY="335.0" prefHeight="39.0" prefWidth="225.0" />
+      <JFXTextField fx:id="EndTime" focusColor="WHITE" layoutX="230.0" layoutY="470.0" prefHeight="35.0" prefWidth="225.0" promptText="Enter End Time Here" unFocusColor="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <JFXComboBox fx:id="Type" focusColor="WHITE" layoutX="648.0" layoutY="319.0" prefHeight="39.0" prefWidth="183.0" promptText="Select Type" unFocusColor="WHITE" />
-      <DatePicker fx:id="EndDate" layoutX="648.0" layoutY="383.0" prefHeight="39.0" prefWidth="183.0" />
+      <JFXComboBox fx:id="Type" focusColor="WHITE" layoutX="648.0" layoutY="335.0" prefHeight="39.0" prefWidth="225.0" promptText="Select Type" unFocusColor="WHITE" />
+      <DatePicker fx:id="EndDate" layoutX="648.0" layoutY="405.0" prefHeight="39.0" prefWidth="225.0" />
+      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
+      <Label layoutX="400.0" layoutY="125.0" prefHeight="27.0" prefWidth="908.0" text="Click 'Save Details' to save changes, or click 'Delete Absence' to remove from database" />
+      <JFXCheckBox fx:id="Approved" checkedColor="#a10026" layoutX="660.0" layoutY="482.0" text="Approved" textFill="WHITE" unCheckedColor="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXCheckBox>
+      <JFXCheckBox checkedColor="#a10026" layoutX="972.0" layoutY="482.0" text="Viewed" textFill="WHITE" unCheckedColor="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXCheckBox>
    </children>
 </AnchorPane>

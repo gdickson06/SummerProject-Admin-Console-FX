@@ -24,7 +24,7 @@ import uk.ac.qub.sql.LectureSQL;
 public class UploadSingleAbsenceController {
 
 	@FXML
-	private JFXCheckBox Approved;
+	private JFXCheckBox approved;
 	@FXML
 	private ImageView Image;
 
@@ -35,28 +35,28 @@ public class UploadSingleAbsenceController {
 	private URL location;
 
 	@FXML
-	private JFXTextField LectureID;
+	private JFXTextField lectureID;
 
 	@FXML
-	private JFXComboBox<String> Type;
+	private JFXComboBox<String> type;
 
 	@FXML
-	private JFXTextField EndTime;
+	private JFXTextField endTime;
 
 	@FXML
-	private JFXTextField StudentNumber;
+	private JFXTextField studentNumber;
 
 	@FXML
-	private JFXTextField StartTime;
+	private JFXTextField startTime;
 
 	@FXML
-	private JFXTextArea Reason;
+	private JFXTextArea reason;
 
 	@FXML
-	private DatePicker StartDate;
+	private DatePicker startDate;
 
 	@FXML
-	private DatePicker EndDate;
+	private DatePicker endDate;
 	
 	@FXML
 	void mainMenuButtonClick(ActionEvent event) throws Exception {
@@ -69,31 +69,31 @@ public class UploadSingleAbsenceController {
 	}
 
 	@FXML
-	void Clear(ActionEvent event) {
-		StudentNumber.setText("");
-		LectureID.setText("");
-		StartDate.setValue(LocalDate.now());
-		EndDate.setValue(LocalDate.now());
-		StartTime.setText("");
-		EndTime.setText("");
-		Reason.setText("");
-		Approved.setSelected(false);
-		Type.setValue("");
+	void clear(ActionEvent event) {
+		studentNumber.setText("");
+		lectureID.setText("");
+		startDate.setValue(LocalDate.now());
+		endDate.setValue(LocalDate.now());
+		startTime.setText("");
+		endTime.setText("");
+		reason.setText("");
+		approved.setSelected(false);
+		type.setValue("");
 	}
 
 	@FXML
-	void UploadSingleAbsenceButton(ActionEvent event) {
+	void uploadSingleAbsenceButton(ActionEvent event) {
 		Absence a = new Absence();
 
-		if(StudentNumber.getText().isEmpty()==false){a.setStudentNumber(Integer.valueOf(StudentNumber.getText()));}
-		if(LectureID.getText().isEmpty()==false){a.setLectureID(Integer.valueOf(LectureID.getText()));}
-		a.setStartDate(StartDate.getValue().toString());
-		a.setEndDate(EndDate.getValue().toString());
-		a.setStartTime(ConvertMethods.TimeConvertSQL(StartTime.getText()));
-		a.setEndTime(ConvertMethods.TimeConvertSQL(EndTime.getText()));
-		a.setReason(Reason.getText());
-		a.setApproved(Approved.isSelected());
-		a.setType(Type.getValue());
+		if(studentNumber.getText().isEmpty()==false){a.setStudentNumber(Integer.valueOf(studentNumber.getText()));}
+		if(lectureID.getText().isEmpty()==false){a.setLectureID(Integer.valueOf(lectureID.getText()));}
+		a.setStartDate(startDate.getValue().toString());
+		a.setEndDate(endDate.getValue().toString());
+		a.setStartTime(ConvertMethods.TimeConvertSQL(startTime.getText()));
+		a.setEndTime(ConvertMethods.TimeConvertSQL(endTime.getText()));
+		a.setReason(reason.getText());
+		a.setApproved(approved.isSelected());
+		a.setType(type.getValue());
 
 		try {
 			AbsenceSQL.saveSingleAbsence(a);
@@ -106,21 +106,21 @@ public class UploadSingleAbsenceController {
 
 	@FXML
 	void initialize() {
-		LectureID.textProperty().addListener((observable, oldValue, newValue) -> {
-			String id = LectureID.getText();
+		lectureID.textProperty().addListener((observable, oldValue, newValue) -> {
+			String id = lectureID.getText();
 
 			try {
 				List<String> att = LectureSQL.finder(id);
-				StartDate.setValue(LocalDate.parse(att.get(0)));
-				EndDate.setValue(LocalDate.parse(att.get(0)));
-				StartTime.setText(att.get(1));
-				EndTime.setText(att.get(2));
+				startDate.setValue(LocalDate.parse(att.get(0)));
+				endDate.setValue(LocalDate.parse(att.get(0)));
+				startTime.setText(att.get(1));
+				endTime.setText(att.get(2));
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		});
-		ApplicationMethods.AbsenceTypes(Type);
+		ApplicationMethods.AbsenceTypes(type);
 		javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
 		Image.setImage(i);
 	}
