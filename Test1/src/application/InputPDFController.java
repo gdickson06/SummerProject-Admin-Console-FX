@@ -53,8 +53,8 @@ private static uk.ac.qub.objects.Lecture selectedLecture;
 		try {
 			SQL.tutorialListAbsences(selectedLecture, selectedItems);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			GeneralMethods.show(e.getLocalizedMessage(), "Error");
+			e.printStackTrace();
+			GeneralMethods.show("Error in logging absence", "Error");
 		}
     }
 
@@ -66,11 +66,11 @@ private static uk.ac.qub.objects.Lecture selectedLecture;
 
 		LectureInfo.setText(selectedLecture.toString());
 
-		List<Student> students = SearchQueries.studentsInLecture(selectedLecture.getGroup(),Integer.parseInt(selectedLecture.getYear()));
+		List<Student> students = SearchQueries.studentsInLecture(selectedLecture);
 
 		ObservableList<Student> list = FXCollections.observableArrayList();
 		list.addAll(students);
-		System.out.println(list.size());
+	
 		Students.setItems(list);
     }
 

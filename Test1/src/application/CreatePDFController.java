@@ -6,6 +6,8 @@ import com.jfoenix.controls.JFXTextField;
 
 import java.io.File;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -35,7 +37,7 @@ public class CreatePDFController {
     private URL location;
 
     @FXML
-    private JFXTextField Year;
+    private JFXComboBox<Integer> Year;
 
     @FXML
     private JFXTextField Staff;
@@ -60,7 +62,10 @@ public class CreatePDFController {
 
     @FXML
     private DatePicker Date;
-
+/**
+ * This method will allow a lecture to be clicked and set to the current lecture
+ * @param event
+ */
     @FXML
     void LectureClick(MouseEvent event) {
 
@@ -69,30 +74,44 @@ public class CreatePDFController {
      		 PickedLecture.setText(selectedLecture.toString());
       	
     }
-
+/**
+ * This method will search through the lectures on multiple fields
+ * @param event
+ */
     @FXML
     void Search(ActionEvent event) {
-    	int week;
-    	if(Week.getText().isEmpty()){
-    		week = 0;
-    	}else {
- week = Integer.parseInt(Week.getText());
-    	}
-    	Lecture l = new Lecture(week, StartTime.getText(), Staff.getText(), Module.getValue().toString(), Year.getText());
-    
-    	List<Lecture> searched = SearchQueries.ComboSearchLectures(l);
+    	
+    	Lecture l = new Lecture();
+    	if(!Week.getText().isEmpty()){l.setWeek(Integer.valueOf(Week.getText()));}
+    	l.setStartTime(StartTime.getText());
+    	l.setStaff(Staff.getText());
+    	if(Module.getValue()!=null){l.setModule(Module.getValue());}
+    	if(Year.getValue()!=null){l.setYear(Year.getValue().toString());}
+    	if(Date.getValue()!=null){l.setStartDate(Date.getValue().toString());}
+    	
+    	List<Lecture> searched = new ArrayList<Lecture>();
+		try {
+			searched.addAll(SearchQueries.ComboSearchLectures(l));
+		} catch (SQLException e) {
+			GeneralMethods.show("Error in searching lectures", "Error");
+			e.printStackTrace();
+		}
 		ObservableList<Lecture> list = FXCollections.observableArrayList();
 		list.addAll(searched);
 		Lectures.setItems(list);
     }
-
+/**
+ * This method will generate a PDF of the students in a selected lecture and this will 
+ * be saved in a specified location which can be changed in the settings menu
+ * @param event
+ */
     @FXML
     void GeneratePDF(ActionEvent event) {
     	File f = new File ("SaveInfo.txt");
     	if(f.exists()){
     	try{
     	if(selectedLecture!=null){
-    		System.out.println("TESTING");
+    		
     	PDF pdf = new PDF(selectedLecture);
     	pdf.setLocation(FileWriter.load());
     	pdf.create();
@@ -106,20 +125,36 @@ public class CreatePDFController {
     		GeneralMethods.show("No save location specified go to setttings to specify", "Error");
     	}
     }
-
+/**
+ * This method will return the user to the PDF menu
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void ReturnPDFMenu(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("PDFMenu", "PDFMenu");
     }
-
+/**
+ * This method will return the user to the main menu
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void ReturnMainMenu(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
     }
-
+/**
+ * This initialize method will populate the image and combo boxes on the page
+ */
     @FXML
     void initialize() {
-    	Module.getItems().addAll(SQL.Modules());
+    	ApplicationMethods.Years(Year);
+    	try {
+			Module.getItems().addAll(SQL.Modules());
+		} catch (SQLException e) {
+			GeneralMethods.show("Error in finding modules", "Error");
+			e.printStackTrace();
+		}
     	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
     	Image.setImage(i);
     }

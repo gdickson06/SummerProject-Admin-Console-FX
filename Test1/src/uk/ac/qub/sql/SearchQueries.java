@@ -171,7 +171,7 @@ public class SearchQueries {
 			start=false;
 		}
 		
-		if(!lectures.getModule().isEmpty()){
+		if(lectures.getModule()!=null){
 			if(start==false){
 				statement = statement+" AND ";
 			} else {
@@ -182,7 +182,7 @@ public class SearchQueries {
 			start = false;
 		}
 		
-		if(!lectures.getYear().isEmpty()){
+		if(lectures.getYear()!=null){
 			if(start==false){
 				statement = statement+" AND ";
 			} else {
@@ -402,7 +402,10 @@ public class SearchQueries {
 		List<Lecture> lectures = new ArrayList<Lecture>();
 
 		switch (search) {
-	
+		case 1:
+			statement = "select * from Lectures where lecture_id = " + info + ";";
+			break;
+			
 		case 2:
 			statement = "select * from Lectures where week = " + info + ";";
 			break;
@@ -630,7 +633,7 @@ public class SearchQueries {
 			while (results.next()) {
 				students.add(new Student(results.getInt("student_number"), results.getString("last_name"), results.getString("first_name"), results.getString("middle_name"), results.getString("prefix"),results.getString("name")
 						,results.getString("cohort"),results.getString("email"),results.getString("nationality"),results.getString("graduate")
-						,results.getString("comment"),results.getString("portfolio"),results.getString("year_group")));
+						,results.getString("comments"),results.getString("portfolio"),results.getString("year_group")));
 
 			}
 		}
