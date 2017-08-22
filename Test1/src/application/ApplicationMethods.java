@@ -7,7 +7,7 @@ import java.util.List;
 
 import com.jfoenix.controls.JFXComboBox;
 
-import javafx.scene.control.ComboBox;
+
 import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.objects.Staff;
 
@@ -18,7 +18,7 @@ public static Staff CurrentUser;
 
 
 public static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-public static List<String> Cohorts =  new ArrayList<String>();
+
 	protected static void AbsenceTypes(JFXComboBox<String> type) {
 		List<String>types= new ArrayList<String>();
     	
@@ -41,10 +41,6 @@ public static List<String> Cohorts =  new ArrayList<String>();
 		e.getItems().addAll(years);
 	}
 	
-	protected static void ErrorMessage (Exception e){
-		if(e instanceof com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException){
-			GeneralMethods.show("No internet connection, please check you are connected to the internet", "Error");
-		}
-	}
+	
 
 }

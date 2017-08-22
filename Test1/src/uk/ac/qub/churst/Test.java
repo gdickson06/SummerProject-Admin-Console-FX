@@ -24,25 +24,11 @@ import uk.ac.qub.sql.SQL;
 public class Test {
 
 	public static void main(String[] args) throws IOException, SQLException, ClassNotFoundException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Main.connection = DriverManager.getConnection(SQL.url, SQL.user, SQL.password);
-		List<String>attributes = new ArrayList<String>();
-		
-		attributes.add("week");
-		attributes.add("day");
-		attributes.add("date");
-		attributes.add("start_time");
-		attributes.add("end_time");
-		attributes.add("groups");
-		attributes.add("location");
-		attributes.add("subject");
-		attributes.add("theme");
-		attributes.add("teaching");
-		attributes.add("description");
-		attributes.add("staff");
-		attributes.add("style");
-		attributes.add("module");
-	downloadToCSV(attributes, "1", "Lectures");
+	List<String> s = ConvertMethods.convert("D12-D20");
+	
+	for(String x : s){
+		System.out.println(x);
+	}
 	}
 	
 	

@@ -233,46 +233,7 @@ public class SQL {
 		return modules;
 	}
 	
-	
-/**
- * This method will update the Groups table in the SQL database
- * @param lectures
- * @throws Exception
- */
-	public static void GroupsToGroup(List<Lecture> lectures) throws Exception {
 
-		Set<GroupsCon> set = new HashSet<GroupsCon>();
-
-		for (Lecture l : lectures) {
-			List<String> group = new ArrayList<String>();
-			
-				group = ConvertMethods.convert(l.getGroup());
-			
-			for (String s : group) {
-				GroupsCon g = new GroupsCon();
-
-				g.setCohort(s);
-				g.setGroups(l.getGroup());
-				set.add(g);
-
-			}
-
-		}
-		
-		PreparedStatement statement = null;
-		String statements = null;
-
-		for (GroupsCon g : set) {
-		
-
-				statements = "INSERT INTO GroupConvert " + "VALUES ('" + g.getGroups() + "', '" + g.getCohort() + "')";
-				statement = Main.connection.prepareStatement(statements);
-				statement.executeUpdate();
-
-		}
-
-	}
-	
 	
 	
 	/**

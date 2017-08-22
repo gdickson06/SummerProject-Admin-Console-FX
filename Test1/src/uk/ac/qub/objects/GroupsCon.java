@@ -30,22 +30,8 @@ public class GroupsCon {
 		this.cohort = cohort;
 	}
 	
-	@Override
-	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
-		if(obj instanceof GroupsCon){
-			GroupsCon temp =(GroupsCon) obj;
-			if(this.cohort.equals(temp.cohort)&&this.groups.equals(temp.groups)){
-				return true;
-			}
-		}
-		return false;
-	}
-	@Override
-	public int hashCode() {
-		// TODO Auto-generated method stub
-		return (this.cohort.hashCode()+this.groups.hashCode());
-	}
+	
+
 
 	
 

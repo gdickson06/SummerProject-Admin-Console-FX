@@ -24,32 +24,37 @@ public class GroupsConSQL {
 		
 
 		Set<GroupsCon> set = new HashSet<GroupsCon>();
-
-		for (Lecture l : lectures) {
-			try {
-				List<String> group = ConvertMethods.convert(l.getGroup());
-
-				for (String s : group) {
-					set.add(new GroupsCon(l.getGroup(), s));
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-				System.out.println(l.toString());
-			}
+		Set<String> s = new HashSet<String>();
+		for(Lecture l :lectures){
+			s.add(l.getGroup());
+			
 		}
-		//
+		
+		for (String string : s) {
+			
+				List<String> group = ConvertMethods.convert(string);
+
+				for (String cohort : group) {
+					set.add(new GroupsCon(string,cohort));
+				}
+			
+		}
+		
+		System.out.println(set.size());
 		PreparedStatement statement = null;
 		String statements = null;
 
 		for (GroupsCon g : set) {
-			try {
-				statements = "INSERT INTO groups " + "VALUES ('" + g.getGroups() + "', '" + g.getCohort() + "')";
+			System.out.println(g.toString());
+			 try {
+			 
+				statements = "INSERT INTO GroupConvert " + "VALUES ('" + g.getGroups() + "', '" + g.getCohort() + "')";
 				statement = Main.connection.prepareStatement(statements);
 				statement.executeUpdate();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-
+			
 		}
 
 	}

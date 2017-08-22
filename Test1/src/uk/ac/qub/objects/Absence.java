@@ -1,5 +1,9 @@
 package uk.ac.qub.objects;
 
+import java.time.LocalDate;
+
+import uk.ac.qub.churst.GeneralMethods;
+
 public class Absence {
 	
 
@@ -27,15 +31,6 @@ public class Absence {
 	}
 
 
-	public Absence(int studentNumber, String startDate, String startTime, String endTime, String type,Boolean approved) {
-		super();
-		StudentNumber = studentNumber;
-		StartDate = startDate;
-		StartTime = startTime;
-		EndTime = endTime;
-		this.type = type;
-		this.approved=approved;
-	}
 
 
 	public Absence() {
@@ -77,19 +72,31 @@ public class Absence {
 		return StartDate;
 	}
 
-
+	/**
+	 * This method will return a start date of the absence
+	 * @return
+	 */
 	public void setStartDate(String startDate) {
 		StartDate = startDate;
 	}
 
 
 	public String getEndDate() {
+		
 		return EndDate;
 	}
 
-
+	/**
+	 * This method will return the end date of an absence and ensure that it is not
+	 * earlier than the start date
+	 * @return
+	 */
 	public void setEndDate(String endDate) {
+		if(LocalDate.parse(endDate).isBefore(LocalDate.parse(StartDate))){
+			GeneralMethods.show("End date cannot come before start date", "Error");
+		}else {
 		EndDate = endDate;
+		}
 	}
 
 
