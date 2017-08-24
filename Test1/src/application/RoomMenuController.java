@@ -24,9 +24,6 @@ public class RoomMenuController {
     private Button amendDeleteRoomButton;
 
     @FXML
-    private Button logOutButton;
-
-    @FXML
     private Button uploadSingleRoomButton;
 
     @FXML
@@ -52,7 +49,7 @@ public class RoomMenuController {
 	 * @throws Exception
 	 */
     @FXML
-    void logOutButtonClick(ActionEvent event) throws Exception {
+    void logOut(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("Login2", "Login2");
     	ApplicationMethods.CurrentUser=null;
     }

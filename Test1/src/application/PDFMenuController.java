@@ -21,9 +21,6 @@ public class PDFMenuController {
     private Button returnMainMenuButton;
 
     @FXML
-    private Button logOutButton;
-
-    @FXML
     private ImageView Image;
 
     @FXML
@@ -49,7 +46,7 @@ public class PDFMenuController {
 	 * @throws Exception
 	 */
     @FXML
-    void logOutButtonClick(ActionEvent event) throws Exception {
+    void logOut(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("Login2", "Login2");
     	ApplicationMethods.CurrentUser=null;
     }

@@ -11,10 +11,12 @@
       <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
       <Label layoutX="400.0" layoutY="125.0" prefHeight="27.0" prefWidth="268.0" text="Student Menu" />
       <Button fx:id="uploadStudentCSVButton" layoutX="125.0" layoutY="300.0" mnemonicParsing="false" onAction="#uploadStudentCSVButtonClick" prefHeight="180.0" prefWidth="300.0" text="Upload List of Students to Database" />
-      <Button fx:id="ammendDeleteStudentsButton" layoutX="475.0" layoutY="300.0" mnemonicParsing="false" onAction="#ammendDeleteStudentsButtonClick" prefHeight="180.0" prefWidth="300.0" text="Ammend &amp; Delete Students" />
+      <Button fx:id="ammendDeleteStudentsButton" layoutX="475.0" layoutY="300.0" mnemonicParsing="false" onAction="#ammendDeleteStudentsButtonClick" prefHeight="180.0" prefWidth="300.0" text="Amend &amp; Delete Students" />
       <Button fx:id="uploadSingleStudentButton" layoutX="825.0" layoutY="300.0" mnemonicParsing="false" onAction="#uploadSingleStudentButtonClick" prefHeight="180.0" prefWidth="300.0" text="Upload Single Student to Database" />
-      <Button fx:id="logOutButton" layoutX="1030.0" layoutY="135.0" mnemonicParsing="false" onAction="#logOutButtonClick" text="Log Out" />
       <Label layoutX="108.0" layoutY="522.0" />
       <Button fx:id="returnMainMenuButton" layoutX="540.0" layoutY="580.0" mnemonicParsing="false" onAction="#returnMainMenuButtonClick" text="Return to Main Menu" />
+      <Label layoutX="984.0" layoutY="146.0" onMouseClicked="#logOut" prefHeight="27.0" prefWidth="174.0" text="Log Out Here" />
+      <Label layoutX="1019.0" layoutY="122.0" prefHeight="27.0" prefWidth="174.0" text="Label" />
+      <Label layoutX="978.0" layoutY="122.0" text="Not" />
    </children>
 </AnchorPane>

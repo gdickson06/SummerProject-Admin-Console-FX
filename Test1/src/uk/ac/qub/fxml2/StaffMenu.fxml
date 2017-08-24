@@ -13,8 +13,10 @@
       <Button fx:id="uploadStaffCSVButton" layoutX="125.0" layoutY="300.0" mnemonicParsing="false" onAction="#uploadStaffCSVButtonClick" prefHeight="180.0" prefWidth="300.0" text="Upload List of Staff to Database" />
       <Button fx:id="amendDeleteStaffButton" layoutX="475.0" layoutY="300.0" mnemonicParsing="false" onAction="#amendDeleteStaffButtonClick" prefHeight="180.0" prefWidth="300.0" text="Amend &amp; Delete Staff" />
       <Button fx:id="uploadSingleStaffButton" layoutX="825.0" layoutY="300.0" mnemonicParsing="false" onAction="#uploadSingleStaffButtonClick" prefHeight="180.0" prefWidth="300.0" text="Upload Staff Member to Database" />
-      <Button fx:id="logOutButton" layoutX="1030.0" layoutY="135.0" mnemonicParsing="false" onAction="#logOutButtonClick" text="Log Out" />
       <Label layoutX="128.0" layoutY="542.0" />
       <Button fx:id="returnMainMenuButton" layoutX="540.0" layoutY="580.0" mnemonicParsing="false" onAction="#returnMainMenuButtonClick" text="Return to Main Menu" />
+      <Label layoutX="984.0" layoutY="146.0" onMouseClicked="#logOut" prefHeight="27.0" prefWidth="174.0" text="Log Out Here" />
+      <Label layoutX="1019.0" layoutY="122.0" prefHeight="27.0" prefWidth="174.0" text="Label" />
+      <Label layoutX="978.0" layoutY="122.0" text="Not" />
    </children>
 </AnchorPane>
