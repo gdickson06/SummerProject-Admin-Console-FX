@@ -9,16 +9,16 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.InputPDFController">
    <children>
-      <Label layoutX="448.0" layoutY="178.0" prefHeight="27.0" prefWidth="901.0" text="Enter the Lecture below to select students and log neccessary absences" />
-      <Label layoutX="448.0" layoutY="122.0" text="School of Medicine Timetable Administration Portal" />
-      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="95.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="95.0" layoutY="260.0" text="Lecture:" />
-      <JFXTextField fx:id="Lecture" focusColor="WHITE" labelFloat="true" layoutX="173.0" layoutY="256.0" unFocusColor="WHITE" />
-      <CheckListView fx:id="Students" layoutX="422.0" layoutY="252.0" prefHeight="295.0" prefWidth="532.0" />
-      <JFXButton layoutX="85.0" layoutY="448.0" onAction="#LogAbsences" text="Log Absences" />
-      <JFXButton layoutX="85.0" layoutY="517.0" onAction="#PickLecture" text="Change Lectures" />
-      <JFXButton layoutX="975.0" layoutY="252.0" onAction="#returnToPDFMenu" text="Return to PF Menu" />
-      <JFXButton layoutX="975.0" layoutY="351.0" onAction="#returnToMainMenu" text="Return to Main Menu" />
-      <Label fx:id="LectureInfo" layoutX="85.0" layoutY="299.0" prefHeight="130.0" prefWidth="273.0" />
+      <Label layoutX="403.0" layoutY="237.0" text="Lecture ID:" />
+      <JFXTextField fx:id="Lecture" focusColor="WHITE" labelFloat="true" layoutX="515.0" layoutY="232.0" prefHeight="35.0" prefWidth="372.0" unFocusColor="WHITE" />
+      <CheckListView fx:id="Students" layoutX="87.0" layoutY="311.0" prefHeight="191.0" prefWidth="1144.0" />
+      <JFXButton layoutX="109.0" layoutY="562.0" onAction="#LogAbsences" text="Log Absences" />
+      <JFXButton layoutX="390.0" layoutY="562.0" onAction="#PickLecture" text="Change Lectures" />
+      <JFXButton layoutX="695.0" layoutY="562.0" onAction="#returnToPDFMenu" text="Return to PDF Menu" />
+      <JFXButton layoutX="1001.0" layoutY="562.0" onAction="#returnToMainMenu" text="Return to Main Menu" />
+      <Label fx:id="LectureInfo" layoutX="400.0" layoutY="166.0" prefHeight="39.0" prefWidth="701.0" />
+      <Label layoutX="400.0" layoutY="125.0" prefHeight="27.0" prefWidth="901.0" text="Click 'Save Details' to update Student, or click 'Delete student' to remove from database" />
+      <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
+      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

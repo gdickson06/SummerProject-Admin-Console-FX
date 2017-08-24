@@ -21,9 +21,6 @@ public class NotesMenuController {
     private Button returnMainMenuButton;
 
     @FXML
-    private Button logOutButton;
-
-    @FXML
     private Button practicalNoteButton;
 
     @FXML
@@ -52,7 +49,7 @@ public class NotesMenuController {
 	 * @throws Exception
 	 */
     @FXML
-    void logOutButtonClick(ActionEvent event) throws Exception {
+    void logOut(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("Login2", "Login2");
     	ApplicationMethods.CurrentUser=null;
     }

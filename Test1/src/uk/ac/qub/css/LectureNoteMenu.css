@@ -18,48 +18,92 @@
 .label {
 	-fx-text-fill: #FFFFFF;
 	-fx-font-family: "Avenir";
-	-fx-font-size: 16px;
+	-fx-font-size: 14px;
+	-fx-font-weight: bold;
+}
+
+.text-area {
+	-fx-background-color: #A10026;
+	-fx-font-family: "Avenir";
+	-fx-font-size: 14px;
+	-fx-text-alignment: center;
+	-fx-prompt-text-fill: #FFFFFF;
+	-fx-text-inner-fill: #FFFFFF;
+	-fx-text-fill: #FFFFFF;
+}
+
+.date-picker {
+	-fx-text-fill: #A10026;
+	-fx-text-fill: #FFFFFF;
+	-fx-text-inner-color:#76001b;
+	-fx-font-family: "Avenir";
+	-fx-font-size: 14px;
+}
+
+.combo-box .list-cell {
+	-fx-text-fill: #FFFFFF;
+	-fx-text-inner-color:#76001b;
+	-fx-font-family: "Avenir";
+	-fx-font-size: 14px;
+	-fx-background-color: #76001b;
+}
+
+.list-cell:filled:selected:focused .list-cell:filled:selected {
+	-fx-background-color:#FFFFFF;
+	-fx-text-fill: #76001b;
+	-fx-font-size: 14px;
+}
+
+.list-view:inactive {
+	-fx-background-color: #FFFFFF;
+	-fx-text-fill: #76001b;
+	-fx-font-family: "Avenir";
+	-fx-font-size: 14px;
 }
 
 .list-view .list-cell:even {
 	-fx-background-color: #FFFFFF;
-	-fx-text-fill: #A10026;
+	-fx-text-fill: #76001b;
 	-fx-font-family: "Avenir";
+	-fx-font-size: 14px;
 }
 
 .list-view .list-cell:odd {
 	-fx-background-color:#E5E5E5;
-	-fx-text-fill: #A10026;
+	-fx-text-fill: #76001b;
 	-fx-font-family: "Avenir";
+	-fx-font-size: 14px;
+}
+
+.rectangle {
+	-fx-fill:#76001B;
+	-fx-arc-height: 20;
+	-fx-arc-width: 20;
+}
+
+.label {
+	-fx-text-fill: #FFFFFF;
+	-fx-font-family: "Avenir";
+	-fx-font-size: 14px;
+	-fx-font-weight: bold;
+}
+
+.list-cell .label {
+	-fx-prompt-text-fill: #76001B;
+	-fx-text-fill:#76001B;
+	-fx-font-family: "Avenir";
+	-fx-font-size: 14px;
 }
 
 .text-field {
 	-fx-prompt-text-fill:#FFFFFF;
 	-fx-text-inner-color:#FFFFFF;
 	-fx-font-family: "Avenir";
-	-fx-font-size: 16px;
-	-fx-background-color: #A10026;
+	-fx-font-size: 14px;
+	-fx-background-color: #76001B;
 }
 
-.combo-box .list-cell {
-	-fx-text-fill: #FFFFFF;
-	-fx-text-inner-color:#A10026;
-	-fx-font-family: "Avenir";
+.list-view {
+	-fx-background-radius: 10;
 	-fx-font-size: 16px;
-	-fx-background-color: #A10026;
-}
-
-.list-cell:filled:selected:focused .list-cell:filled:selected {
-	-fx-background-color:#A10026;
-	-fx-text-fill: #FFFFFF;
-}
-
-.text-area {
-	-fx-background-color: #A10026;
-	-fx-font-family: "Avenir";
-	-fx-font-size: 16px;
-	-fx-text-alignment: center;
-	-fx-prompt-text-fill: #FFFFFF;
-	-fx-text-inner-fill: #FFFFFF;
-	-fx-text-fill: #FFFFFF;
 }

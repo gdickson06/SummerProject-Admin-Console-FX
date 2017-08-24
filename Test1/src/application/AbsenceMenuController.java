@@ -24,9 +24,6 @@ public class AbsenceMenuController {
     private Button searchAbsenceButton;
 
     @FXML
-    private Button logOutButton;
-
-    @FXML
     private Button absenceTrendsButton;
 
     @FXML
@@ -67,7 +64,7 @@ public class AbsenceMenuController {
 	 * @throws Exception
 	 */
     @FXML
-    void logOutButtonClick(ActionEvent event) throws Exception {
+    void logOut(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("Login2", "Login2");
     	ApplicationMethods.CurrentUser=null;
     }
