@@ -41,7 +41,7 @@ public class TrendsController {
     private ComboBox<String> DayInfo;
 
     @FXML
-    private  TextField CohortInfo;
+    private  LineChart p ;
 
     @FXML
     private  ComboBox<String> ModuleInfo;
@@ -166,18 +166,6 @@ days.add("FRIDAY");
     	
     	
     	
-        assert StudentInfo != null : "fx:id=\"StudentInfo\" was not injected: check your FXML file 'AbsenceTrends.fxml'.";
-        assert TrendPie != null : "fx:id=\"TrendPie\" was not injected: check your FXML file 'AbsenceTrends.fxml'.";
-        assert AveragePie != null : "fx:id=\"AveragePie\" was not injected: check your FXML file 'AbsenceTrends.fxml'.";
-        assert DayInfo != null : "fx:id=\"DayInfo\" was not injected: check your FXML file 'AbsenceTrends.fxml'.";
-        assert CohortInfo != null : "fx:id=\"CohortInfo\" was not injected: check your FXML file 'AbsenceTrends.fxml'.";
-        assert ModuleInfo != null : "fx:id=\"ModuleInfo\" was not injected: check your FXML file 'AbsenceTrends.fxml'.";
-        assert YearInfo != null : "fx:id=\"YearInfo\" was not injected: check your FXML file 'AbsenceTrends.fxml'.";
-        assert BarChart != null : "fx:id=\"BarChart\" was not injected: check your FXML file 'AbsenceTrends.fxml'.";
-        assert DateInfo != null : "fx:id=\"DateInfo\" was not injected: check your FXML file 'AbsenceTrends.fxml'.";
-        assert StaffInfo != null : "fx:id=\"StaffInfo\" was not injected: check your FXML file 'AbsenceTrends.fxml'.";
-        assert TypeInfo != null : "fx:id=\"TypeInfo\" was not injected: check your FXML file 'AbsenceTrends.fxml'.";
-        assert TypeBox != null : "fx:id=\"TypeBox\" was not injected: check your FXML file 'AbsenceTrends.fxml'.";
 
     }
 }

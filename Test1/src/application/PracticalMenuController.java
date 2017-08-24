@@ -6,10 +6,15 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import uk.ac.qub.churst.GeneralMethods;
 
 public class PracticalMenuController {
+	
+	@FXML
+    private Label LogOut;
 
     @FXML
     private ResourceBundle resources;
@@ -49,7 +54,7 @@ public class PracticalMenuController {
    	 * @throws Exception
    	 */
     @FXML
-    void logOut(ActionEvent event) throws Exception {
+    void logOut(MouseEvent event) throws Exception {
     	GeneralMethods.ChangeScene("Login2", "Login2");
     	ApplicationMethods.CurrentUser=null;
     }
@@ -89,7 +94,7 @@ public class PracticalMenuController {
      */
     @FXML
     void initialize() {
-    	
+    	LogOut.setText("Not "+ ApplicationMethods.CurrentUser.getName()+ " log out");
     	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
     	Image.setImage(i);
     	
