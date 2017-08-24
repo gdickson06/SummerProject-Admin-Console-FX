@@ -13,11 +13,15 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+
+import com.jfoenix.controls.JFXComboBox;
 
 import application.Main;
 import javafx.scene.control.ProgressBar;
@@ -37,6 +41,44 @@ public class SQL {
 	public static String QsisUser="QSIS";
 	public static String QsisPassword ="James123";
 	public static String QsisUrl ="jdbc:mysql://qsis.cjw92whe4wuf.eu-west-2.rds.amazonaws.com:3306/QSIS?autoReconnect=true&useSSL=false&allowMultiQueries=true";
+	
+	/**
+	 * This method will be used in the GlobalSettings screen, this read in all 
+	 * of the amendable content from the database and use it to populate the text
+	 * boxes in the settings menu
+	 * @return
+	 * @throws SQLException
+	 */
+	public static Map<String,String> importGlobalSettings() throws SQLException{
+		Map<String,String> values = new HashMap<String,String>();
+		
+		ResultSet r = SQLstatements("SELECT * FROM AmendableContent");
+		
+		while (r.next()){
+			values.put(r.getString("identifier"), r.getString("current_value"));
+		}
+		return values;
+ 	}
+	/**
+	 * This method will update the database with any new values 
+	 * @param values
+	 * @throws SQLException
+	 */
+	public static void updateInfo(List<String> values) throws SQLException{
+		List<String>fields = new ArrayList<String>();
+		String [] a = {"Western Trust Contact Number", "Southern Trust Contact Number","South Eastern Trust Contact Number", "School of Medicine Email",
+		"School of Medicine Contact Number","QUB IT Online Form","QUB IT Helpdesk Website","Personal Day Policy","Personal Day Allowance",
+		"Northern Trust Contact Number","Forgotten Password Link ","Find Current Absences Policy", "Belfast Trust Contact Number", "Absences Email Address"};
+		fields.addAll(Arrays.asList(a));
+		
+		for(int i=0; i<fields.size();i++){
+			PreparedStatement preparedStatement = null;
+			String statement = "UPDATE AmendableContent SET current_value = '"+values.get(i)+"' WHERE identifier ='"+fields.get(i)+"';";
+			preparedStatement = Main.connection.prepareStatement(statement);
+			preparedStatement.executeUpdate();
+		}
+	}
+	
 	/**
 	 * This method will take in a cohort and a date and return a list of
 	 * Lectures for the date
@@ -46,6 +88,7 @@ public class SQL {
 	 * @return
 	 * @throws SQLException
 	 */
+	
 	public static void downloadToCSV(List<String>attributes,String year,String type) throws IOException, SQLException {
 		File file =new File("year"+year+"placements.csv");
 		 PrintWriter pw = new PrintWriter(file);

@@ -115,7 +115,7 @@ public class MainMenuController {
 	 */
 	@FXML
 	void Settings(ActionEvent event) throws Exception {
-		GeneralMethods.ChangeScene("SettingsHelpMenu", "SettingsHelpMenu");
+		GeneralMethods.ChangeScene("GlobalSettings", "GlobalSettings");
 	}
 
 	/**

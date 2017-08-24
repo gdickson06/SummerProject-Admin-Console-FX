@@ -27,7 +27,7 @@
       <Label layoutX="599.0" layoutY="209.0" text="Personal Day Allowance:" />
       <JFXTextField fx:id="westernTrustContactNumber" focusColor="WHITE" layoutX="343.0" layoutY="199.0" unFocusColor="WHITE" />
       <JFXTextField fx:id="southernTrustContactNo" focusColor="WHITE" layoutX="343.0" layoutY="248.0" unFocusColor="WHITE" />
-      <JFXTextField fx:id="southernTrustContactNumber" focusColor="WHITE" layoutX="343.0" layoutY="298.0" unFocusColor="WHITE" />
+      <JFXTextField fx:id="southEasternTrustContactNumber" focusColor="WHITE" layoutX="343.0" layoutY="298.0" unFocusColor="WHITE" />
       <JFXTextField fx:id="schoolOfMedicineEmailAddress" focusColor="WHITE" layoutX="343.0" layoutY="351.0" unFocusColor="WHITE" />
       <JFXTextField fx:id="schoolOfMedicineContactNumber" focusColor="WHITE" layoutX="343.0" layoutY="405.0" unFocusColor="WHITE" />
       <JFXTextField fx:id="qubITOnlineForm" focusColor="WHITE" layoutX="343.0" layoutY="460.0" unFocusColor="WHITE" />
@@ -41,11 +41,11 @@
       <JFXTextField fx:id="personalDayAllowance" focusColor="WHITE" layoutX="824.0" layoutY="199.0" unFocusColor="WHITE" />
       <JFXButton layoutX="1060.0" layoutY="203.0" onAction="#saveDetails" text="Save Details" />
       <JFXButton layoutX="1060.0" layoutY="381.0" onAction="#downloadUserGuide" text="Download User Guide" />
-      <JFXButton layoutX="1060.0" layoutY="565.0" onAction="#returnMainMenu" text="Return to Main Menu" />
-      <JFXTextField fx:id="changePassword" focusColor="WHITE" layoutX="343.0" layoutY="567.0" unFocusColor="WHITE" />
-      <Label layoutX="177.0" layoutY="577.0" text="Change Password:" />
+      <JFXButton layoutX="1054.0" layoutY="475.0" onAction="#returnMainMenu" text="Return to Main Menu" />
       <Label layoutX="624.0" layoutY="576.0" text="Change File Location:" />
       <JFXTextField fx:id="changeFileLocation" focusColor="WHITE" layoutX="824.0" layoutY="566.0" unFocusColor="WHITE" />
       <Label layoutX="400.0" layoutY="156.0" text="You can also update your password and file location for downloading the sample spreadsheets" />
+      <JFXButton layoutX="1074.0" layoutY="579.0" onAction="#ChangePassword" text="Change Password" />
+      <JFXButton layoutX="681.0" layoutY="652.0" onAction="#ChangeFileLocation" text="Change File Save Location" />
    </children>
 </AnchorPane>
