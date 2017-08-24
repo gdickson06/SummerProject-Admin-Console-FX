@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -9,47 +10,49 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.NoteLectureController">
    <children>
-      <Label layoutX="468.0" layoutY="122.0" prefHeight="27.0" prefWidth="883.0" text="Search for a lecture using the search buttons below, and click 'Upload Note' to add note to the database." />
-      <Label layoutX="468.0" layoutY="67.0" text="School of Medicine Timetable Administration Portal" />
-      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="110.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true" />
-      <JFXTextField fx:id="Week" focusColor="WHITE" labelFloat="true" layoutX="165.0" layoutY="199.0" prefHeight="33.0" prefWidth="168.0" promptText="Enter Week Here" unFocusColor="WHITE">
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#76001b" height="368.0" layoutX="85.0" layoutY="218.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="5.0" width="1094.0" />
+      <JFXTextField fx:id="Week" focusColor="WHITE" layoutX="267.0" layoutY="244.0" prefHeight="33.0" prefWidth="185.0" promptText="Enter Week Here" unFocusColor="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <Label layoutX="93.0" layoutY="202.0" text="Week:" />
-      <Label layoutX="98.0" layoutY="264.0" text="Date:" />
-      <JFXTextField fx:id="StartTime" focusColor="WHITE" labelFloat="true" layoutX="164.0" layoutY="327.0" prefHeight="33.0" prefWidth="168.0" promptText="Enter Start Time Here" unFocusColor="WHITE">
+      <Label layoutX="203.0" layoutY="249.0" text="Week:" />
+      <Label layoutX="209.0" layoutY="319.0" text="Date:" />
+      <JFXTextField fx:id="StartTime" focusColor="WHITE" layoutX="262.0" layoutY="374.0" prefHeight="33.0" prefWidth="185.0" promptText="Enter Start Time Here" unFocusColor="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <Label layoutX="77.0" layoutY="330.0" text="Start Time:" />
-      <Label layoutX="528.0" layoutY="328.0" text="Year:" />
-      <JFXTextField fx:id="Module" focusColor="WHITE" labelFloat="true" layoutX="626.0" layoutY="259.0" prefHeight="33.0" prefWidth="168.0" promptText="Enter Module Here" unFocusColor="WHITE">
+      <Label layoutX="169.0" layoutY="379.0" text="Start Time:" />
+      <Label layoutX="554.0" layoutY="369.0" text="Year:" />
+      <JFXTextField fx:id="Module" focusColor="WHITE" layoutX="607.0" layoutY="314.0" prefHeight="33.0" prefWidth="168.0" promptText="Enter Module Here" unFocusColor="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <Label layoutX="525.0" layoutY="262.0" text="Module:" />
-      <Label layoutX="551.0" layoutY="200.0" text="Staff:" />
-      <JFXTextField fx:id="Staff" focusColor="WHITE" labelFloat="true" layoutX="626.0" layoutY="197.0" prefHeight="33.0" prefWidth="168.0" promptText="Enter Staff Name Here" unFocusColor="WHITE">
+      <Label layoutX="531.0" layoutY="309.0" text="Module:" />
+      <Label layoutX="554.0" layoutY="239.0" text="Staff:" />
+      <JFXTextField fx:id="Staff" focusColor="WHITE" layoutX="607.0" layoutY="244.0" prefHeight="33.0" prefWidth="168.0" promptText="Enter Staff Name Here" unFocusColor="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <JFXButton layoutX="1025.0" layoutY="193.0" onAction="#ReturnNotesMenu" text="Return to Notes Menu" />
-      <JFXButton layoutX="1032.0" layoutY="256.0" onAction="#ReturnMainMenu" text="Return to Main Menu" />
-      <JFXListView fx:id="TableLectures" layoutX="77.0" layoutY="391.0" onMouseClicked="#TableClick" prefHeight="226.0" prefWidth="558.0" />
-      <JFXTextArea fx:id="Note" focusColor="WHITE" layoutX="751.0" layoutY="387.0" prefHeight="226.0" prefWidth="266.0" promptText="Enter Note Here" unFocusColor="WHITE">
+      <JFXButton layoutX="617.0" layoutY="602.0" onAction="#ReturnNotesMenu" text="Return to Notes Menu" />
+      <JFXButton layoutX="920.0" layoutY="602.0" onAction="#ReturnMainMenu" text="Return to Main Menu" />
+      <JFXListView fx:id="TableLectures" layoutX="119.0" layoutY="437.0" onMouseClicked="#TableClick" prefHeight="126.0" prefWidth="1026.0" />
+      <JFXTextArea fx:id="Note" focusColor="WHITE" layoutX="851.0" layoutY="244.0" prefHeight="165.0" prefWidth="266.0" promptText="Enter Note Here" unFocusColor="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextArea>
-      <JFXButton layoutX="1100.0" layoutY="504.0" onAction="#Upload" text="Upload Note" />
-      <Label fx:id="SelectedLecture" layoutX="1032.0" layoutY="320.0" prefHeight="142.0" prefWidth="279.0" />
-      <JFXButton layoutX="1032.0" layoutY="308.0" onAction="#Search" text="Search" />
-      <DatePicker fx:id="LectureDate" layoutX="152.0" layoutY="260.0" prefHeight="25.0" prefWidth="194.0" />
-      <JFXComboBox fx:id="Year" layoutX="626.0" layoutY="326.0" prefHeight="25.0" prefWidth="152.0" />
+      <JFXButton layoutX="398.0" layoutY="602.0" onAction="#Upload" text="Upload Note" />
+      <Label fx:id="SelectedLecture" layoutX="308.0" layoutY="169.0" prefHeight="33.0" prefWidth="837.0" />
+      <JFXButton layoutX="189.0" layoutY="602.0" onAction="#Search" text="Search" />
+      <DatePicker fx:id="LectureDate" layoutX="264.0" layoutY="309.0" prefHeight="25.0" prefWidth="185.0" promptText="Select Date" />
+      <JFXComboBox fx:id="Year" focusColor="WHITE" layoutX="607.0" layoutY="369.0" prefHeight="39.0" prefWidth="168.0" promptText="Select Year" unFocusColor="WHITE" />
+      <Label layoutX="400.0" layoutY="115.0" prefHeight="27.0" prefWidth="901.0" text="Search for a lecture below, and click 'Upload Note' to add the note to the database." />
+      <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
+      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="226.0" layoutY="176.0" text="Lecture:" />
    </children>
 </AnchorPane>
