@@ -15,7 +15,7 @@ import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.sql.PlacementSQL;
 import uk.ac.qub.sql.SQL;
 import javafx.scene.Scene;
-
+import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 
 
@@ -32,9 +32,11 @@ public class Main extends Application {
 		setStage(primaryStage);
 		AnchorPane root = FXMLLoader.load(getClass().getResource("/uk/ac/qub/fxml2/Login2.fxml"));
 		Scene scene = new Scene(root, 900, 700);
-		primaryStage.setTitle("Administration Console");
+		primaryStage.setTitle("QUB School of Medicine Timetable and Absence Notification Administration Console");
 		primaryStage.setScene(scene);
 		scene.getStylesheets().add(Main.class.getResource("/uk/ac/qub/css/login2.css").toExternalForm());
+		Image popUpIcon = new Image(Main.class.getResourceAsStream("/icon.png"));
+		primaryStage.getIcons().add(popUpIcon);
 		primaryStage.setMaximized(true);
 		primaryStage.show();
 		

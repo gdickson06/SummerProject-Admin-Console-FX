@@ -5,10 +5,12 @@ import java.io.FileInputStream;
 
 import application.Main;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
@@ -37,6 +39,7 @@ public class GeneralMethods {
 
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(Main.class.getResource(CSS).toExternalForm());
+
 	
 		Main.getStage().setMaximized(true);
 		Main.getStage().setScene(scene);
@@ -59,9 +62,13 @@ public class GeneralMethods {
 			btnOK.setText("OK");
 			btnOK.setOnAction(e -> stage.close());
 			VBox pane = new VBox(20);
+			pane.setPadding(new Insets(20,20,20,20));
 			pane.getChildren().addAll(lbl, btnOK);
 			pane.setAlignment(Pos.CENTER);
 			Scene scene = new Scene(pane);
+			scene.getStylesheets().add(Main.class.getResource("/uk/ac/qub/css/PopUp.css").toExternalForm());
+			Image popUpIcon = new Image(Main.class.getResourceAsStream("/icon.png"));
+			stage.getIcons().add(popUpIcon);
 			stage.setScene(scene);
 			
 			stage.showAndWait();
