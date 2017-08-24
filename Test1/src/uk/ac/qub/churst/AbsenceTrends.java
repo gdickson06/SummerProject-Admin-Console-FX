@@ -58,7 +58,7 @@ public class AbsenceTrends {
 					Absence a = new Absence(r.getInt("id"), r.getInt("StudentNumber"), r.getInt("LectureID"),
 							r.getString("StartDate"), r.getString("EndDate"), r.getString("StartTime"),
 							r.getString("EndTime"), r.getString("Reason"), r.getString("Type"),
-							r.getBoolean("Approved"));
+							r.getBoolean("Approved"),);
 
 					absences.add(a);
 				} while (r.next());

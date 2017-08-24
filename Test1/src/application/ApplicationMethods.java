@@ -7,7 +7,7 @@ import java.util.List;
 
 import com.jfoenix.controls.JFXComboBox;
 
-
+import javafx.scene.control.Label;
 import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.objects.Staff;
 
@@ -18,6 +18,10 @@ public static Staff CurrentUser;
 
 
 public static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+	protected static void logOut (Label l){
+		
+	}
 
 	protected static void AbsenceTypes(JFXComboBox<String> type) {
 		List<String>types= new ArrayList<String>();

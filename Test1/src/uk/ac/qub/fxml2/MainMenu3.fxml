@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.image.*?>
@@ -21,8 +22,10 @@
       <JFXButton layoutX="860.0" layoutY="505.0" onAction="#Settings" prefHeight="100.0" prefWidth="250.0" text="Settings &amp; Help" textFill="WHITE" />
       <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
-      <Label layoutX="978.0" layoutY="122.0" text="Not" />
-      <Label layoutX="1019.0" layoutY="122.0" prefHeight="27.0" prefWidth="174.0" text="Label" />
-      <Label layoutX="984.0" layoutY="146.0" onMouseClicked="#logOut" prefHeight="27.0" prefWidth="174.0" text="Log Out Here" />
+      <Label fx:id="LogOut" layoutX="1096.0" layoutY="105.0" onMouseClicked="#LogOut" text="Label">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

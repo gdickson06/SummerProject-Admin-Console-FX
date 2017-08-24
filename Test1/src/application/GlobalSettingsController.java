@@ -1,109 +1,171 @@
 package application;
 
 import com.jfoenix.controls.JFXTextField;
+
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
+import uk.ac.qub.churst.FileWriter;
 import uk.ac.qub.churst.GeneralMethods;
+import uk.ac.qub.sql.SQL;
 
 public class GlobalSettingsController {
 
-    @FXML
-    private ResourceBundle resources;
+	@FXML
+	private ResourceBundle resources;
 
-    @FXML
-    private URL location;
+	@FXML
+	private URL location;
 
-    @FXML
-    private ImageView image;
+	@FXML
+	private ImageView image;
 
-    @FXML
-    private JFXTextField southernTrustContactNo;
+	@FXML
+	private JFXTextField southernTrustContactNo;
 
-    @FXML
-    private JFXTextField southernTrustContactNumber;
+	@FXML
+	private JFXTextField southEasternTrustContactNumber;
 
-    @FXML
-    private JFXTextField schoolOfMedicineEmailAddress;
+	@FXML
+	private JFXTextField schoolOfMedicineEmailAddress;
 
-    @FXML
-    private JFXTextField personalDayAllowance;
+	@FXML
+	private JFXTextField personalDayAllowance;
 
-    @FXML
-    private JFXTextField belfastTrustContactNumber;
+	@FXML
+	private JFXTextField belfastTrustContactNumber;
 
-    @FXML
-    private JFXTextField northernTrustContactNumber;
+	@FXML
+	private JFXTextField changeFileLocation;
 
-    @FXML
-    private JFXTextField personalDayPolicy;
+	@FXML
+	private JFXTextField northernTrustContactNumber;
 
-    @FXML
-    private JFXTextField forgottenPasswordLink;
+	@FXML
+	private JFXTextField personalDayPolicy;
 
-    @FXML
-    private JFXTextField schoolOfMedicineContactNumber;
+	@FXML
+	private JFXTextField forgottenPasswordLink;
 
-    @FXML
-    private JFXTextField findCurrentAbsencesPolicy;
+	@FXML
+	private JFXTextField schoolOfMedicineContactNumber;
 
-    @FXML
-    private JFXTextField qubITOnlineForm;
+	@FXML
+	private JFXTextField findCurrentAbsencesPolicy;
 
-    @FXML
-    private JFXTextField QUBITHelpdeskWebsite;
+	@FXML
+	private JFXTextField qubITOnlineForm;
 
-    @FXML
-    private JFXTextField westernTrustContactNumber;
+	@FXML
+	private JFXTextField QUBITHelpdeskWebsite;
 
-    @FXML
-    private JFXTextField absencesEmailAddress;
-    
-    @FXML
-    private JFXTextField changePassword;
-    
-    @FXML
-    private JFXTextField changeFileLocation;
-    
-    @FXML
-    void saveDetails(ActionEvent event) {
+	@FXML
+	private JFXTextField westernTrustContactNumber;
 
+	@FXML
+	private JFXTextField absencesEmailAddress;
+
+	@FXML
+	void saveDetails(ActionEvent event) {
+
+		List<String>newValues = new ArrayList<String>();
+		
+		newValues.add(westernTrustContactNumber.getText());
+		newValues.add(southernTrustContactNo.getText());
+		newValues.add(southEasternTrustContactNumber.getText());
+		newValues.add(schoolOfMedicineEmailAddress.getText());
+		newValues.add(schoolOfMedicineContactNumber.getText());
+		newValues.add(qubITOnlineForm.getText());
+		newValues.add(QUBITHelpdeskWebsite.getText());
+		newValues.add(personalDayPolicy.getText());
+		newValues.add(personalDayAllowance.getText());
+		newValues.add(northernTrustContactNumber.getText());
+		newValues.add(forgottenPasswordLink.getText());
+		newValues.add(findCurrentAbsencesPolicy.getText());
+		newValues.add(belfastTrustContactNumber.getText());
+		newValues.add(absencesEmailAddress.getText());
+		
+		try {
+			SQL.updateInfo(newValues);
+			GeneralMethods.show("Successfully updated items", "Success");
+		} catch (SQLException e) {
+			GeneralMethods.show("Error in updating values", "Error");
+		}
+		
+		
+	}
+
+	@FXML
+	void downloadUserGuide(ActionEvent event) {
+		
+		 try {
+			Desktop.getDesktop().open(new File("Javafx For Dummies.pdf"));
+		} catch (IOException e) {
+			GeneralMethods.show("Error in opening user guide", "Error");
+		}
+	}
+
+	@FXML
+	void returnMainMenu(ActionEvent event) throws Exception {
+		GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
+	}
+
+	@FXML
+	void ChangePassword(ActionEvent event) throws IOException, URISyntaxException {
+		java.awt.Desktop.getDesktop().browse(new URI(forgottenPasswordLink.getText()));
+		
+	}
+	
+    @FXML
+    void ChangeFileLocation(ActionEvent event) {
+     	FileWriter.save(changeFileLocation.getText().replace("\\" , "/"));
+    	GeneralMethods.show("Location changed to" + changeFileLocation.getText(), "Location Changed");
+   
     }
 
-    @FXML
-    void downloadUserGuide(ActionEvent event) {
-
-    }
-
-    @FXML
-    void returnMainMenu(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
-    }
-
-    @FXML
-    void initialize() {
-    	
-    	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
-    	image.setImage(i);
-    	
-        assert image != null : "fx:id=\"image\" was not injected: check your FXML file 'GlobalSettings.fxml'.";
-        assert southernTrustContactNo != null : "fx:id=\"southernTrustContactNo\" was not injected: check your FXML file 'GlobalSettings.fxml'.";
-        assert southernTrustContactNumber != null : "fx:id=\"southernTrustContactNumber\" was not injected: check your FXML file 'GlobalSettings.fxml'.";
-        assert schoolOfMedicineEmailAddress != null : "fx:id=\"schoolOfMedicineEmailAddress\" was not injected: check your FXML file 'GlobalSettings.fxml'.";
-        assert personalDayAllowance != null : "fx:id=\"personalDayAllowance\" was not injected: check your FXML file 'GlobalSettings.fxml'.";
-        assert belfastTrustContactNumber != null : "fx:id=\"belfastTrustContactNumber\" was not injected: check your FXML file 'GlobalSettings.fxml'.";
-        assert northernTrustContactNumber != null : "fx:id=\"northernTrustContactNumber\" was not injected: check your FXML file 'GlobalSettings.fxml'.";
-        assert personalDayPolicy != null : "fx:id=\"personalDayPolicy\" was not injected: check your FXML file 'GlobalSettings.fxml'.";
-        assert forgottenPasswordLink != null : "fx:id=\"forgottenPasswordLink\" was not injected: check your FXML file 'GlobalSettings.fxml'.";
-        assert schoolOfMedicineContactNumber != null : "fx:id=\"schoolOfMedicineContactNumber\" was not injected: check your FXML file 'GlobalSettings.fxml'.";
-        assert findCurrentAbsencesPolicy != null : "fx:id=\"findCurrentAbsencesPolicy\" was not injected: check your FXML file 'GlobalSettings.fxml'.";
-        assert qubITOnlineForm != null : "fx:id=\"qubITOnlineForm\" was not injected: check your FXML file 'GlobalSettings.fxml'.";
-        assert QUBITHelpdeskWebsite != null : "fx:id=\"QUBITHelpdeskWebsite\" was not injected: check your FXML file 'GlobalSettings.fxml'.";
-        assert westernTrustContactNumber != null : "fx:id=\"westernTrustContactNumber\" was not injected: check your FXML file 'GlobalSettings.fxml'.";
-        assert absencesEmailAddress != null : "fx:id=\"absencesEmailAddress\" was not injected: check your FXML file 'GlobalSettings.fxml'.";
-
-    }
+	@FXML
+	void initialize() {
+		javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
+		image.setImage(i);
+		try {
+			Map<String, String> info = SQL.importGlobalSettings();
+			
+			System.out.println(info.size());
+			southernTrustContactNo.setText(info.get("Southern Trust Contact Number"));
+			southEasternTrustContactNumber.setText(info.get("South Eastern Trust"));
+			schoolOfMedicineEmailAddress.setText(info.get("School of Medicine Email "));
+			personalDayAllowance.setText(info.get("Personal Day Allowance"));
+			belfastTrustContactNumber.setText(info.get("Belfast Trust Contact Number"));
+			northernTrustContactNumber.setText(info.get("Northern Trust Contact Number"));
+			personalDayPolicy.setText(info.get("Personal Day Policy"));
+			forgottenPasswordLink.setText(info.get("Forgotten Password Link "));
+			schoolOfMedicineContactNumber.setText(info.get("School of Medicine Contact Number"));
+			findCurrentAbsencesPolicy.setText(info.get("Find Current Absences Policy "));
+			qubITOnlineForm.setText(info.get("QUB IT Online Form"));
+			QUBITHelpdeskWebsite.setText(info.get("QUB IT Helpdesk Website"));
+			westernTrustContactNumber.setText(info.get("Western Trust Contact Number"));
+			absencesEmailAddress.setText(info.get("Absences Email Address"));
+		} catch (SQLException e) {
+			GeneralMethods.show("Error when populating fields", "Error");
+			e.printStackTrace();
+		}
+		try {
+			changeFileLocation.setText(FileWriter.load());
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+	}
 }
