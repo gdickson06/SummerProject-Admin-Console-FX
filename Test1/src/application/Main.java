@@ -15,7 +15,7 @@ import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.sql.PlacementSQL;
 import uk.ac.qub.sql.SQL;
 import javafx.scene.Scene;
-
+import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 
 
@@ -37,7 +37,7 @@ public class Main extends Application {
 		scene.getStylesheets().add(Main.class.getResource("/uk/ac/qub/css/login2.css").toExternalForm());
 		primaryStage.setMaximized(true);
 		primaryStage.show();
-		
+		stage.getIcons().add(new Image("file:resources/toplogo.png"));
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			connection = DriverManager.getConnection(SQL.url, SQL.user, SQL.password);
