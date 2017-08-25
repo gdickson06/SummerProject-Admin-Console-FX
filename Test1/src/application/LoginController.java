@@ -12,6 +12,7 @@ import com.jfoenix.controls.JFXTextField;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.image.ImageView;
 import uk.ac.qub.churst.GeneralMethods;
 
@@ -20,6 +21,9 @@ import uk.ac.qub.objects.Staff;
 import uk.ac.qub.sql.StaffSQL;
 
 public class LoginController {
+	
+	@FXML
+	private Hyperlink info;
 
     @FXML
     private ResourceBundle resources;

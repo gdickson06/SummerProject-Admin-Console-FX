@@ -146,7 +146,7 @@ System.out.println(newStatement);
 
 			if(!results2.next()){
 				GeneralMethods.show("User not registered as staff within the admin console, please contact a current"
-						+ "admin user to add you" , "Warning");
+						+ " admin user to add you" , "Warning");
 			}else {
 
 			answer = new Staff(results2.getString("staff_number"), results2.getString("name"),

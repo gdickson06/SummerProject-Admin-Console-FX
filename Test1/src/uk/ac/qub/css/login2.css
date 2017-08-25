@@ -35,3 +35,16 @@
 	-fx-font-family: "Avenir";
 	-fx-font-size: 20px;
 }
+
+.hyperlink {
+	-fx-text-fill: #FFFFFF;
+	-fx-font-family: "Avenir";
+	-fx-font-size: 12px;
+}
+
+.hyperlink:hover {
+	-fx-text-fill: #FFFFFF;
+	-fx-font-family: "Avenir";
+	-fx-font-size: 12px;
+	-fx-underline:true;
+}

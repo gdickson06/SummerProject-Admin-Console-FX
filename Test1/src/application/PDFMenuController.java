@@ -6,14 +6,16 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import uk.ac.qub.churst.GeneralMethods;
 
 public class PDFMenuController {
+	
 	@FXML
-    private Label LogOut;
+	private Hyperlink logOut;
 
     @FXML
     private ResourceBundle resources;
@@ -80,7 +82,7 @@ public class PDFMenuController {
      */
     @FXML
     void initialize() {
-    	LogOut.setText("Not "+ ApplicationMethods.CurrentUser.getName()+ " log out");
+    	logOut.setText("Not "+ApplicationMethods.CurrentUser.getName()+ "? Log Out Here");
     	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
     	Image.setImage(i);
     	
