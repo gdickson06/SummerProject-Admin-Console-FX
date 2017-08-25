@@ -39,7 +39,7 @@ public class Main extends Application {
 		primaryStage.getIcons().add(popUpIcon);
 		primaryStage.setMaximized(true);
 		primaryStage.show();
-		
+		stage.getIcons().add(new Image("file:resources/toplogo.png"));
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			connection = DriverManager.getConnection(SQL.url, SQL.user, SQL.password);
