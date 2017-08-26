@@ -115,7 +115,7 @@ System.out.println(newStatement);
 		Connection connection = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			connection = DriverManager.getConnection(SQL.url, SQL.user, SQL.password);
+			connection = DriverManager.getConnection(SQL.QsisUrl, SQL.QsisUser, SQL.QsisPassword);
 		} catch (Exception e) {
 			GeneralMethods.show("Database connection error, please check your internet connection", "Error");
 		}
@@ -157,7 +157,7 @@ System.out.println(newStatement);
 		}
 		return answer;
 	}
-
+@Deprecated
 	/**
 	 * This method allows for a password to be changed 
 	 * @param username
