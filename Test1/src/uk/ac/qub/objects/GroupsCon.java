@@ -49,11 +49,9 @@ public class GroupsCon {
 	 * @param groups
 	 */
 	public void setGroups(String groups) {
-		if(!groups.isEmpty()){
+	
 			this.groups = groups;
-		} else {
-			throw new NullPointerException("No Group Entered");
-		}
+		
 	}
 	
 	/**
@@ -72,11 +70,9 @@ public class GroupsCon {
 	 * @param groups
 	 */
 	public void setCohort(String cohort) {
-		if(!cohort.isEmpty()){
+		
 			this.cohort = cohort;
-		} else {
-			throw new NullPointerException("No Cohort Entered");
-		}
+	
 	}
 	
 	/**

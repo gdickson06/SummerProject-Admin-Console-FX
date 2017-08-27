@@ -127,11 +127,9 @@ public class ExtendedAbsence {
 	 * @param staff
 	 */
 	public void setStaff(String staff) {
-		if (!staff.isEmpty()) {
+	
 			this.staff = staff;
-		} else {
-			throw new NullPointerException("No Staff Inputted");
-		}
+		
 	}
 
 	/**
@@ -151,11 +149,9 @@ public class ExtendedAbsence {
 	 * @param cohort
 	 */
 	public void setCohort(String cohort) {
-		if (!cohort.isEmpty()) {
+	
 			this.cohort = cohort;
-		} else {
-			throw new NullPointerException("No Cohort Entered");
-		}
+		
 	}
 
 	/**
@@ -175,11 +171,9 @@ public class ExtendedAbsence {
 	 * @param module
 	 */
 	public void setModule(String module) {
-		if (!module.isEmpty()) {
+	
 			this.module = module;
-		} else {
-			throw new NullPointerException("No Module Entered");
-		}
+		
 	}
 
 	/**
@@ -199,11 +193,9 @@ public class ExtendedAbsence {
 	 * @param date
 	 */
 	public void setDate(String date) {
-		if (!date.isEmpty()) {
+
 			this.date = date;
-		} else {
-			throw new NullPointerException("No Date Entered");
-		}
+	
 	}
 
 	/**
@@ -223,11 +215,9 @@ public class ExtendedAbsence {
 	 * @param studentNumber
 	 */
 	public void setStudentNumber(String studentNumber) {
-		if (!studentNumber.isEmpty()) {
+		
 			StudentNumber = studentNumber;
-		} else {
-			throw new NullPointerException("No Student Number Enterd");
-		}
+		
 	}
 
 	@Override

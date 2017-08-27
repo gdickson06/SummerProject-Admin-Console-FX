@@ -46,11 +46,9 @@ public class Room {
 	 * @param code
 	 */
 	public void setCode(String code) {
-		if(!code.isEmpty()){
+	
 			this.code = code;
-		} else {
-			throw new NullPointerException("No Room Code Entered");
-		}
+		
 	}
 	
 	/**
@@ -67,11 +65,9 @@ public class Room {
 	 * @param name
 	 */
 	public void setName(String name) {
-		if(!name.isEmpty()){
+	
 			this.name = name;
-		} else {
-			throw new NullPointerException("No Room Name Entered");
-		}
+	
 	}
 	
 	/**

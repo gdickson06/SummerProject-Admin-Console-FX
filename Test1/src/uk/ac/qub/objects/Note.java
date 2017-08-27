@@ -79,11 +79,9 @@ public class Note {
 	 * @param year
 	 */
 	public void setYear(int year) {
-		if (year >= 1 && year <= 5) {
+		
 			Year = year;
-		} else {
-			throw new IllegalArgumentException("Invalid Year Entered");
-		}
+		
 	}
 
 	/**
@@ -102,11 +100,9 @@ public class Note {
 	 * @param date
 	 */
 	public void setDate(String date) {
-		if (!date.isEmpty()) {
+		
 			Date = date;
-		} else {
-			throw new NullPointerException("No Start Date Entered");
-		}
+		
 	}
 
 	/**

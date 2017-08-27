@@ -257,12 +257,13 @@ public class Lecture {
 
 	/**
 	 * Below is the setter for setting the week parameter for the Lecture
-	 * object. If the week is not between 1-24 an exception will be thrown
+	 * object. If the week is not between 0-24 an exception will be thrown
+	 * We include 0 in case the week is not set
 	 * 
 	 * @param week
 	 */
 	public void setWeek(int week) {
-		if (week >= 1 && week <= 24) {
+		if (week >= 0 && week <= 24) {
 			Week = week;
 		} else {
 			throw new IllegalArgumentException("Invalid Week entered");
@@ -310,11 +311,9 @@ public class Lecture {
 	 * @param startDate
 	 */
 	public void setStartDate(String startDate) {
-		if (!startDate.isEmpty()) {
+	
 			this.startDate = startDate;
-		} else {
-			throw new NullPointerException("No Start Date Entered");
-		}
+		
 	}
 
 	/**
@@ -346,11 +345,9 @@ public class Lecture {
 	 * @param startTime
 	 */
 	public void setStartTime(String startTime) {
-		if (!startTime.isEmpty()) {
+	
 			StartTime = startTime;
-		} else {
-			throw new NullPointerException("No Start Time Entered");
-		}
+		
 	}
 
 	/**
@@ -369,11 +366,9 @@ public class Lecture {
 	 *            If the parameter is left empty an exception is thrown
 	 */
 	public void setEndTime(String endTime) {
-		if (!endTime.isEmpty()) {
+		
 			EndTime = endTime;
-		} else {
-			throw new NullPointerException("No End Time Entered");
-		}
+		
 	}
 
 	/**
@@ -428,11 +423,9 @@ public class Lecture {
 	 * @param subject
 	 */
 	public void setSubject(String subject) {
-		if (!subject.isEmpty()) {
+		
 			this.subject = subject;
-		} else {
-			throw new NullPointerException("No Subject Entered");
-		}
+		
 	}
 
 	/**
@@ -506,11 +499,9 @@ public class Lecture {
 	 * @param staff
 	 */
 	public void setStaff(String staff) {
-		if (!staff.isEmpty()) {
+
 			this.staff = staff;
-		} else {
-			throw new NullPointerException("No Staff Entered");
-		}
+		
 	}
 
 	/**

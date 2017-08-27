@@ -77,7 +77,7 @@ public class Student {
 	 * @param studentNumber
 	 */
 	public void setStudentNumber(int studentNumber) {
-		if (studentNumber >= 00000001 && studentNumber <= 99999999) {
+		if (studentNumber >= 00000000 && studentNumber <= 99999999) {
 			this.studentNumber = studentNumber;
 		} else {
 			throw new IllegalArgumentException("Invalid Student Number Entered");
@@ -100,11 +100,9 @@ public class Student {
 	 * @param lastName
 	 */
 	public void setLastName(String lastName) {
-		if (!lastName.isEmpty()) {
+	
 			this.lastName = lastName;
-		} else {
-			throw new NullPointerException("No Last Name entered");
-		}
+	
 	}
 
 	/**
@@ -123,11 +121,9 @@ public class Student {
 	 * @param firstName
 	 */
 	public void setFirstName(String firstName) {
-		if (!firstName.isEmpty()) {
-			this.firstName = firstName;
-		} else {
-			throw new NullPointerException("No First Name Entered");
-		}
+	
+this.firstName = firstName;
+	
 	}
 
 	/**
@@ -147,11 +143,9 @@ public class Student {
 	 * @param middleName
 	 */
 	public void setMiddleName(String middleName) {
-		if (!middleName.isEmpty()) {
-			this.middleName = middleName;
-		} else {
-			throw new NullPointerException("No Middle Name Entered");
-		}
+	
+			this.middleName=middleName;
+		
 	}
 
 	/**
@@ -190,11 +184,9 @@ public class Student {
 	 * @param name
 	 */
 	public void setName(String name) {
-		if (!name.isEmpty()) {
+	
 			this.name = name;
-		} else {
-			throw new NullPointerException("No Name Entered");
-		}
+	
 	}
 
 	/**
@@ -214,12 +206,10 @@ public class Student {
 	 * @param cohort
 	 */
 	public void setCohort(String cohort) {
-		if (!cohort.isEmpty()) {
-			this.cohort = cohort;
-		} else {
-			throw new NullPointerException("No Cohort Entered");
+
+			this.cohort=cohort;
 		}
-	}
+	
 
 	/**
 	 * Below is the getter for retrieving the Email Address parameter from the
@@ -239,11 +229,9 @@ public class Student {
 	 * @param email
 	 */
 	public void setEmail(String email) {
-		if (!email.isEmpty()) {
+		
 			this.email = email;
-		} else {
-			throw new NullPointerException("No Email Address");
-		}
+		
 	}
 
 	/**
@@ -343,12 +331,8 @@ public class Student {
 	 * @param year
 	 */
 	public void setYear(String year) {
-		if (year.equalsIgnoreCase("1") || year.equalsIgnoreCase("2") || year.equalsIgnoreCase("3")
-				|| year.equalsIgnoreCase("4") || year.equalsIgnoreCase("5")) {
-			this.year = year;
-		} else {
-			throw new IllegalArgumentException("Invalid year chosen");
-		}
+		this.year = year;
+		
 	}
 
 	/**

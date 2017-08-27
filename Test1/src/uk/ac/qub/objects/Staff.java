@@ -49,11 +49,9 @@ public class Staff {
 	 * @param staff_number
 	 */
 	public void setStaff_number(String staff_number) {
-		if(!staff_number.isEmpty()){
+	
 			this.staff_number = staff_number;
-		} else {
-			throw new NullPointerException("No Staff Number Entered");
-		}
+		
 	}
 	
 	/**
@@ -70,11 +68,9 @@ public class Staff {
 	 * @param name
 	 */
 	public void setName(String name) {
-		if(!name.isEmpty()){
+	
 			this.name = name;
-		} else {
-			throw new NullPointerException("No Name Entered");
-		}
+	
 	}
 	
 	/**
@@ -92,7 +88,7 @@ public class Staff {
 	 * @param access_level
 	 */
 	public void setAccess_level(String access_level) {
-		if(access_level.equalsIgnoreCase("Administrator")||access_level.equalsIgnoreCase("Module Coordinator")||access_level.equalsIgnoreCase("Lecturer")) {
+		if(access_level.equalsIgnoreCase("Administrator")||access_level.equalsIgnoreCase("Module Coordinator")||access_level.equalsIgnoreCase("Lecturer")||access_level.isEmpty()) {
 			this.access_level = access_level;
 		} else {
 			throw new IllegalArgumentException("Invalid Access Level Selected");

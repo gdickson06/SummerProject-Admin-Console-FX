@@ -43,32 +43,7 @@ public class Placement {
 		ModuleNumber = moduleNumber;
 	}
 	
-	/**
-	 * Below is the secondary constructor for the Placement
-	 * @param year
-	 * @param startDate
-	 * @param endDate
-	 * @param location
-	 * @param cohort
-	 * @param note
-	 * @param module
-	 * @param moduleNumber
-	 * @param preference
-	 */
-	public Placement(int year, String startDate, String endDate, String location, String cohort, String note,
-			String module, String moduleNumber, String preference) {
-		super();
-		Year = year;
-		StartDate = startDate;
-		EndDate = endDate;
-		Location = location;
-		Cohort = cohort;
-		Note = note;
-		Module = module;
-		ModuleNumber = moduleNumber;
-		Preference = preference;
-	}
-
+	
 	/**
 	 * Below is the default constructor with no args for the Placement class
 	 */
@@ -92,7 +67,7 @@ public class Placement {
 	 * @param id
 	 */
 	public void setId(int id) {
-		if (id >= 1) {
+		if (id >= 0) {
 			this.id = id;
 		} else {
 			throw new IllegalArgumentException("Invalid ID entered");
@@ -115,7 +90,7 @@ public class Placement {
 	 * @param year
 	 */
 	public void setYear(int year) {
-		if (year >= 1 && year <= 5) {
+		if (year >= 0 && year <= 5) {
 			Year = year;
 		} else {
 			throw new IllegalArgumentException("Invalid Year Entered");
@@ -138,11 +113,9 @@ public class Placement {
 	 * @param startDate
 	 */
 	public void setStartDate(String startDate) {
-		if(!startDate.isEmpty()){
+		
 			StartDate = startDate;
-		} else {
-			throw new NullPointerException("No Start Date Entered");
-		}
+	
 	}
 	
 	/**
@@ -161,11 +134,9 @@ public class Placement {
 	 * @param endDate
 	 */
 	public void setEndDate(String endDate) {
-		if(!endDate.isEmpty()){
+		
 			EndDate = endDate;
-		} else {
-			throw new NullPointerException("No End Date entered");
-		}
+		
 	}
 	
 	/**
@@ -183,11 +154,9 @@ public class Placement {
 	 * @param location
 	 */
 	public void setLocation(String location) {
-		if(!location.isEmpty()){
+	
 			Location = location;
-		} else {
-			throw new NullPointerException("No Location entered");
-			}
+	
 	}
 	
 	/**
@@ -223,11 +192,9 @@ public class Placement {
 	 * @param cohort
 	 */
 	public void setCohort(String cohort) {
-		if(!cohort.isEmpty()){
+	
 			Cohort = cohort;
-		} else {
-			throw new NullPointerException("No cohort entered");
-		}
+		
 	}
 	
 	/**
@@ -262,11 +229,9 @@ public class Placement {
 	 * @param module
 	 */
 	public void setModule(String module) {
-		if(!module.isEmpty()){
+	
 			Module = module;
-		} else {
-			throw new NullPointerException("No Module Entered");
-		}
+		
 	}
 	
 	/**
@@ -284,11 +249,9 @@ public class Placement {
 	 * @param moduleNumber
 	 */
 	public void setModuleNumber(String moduleNumber) {
-		if(!moduleNumber.isEmpty()){
+		
 			ModuleNumber = moduleNumber;
-		} else {
-			throw new NullPointerException("No Module Number Entered");
-		}
+		
 	}
 	
 	/**

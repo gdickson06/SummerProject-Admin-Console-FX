@@ -107,7 +107,7 @@ public class Absence {
 	 */
 	public void setStudentNumber(int studentNumber) {
 		try {
-			if (studentNumber >= 00000001 && StudentNumber <= 99999999) {
+			if (studentNumber >= 00000000 && StudentNumber <= 99999999) {
 				StudentNumber = studentNumber;
 			} else {
 				throw new IllegalArgumentException("Invalid Entry for Student Number");
@@ -215,16 +215,10 @@ public class Absence {
 	 * @param startTime
 	 */
 	public void setStartTime(String startTime) {
-		try {
-			if (!startTime.equals(null)) {
+	
 				StartTime = startTime;
-			} else {
-				throw new IllegalArgumentException("Start Time is Empty");
-			}
-		} catch (InputMismatchException e) {
-			System.err.println("Incorrect Input entered for Start Time");
-			e.printStackTrace();
-		}
+			
+		
 	}
 
 	/**
@@ -272,11 +266,9 @@ public class Absence {
 	 * @param reason
 	 */
 	public void setReason(String reason) {
-		if (!reason.isEmpty()) {
+		
 			Reason = reason;
-		} else {
-			throw new NullPointerException("No input entered for Reason");
-		}
+		
 	}
 
 	/**
