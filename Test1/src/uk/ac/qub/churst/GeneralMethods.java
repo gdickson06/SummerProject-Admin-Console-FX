@@ -31,7 +31,7 @@ public class GeneralMethods {
 	public static void ChangeScene(String fxml, String css) throws Exception {
 		
 		FXMLLoader loader = new FXMLLoader();
-		String FXML = "src/uk/ac/qub/fxml2/"+fxml+".fxml";
+		String FXML = "resources/uk/ac/qub/fxml/"+fxml+".fxml";
 		String CSS = "/uk/ac/qub/css/"+css+".css";
 		System.out.println(CSS);
 		FileInputStream mainMenu = new FileInputStream(FXML);

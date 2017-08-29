@@ -4,8 +4,7 @@ import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,19 +13,18 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.InputMismatchException;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-import com.jfoenix.controls.JFXComboBox;
+
 
 import application.Main;
-import javafx.scene.control.ProgressBar;
+
 import uk.ac.qub.churst.ConvertMethods;
-import uk.ac.qub.objects.GroupsCon;
+
 import uk.ac.qub.objects.Lecture;
 import uk.ac.qub.objects.Student;
 

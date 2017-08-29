@@ -1,18 +1,15 @@
 package uk.ac.qub.churst;
 
-import java.io.FileNotFoundException;
+
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.Writer;
+
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.InputMismatchException;
+
 import java.util.List;
 
 import com.opencsv.CSVReader;
-import com.opencsv.CSVWriter;
-
-import application.ApplicationMethods;
 
 import uk.ac.qub.objects.Lecture;
 import uk.ac.qub.objects.Placement;

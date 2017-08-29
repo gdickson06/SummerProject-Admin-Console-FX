@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.mysql.jdbc.log.NullLogger;
+
 
 public class PlacementTest {
 	
@@ -77,24 +77,7 @@ public class PlacementTest {
 		assertEquals(validModuleNumber, placement.getModuleNumber());
 	}
 	
-	/**
-	 * Testing the secondary constructor for the Placement class with 9 args
-	 * with valid values
-	 */
-	@Test
-	public void testPlacementConstructorValidNineArgs() {
-		Placement placement = new Placement(validYearLowerBoundary, validStartDate, validEndDate, validLocation, validCohort, validNote, validModule, validModuleNumber, validPreference);
-		assertNotNull(placement);
-		assertEquals(validYearLowerBoundary, placement.getYear());
-		assertEquals(validStartDate, placement.getStartDate());
-		assertEquals(validEndDate, placement.getEndDate());
-		assertEquals(validLocation, placement.getLocation());
-		assertEquals(validCohort, placement.getCohort());
-		assertEquals(validNote, placement.getNote());
-		assertEquals(validModule, placement.getModule());
-		assertEquals(validModuleNumber, placement.getModuleNumber());
-		assertEquals(validPreference, placement.getPreference());
-	}
+	
 	
 	/**
 	 * Testing the default constructor for the Placement class with no args

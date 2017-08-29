@@ -8,7 +8,7 @@ import java.util.List;
 import com.jfoenix.controls.JFXComboBox;
 
 import javafx.scene.control.Label;
-import uk.ac.qub.churst.GeneralMethods;
+
 import uk.ac.qub.objects.Staff;
 
 public class ApplicationMethods {

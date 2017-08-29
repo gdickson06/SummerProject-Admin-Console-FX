@@ -2,16 +2,13 @@ package uk.ac.qub.churst;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Time;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Date;
-import java.util.HashMap;
+
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -22,7 +19,7 @@ import java.util.TreeMap;
 import uk.ac.qub.objects.Absence;
 import uk.ac.qub.objects.ExtendedAbsence;
 import uk.ac.qub.objects.Lecture;
-import uk.ac.qub.objects.Student;
+
 import uk.ac.qub.sql.SQL;
 
 public class AbsenceTrends {
@@ -44,7 +41,7 @@ public class AbsenceTrends {
 	 * @throws SQLException
 	 */
 	
-	public static List<Absence> unfilteredAbsence(){
+	public static List<Absence> unfilteredAbsence() throws SQLException{
 		ResultSet r;
 
 		List<Absence> absences = new ArrayList<Absence>();
@@ -55,10 +52,7 @@ public class AbsenceTrends {
 			if (r.next()) {
 
 				do {
-					Absence a = new Absence(r.getInt("id"), r.getInt("StudentNumber"), r.getInt("LectureID"),
-							r.getString("StartDate"), r.getString("EndDate"), r.getString("StartTime"),
-							r.getString("EndTime"), r.getString("Reason"), r.getString("Type"),
-							r.getBoolean("Approved"),);
+					Absence a = new Absence();
 
 					absences.add(a);
 				} while (r.next());
@@ -140,10 +134,7 @@ public class AbsenceTrends {
 			if (r.next()) {
 
 				do {
-					Absence a = new Absence(r.getInt("id"), r.getInt("StudentNumber"), r.getInt("LectureID"),
-							r.getString("StartDate"), r.getString("EndDate"), r.getString("StartTime"),
-							r.getString("EndTime"), r.getString("Reason"), r.getString("Type"),
-							r.getBoolean("Approved"));
+					Absence a = new Absence();
 
 					absences.add(a);
 				} while (r.next());
@@ -295,7 +286,7 @@ public class AbsenceTrends {
 		String StudentNumber = String.valueOf(a.getStudentNumber());
 		String StartDate = a.getStartDate();
 		String EndDate = a.getEndDate();
-		LocalTime StartTime = LocalTime.parse(a.getStartTime());
+		//LocalTime StartTime = LocalTime.parse(a.getStartTime());
 		LocalTime EndTime = LocalTime.parse(a.getEndTime());
 		List<LocalDate> date = dates(StartDate, EndDate);
 		String Cohort = null;
@@ -417,7 +408,7 @@ public class AbsenceTrends {
 		s.addAll(years);
 
 		for (String year : s) {
-			data.put("Year " +String.valueOf(ConvertMethods.DeconvertYear(Integer.parseInt(year))), (double) Collections.frequency(years, year));
+			data.put("Year " +String.valueOf(Integer.parseInt(year)), (double) Collections.frequency(years, year));
 		}
 		System.out.println(absences.size());
 		double average = (double)(absences.size())/5;

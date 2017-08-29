@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UploadSinglePlacementController">
+   <children>
+      <JFXButton layoutX="912.0" layoutY="564.0" onAction="#MainMenuButtonClick" text="Return to Main Menu" />
+      <JFXButton layoutX="566.0" layoutY="564.0" onAction="#PlacementMenuButtonClick" text="Return to Placements Menu" />
+      <JFXButton layoutX="398.0" layoutY="564.0" onAction="#Clear" text="Clear" />
+      <JFXButton layoutX="57.0" layoutY="564.0" onAction="#upload" text="Add Placement to Database" />
+      <JFXTextField fx:id="moduleNumber" focusColor="WHITE" labelFloat="true" layoutX="740.0" layoutY="228.0" prefHeight="35.0" prefWidth="246.0" promptText="Enter Module Number Here" unFocusColor="WHITE" />
+      <JFXTextField fx:id="module" focusColor="WHITE" labelFloat="true" layoutX="208.0" layoutY="459.0" prefHeight="35.0" prefWidth="262.0" promptText="Enter Module Here" unFocusColor="WHITE" />
+      <JFXTextField fx:id="group" focusColor="WHITE" labelFloat="true" layoutX="206.0" layoutY="228.0" prefHeight="35.0" prefWidth="262.0" promptText="Enter Group Here" unFocusColor="WHITE" />
+      <Label layoutX="570.0" layoutY="238.0" text="Module Number:" />
+      <Label layoutX="91.0" layoutY="466.0" text="Module:" />
+      <Label layoutX="82.0" layoutY="388.0" text="End Date:" />
+      <Label layoutX="73.0" layoutY="311.0" text="Start Date:" />
+      <Label layoutX="103.0" layoutY="238.0" text="Group:" />
+      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
+      <Label layoutX="400.0" layoutY="125.0" prefHeight="27.0" prefWidth="908.0" text="Upload a Single Placement to the Database by filling in all the below fields" />
+      <DatePicker fx:id="startDate" layoutX="206.0" layoutY="301.0" promptText="Select Start Date" />
+      <DatePicker fx:id="endDate" layoutX="206.0" layoutY="378.0" promptText="Select End Date" />
+      <Label layoutX="632.0" layoutY="311.0" text="Hospital:" />
+      <JFXTextField fx:id="hospital" focusColor="WHITE" labelFloat="true" layoutX="740.0" layoutY="301.0" prefHeight="35.0" prefWidth="246.0" promptText="Enter Hospital Here" unFocusColor="WHITE" />
+      <Label layoutX="661.0" layoutY="388.0" text="Year:" />
+      <JFXTextField fx:id="preference" focusColor="WHITE" labelFloat="true" layoutX="740.0" layoutY="459.0" prefHeight="35.0" prefWidth="246.0" promptText="Enter Preferences Here" unFocusColor="WHITE" />
+      <Label layoutX="613.0" layoutY="466.0" text="Preference:" />
+      <JFXComboBox fx:id="year" focusColor="WHITE" labelFloat="true" layoutX="740.0" layoutY="378.0" prefHeight="35.0" prefWidth="246.0" promptText="Select Year" unFocusColor="WHITE" />
+   </children>
+</AnchorPane>

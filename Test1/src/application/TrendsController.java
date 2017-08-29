@@ -18,7 +18,7 @@ import javafx.scene.control.TextField;
 import uk.ac.qub.churst.AbsenceTrends;
 import uk.ac.qub.objects.Absence;
 import uk.ac.qub.objects.ExtendedAbsence;
-import uk.ac.qub.sql.SQL;
+
 
 public class TrendsController {
 
@@ -40,8 +40,7 @@ public class TrendsController {
     @FXML
     private ComboBox<String> DayInfo;
 
-    @FXML
-    private  LineChart p ;
+   
 
     @FXML
     private  ComboBox<String> ModuleInfo;
@@ -156,11 +155,11 @@ days.add("FRIDAY");
     	
     	
     	TypeInfo.getItems().addAll(types);
-    	ModuleInfo.getItems().addAll(SQL.Modules());
+    	//ModuleInfo.getItems().addAll(SQL.Modules());
     	DayInfo.getItems().addAll(days);
     	YearInfo.getItems().addAll(years);
-    	ApplicationMethods.AbsenceTypes(TypeInfo);
-    	StaffInfo.getItems().addAll(SQL.Staff());
+    	//ApplicationMethods.AbsenceTypes(TypeInfo);
+    	//StaffInfo.getItems().addAll(SQL.Staff());
     	TypeBox.getItems().add("Pie Chart");
     	TypeBox.getItems().add("Bar Chart");
     	

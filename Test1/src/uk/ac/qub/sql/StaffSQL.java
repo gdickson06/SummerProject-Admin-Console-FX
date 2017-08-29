@@ -11,7 +11,7 @@ import java.util.List;
 import application.Main;
 import uk.ac.qub.churst.GeneralMethods;
 import uk.ac.qub.objects.Staff;
-import uk.ac.qub.objects.Staff;
+
 
 public class StaffSQL {
 	/**

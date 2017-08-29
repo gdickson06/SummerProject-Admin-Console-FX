@@ -1,18 +1,14 @@
 package application;
 
-
-import java.io.FileInputStream;
-
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import uk.ac.qub.churst.GeneralMethods;
-import uk.ac.qub.sql.PlacementSQL;
+
 import uk.ac.qub.sql.SQL;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -30,7 +26,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws IOException {
 
 		setStage(primaryStage);
-		AnchorPane root = FXMLLoader.load(getClass().getResource("/uk/ac/qub/fxml2/Login2.fxml"));
+		AnchorPane root = FXMLLoader.load(getClass().getResource("/uk/ac/qub/fxml/Login2.fxml"));
 		Scene scene = new Scene(root, 900, 700);
 		primaryStage.setTitle("QUB School of Medicine Timetable and Absence Notification Administration Console");
 		primaryStage.setScene(scene);

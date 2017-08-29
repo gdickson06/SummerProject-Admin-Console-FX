@@ -3,9 +3,9 @@ package uk.ac.qub.churst;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
+
 import java.io.FileReader;
-import java.io.FilterWriter;
+
 import java.io.IOException;
 
 public class FileWriter {

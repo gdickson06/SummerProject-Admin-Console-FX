@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SelectedUserController">
+   <children>
+      <Label layoutX="400.0" layoutY="125.0" prefHeight="27.0" prefWidth="901.0" text="Update by clicking 'Save Details', or click 'Delete Staff Member' to remove from database." />
+      <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable Administration Portal" />
+      <ImageView fx:id="image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+      <JFXButton layoutX="94.0" layoutY="492.0" onAction="#saveDetails" text="Save Details" />
+      <JFXButton layoutX="279.0" layoutY="492.0" onAction="#deleteStaffMember" text="Delete Staff Member" />
+      <JFXButton layoutX="537.0" layoutY="492.0" onAction="#returnStaffMenu" text="Return to Staff Screen" />
+      <JFXButton layoutX="805.0" layoutY="492.0" onAction="#home" text="Return to Main Menu" />
+      <JFXButton layoutX="1064.0" layoutY="492.0" onAction="#back" text="Return to Search" />
+      <JFXTextField fx:id="name" focusColor="WHITE" layoutX="460.0" layoutY="297.0" prefHeight="33.0" prefWidth="483.0" promptText="Enter Name Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <Label layoutX="379.0" layoutY="301.0" text="Name:" />
+      <Label layoutX="328.0" layoutY="373.0" text="Access Level:" />
+      <JFXComboBox fx:id="accessLevel" focusColor="WHITE" layoutX="460.0" layoutY="367.0" prefHeight="39.0" prefWidth="494.0" promptText="Select Access Level" unFocusColor="WHITE" />
+      <Label fx:id="staffNumber" layoutX="546.0" layoutY="175.0" text="Label" />
+      <Label layoutX="400.0" layoutY="175.0" text="Staff Number:" />
+   </children>
+</AnchorPane>

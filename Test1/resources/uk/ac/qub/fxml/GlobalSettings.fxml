@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GlobalSettingsController">
+   <children>
+      <ImageView fx:id="image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
+      <Label layoutX="400.0" layoutY="117.0" prefHeight="27.0" prefWidth="908.0" text="Click 'Save Details' to save changes, or 'Download User Guide' to download the PDF user guide" />
+      <Label layoutX="108.0" layoutY="209.0" text="Western Trust Contact No:" textFill="#0a0a0a" />
+      <Label layoutX="101.0" layoutY="258.0" text="Southern Trust Contact No:" />
+      <Label layoutX="61.0" layoutY="308.0" text="South Eastern Trust Contact No:" />
+      <Label layoutX="42.0" layoutY="415.0" text="School of Medicine Email Address:" />
+      <Label layoutX="64.0" layoutY="361.0" text="School of Medicine Contact No:" />
+      <Label layoutX="157.0" layoutY="470.0" text="QUB IT Online Form:" textFill="#111111" />
+      <Label layoutX="110.0" layoutY="523.0" text="QUB IT Helpdesk Website:" />
+      <Label layoutX="633.0" layoutY="523.0" text="Personal Day Policy:" />
+      <Label layoutX="597.0" layoutY="470.0" text="Absences Email Address:" />
+      <Label layoutX="593.0" layoutY="415.0" text="Belfast Trust Contact No:" />
+      <Label layoutX="556.0" layoutY="361.0" text="Find Current Absences Policy:" />
+      <Label layoutX="590.0" layoutY="308.0" text="Forgotten Password Link:" />
+      <Label layoutX="573.0" layoutY="258.0" text="Northern Trust Contact No:" />
+      <Label layoutX="599.0" layoutY="209.0" text="Personal Day Allowance:" />
+      <JFXTextField fx:id="westernTrustContactNumber" focusColor="WHITE" layoutX="343.0" layoutY="199.0" unFocusColor="WHITE" />
+      <JFXTextField fx:id="southernTrustContactNo" focusColor="WHITE" layoutX="343.0" layoutY="248.0" unFocusColor="WHITE" />
+      <JFXTextField fx:id="southEasternTrustContactNumber" focusColor="WHITE" layoutX="343.0" layoutY="298.0" unFocusColor="WHITE" />
+      <JFXTextField fx:id="schoolOfMedicineEmailAddress" focusColor="WHITE" layoutX="343.0" layoutY="351.0" unFocusColor="WHITE" />
+      <JFXTextField fx:id="schoolOfMedicineContactNumber" focusColor="WHITE" layoutX="343.0" layoutY="405.0" unFocusColor="WHITE" />
+      <JFXTextField fx:id="qubITOnlineForm" focusColor="WHITE" layoutX="343.0" layoutY="460.0" unFocusColor="WHITE" />
+      <JFXTextField fx:id="QUBITHelpdeskWebsite" focusColor="WHITE" layoutX="343.0" layoutY="513.0" unFocusColor="WHITE" />
+      <JFXTextField fx:id="personalDayPolicy" focusColor="WHITE" layoutX="824.0" layoutY="513.0" unFocusColor="WHITE" />
+      <JFXTextField fx:id="absencesEmailAddress" focusColor="WHITE" layoutX="824.0" layoutY="460.0" unFocusColor="WHITE" />
+      <JFXTextField fx:id="belfastTrustContactNumber" focusColor="WHITE" layoutX="824.0" layoutY="405.0" unFocusColor="WHITE" />
+      <JFXTextField fx:id="findCurrentAbsencesPolicy" focusColor="WHITE" layoutX="824.0" layoutY="351.0" unFocusColor="WHITE" />
+      <JFXTextField fx:id="forgottenPasswordLink" focusColor="WHITE" layoutX="824.0" layoutY="298.0" unFocusColor="WHITE" />
+      <JFXTextField fx:id="northernTrustContactNumber" focusColor="WHITE" layoutX="824.0" layoutY="248.0" unFocusColor="WHITE" />
+      <JFXTextField fx:id="personalDayAllowance" focusColor="WHITE" layoutX="824.0" layoutY="199.0" unFocusColor="WHITE" />
+      <JFXButton layoutX="1060.0" layoutY="203.0" onAction="#saveDetails" text="Save Details" />
+      <JFXButton layoutX="1060.0" layoutY="321.0" onAction="#downloadUserGuide" text="Download User Guide" />
+      <JFXButton layoutX="1060.0" layoutY="455.0" onAction="#returnMainMenu" text="Return to Main Menu" />
+      <Label layoutX="148.0" layoutY="585.0" text="Change File Location:" />
+      <JFXTextField fx:id="changeFileLocation" focusColor="WHITE" layoutX="343.0" layoutY="581.0" unFocusColor="WHITE" />
+      <Label layoutX="400.0" layoutY="148.0" text="You can also update your password and change your file location for downloading spreadsheets" />
+      <JFXButton layoutX="1060.0" layoutY="579.0" onAction="#ChangePassword" text="Change Password" />
+      <JFXButton layoutX="584.0" layoutY="579.0" onAction="#ChangeFileLocation" text="Change File Save Location" />
+   </children>
+</AnchorPane>

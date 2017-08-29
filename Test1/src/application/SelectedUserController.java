@@ -10,17 +10,16 @@ import com.jfoenix.controls.JFXTextField;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
+
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
+
 import uk.ac.qub.churst.GeneralMethods;
 
 import uk.ac.qub.objects.Staff;
 
-import uk.ac.qub.sql.SQL;
+
 import uk.ac.qub.sql.StaffSQL;
 
 public class SelectedUserController {

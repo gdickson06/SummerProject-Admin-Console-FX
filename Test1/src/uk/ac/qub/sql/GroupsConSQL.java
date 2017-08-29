@@ -1,7 +1,6 @@
 package uk.ac.qub.sql;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
+
 import java.sql.PreparedStatement;
 import java.util.HashSet;
 import java.util.List;

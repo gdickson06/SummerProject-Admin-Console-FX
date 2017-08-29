@@ -7,13 +7,12 @@ import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
+
 import javafx.scene.control.DatePicker;
 import javafx.scene.image.ImageView;
 import uk.ac.qub.churst.GeneralMethods;
@@ -105,10 +104,7 @@ public class UploadSingleLectureController {
     void uploadLectureButtonClick(ActionEvent event) throws Exception {
     	
     	Lecture l = new Lecture();
-    	Boolean essential =false;
-    	if(optional.isSelected()){
-    		essential=true;
-    	}
+    
     	
 		
     	

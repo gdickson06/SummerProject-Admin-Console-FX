@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UploadSingleStudentController">
+   <children>
+      <Label layoutX="400.0" layoutY="125.0" prefHeight="27.0" prefWidth="736.0" text="Upload a Single Student to the Database by filling in all the below fields" />
+      <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
+      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="75.0" layoutY="208.0" text="Student Number:" />
+      <Label layoutX="122.0" layoutY="284.0" text="First Name:" />
+      <Label layoutX="137.0" layoutY="355.0" text="Surname:" />
+      <Label layoutX="100.0" layoutY="431.0" text="Middle Name:" />
+      <Label layoutX="96.0" layoutY="503.0" text="Email Address:" />
+      <JFXTextField fx:id="studentNumber" focusColor="WHITE" layoutX="237.0" layoutY="200.0" prefHeight="35.0" prefWidth="185.0" promptText="Enter Student Number" unFocusColor="WHITE" />
+      <JFXTextField fx:id="firstName" focusColor="WHITE" layoutX="237.0" layoutY="276.0" prefHeight="35.0" prefWidth="185.0" promptText="Enter First Name" unFocusColor="WHITE" />
+      <JFXTextField fx:id="surname" focusColor="WHITE" layoutX="237.0" layoutY="347.0" prefHeight="35.0" prefWidth="185.0" promptText="Enter Surname" unFocusColor="WHITE" />
+      <JFXTextField fx:id="middleName" focusColor="WHITE" layoutX="237.0" layoutY="423.0" prefHeight="35.0" prefWidth="185.0" promptText="Enter Middle Name" unFocusColor="WHITE" />
+      <JFXTextField fx:id="emailAddress" focusColor="WHITE" layoutX="237.0" layoutY="499.0" prefHeight="35.0" prefWidth="185.0" promptText="Enter Email Address" unFocusColor="WHITE" />
+      <JFXButton layoutX="100.0" layoutY="596.0" onAction="#uploadStudent" text="Add Student to Database" />
+      <JFXButton layoutX="988.0" layoutY="596.0" onAction="#clear" text="Clear" />
+      <JFXButton layoutX="679.0" layoutY="596.0" onAction="#studentMenu" text="Return to Student Menu" />
+      <JFXButton layoutX="381.0" layoutY="596.0" onAction="#mainMenu" text="Return to Main Menu" />
+      <Label layoutX="527.0" layoutY="207.0" text="Prefix:" />
+      <Label layoutX="523.0" layoutY="284.0" text="Name:" />
+      <Label layoutX="516.0" layoutY="355.0" text="Cohort:" />
+      <Label layoutX="484.0" layoutY="431.0" text="Nationality:" />
+      <JFXTextField fx:id="nationality" focusColor="WHITE" layoutX="600.0" layoutY="424.0" prefHeight="35.0" prefWidth="185.0" promptText="Enter Nationality" unFocusColor="WHITE" />
+      <JFXTextField fx:id="cohort" focusColor="WHITE" layoutX="600.0" layoutY="348.0" prefHeight="35.0" prefWidth="185.0" promptText="Enter Cohort e.g. A1" unFocusColor="WHITE" />
+      <JFXTextField fx:id="name" focusColor="WHITE" layoutX="600.0" layoutY="277.0" prefHeight="35.0" prefWidth="185.0" promptText="Enter Name" unFocusColor="WHITE" />
+      <JFXTextField fx:id="portfolio" focusColor="WHITE" layoutX="964.0" layoutY="200.0" prefHeight="35.0" prefWidth="185.0" promptText="Enter Portfolio" unFocusColor="WHITE" />
+      <Label layoutX="857.0" layoutY="207.0" text="Portfolio:" />
+      <JFXComboBox fx:id="year" focusColor="WHITE" layoutX="964.0" layoutY="276.0" prefHeight="35.0" prefWidth="185.0" promptText="Select Year" unFocusColor="WHITE" />
+      <Label layoutX="891.0" layoutY="282.0" text="Year:" />
+      <JFXTextArea fx:id="comments" focusColor="WHITE" labelFloat="true" layoutX="857.0" layoutY="358.0" prefHeight="173.0" prefWidth="291.0" promptText="Enter Comments Here" unFocusColor="WHITE" />
+      <Label layoutX="497.0" layoutY="508.0" text="Graduate:" />
+      <JFXTextField fx:id="Graduate" focusColor="WHITE" layoutX="600.0" layoutY="501.0" prefHeight="35.0" prefWidth="185.0" promptText="Enter Graduate Information" unFocusColor="WHITE" />
+      <JFXTextField fx:id="prefix" focusColor="WHITE" layoutX="600.0" layoutY="200.0" prefHeight="35.0" prefWidth="185.0" promptText="Enter Prefix" unFocusColor="WHITE" />
+   </children>
+</AnchorPane>

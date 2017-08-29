@@ -111,7 +111,7 @@ public class GlobalSettingsController {
 	void downloadUserGuide(ActionEvent event) {
 		
 		 try {
-			Desktop.getDesktop().open(new File("Javafx For Dummies.pdf"));
+			Desktop.getDesktop().open(new File("Administration Console User Guide.pdf"));
 		} catch (IOException e) {
 			GeneralMethods.show("Error in opening user guide", "Error");
 		}

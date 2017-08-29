@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import org.controlsfx.control.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.InputPDFController">
+   <children>
+      <Label layoutX="403.0" layoutY="237.0" text="Tutorial ID" />
+      <JFXTextField fx:id="Lecture" focusColor="WHITE" labelFloat="true" layoutX="515.0" layoutY="232.0" prefHeight="35.0" prefWidth="372.0" unFocusColor="WHITE" />
+      <CheckListView fx:id="Students" layoutX="87.0" layoutY="311.0" prefHeight="191.0" prefWidth="1144.0" />
+      <JFXButton layoutX="109.0" layoutY="562.0" onAction="#LogAbsences" text="Log Absences" />
+      <JFXButton layoutX="390.0" layoutY="562.0" onAction="#PickLecture" text="Change Tutorials" />
+      <JFXButton layoutX="695.0" layoutY="562.0" onAction="#returnToPDFMenu" text="Return to PDF Menu" />
+      <JFXButton layoutX="1001.0" layoutY="562.0" onAction="#returnToMainMenu" text="Return to Main Menu" />
+      <Label fx:id="LectureInfo" layoutX="400.0" layoutY="166.0" prefHeight="39.0" prefWidth="701.0" />
+      <Label layoutX="400.0" layoutY="125.0" prefHeight="27.0" prefWidth="901.0" text="Click 'Log Absences' to save absences, and click 'Change Tutorials' to search for new tutorial" />
+      <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
+      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>
