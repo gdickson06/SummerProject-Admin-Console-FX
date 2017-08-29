@@ -9,7 +9,7 @@ import java.sql.Statement;
 import java.util.List;
 
 import application.Main;
-import uk.ac.qub.churst.GeneralMethods;
+import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Staff;
 
 

@@ -11,7 +11,7 @@ import javafx.scene.control.Hyperlink;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import uk.ac.qub.churst.GeneralMethods;
+import uk.ac.qub.methods.GeneralMethods;
 
 public class LectureMenuController {
 	@FXML

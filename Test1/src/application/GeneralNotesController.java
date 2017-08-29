@@ -17,7 +17,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import uk.ac.qub.churst.GeneralMethods;
+import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Note;
 import uk.ac.qub.sql.NoteSQL;
 

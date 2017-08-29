@@ -15,7 +15,7 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import uk.ac.qub.churst.AbsenceTrends;
+import uk.ac.qub.methods.AbsenceTrends;
 import uk.ac.qub.objects.Absence;
 import uk.ac.qub.objects.ExtendedAbsence;
 

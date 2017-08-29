@@ -18,7 +18,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import uk.ac.qub.churst.GeneralMethods;
+import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Lecture;
 import uk.ac.qub.sql.LectureSQL;
 import uk.ac.qub.sql.SearchQueries;

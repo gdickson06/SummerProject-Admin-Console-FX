@@ -286,12 +286,8 @@ public class Lecture {
 	 * @param day
 	 */
 	public void setDay(String day) {
-		if (day.equalsIgnoreCase("Monday") || day.equalsIgnoreCase("Tuesday") || day.equalsIgnoreCase("Wednesday")
-				|| day.equalsIgnoreCase("Thursday") || day.equalsIgnoreCase("Friday")) {
-			Day = day;
-		} else {
-			throw new IllegalArgumentException("Invalid Day Entered");
-		}
+		Day = day;
+		
 	}
 
 	/**

@@ -15,8 +15,8 @@ import javafx.fxml.FXML;
 
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
-import uk.ac.qub.churst.CSV;
-import uk.ac.qub.churst.GeneralMethods;
+import uk.ac.qub.methods.CSV;
+import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Lecture;
 import uk.ac.qub.sql.LectureSQL;
 

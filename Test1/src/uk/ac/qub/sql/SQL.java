@@ -22,9 +22,7 @@ import java.util.TreeSet;
 
 
 import application.Main;
-
-import uk.ac.qub.churst.ConvertMethods;
-
+import uk.ac.qub.methods.ConvertMethods;
 import uk.ac.qub.objects.Lecture;
 import uk.ac.qub.objects.Student;
 

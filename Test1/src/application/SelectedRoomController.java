@@ -10,7 +10,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
-import uk.ac.qub.churst.GeneralMethods;
+import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Room;
 import uk.ac.qub.sql.RoomSQL;
 

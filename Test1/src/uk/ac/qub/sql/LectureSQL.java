@@ -7,9 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import application.Main;
-
-import uk.ac.qub.churst.ConvertMethods;
-import uk.ac.qub.churst.GeneralMethods;
+import uk.ac.qub.methods.ConvertMethods;
+import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Lecture;
 
 public class LectureSQL {

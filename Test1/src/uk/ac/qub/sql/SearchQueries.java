@@ -5,8 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import uk.ac.qub.churst.ConvertMethods;
-
+import uk.ac.qub.methods.ConvertMethods;
 import uk.ac.qub.objects.Absence;
 import uk.ac.qub.objects.Lecture;
 import uk.ac.qub.objects.Placement;

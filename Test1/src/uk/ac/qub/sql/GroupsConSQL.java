@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 import application.Main;
-import uk.ac.qub.churst.ConvertMethods;
+import uk.ac.qub.methods.ConvertMethods;
 import uk.ac.qub.objects.GroupsCon;
 import uk.ac.qub.objects.Lecture;
 

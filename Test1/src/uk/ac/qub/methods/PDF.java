@@ -1,4 +1,4 @@
-package uk.ac.qub.churst;
+package uk.ac.qub.methods;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

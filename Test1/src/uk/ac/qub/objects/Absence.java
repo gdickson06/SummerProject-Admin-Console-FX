@@ -9,7 +9,7 @@ package uk.ac.qub.objects;
 import java.time.LocalDate;
 import java.util.InputMismatchException;
 
-import uk.ac.qub.churst.GeneralMethods;
+import uk.ac.qub.methods.GeneralMethods;
 
 public class Absence {
 

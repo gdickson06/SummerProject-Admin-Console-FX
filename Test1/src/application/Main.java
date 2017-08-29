@@ -7,8 +7,7 @@ import java.sql.DriverManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
-import uk.ac.qub.churst.GeneralMethods;
-
+import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.sql.SQL;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
