@@ -59,8 +59,8 @@ public class AbsenceMenuController {
     }
 
     @FXML
-    void absenceTrendsButtonClick(ActionEvent event) {
-    	//to be completed
+    void absenceTrendsButtonClick(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("AbsenceTrends", "AbsenceTrends");
     }
 	/**
 	 * This method will log the current user out, it will clear the current user

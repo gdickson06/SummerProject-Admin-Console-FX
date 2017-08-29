@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.absenceTrendsController">
+   <children>
+      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="400.0" layoutY="152.0" text="Once this is done, click on the relevant button in order to populate absence trends for each category" />
+      <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#76001b" height="207.0" layoutX="37.0" layoutY="196.0" stroke="WHITE" strokeType="INSIDE" width="599.0" />
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#76001b" height="169.0" layoutX="69.0" layoutY="421.0" stroke="WHITE" strokeType="INSIDE" width="528.0" />
+      <DatePicker fx:id="startDate" layoutX="153.0" layoutY="209.0" prefHeight="39.0" prefWidth="165.0" promptText="dd/mm/yyyy" />
+      <DatePicker fx:id="endDate" layoutX="428.0" layoutY="209.0" prefHeight="39.0" prefWidth="165.0" promptText="dd/mm/yyyy" />
+      <Label layoutX="56.0" layoutY="225.0" text="Start Date:" />
+      <Label layoutX="337.0" layoutY="225.0" text="End Date:" />
+      <Label layoutX="105.0" layoutY="283.0" text="Year:" />
+      <Label layoutX="348.0" layoutY="283.0" text="Module:" />
+      <JFXComboBox fx:id="year" focusColor="WHITE" layoutX="153.0" layoutY="277.0" prefHeight="39.0" prefWidth="165.0" promptText="Select Year" unFocusColor="WHITE" />
+      <JFXComboBox fx:id="module" focusColor="WHITE" layoutX="428.0" layoutY="277.0" prefHeight="39.0" prefWidth="165.0" promptText="Select Module" unFocusColor="WHITE" />
+      <Label layoutX="113.0" layoutY="353.0" text="Student Number:" />
+      <JFXTextField focusColor="WHITE" layoutX="255.0" layoutY="339.0" prefHeight="35.0" prefWidth="231.0" promptText="Enter Student Number" unFocusColor="WHITE" />
+      <Label layoutX="135.0" layoutY="426.0" prefHeight="27.0" prefWidth="572.0" text="Select a button to view absence trends for each category" />
+      <Button layoutX="120.0" layoutY="468.0" mnemonicParsing="false" onAction="#dayClick" text="Day" />
+      <Button layoutX="225.0" layoutY="468.0" mnemonicParsing="false" onAction="#staffClick" text="Staff" />
+      <Button layoutX="336.0" layoutY="468.0" mnemonicParsing="false" onAction="#yearClick" text="Year" />
+      <Button layoutX="445.0" layoutY="468.0" mnemonicParsing="false" onAction="#moduleClick" text="Module" />
+      <Button layoutX="198.0" layoutY="533.0" mnemonicParsing="false" onAction="#topTenStudentClick" text="Top Ten Students by Absence" />
+      <Button layoutX="718.0" layoutY="591.0" mnemonicParsing="false" onAction="#returnAbsencesMenu" text="Return to Absences Menu" />
+      <Button layoutX="991.0" layoutY="591.0" mnemonicParsing="false" onAction="#returnMainMenu" text="Return to Main Menu" />
+      <Label fx:id="graph" layoutX="695.0" layoutY="196.0" prefHeight="376.0" prefWidth="507.0" />
+      <Label layoutX="400.0" layoutY="120.0" text="Please select a start date, end date, year, module or enter student number to begin the process." />
+   </children>
+</AnchorPane>
