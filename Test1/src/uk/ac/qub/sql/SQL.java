@@ -121,31 +121,25 @@ public class SQL {
 	        pw.close();
 	        Desktop.getDesktop().open(file);
 	}
-	public static List<Lecture> myLectures(String group, LocalDate Date) throws SQLException {
+	public static List<Lecture> myLectures(String group, LocalDate Date, int year) throws SQLException {
 		List<Lecture> mine = null;
 
 		mine = new ArrayList<Lecture>();
 
-		// int week, int id, String day, String startDate, String startTime,
-		// String endTime, String group,
-		// String location, String subject, String theme, String teachingFormat,
-		// String description, String staff,
-		// String style, String module,Boolean essential, String year, String
-		// notes
 		String SqlQuery;
-		SqlQuery = "SELECT * FROM Lectures WHERE StartDate = '" + Date + "';";
+		SqlQuery = "SELECT * FROM Lectures WHERE date = '" + Date + "' AND year='"+year+"';";
 		Statement statement = Main.connection.createStatement();
-
+		System.out.println(SqlQuery);
 		ResultSet results = statement.executeQuery(SqlQuery);
 
 		List<Lecture> lectures = new ArrayList<Lecture>();
 		while (results.next()) {
-			lectures.add(new Lecture(results.getInt("week"), results.getInt("id"), results.getString("day"),
+			lectures.add(new Lecture(results.getInt("week"), results.getInt("lecture_id"), results.getString("day"),
 					results.getString("date"), results.getString("start_time"), results.getString("end_time"),
 					results.getString("groups"), results.getString("location"), results.getString("subject"),
 					results.getString("theme"), results.getString("teaching"), results.getString("description"),
 					results.getString("staff"), results.getString("style"), results.getString("module"),
-					results.getBoolean("essential"), results.getString("year"), results.getString("notes")));
+					results.getBoolean("optional"), results.getString("year"), results.getString("notes")));
 		}
 
 		for (Lecture l : lectures) {
@@ -268,7 +262,8 @@ public class SQL {
 			} while (r.next());
 
 		}
-
+		
+		modules.remove("Holiday");
 		return modules;
 	}
 	

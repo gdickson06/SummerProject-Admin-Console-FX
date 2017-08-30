@@ -2,7 +2,7 @@ package uk.ac.qub.methods;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -25,103 +25,68 @@ import uk.ac.qub.sql.SQL;
 public class AbsenceTrends {
 
 	/**
-	 * This method will return a list of filtered absences filtered by the
-	 * controller on the AbsenceTrendsController Class, this will use a special
-	 * object called Extended Absence which will only take the information from
-	 * the search terms. For Year this can be gotten through joining the student
-	 * table Day will need to have all the absences passed into java and
-	 * information be passed to there Staff again need the absences passed to
-	 * java and information be converted through other method Cohort can be
-	 * joined to the student table Module passed to jav Date Happily taken from
-	 * the absence table Student number again taken from the absence table Type
-	 * can be taken from the absence too
+	 *This method will filter an absence using a class known as extended absence
+	 *this allows the absence to be joined with the student class to give a list of
+	 *absences which can be used for the trends
 	 * 
 	 * @param s
 	 * @return
 	 * @throws SQLException
 	 */
 	
-	public static List<Absence> unfilteredAbsence() throws SQLException{
+	public static List<Absence> absenceFilter(ExtendedAbsence a) throws SQLException{
+		
 		ResultSet r;
 
 		List<Absence> absences = new ArrayList<Absence>();
-		String statement = "SELECT * FROM absences";
-		r = SQL.SQLstatements(statement);
-
-		try {
-			if (r.next()) {
-
-				do {
-					Absence a = new Absence();
-
-					absences.add(a);
-				} while (r.next());
-
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return absences;
-	}
-	public static List<Absence> filteredAbsence(ExtendedAbsence ea) throws SQLException {
-		ResultSet r;
-
-		List<Absence> absences = new ArrayList<Absence>();
-
-		String statement = "select * from absence join students using(StudentNumber)";
+		System.out.println(a.getStudentNumber());
+		String statement = "select * from Absences join Students using (student_number) ";
 		Boolean start = true;
-
-		if (ea.getDate() != null) {
-			if (start == false) {
-				statement = statement + " and ";
-			} else {
-				statement = statement + " where ";
-			}
-			statement = statement + "'" + ea.getDate() + "' BETWEEN StartTime AND EndTime";
+		if (a.getStart()!=null) {
+			statement = statement + " Where end_date >= " + a.getStart();
 			start = false;
 		}
 
-		if (ea.getType() != null) {
+		if (a.getEnd()!=null) {
 			if (start == false) {
 				statement = statement + " and ";
 			} else {
 				statement = statement + " where ";
 			}
-			statement = statement + "type ='" + ea.getType() + "'";
+			statement = statement + "start_date<=" + a.getEnd();
 			start = false;
 		}
 
-		if (ea.getCohort() != null) {
-
+		if (a.getType()!=null) {
 			if (start == false) {
 				statement = statement + " and ";
 			} else {
 				statement = statement + " where ";
 			}
-
-			statement = statement + "Cohort ='" + ea.getCohort() + "'";
+			statement = statement + "type ='" + a.getType() + "'";
 			start = false;
 		}
 
-		if (ea.getStudentNumber() != null) {
+		if (a.getStudentNumber()!=0) {
+			
 			if (start == false) {
 				statement = statement + " and ";
 			} else {
 				statement = statement + " where ";
 			}
 
-			statement = statement + "StudentNumber ='" + ea.getStudentNumber() + "'";
+			statement = statement + "student_number=" + a.getStudentNumber() + "";
+			start = false;
 		}
 
-		if (ea.getStudentNumber() != null) {
+		if(a.getYear()!=0){
 			if (start == false) {
 				statement = statement + " and ";
 			} else {
 				statement = statement + " where ";
 			}
-
-			statement = statement + "StudentNumber ='" + ea.getStudentNumber() + "'";
+			statement = statement + "year_group=" + a.getYear() + "";
+			
 		}
 
 		statement = statement + ";";
@@ -130,99 +95,32 @@ public class AbsenceTrends {
 
 		r = SQL.SQLstatements(statement);
 
-		try {
+	
 			if (r.next()) {
 
 				do {
-					Absence a = new Absence();
-
-					absences.add(a);
+					Absence abs = new Absence(r.getInt("absences_id"),r.getInt("student_number"), r.getInt("lecture_id"), r.getString("start_date"), r.getString("end_date"),
+							r.getString("start_time"),r.getString("end_time"), r.getString("reason"), r.getString("type"), r.getBoolean("approved"),r.getBoolean("viewed"));
+					
+					absences.add(abs);
 				} while (r.next());
 
 			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		// This is where the java will be doing the filtering
-		// Starting with the easy one
-
-		List<Absence> remove = new ArrayList<Absence>();
-		if (ea.getDay() != null) {
-			for (Absence a : absences) {
-				List<String> days = days(dates(a.getStartDate(), a.getEndDate()));
-				if (!days.contains(ea.getDay())) {
-					remove.add(a);
-				}
-			}
-		}
-
-		// Now for the painful ones module first
-
-		if (ea.getModule() != null) {
-			for (Absence a : absences) {
-
-				List<Lecture> lectures = lecturesFullDay(a);
-
-				if (!a.getStartTime().isEmpty() && !a.getEndTime().isEmpty()) {
-					lectures.addAll(lectures(a));
-				} else {
-					lectures.addAll(lecturesFullDay(a));
-				}
-
-				List<String> modules = new ArrayList<String>();
-
-				for (Lecture l : lectures) {
-					modules.add(l.getModule());
-				}
-
-				if (!modules.contains(ea.getModule())) {
-					remove.add(a);
-				}
-			}
-
-		}
-
-		if (ea.getStaff() != null) {
-			for (Absence a : absences) {
-
-				List<Lecture> lectures = lecturesFullDay(a);
-
-				if (!a.getStartTime().isEmpty() && !a.getEndTime().isEmpty()) {
-					lectures.addAll(lectures(a));
-				} else {
-					lectures.addAll(lecturesFullDay(a));
-				}
-
-				List<String> staff = new ArrayList<String>();
-
-				for (Lecture l : lectures) {
-					staff.add(l.getStaff());
-				}
-
-				Boolean removal = true;
-
-				for (String s : staff) {
-					if (s.contains(ea.getStaff())) {
-						removal = false;
-					}
-				}
-
-				if (removal) {
-					remove.add(a);
-				}
-			}
-
-		}
-
-		// FINALLY
-
-		absences.removeAll(remove);
-
+		
+		
+			
+		
 		return absences;
+		
+		
+		
 	}
-
+/**
+ * This method gives a list of dates between the start and end date
+ * @param start
+ * @param end
+ * @return
+ */
 	private static List<LocalDate> dates(String start, String end) {
 
 		LocalDate startDate = LocalDate.parse(start);
@@ -236,7 +134,11 @@ public class AbsenceTrends {
 
 		return totalDates;
 	}
-
+/**
+ * This method gives a list of days from a list of LocalDates
+ * @param dates
+ * @return
+ */
 	private static List<String> days(List<LocalDate> dates) {
 
 		List<String> days = new ArrayList<String>();
@@ -248,7 +150,12 @@ public class AbsenceTrends {
 
 		return days;
 	}
-
+/**
+ * This method shows all of the lectures for a full day absence
+ * @param a
+ * @return
+ * @throws SQLException
+ */
 	private static List<Lecture> lecturesFullDay(Absence a) throws SQLException {
 		String StudentNumber = String.valueOf(a.getStudentNumber());
 		String StartDate = a.getStartDate();
@@ -256,16 +163,17 @@ public class AbsenceTrends {
 		List<LocalDate> date = dates(StartDate, EndDate);
 		String Cohort = null;
 		ResultSet r;
-		String statement = "Select * from students WHERE StudentNumber =" + StudentNumber;
+		int year=0;
+		String statement = "Select * from Students WHERE student_number =" + StudentNumber;
 
 		r = SQL.SQLstatements(statement);
 
-		r.next();
-
+	
 		try {
 			if (r.next()) {
 
-				Cohort = r.getString("Cohort");
+				Cohort = r.getString("cohort");
+				year = r.getInt("year_group");
 
 			}
 		} catch (SQLException e) {
@@ -276,55 +184,79 @@ public class AbsenceTrends {
 		List<Lecture> lectures = new ArrayList<Lecture>();
 
 		for (LocalDate ld : date) {
-			lectures.addAll(SQL.myLectures(Cohort, ld));
+			lectures.addAll(SQL.myLectures(Cohort, ld,year));
 		}
 
 		return lectures;
 	}
-
+/**
+ * This method returns all of the lectures for a partial day of absence
+ * @param a
+ * @return
+ * @throws SQLException
+ */
 	private static List<Lecture> lectures(Absence a) throws SQLException {
 		String StudentNumber = String.valueOf(a.getStudentNumber());
 		String StartDate = a.getStartDate();
 		String EndDate = a.getEndDate();
-		//LocalTime StartTime = LocalTime.parse(a.getStartTime());
+		LocalTime StartTime = LocalTime.parse(a.getStartTime());
 		LocalTime EndTime = LocalTime.parse(a.getEndTime());
 		List<LocalDate> date = dates(StartDate, EndDate);
 		String Cohort = null;
+		int year=0;
 		ResultSet r;
-		String statement = "Select * from students WHERE StudentNumber =" + StudentNumber;
+		String statement = "Select * from Students WHERE student_number =" + StudentNumber;
 
 		r = SQL.SQLstatements(statement);
 
-		r.next();
+	
 
 		try {
 			if (r.next()) {
 
-				Cohort = r.getString("Cohort");
+				Cohort = r.getString("cohort");
+				year = r.getInt("year_group");
 
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		
+		
 		List<Lecture> lectures = new ArrayList<Lecture>();
 
 		for (LocalDate ld : date) {
-			lectures.addAll(SQL.myLectures(Cohort, ld));
+			lectures.addAll(SQL.myLectures(Cohort, ld,year));
 		}
-
+		String time;
+		List<Lecture> lectures2 = new ArrayList<Lecture>();
+		lectures2.addAll(lectures);
 		for (Lecture l : lectures) {
-			LocalTime start = LocalTime.parse(l.getStartTime());
-
-			if (start.isBefore(start) || start.isAfter(EndTime) || start.equals(EndTime)) {
-				lectures.remove(l);
+			
+			time = l.getStartTime();
+			if(time.length()==4){
+				time=0+time;
 			}
+			LocalTime start = LocalTime.parse(time);
+
+			if (start.isBefore(StartTime) || start.isAfter(EndTime) || start.equals(EndTime)) {
+				System.out.println(l.toString());
+				lectures2.remove(l);
+			}
+			
 		}
 
-		return lectures;
+		return lectures2;
 	}
-
+/**
+ * This method gives the number of absences on Monday, Tuesday, Wednesday, Thursday
+ * and Friday. This method does not count time off in lectures just if any part
+ * of the day was missed. If there were two partial days of absence this will count
+ * as two different absences
+ * @param absences
+ * @return
+ */
 	public static Map<String, Double> DayTrend(List<Absence> absences) {
 
 		Map<String, Double> data = new LinkedHashMap<String, Double>();
@@ -347,65 +279,31 @@ public class AbsenceTrends {
 		return data;
 	}
 
-	public static Map<String, Double> DateTrend(List<Absence> absences) {
+	
 
-		Map<String, Double> data = new TreeMap<String, Double>();
-		List<LocalDate> dates = new ArrayList<LocalDate>();
-
-		for (Absence a : absences) {
-			dates.addAll(dates(a.getStartDate(), a.getEndDate()));
-		}
-
-		Set<LocalDate> s = new HashSet<LocalDate>();
-		s.addAll(dates);
-
-		for (LocalDate ld : s) {
-			data.put(ld.toString(), (double) Collections.frequency(dates, ld));
-		}
-		// Need to amend this as it doesnt count 0 days
-		double average = absences.size() / s.size();
-		data.put("Average", average);
-
-		return data;
-	}
-
-	public static Map<String, Double> StudentNumber(List<Absence> absences) {
-		Map<String, Double> data = new TreeMap<String, Double>();
-		List<String> stuNo = new ArrayList<String>();
-
-		for (Absence a : absences) {
-			stuNo.add(String.valueOf(a.getStudentNumber()));
-		}
-
-		Set<String> s = new HashSet<String>();
-		s.addAll(stuNo);
-
-		for (String StuNo : s) {
-			data.put(StuNo.toString(), (double) Collections.frequency(stuNo, stuNo));
-		}
-		// Need to amend this as it doesnt count 0 days
-		double average = absences.size() / s.size();
-		data.put("Average", average);
-
-		return data;
-
-	}
-
+/**
+ * This method shows the trends of year absences, this shows how many
+ * absences are taken per year compared to the average
+ * @param absences
+ * @return
+ * @throws SQLException
+ */
 	public static Map<String, Double> YearTrends(List<Absence> absences) throws SQLException {
 		Map<String, Double> data = new TreeMap<String, Double>();
 		
 		List<String> years = new ArrayList<String>();
 		for (Absence a : absences) {
-			String statement = "select * from absence join students Using (StudentNumber) WHERE absence.id = " +a.getId();
+			String statement = "select * from Absences join Students Using (student_number) WHERE absences_id = " +a.getId();
 			ResultSet r = SQL.SQLstatements(statement);
 
 			r.next();
-			years.add(r.getString("IntakeYear"));
+			years.add(r.getString("year_group"));
 
 		}
 
 		Set<String> s = new HashSet<String>();
-		s.addAll(years);
+		String [] yearGroups = {"1","2","3","4","5"};
+		s.addAll(Arrays.asList(yearGroups));
 
 		for (String year : s) {
 			data.put("Year " +String.valueOf(Integer.parseInt(year)), (double) Collections.frequency(years, year));
@@ -417,14 +315,30 @@ public class AbsenceTrends {
 
 		return data;
 	}
-
+/**
+ * This lists all modules and compares to the average number of absences over the searched
+ * range, this will assume that there is likely to be at least one absence in all modules
+ * over a period of time and this means that modules with 0 absences will be not shown
+ * or took into concideration for the average. This is to help with any filtering so that
+ * filtering by year would not allow for absences for certain year's modules
+ * 
+ * @param absences
+ * @return
+ * @throws SQLException
+ */
 	public static Map<String, Double> ModuleTrends(List<Absence> absences) throws SQLException {
-		
+	
 		Map<String, Double> data = new TreeMap<String, Double>();
 		List<String> modules = new ArrayList<String>();
 		List<Lecture> lectures = new ArrayList<>();
+		
 		for (Absence a : absences) {
+			if(a.getStartTime()==null){
 			lectures.addAll( lecturesFullDay(a));
+			} else {
+				
+				lectures.addAll(lectures(a));
+			}
 		}
 		
 		for(Lecture l : lectures){
@@ -437,21 +351,37 @@ public class AbsenceTrends {
 		for (String module : s) {
 			data.put(module, (double) Collections.frequency(modules, module));
 		}
-		// Need to amend this as it doesnt count 0 days
-		double average = absences.size() / s.size();
+		
+		double average = (double)modules.size() / (double)SQL.Modules().size();
+		Set<String> s1 =SQL.Modules();
+		s1.removeAll(modules);
+		for(String empty : s1){
+			data.put(empty, 0.0);
+		}
+		
+		
 		data.put("Average", average);
 
 		return data;
 		
 		
 	}
-
+/**
+ * This will show the trends of which staff members have most absences and runs off 
+ * the same logic as the module trends method
+ * @param absences
+ * @return
+ * @throws SQLException
+ */
 	public static Map<String, Double> StaffTrends(List <Absence> absences) throws SQLException {
 		Map<String, Double> data = new TreeMap<String, Double>();
 		List<String> staff = new ArrayList<String>();
 		List<Lecture> lectures = new ArrayList<Lecture>();
 		
 		for(Absence a : absences){
+			if(a.getStartTime()==null){
+				lectures.addAll(lecturesFullDay(a));
+			}
 			lectures.addAll(lectures(a));
 		}
 		
@@ -465,38 +395,22 @@ public class AbsenceTrends {
 		for (String staffMember : s) {
 			data.put(staffMember, (double) Collections.frequency(staff,staffMember));
 		}
-		// Need to amend this as it doesnt count 0 days
-		double average = absences.size() / s.size();
+		
+		double average = (double)absences.size() / (double)SQL.Staff().size();
 		data.put("Average", average);
+		
+		Set<String> nonMissed = SQL.Staff();
+		nonMissed.removeAll(staff);
+		
+		for(String staffMember: nonMissed){
+			data.put(staffMember, 0.0);
+		}
+		
 
 		return data;
 	}
-
-	public static Map<String, Double> CohortTrends(List<Absence> absences) throws SQLException {
-		Map<String, Double> data = new TreeMap<String, Double>();
-		String statement = "select * from absence join students Using (StudentNumber)";
-		ResultSet r = SQL.SQLstatements(statement);
-
-		List<String> cohorts = new ArrayList<String>();
-
-		if (r.next()) {
-
-			do {
-				cohorts.add(r.getString("IntakeYear") + r.getString("Cohort"));
-			} while (r.next());
-		}
-
-		Set<String> s = new HashSet<String>();
-		s.addAll(cohorts);
-
-		for (String cohort : s) {
-			data.put(cohort, (double) Collections.frequency(cohorts, cohort));
-		}
-		// Need to amend this as it doesnt count 0 days
-		double average = absences.size() / s.size();
-		data.put("Average", average);
-
-		return data;
-	}
+	
+	
+	
 
 }

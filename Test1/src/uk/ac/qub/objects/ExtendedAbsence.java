@@ -10,220 +10,38 @@ package uk.ac.qub.objects;
 
 public class ExtendedAbsence {
 
-	/*
-	 * Creating variables to be stored as args in the constructors, getters,
-	 * setters and toString() method
-	 */
-	String Year, Day, staff, cohort, module, date, StudentNumber, Type;
-
-	/**
-	 * Below is the constructor for ExtendedAbsence with args included
-	 */
-	public ExtendedAbsence(String year, String day, String staff, String cohort, String module, String date,
-			String studentNumber, String type) {
-		super();
-		Year = year;
-		Day = day;
-		this.staff = staff;
-		this.cohort = cohort;
-		this.module = module;
-		this.date = date;
-		StudentNumber = studentNumber;
-		Type = type;
+	int year, studentNumber;
+	String Type, start, end;
+	public int getYear() {
+		return year;
 	}
-
-	/**
-	 * Below is the default empty constructor for ExtendedAbsence
-	 */
-	public ExtendedAbsence() {
-		// TODO Auto-generated constructor stub
+	public void setYear(int year) {
+		this.year = year;
 	}
-
-	/**
-	 * Below is the getter to return the type arg of an ExtendedAbsence object
-	 * 
-	 * @return
-	 */
+	public int getStudentNumber() {
+		return studentNumber;
+	}
+	public void setStudentNumber(int studentNumber) {
+		this.studentNumber = studentNumber;
+	}
 	public String getType() {
 		return Type;
 	}
-
-	/**
-	 * Below is the setter that will set the Type arg for an ExtendedAbsence
-	 * object. If the type entered does not match one of the three types below
-	 * then an exception will be thrown
-	 * 
-	 * @param type
-	 */
 	public void setType(String type) {
-		if (type.equalsIgnoreCase("Illness") || type.equalsIgnoreCase("Non Illness Related Absence")
-				|| type.equalsIgnoreCase("Missing from class")) {
-			Type = type;
-		} else {
-			throw new IllegalArgumentException("Incorrect Type Entered");
-		}
+		Type = type;
 	}
-
-	/**
-	 * The below is the getter that will retreive the year arg from an
-	 * ExtendedAbsence object
-	 * 
-	 * @return
-	 */
-	public String getYear() {
-		return Year;
+	public String getStart() {
+		return start;
 	}
-
-	/**
-	 * The below is the setter for the year arg of an ExtendedAbsence object. If
-	 * the year is not between 1-5 then an exception will be thrown
-	 * 
-	 * @param year
-	 */
-	public void setYear(String year) {
-		if (year.equals("1") || year.equals("2") || year.equals("3") || year.equals("4") || year.equals("5")) {
-			Year = year;
-		} else {
-			throw new IllegalArgumentException("Invalid Year Selected");
-		}
+	public void setStart(String start) {
+		this.start = start;
 	}
-
-	/**
-	 * The below getter will retrieve the day arg from an ExtendedAbsence object
-	 * 
-	 * @return
-	 */
-	public String getDay() {
-		return Day;
+	public String getEnd() {
+		return end;
 	}
-
-	/**
-	 * Below is the setter for the day arg in an ExtendedAbsence object. If one
-	 * of the below values is not entered an exception will be thrown
-	 * 
-	 * @param day
-	 */
-	public void setDay(String day) {
-		if (day.equalsIgnoreCase("Monday") || day.equalsIgnoreCase("Tuesday") || day.equalsIgnoreCase("Wednesday")
-				|| day.equalsIgnoreCase("Thursday") || day.equalsIgnoreCase("Friday")) {
-			Day = day;
-		} else {
-			throw new IllegalArgumentException("Invalid day Entered");
-		}
+	public void setEnd(String end) {
+		this.end = end;
 	}
-
-	/**
-	 * Below is the getter for the Staff arg in an ExtendedAbsence object
-	 * 
-	 * @return
-	 */
-	public String getStaff() {
-		return staff;
-	}
-
-	/**
-	 * The below is the setter for the Staff arg in an ExtendedAbsence object
-	 * 
-	 * @param staff
-	 */
-	public void setStaff(String staff) {
 	
-			this.staff = staff;
-		
-	}
-
-	/**
-	 * The below is the getter for returning the cohort arg from an
-	 * ExtendedAbsence object
-	 * 
-	 * @return
-	 */
-	public String getCohort() {
-		return cohort;
-	}
-
-	/**
-	 * The below is the setter for setting the cohort arg in an ExtendedAbsence
-	 * object
-	 * 
-	 * @param cohort
-	 */
-	public void setCohort(String cohort) {
-	
-			this.cohort = cohort;
-		
-	}
-
-	/**
-	 * The below is the getter for returning the module arg from an
-	 * ExtendedAbsence object
-	 * 
-	 * @return
-	 */
-	public String getModule() {
-		return module;
-	}
-
-	/**
-	 * The below is the setter for setting the module arg for an ExtendedAbsence
-	 * object
-	 * 
-	 * @param module
-	 */
-	public void setModule(String module) {
-	
-			this.module = module;
-		
-	}
-
-	/**
-	 * The below is the getter for returning the Date arg of an ExtendedAbsence
-	 * object
-	 * 
-	 * @return
-	 */
-	public String getDate() {
-		return date;
-	}
-
-	/**
-	 * The below is the setter for setting the Date arg for an ExtendedAbsence
-	 * object
-	 * 
-	 * @param date
-	 */
-	public void setDate(String date) {
-
-			this.date = date;
-	
-	}
-
-	/**
-	 * The below is the getter for returning the Student Number arg of an
-	 * ExtendedAbsence object
-	 * 
-	 * @return
-	 */
-	public String getStudentNumber() {
-		return StudentNumber;
-	}
-
-	/**
-	 * The below is the setter for setting the Student Number arg of an
-	 * ExtendedAbsence object
-	 * 
-	 * @param studentNumber
-	 */
-	public void setStudentNumber(String studentNumber) {
-		
-			StudentNumber = studentNumber;
-		
-	}
-
-	@Override
-	public String toString() {
-		return "ExtendedAbsence [Year=" + Year + ", Day=" + Day + ", staff=" + staff + ", cohort=" + cohort
-				+ ", module=" + module + ", date=" + date + ", StudentNumber=" + StudentNumber + ", Type=" + Type + "]";
-	}
 
 }
