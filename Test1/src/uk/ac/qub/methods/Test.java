@@ -23,7 +23,7 @@ public class Test {
 		ea.setStudentNumber(12345678);
 		List<Absence> as = AbsenceTrends.absenceFilter(ea);
 		
-		Map<String,Double> fj = AbsenceTrends.StaffTrends(as);
+		Map<String,Double> fj = AbsenceTrends.YearTrends(as);
 		System.out.println(fj.toString());
 		
 		System.out.println(as.size());

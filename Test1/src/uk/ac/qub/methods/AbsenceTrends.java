@@ -297,8 +297,19 @@ public class AbsenceTrends {
 			ResultSet r = SQL.SQLstatements(statement);
 
 			r.next();
+			List<LocalDate> datesOff = dates(r.getString("start_date"),r.getString("end_date"));
+			List<String> daysOff = days(datesOff);
+			int numOff =0;
+			
+			for(String s : daysOff){
+				
+				if(s.equals("MONDAY")||s.equals("TUESDAY")||s.equals("WEDNESDAY")||s.equals("THURSDAY")||s.equals("FRIDAY")){
+					numOff++;
+				}
+			}
+			for(int i =0; i<numOff; i++){
 			years.add(r.getString("year_group"));
-
+			}
 		}
 
 		Set<String> s = new HashSet<String>();
