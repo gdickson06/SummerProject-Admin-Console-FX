@@ -71,7 +71,7 @@ public class UploadSingleRoomController {
  */
     @FXML
     void MainMenuButtonClick(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("MeainMenu3","MainMenu3");
+    	GeneralMethods.ChangeScene("MeainMenu3","MainMenu");
     }
 /**
  * The initialize method will populate the image on the screen

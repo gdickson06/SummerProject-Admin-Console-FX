@@ -39,7 +39,7 @@ public class RoomAmendDeleteController {
  */
     @FXML
     void returnMainMenu(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
+    	GeneralMethods.ChangeScene("MainMenu", "MainMenu");
     }
 /**
  * This method will return the user to the rooms menu

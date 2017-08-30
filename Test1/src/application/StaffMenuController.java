@@ -74,7 +74,7 @@ public class StaffMenuController {
 	 */
     @FXML
     void logOut(MouseEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("Login2", "Login2");
+    	GeneralMethods.ChangeScene("Login", "Login");
     	ApplicationMethods.CurrentUser=null;
     }
 	/**
@@ -85,7 +85,7 @@ public class StaffMenuController {
 	 */
     @FXML
     void returnMainMenuButtonClick(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
+    	GeneralMethods.ChangeScene("MainMenu", "MainMenu");
     }
     /**
      * The initialize method will do all the work before the page loads up and in this page it will only

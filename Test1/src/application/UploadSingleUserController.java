@@ -85,7 +85,7 @@ public class UploadSingleUserController {
  */
     @FXML
     void mainMenuButtonClick(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
+    	GeneralMethods.ChangeScene("MainMenu", "MainMenu");
     }
 /**
  * This initialize method will populate the Image and comboboxes on the page

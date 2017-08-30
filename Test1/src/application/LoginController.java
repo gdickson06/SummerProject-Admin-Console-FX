@@ -64,7 +64,7 @@ public class LoginController {
     	
     	ApplicationMethods.CurrentUser = user;
     	if(user.getAccess_level().equals("Administrator")){
-    		GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
+    		GeneralMethods.ChangeScene("MainMenu", "MainMenu");
     	} else {
     		GeneralMethods.show("Functionality for non admin staff will be implemented in a future update", "Warning");
     	}

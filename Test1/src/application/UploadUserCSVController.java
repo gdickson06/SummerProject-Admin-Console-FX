@@ -86,7 +86,7 @@ public class UploadUserCSVController {
  */
     @FXML
     void returnMainMenu(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
+    	GeneralMethods.ChangeScene("MainMenu","MainMenu");
     }
 /**
  * This will initialize the class by populating the image

@@ -171,7 +171,7 @@ public class PlacementAmendDeleteController {
  */
     @FXML
     void ReturnMainMenu(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
+    	GeneralMethods.ChangeScene("MainMenu","MainMenu");
     }
 /**
  * This method returns the user to the placement menu

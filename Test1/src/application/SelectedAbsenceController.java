@@ -74,7 +74,7 @@ public class SelectedAbsenceController {
  */
     @FXML
     void Home(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
+    	GeneralMethods.ChangeScene("MainMenu","MainMenu");
     }
 /**
  * This method will allow the user to go to the absences menu
@@ -94,7 +94,7 @@ public class SelectedAbsenceController {
     void Delete(ActionEvent event) throws Exception {
     	AbsenceSQL.DeleteAbsence(String.valueOf(a.getId()));
     	GeneralMethods.show("Deleted", "Deleted");
-    	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
+    	GeneralMethods.ChangeScene("MainMenu","MainMenu");
     }
 /**
  * This method will allow an absence to be amended

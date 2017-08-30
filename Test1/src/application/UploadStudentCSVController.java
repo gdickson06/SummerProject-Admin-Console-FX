@@ -94,7 +94,7 @@ public class UploadStudentCSVController {
  */
 	@FXML
 	void returnMainMenu(ActionEvent event) throws Exception {
-		GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
+		GeneralMethods.ChangeScene("MainMenu","MainMenu");
 	}
 /**
  * This method will delete a full year worth of Students

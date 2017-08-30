@@ -119,7 +119,7 @@ public class GlobalSettingsController {
 
 	@FXML
 	void returnMainMenu(ActionEvent event) throws Exception {
-		GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
+		GeneralMethods.ChangeScene("MainMenu", "MainMenu");
 	}
 
 	@FXML

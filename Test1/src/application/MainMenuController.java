@@ -135,7 +135,7 @@ public class MainMenuController {
 
 	  @FXML
 	    void LogOut(MouseEvent event) throws Exception {
-		  GeneralMethods.ChangeScene("Login2", "Login2");
+		  GeneralMethods.ChangeScene("Login", "Login");
 			ApplicationMethods.CurrentUser = null;
 	    }
 	/**

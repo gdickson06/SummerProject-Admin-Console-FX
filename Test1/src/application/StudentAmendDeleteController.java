@@ -94,7 +94,7 @@ public class StudentAmendDeleteController {
  */
     @FXML
     void returnMainMenu(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
+    	GeneralMethods.ChangeScene("MainMenu","MainMenu");
     }
 /**
  * This method will take the user to the Student amend delete page by 

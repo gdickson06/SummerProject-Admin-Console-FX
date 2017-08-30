@@ -77,7 +77,7 @@ public class SelectedUserController {
     		try {
 				StaffSQL.DeleteUser(staffNumber.getText());
 				GeneralMethods.show(s.getName() + " has been deleted", "Success");
-				GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
+				GeneralMethods.ChangeScene("MainMenu", "MainMenu");
 			} catch (Exception e) {
 				e.printStackTrace();
 				GeneralMethods.show("Error in deleting user", "Error");
@@ -100,7 +100,7 @@ public class SelectedUserController {
  */
     @FXML
     void home(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
+    	GeneralMethods.ChangeScene("MainMenu","MainMenu");
     }
  /**
   * This method allows the user to return to the staff screen   

@@ -141,7 +141,7 @@ public class CreatePDFController {
  */
     @FXML
     void ReturnMainMenu(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
+    	GeneralMethods.ChangeScene("MainMenu","MainMenu");
     }
 /**
  * This initialize method will populate the image and combo boxes on the page

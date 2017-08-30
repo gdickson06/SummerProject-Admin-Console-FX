@@ -80,7 +80,7 @@ private static uk.ac.qub.objects.Lecture selectedLecture;
 
     @FXML
     void returnToMainMenu(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
+    	GeneralMethods.ChangeScene("MainMenu","MainMenu");
     }
 
     @FXML

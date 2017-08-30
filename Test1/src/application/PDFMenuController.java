@@ -42,7 +42,7 @@ public class PDFMenuController {
    	 */
     @FXML
     void returnMainMenuButtonClick(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
+    	GeneralMethods.ChangeScene("MainMenu", "MainMenu");
     }
     /**
 	 * This method will log the current user out, it will clear the current user
@@ -53,7 +53,7 @@ public class PDFMenuController {
 	 */
     @FXML
     void logOut(MouseEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("Login2", "Login2");
+    	GeneralMethods.ChangeScene("Login", "Login");
     	ApplicationMethods.CurrentUser=null;
     }
     /**

@@ -49,7 +49,7 @@ public class SelectedRoomController {
  */
     @FXML
     void Home(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
+    	GeneralMethods.ChangeScene("MainMenu", "MainMenu");
     }
 /**
  * This method will return the user to the room screen
@@ -72,7 +72,7 @@ public class SelectedRoomController {
     	try{
     	RoomSQL.deleteRoom(r.getCode());
     	GeneralMethods.show(r.getCode()+" has been successfully deleted", "Room Deleted");
-    	GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
+    	GeneralMethods.ChangeScene("MainMenu", "MainMenu");
     	} catch (Exception e){
     		GeneralMethods.show("Error with deleting room", "Error");
     	}

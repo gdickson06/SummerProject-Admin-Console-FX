@@ -123,7 +123,7 @@ public class StaffAmendDeleteController {
  */
     @FXML
     void home(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
+    	GeneralMethods.ChangeScene("MainMenu", "MainMenu");
     }
 /**
  * This method will return the user to the Staff menu screen

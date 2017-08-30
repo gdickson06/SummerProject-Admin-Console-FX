@@ -133,7 +133,7 @@ public class SelectedLectureController {
     void Delete(ActionEvent event)throws Exception {
     	LectureSQL.DeleteLecture(Integer.toString(l.getId()));
     	GeneralMethods.show("The lecture occuring on "+StartDate.getValue().toString()+" at "+StartTimeText.getText()+"-"+ EndTimeText.getText() + " located in "+LocationText.getText()+" has been sucessfully deleted", "Lecture Deleted");
-    	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
+    	GeneralMethods.ChangeScene("MainMenu","MainMenu");
     }
 /**
  * This method will return the user to the main menu
@@ -142,7 +142,7 @@ public class SelectedLectureController {
  */
     @FXML
     void Home(ActionEvent event) throws Exception{
-    	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
+    	GeneralMethods.ChangeScene("MainMenu","MainMenu");
     }
 /**
  * This method will return the user to the searching lecture menu

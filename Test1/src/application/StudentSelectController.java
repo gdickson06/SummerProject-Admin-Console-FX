@@ -111,7 +111,7 @@ public class StudentSelectController {
  */
 	@FXML
 	void returnMain(ActionEvent event) throws Exception {
-		GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
+		GeneralMethods.ChangeScene("MainMenu", "MainMenu");
 	}
 /**
  * This method will return the user to the Student menu
@@ -135,7 +135,7 @@ public class StudentSelectController {
 				"The record for " + Integer.toString(StudentAmendDeleteController.selectedStudent.getStudentNumber())
 						+ " has been deleted.",
 				"Record Deleted");
-		GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
+		GeneralMethods.ChangeScene("MainMenu", "MainMenu");
 
 	}
 /**

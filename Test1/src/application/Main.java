@@ -25,11 +25,11 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws IOException {
 
 		setStage(primaryStage);
-		AnchorPane root = FXMLLoader.load(getClass().getResource("/uk/ac/qub/fxml/Login2.fxml"));
+		AnchorPane root = FXMLLoader.load(getClass().getResource("/uk/ac/qub/fxml/Login.fxml"));
 		Scene scene = new Scene(root, 900, 700);
 		primaryStage.setTitle("QUB School of Medicine Timetable and Absence Notification Administration Console");
 		primaryStage.setScene(scene);
-		scene.getStylesheets().add(Main.class.getResource("/uk/ac/qub/css/login2.css").toExternalForm());
+		scene.getStylesheets().add(Main.class.getResource("/uk/ac/qub/css/Login.css").toExternalForm());
 		Image popUpIcon = new Image(Main.class.getResourceAsStream("/icon.png"));
 		primaryStage.getIcons().add(popUpIcon);
 		primaryStage.setMaximized(true);

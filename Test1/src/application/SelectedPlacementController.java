@@ -64,7 +64,7 @@ public class SelectedPlacementController {
  */
     @FXML
     void Home(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
+    	GeneralMethods.ChangeScene("MainMenu","MainMenu");
     }
 /**
  * This method will delete the selected Placement
@@ -75,7 +75,7 @@ public class SelectedPlacementController {
     void Delete(ActionEvent event) throws Exception {
     	PlacementSQL.DeletePlacement(String.valueOf(p.getId()));
     	GeneralMethods.show("Deleted", "Deleted");
-    	GeneralMethods.ChangeScene("MainMenu3","MainMenu3");
+    	GeneralMethods.ChangeScene("MainMenu","MainMenu");
     }
 /**
  * This method will save any changes to the placement

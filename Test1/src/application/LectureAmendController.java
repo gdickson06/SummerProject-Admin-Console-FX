@@ -189,7 +189,7 @@ public class LectureAmendController {
  */
 	@FXML
 	void ReturnMainMenu(ActionEvent event) throws Exception {
-		GeneralMethods.ChangeScene("MainMenu3", "MainMenu3");
+		GeneralMethods.ChangeScene("MainMenu", "MainMenu");
 	}
 /**
  * This method will allow the user to click on a lecture and take them to the amend
