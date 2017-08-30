@@ -20,20 +20,21 @@
       <Label layoutX="56.0" layoutY="225.0" text="Start Date:" />
       <Label layoutX="337.0" layoutY="225.0" text="End Date:" />
       <Label layoutX="105.0" layoutY="283.0" text="Year:" />
-      <Label layoutX="348.0" layoutY="283.0" text="Module:" />
+      <Label layoutX="348.0" layoutY="283.0" text="Type:" />
       <JFXComboBox fx:id="year" focusColor="WHITE" layoutX="153.0" layoutY="277.0" prefHeight="39.0" prefWidth="165.0" promptText="Select Year" unFocusColor="WHITE" />
-      <JFXComboBox fx:id="module" focusColor="WHITE" layoutX="428.0" layoutY="277.0" prefHeight="39.0" prefWidth="165.0" promptText="Select Module" unFocusColor="WHITE" />
+      <JFXComboBox fx:id="type" focusColor="WHITE" layoutX="428.0" layoutY="277.0" prefHeight="39.0" prefWidth="165.0" promptText="Select Type" unFocusColor="WHITE" />
       <Label layoutX="113.0" layoutY="353.0" text="Student Number:" />
-      <JFXTextField focusColor="WHITE" layoutX="255.0" layoutY="339.0" prefHeight="35.0" prefWidth="231.0" promptText="Enter Student Number" unFocusColor="WHITE" />
+      <JFXTextField fx:id="studentNumber" focusColor="WHITE" layoutX="255.0" layoutY="339.0" prefHeight="35.0" prefWidth="231.0" promptText="Enter Student Number" unFocusColor="WHITE" />
       <Label layoutX="135.0" layoutY="426.0" prefHeight="27.0" prefWidth="572.0" text="Select a button to view absence trends for each category" />
       <Button layoutX="120.0" layoutY="468.0" mnemonicParsing="false" onAction="#dayClick" text="Day" />
       <Button layoutX="225.0" layoutY="468.0" mnemonicParsing="false" onAction="#staffClick" text="Staff" />
       <Button layoutX="336.0" layoutY="468.0" mnemonicParsing="false" onAction="#yearClick" text="Year" />
       <Button layoutX="445.0" layoutY="468.0" mnemonicParsing="false" onAction="#moduleClick" text="Module" />
       <Button layoutX="198.0" layoutY="533.0" mnemonicParsing="false" onAction="#topTenStudentClick" text="Top Ten Students by Absence" />
-      <Button layoutX="718.0" layoutY="591.0" mnemonicParsing="false" onAction="#returnAbsencesMenu" text="Return to Absences Menu" />
-      <Button layoutX="991.0" layoutY="591.0" mnemonicParsing="false" onAction="#returnMainMenu" text="Return to Main Menu" />
-      <Label fx:id="graph" layoutX="695.0" layoutY="196.0" prefHeight="376.0" prefWidth="507.0" />
+      <Button layoutX="708.0" layoutY="591.0" mnemonicParsing="false" onAction="#returnAbsencesMenu" text="Return to Absences Menu" />
+      <Button layoutX="981.0" layoutY="591.0" mnemonicParsing="false" onAction="#returnMainMenu" text="Return to Main Menu" />
+      <Label fx:id="graph" layoutX="695.0" layoutY="196.0" prefHeight="316.0" prefWidth="507.0" />
       <Label layoutX="400.0" layoutY="120.0" text="Please select a start date, end date, year, module or enter student number to begin the process." />
+      <Button layoutX="900.0" layoutY="533.0" mnemonicParsing="false" onAction="#viewGraph" text="View Graph" />
    </children>
 </AnchorPane>
