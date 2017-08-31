@@ -33,7 +33,6 @@ public class GeneralMethods {
 		FXMLLoader loader = new FXMLLoader();
 		String FXML = "resources/uk/ac/qub/fxml/"+fxml+".fxml";
 		String CSS = "/uk/ac/qub/css/"+css+".css";
-		System.out.println(CSS);
 		FileInputStream mainMenu = new FileInputStream(FXML);
 		AnchorPane root = (AnchorPane)loader.load(mainMenu);
 
