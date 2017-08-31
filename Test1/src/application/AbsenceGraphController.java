@@ -1,6 +1,7 @@
 package application;
 
 import java.io.File;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.Map;
@@ -8,6 +9,7 @@ import java.util.ResourceBundle;
 
 import javax.imageio.ImageIO;
 
+import com.jfoenix.controls.JFXTextArea;
 
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
@@ -16,9 +18,10 @@ import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 
 import javafx.scene.chart.XYChart;
-
+import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
+
 import uk.ac.qub.methods.FileWriter;
 import uk.ac.qub.methods.GeneralMethods;
 
@@ -33,7 +36,14 @@ public class AbsenceGraphController {
     @FXML
     private ImageView Image;
 
-   
+    @FXML
+    private Button Button1;
+
+    @FXML
+    private Button Button2;
+    
+    @FXML
+    private JFXTextArea info;
 
     @FXML
     private BarChart<String, Double> graph;
@@ -44,8 +54,14 @@ public class AbsenceGraphController {
     }
 
     @FXML
-    void save(ActionEvent event) {
+    void save(ActionEvent event) throws IOException {
+    	info.setVisible(false);
+    	Button1.setVisible(false);
+    	Button2.setVisible(false);
     	WritableImage snapShot =Main.getStage().getScene().snapshot(null);
+    	info.setVisible(true);
+    	Button1.setVisible(true);
+    	Button2.setVisible(true);
     
     	File f = null;
 		try {
@@ -61,9 +77,12 @@ public class AbsenceGraphController {
         try {
 			ImageIO.write(SwingFXUtils.fromFXImage(snapShot, null), "png", f);
 			GeneralMethods.show("File saved in " +FileWriter.load(), "Success");
+			
 		} catch (IOException e) {
 			GeneralMethods.show("Error in saving image", "Error");
 		}
+        
+        
     }
    
 
@@ -82,12 +101,14 @@ public class AbsenceGraphController {
     	   entry.getData().add(d);
     	  
        }
-       graph.setTitle("Graph of absences per Week Day");
+      
        graph.getData().addAll(entry);
    
        
      graph.setLegendVisible(false);
  
      absenceTrendsController.trend=null;
+     
+     
     }
 }

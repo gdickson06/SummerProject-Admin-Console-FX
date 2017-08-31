@@ -325,7 +325,7 @@ public class AbsenceTrends {
 			data.put("Year " +String.valueOf(Integer.parseInt(year)), (double) Collections.frequency(years, year));
 		}
 		System.out.println(absences.size());
-		double average = (double)(absences.size())/5;
+		double average = (double)(years.size())/5;
 		System.out.println(average);
 		data.put("Average", average);
 
