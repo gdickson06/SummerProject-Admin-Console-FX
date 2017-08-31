@@ -12,7 +12,7 @@ import javax.imageio.ImageIO;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.SnapshotParameters;
+
 import javafx.scene.chart.BarChart;
 
 import javafx.scene.chart.XYChart;

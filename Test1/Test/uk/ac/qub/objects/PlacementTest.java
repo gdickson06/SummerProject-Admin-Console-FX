@@ -320,6 +320,7 @@ public class PlacementTest {
 		Placement placement = new Placement(validID, validYearLowerBoundary, validStartDate, validEndDate, validLocation, validPreference, validCohort, validNote, validModule, validModuleNumber);
 		String expected = "id:" + placement.getId() + " Year:" + placement.getYear() + " StartDate:" + placement.getStartDate() + " EndDate :" + placement.getEndDate()
 				+ "Location : " + placement.getLocation() + " Cohort :" + placement.getCohort() + " Module=:" + placement.getModule();
+		assertEquals(placement.toString(),expected);
 	}
 
 }

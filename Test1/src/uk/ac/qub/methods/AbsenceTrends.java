@@ -2,7 +2,7 @@ package uk.ac.qub.methods;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.DecimalFormat;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 import uk.ac.qub.objects.Absence;
 import uk.ac.qub.objects.ExtendedAbsence;
