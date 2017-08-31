@@ -2,6 +2,8 @@ package application;
 
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
@@ -102,7 +104,15 @@ public class SelectedLectureController {
  */
     @FXML
     void SaveChanges(ActionEvent event) throws Exception {
-    	
+List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.Control>();
+		
+		fields.add(StartTimeText);
+		fields.add(year);
+		fields.add(StartDate);
+		fields.add(EndTimeText);
+		fields.add(LocationText);
+		fields.add(SubjectText);
+		if(ApplicationMethods.noNullValues(fields)){
 		
 		l.setWeek(Integer.valueOf(WeekText.getText()));
 		l.setDay(DayText.getText());
@@ -122,7 +132,7 @@ public class SelectedLectureController {
 		LectureSQL.AmendLecture(l);
 		
 		GeneralMethods.show("The lecture occuring on "+StartDate.getValue().toString()+" at "+StartTimeText.getText()+"-"+ EndTimeText.getText() + " located in "+LocationText.getText()+" has been sucessfully amended", "Lecture"+Integer.toString(l.getId())+" amendeded");
-		
+		}
     }
 /**
  * This method will delete a lecture

@@ -7,7 +7,8 @@ import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.time.LocalDate;
-
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -102,7 +103,15 @@ public class UploadSingleLectureController {
 
     @FXML
     void uploadLectureButtonClick(ActionEvent event) throws Exception {
-    	
+List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.Control>();
+		
+		fields.add(startTimeTextfield);
+		fields.add(year);
+		fields.add(startDate);
+		fields.add(endTimeTextfield);
+		fields.add(locationTextField);
+		fields.add(subjectTextField);
+		if(ApplicationMethods.noNullValues(fields)){
     	Lecture l = new Lecture();
     
     	
@@ -130,7 +139,7 @@ public class UploadSingleLectureController {
 		LectureSQL.UploadSingleLecture(l);
 		GeneralMethods.show("Lecture added to database", "Lecture added to database");
     }
-
+    }
     @FXML
     void clear(ActionEvent event) {
     	weekTextfield.setText("");

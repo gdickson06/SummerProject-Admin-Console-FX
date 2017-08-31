@@ -103,6 +103,13 @@ public class GeneralNotesController {
 	 */
 	@FXML
 	void Amend(ActionEvent event) {
+List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.Control>();
+		
+		fields.add(Date);
+		fields.add(NoteDetails);
+		fields.add(Year);
+		
+		if(ApplicationMethods.noNullValues(fields)){
 		n.setDate(Date.getValue().toString());
 		n.setDetails(NoteDetails.getText());
 		n.setYear(Year.getValue());
@@ -121,7 +128,7 @@ public class GeneralNotesController {
 			GeneralMethods.show("Error in amending note", "Error");
 			e.printStackTrace();
 		}
-	}
+	}}
 
 	/**
 	 * This method will return the user to the main menu
@@ -158,6 +165,14 @@ public class GeneralNotesController {
 	 */
 	@FXML
 	void SaveNewNote(ActionEvent event) {
+List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.Control>();
+		
+		fields.add(NewNoteDate);
+		fields.add(NewNoteDetails);
+		fields.add(NewNoteYear);
+	
+		
+		if(ApplicationMethods.noNullValues(fields)){
 		Note n1 = new Note();
 		n1.setDate(NewNoteDate.getValue().toString());
 		n1.setYear(NewNoteYear.getValue());
@@ -176,7 +191,7 @@ public class GeneralNotesController {
 			GeneralMethods.show("Error in uploading new note", "Error");
 			e.printStackTrace();
 		}
-	}
+	}}
 
 	/**
 	 * This method will return the user to the Notes menu

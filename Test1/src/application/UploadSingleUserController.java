@@ -43,6 +43,13 @@ public class UploadSingleUserController {
  */
     @FXML
     void uploadStaffMember(ActionEvent event) {
+List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.Control>();
+		
+		fields.add(staffNumber);
+		fields.add(name);
+		fields.add(accessLevel);
+		
+		if(ApplicationMethods.noNullValues(fields)){
 	Staff s = new Staff();
 	s.setAccess_level(accessLevel.getValue());
 	s.setName(name.getText());
@@ -55,7 +62,7 @@ public class UploadSingleUserController {
 				GeneralMethods.show("Error with uploading staff member", "Error");
 				e.printStackTrace();
 			}
-    	
+		}
     }
 /**
  * This method will clear all inputs to the textboxes

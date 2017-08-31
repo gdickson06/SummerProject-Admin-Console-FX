@@ -1,19 +1,25 @@
 package application;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-import javafx.collections.ObservableList;
+import javax.imageio.ImageIO;
+
+
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.chart.BarChart;
-import javafx.scene.chart.LineChart;
+
 import javafx.scene.chart.XYChart;
-import javafx.scene.chart.XYChart.Series;
-import javafx.scene.control.Label;
+
 import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
+import uk.ac.qub.methods.FileWriter;
 import uk.ac.qub.methods.GeneralMethods;
 
 public class AbsenceGraphController {
@@ -39,17 +45,30 @@ public class AbsenceGraphController {
 
     @FXML
     void save(ActionEvent event) {
-
+    	WritableImage snapShot =Main.getStage().getScene().snapshot(null);
+    
+    	File f = null;
+		try {
+			
+			f = new File (FileWriter.load()+"/barChart.png");
+			if(!f.exists()){
+			f.createNewFile();
+			}
+			
+		} catch (IOException e1) {
+			GeneralMethods.show("Error no save location defined", "Error");
+		}
+        try {
+			ImageIO.write(SwingFXUtils.fromFXImage(snapShot, null), "png", f);
+			GeneralMethods.show("File saved in " +FileWriter.load(), "Success");
+		} catch (IOException e) {
+			GeneralMethods.show("Error in saving image", "Error");
+		}
     }
-     private void setAverageColour(XYChart.Data<String, Double> data){
-    	 Node node = data.getNode();
-    	 if(data.getXValue().equals("Average")){
-    		 System.out.println(node);
-    		 node.setStyle("-fx-bar-fill: green");
-    	 }
-     }
+   
 
-    @SuppressWarnings("unchecked")
+   
+	@SuppressWarnings("unchecked")
 	@FXML
     void initialize() {
     	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
@@ -68,7 +87,7 @@ public class AbsenceGraphController {
    
        
      graph.setLegendVisible(false);
-     
+ 
       
     }
 }

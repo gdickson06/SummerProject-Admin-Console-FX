@@ -103,7 +103,13 @@ public class SelectedAbsenceController {
  */
     @FXML
     void SaveChanges(ActionEvent event) {
-    	
+List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.Control>();
+		
+		fields.add(StudentNumber);
+		fields.add(StartDate);
+		fields.add(Type);
+		
+		if(ApplicationMethods.noNullValues(fields)){
     	a.setApproved(Approved.isSelected());
     	a.setStudentNumber(Integer.valueOf(StudentNumber.getText()));
     	a.setLectureID(a.getLectureID());
@@ -122,7 +128,7 @@ public class SelectedAbsenceController {
 			GeneralMethods.show("Error in amending Absence", "Error");
 			e.printStackTrace();
 		}
-    	
+		}	
     }
 
     @FXML

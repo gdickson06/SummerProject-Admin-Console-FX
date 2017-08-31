@@ -1,6 +1,9 @@
 package application;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
@@ -62,6 +65,13 @@ public class UploadSingleStudentController {
  */
     @FXML
     void uploadStudent(ActionEvent event) {
+List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.Control>();
+		
+		fields.add(cohort);
+		fields.add(year);
+		fields.add(name);
+		fields.add(studentNumber);
+		if(ApplicationMethods.noNullValues(fields)){
     	Student s = new Student();
     	s.setComments(comments.getText());
     	s.setCohort(cohort.getText());
@@ -82,7 +92,7 @@ public class UploadSingleStudentController {
 		} catch (Exception e) {
 			e.printStackTrace();
 			GeneralMethods.show("Error when uploading Student", "ERROR");
-		}
+		}}
     	
    }
 /**

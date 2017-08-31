@@ -122,11 +122,9 @@ public class Note {
 	 * @param details
 	 */
 	public void setDetails(String details) {
-		if(!details.isEmpty()){
+		
 			Details = details;
-		} else {
-			throw new NullPointerException("No Details Entered");
-		}
+		
 	}
 
 	/**

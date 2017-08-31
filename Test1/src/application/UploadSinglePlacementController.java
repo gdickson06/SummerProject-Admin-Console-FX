@@ -5,7 +5,8 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.time.LocalDate;
-
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -87,7 +88,13 @@ public class UploadSinglePlacementController {
 
     @FXML
     void upload(ActionEvent event) {
-    
+List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.Control>();
+		
+		fields.add(group);
+		fields.add(year);
+		fields.add(startDate);
+		fields.add(endDate);
+		if(ApplicationMethods.noNullValues(fields)){
     	try{
     	Placement p = new Placement();
     	p.setModuleNumber(moduleNumber.getText());
@@ -106,7 +113,7 @@ public class UploadSinglePlacementController {
     		e.printStackTrace();
     		GeneralMethods.show("Error in uploading placement", "ERROR");
     	}
-    
+		}
     }
 /**
  * The initialize method will populate the comboboxes and image on the screen

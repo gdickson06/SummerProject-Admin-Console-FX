@@ -7,7 +7,7 @@ import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
-
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -83,6 +83,13 @@ public class UploadSingleAbsenceController {
 
 	@FXML
 	void uploadSingleAbsenceButton(ActionEvent event) {
+List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.Control>();
+		
+		fields.add(studentNumber);
+		fields.add(startDate);
+		fields.add(type);
+		
+		if(ApplicationMethods.noNullValues(fields)){
 		Absence a = new Absence();
 
 		if(studentNumber.getText().isEmpty()==false){a.setStudentNumber(Integer.valueOf(studentNumber.getText()));}
@@ -101,7 +108,7 @@ public class UploadSingleAbsenceController {
 		} catch (Exception e) {
 			
 			GeneralMethods.show(e.getMessage(), "Error");
-		}
+		}}
 	}
 
 	@FXML

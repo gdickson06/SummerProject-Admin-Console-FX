@@ -36,6 +36,13 @@ public class UploadSingleRoomController {
  */
     @FXML
     void UploadSingleRoomUpload(ActionEvent event) throws Exception {
+List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.Control>();
+		
+		fields.add(RoomCodeTextField);
+		fields.add(RoomNameTextField);
+	
+		
+		if(ApplicationMethods.noNullValues(fields)){
 	List<Room> roomDetails = new ArrayList<Room>();
     	
     	Room singleRoom = new Room(RoomCodeTextField.getText(), RoomNameTextField.getText());
@@ -43,7 +50,7 @@ public class UploadSingleRoomController {
     	
     	RoomSQL.saveSQLRooms(roomDetails);
     	GeneralMethods.show("Room has been successfully uploaded to Database", "Room Uploaded");
-    	
+		}
     }
 /**
  * This method will clear all data input in the textfields

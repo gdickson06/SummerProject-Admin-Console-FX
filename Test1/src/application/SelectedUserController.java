@@ -54,6 +54,13 @@ public class SelectedUserController {
    
     @FXML
     void saveDetails(ActionEvent event)  {
+List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.Control>();
+		
+	
+		fields.add(name);
+		fields.add(accessLevel);
+		
+		if(ApplicationMethods.noNullValues(fields)){
     	s.setAccess_level(accessLevel.getValue());
     	s.setName(name.getText());
     	
@@ -64,7 +71,7 @@ public class SelectedUserController {
 			e.printStackTrace();
 			GeneralMethods.show("Error in changing staff member", "Error");
 		}
-    	
+		}
 
     }
 /**

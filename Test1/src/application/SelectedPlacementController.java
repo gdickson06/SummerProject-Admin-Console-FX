@@ -2,6 +2,8 @@ package application;
 
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
@@ -83,6 +85,13 @@ public class SelectedPlacementController {
  */
     @FXML
     void Save(ActionEvent event) {
+List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.Control>();
+		
+		fields.add(group);
+		fields.add(year);
+		fields.add(startDate);
+		fields.add(endDate);
+		if(ApplicationMethods.noNullValues(fields)){
     	p.setCohort(group.getText());
     	p.setEndDate(endDate.getValue().toString());
     	p.setLocation(hospital.getText());
@@ -101,7 +110,7 @@ public class SelectedPlacementController {
 			GeneralMethods.show("Error in amending Placement","Error");
 			e.printStackTrace();
 		}
-    	
+		}
     }
     /**
      * This method will take the user back to the search menu for placements

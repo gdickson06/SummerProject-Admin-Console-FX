@@ -88,7 +88,14 @@ public class SelectedRoomController {
  */
     @FXML
     void SaveChanges(ActionEvent event) throws ClassNotFoundException, SQLException {
-	List<String> roomList = new ArrayList<String>();
+List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.Control>();
+		
+		fields.add(RoomCodeTextField);
+		fields.add(RoomNameTextField);
+	
+		
+		if(ApplicationMethods.noNullValues(fields)){
+    	List<String> roomList = new ArrayList<String>();
     	
     	roomList.add(RoomCodeTextField.getText());
     	roomList.add(RoomNameTextField.getText());
@@ -97,7 +104,7 @@ public class SelectedRoomController {
     	RoomSQL.amendRoom(roomList);
     	
     	GeneralMethods.show(r.getCode()+" has been amended successfully.", "Update Successful");
-   
+		}
     }
 /**
  * The initialize method will populate the fields of the room code and room description
