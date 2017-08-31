@@ -15,6 +15,31 @@ import uk.ac.qub.objects.Student;
 
 
 public class SearchQueries {
+	/**
+	 * This method will return all unread absences which will be displayed on the absence page
+	 * @return
+	 * @throws SQLException
+	 */
+	public static List<Absence> unreadAbsence() throws SQLException{
+		ResultSet r;
+		String statement = "select * from Absences where viewed = false";
+		List<Absence> absences = new ArrayList<Absence>();
+		r = SQL.SQLstatements(statement);
+		
+
+		if (r.next()) {
+
+			do {
+				Absence a = new Absence(r.getInt("absences_id"),r.getInt("student_number"), r.getInt("lecture_id"), r.getString("start_date"),r.getString("end_date"),
+						r.getString("start_time"),r.getString("end_time"), r.getString("reason"), r.getString("type"), r.getBoolean("approved"),r.getBoolean("viewed"));
+
+				absences.add(a);
+			} while (r.next());
+
+		}
+	
+	return absences;
+	}
 
 	/**
 	 * This method would search Absences given a certain search criteria and information

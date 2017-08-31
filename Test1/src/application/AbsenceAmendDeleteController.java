@@ -264,5 +264,15 @@ public class AbsenceAmendDeleteController {
     	    	
     	    	
     	    	Approved.getItems().addAll(approved);
+    	    	List<Absence> searched = new ArrayList<Absence>();
+    			try {
+    				searched.addAll(SearchQueries.unreadAbsence());
+    			} catch (SQLException e) {
+    				GeneralMethods.show("Error when searching absences", "Error");
+    				e.printStackTrace();
+    			}
+    			ObservableList<Absence> list = FXCollections.observableArrayList();
+    			list.addAll(searched);
+    			ListAbsence.setItems(list);
     }
 }

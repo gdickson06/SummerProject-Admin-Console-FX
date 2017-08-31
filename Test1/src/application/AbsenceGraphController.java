@@ -88,6 +88,6 @@ public class AbsenceGraphController {
        
      graph.setLegendVisible(false);
  
-      
+     absenceTrendsController.trend=null;
     }
 }

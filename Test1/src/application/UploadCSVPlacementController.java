@@ -62,6 +62,12 @@ public class UploadCSVPlacementController {
      */
     @FXML
     void uploadPlacementsCSV(ActionEvent event) {
+List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.Control>();
+		
+		fields.add(PlacementCSVFilePath);
+		fields.add(Year);
+		
+		if(ApplicationMethods.noNullValues(fields)){
     	String path = PlacementCSVFilePath.getText();
     	
     	List<Placement> placementList = new ArrayList<Placement>();
@@ -86,7 +92,7 @@ public class UploadCSVPlacementController {
     		if(error==false){
     			GeneralMethods.show("Upload successful, "+placementList.size()+ " placements added to the database", "Upload Successful");
     		}
-   
+		}
     }
     
     /**
@@ -96,9 +102,13 @@ public class UploadCSVPlacementController {
      */
     @FXML
     void DeleteYear(ActionEvent event) throws Exception {
+List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.Control>();
+		
+		fields.add(Year);
+		if(ApplicationMethods.noNullValues(fields)){
     	PlacementSQL.DeleteYearPlacement(String.valueOf(Year.getValue()));
     	GeneralMethods.show("DELETED ALL FOR YEAR", "DELETED ALL FOR YEAR");
-    }
+    }}
     /**
      * This method will return the user to the main menu
      * @param event
@@ -126,9 +136,12 @@ public class UploadCSVPlacementController {
      */
     @FXML
     void downloadCSVList(ActionEvent event) throws IOException, SQLException{
-    	if(Year.getValue()==null){
-    		GeneralMethods.show("Please pick year first", "Warning");
-    	}else {
+List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.Control>();
+		
+		fields.add(Year);
+		
+		
+		if(ApplicationMethods.noNullValues(fields)){
     		System.out.println(Year.getValue().toString());
     		File f =PlacementSQL.downloadToCSV(Year.getValue().toString());
     		

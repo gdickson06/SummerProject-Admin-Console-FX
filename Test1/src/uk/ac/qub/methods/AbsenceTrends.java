@@ -8,13 +8,17 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import uk.ac.qub.objects.Absence;
 import uk.ac.qub.objects.ExtendedAbsence;
@@ -196,6 +200,7 @@ public class AbsenceTrends {
  * @throws SQLException
  */
 	private static List<Lecture> lectures(Absence a) throws SQLException {
+		System.out.println(a.getId());
 		String StudentNumber = String.valueOf(a.getStudentNumber());
 		String StartDate = a.getStartDate();
 		String EndDate = a.getEndDate();
@@ -344,7 +349,7 @@ public class AbsenceTrends {
 		List<Lecture> lectures = new ArrayList<>();
 		
 		for (Absence a : absences) {
-			if(a.getStartTime()==null){
+			if(a.getStartTime().equalsIgnoreCase("null")){
 			lectures.addAll( lecturesFullDay(a));
 			} else {
 				
@@ -390,10 +395,11 @@ public class AbsenceTrends {
 		List<Lecture> lectures = new ArrayList<Lecture>();
 		
 		for(Absence a : absences){
-			if(a.getStartTime()==null){
+			if(a.getStartTime().equalsIgnoreCase("null")){
 				lectures.addAll(lecturesFullDay(a));
-			}
+			}else{
 			lectures.addAll(lectures(a));
+			}
 		}
 		
 		for(Lecture l : lectures){
@@ -421,7 +427,37 @@ public class AbsenceTrends {
 		return data;
 	}
 	
+	public static List<String> topTen(List<Absence>list){
+		List<Integer> results = new ArrayList<Integer>();
+		List<String> answers = new ArrayList<String>();
+		Map<Integer, Integer> answer = new HashMap<>();
+		Set<Integer> students = new HashSet<Integer>();
+		
+		for(Absence a : list){
+			results.add(a.getStudentNumber());
+		}
+		
+		students.addAll(results);
+		
+		for(Integer i : students){
+			answer.put(i, Collections.frequency(results, i));
+		}
+		
 	
+		
+		Map<Integer,Integer> topTen =
+			   answer.entrySet().stream()
+			       .sorted(Map.Entry.comparingByKey(Comparator.naturalOrder()))
+			       .limit(10)
+			       .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+		
+		for(Entry<Integer,Integer> entry : topTen.entrySet()){
+			answers.add(entry.getKey().toString() +  " : " +entry.getValue().toString()+ " absences");
+		}
+		
+		Collections.reverse(answers);
+		return answers;
+	}
 	
 
 }

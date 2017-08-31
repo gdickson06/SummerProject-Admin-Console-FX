@@ -51,6 +51,7 @@ private static uk.ac.qub.objects.Lecture selectedLecture;
 		
 		try {
 			SQL.tutorialListAbsences(selectedLecture, selectedItems);
+			GeneralMethods.show("Absences uploaded to database", "Success");
 		} catch (SQLException e) {
 			e.printStackTrace();
 			GeneralMethods.show("Error in logging absence", "Error");

@@ -7,6 +7,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -63,30 +64,89 @@ public class absenceTrendsController {
     	
     	String Monday = "Monday : " + values.get("Monday");
     	String Tuesday = " Tuesday : " +values.get("Tuesday");
+    	String Wednesday = " Wednesday : " +values.get("Wednesday");
+    	String Thursday = " Thursday : " +values.get("Thursday");
+    	String Friday = " Friday : " +values.get("Friday");
     	
-    	graph.setText(info + "\n" + average + "\n" + Monday +"\n" + Tuesday);
+    	graph.setText(info + "\n" + average + "\n" + Monday +"\n" + Tuesday+"\n" + Wednesday+"\n" + Thursday+"\n" + Friday);
     	trend =values;
     	
     }
 
     @FXML
-    void staffClick(ActionEvent event) {
-
+    void staffClick(ActionEvent event) throws SQLException {
+    	List<Absence> absences = AbsenceTrends.absenceFilter(currentValue());
+    	Map<String,Double> values = AbsenceTrends.StaffTrends(absences);
+    	String info = "The values below are for days, this just shows how many absences were taken on days"
+    			+ "if a student takes two absences on the same day it will come up twice";
+    	String average = "The average number of days off is " + values.get("Average");
+    	StringBuilder sb = new StringBuilder();
+    	
+    	sb.append(info);
+    	sb.append(average+"\n");
+    	
+    	values.remove("Average");
+    	
+    	for(Entry<String,Double> entry : values.entrySet()){
+    		sb.append(entry.getKey() + " : " + entry.getValue() + "\n");
+    	}
+    	graph.setText(sb.toString());
+    	trend=null;
     }
 
     @FXML
-    void yearClick(ActionEvent event) {
-
+    void yearClick(ActionEvent event) throws SQLException {
+    	List<Absence> absences = AbsenceTrends.absenceFilter(currentValue());
+    	Map<String,Double> values = AbsenceTrends.YearTrends(absences);
+    	String info = "The values below are for days, this just shows how many absences were taken on days"
+    			+ "if a student takes two absences on the same day it will come up twice";
+    	String average = "The average number of days off is " + values.get("Average");
+    	StringBuilder sb = new StringBuilder();
+    	
+    	sb.append(info);
+    	sb.append(average+"\n");
+    	
+    	values.remove("Average");
+    	
+    	for(Entry<String,Double> entry : values.entrySet()){
+    		sb.append(entry.getKey() + " : " + entry.getValue() + "\n");
+    	}
+    	graph.setText(sb.toString());
+    	trend=values;
     }
 
     @FXML
-    void moduleClick(ActionEvent event) {
-
+    void moduleClick(ActionEvent event) throws SQLException {
+    	List<Absence> absences = AbsenceTrends.absenceFilter(currentValue());
+    	Map<String,Double> values = AbsenceTrends.ModuleTrends(absences);
+    	String info = "The values below are for days, this just shows how many absences were taken on days"
+    			+ "if a student takes two absences on the same day it will come up twice";
+    	String average = "The average number of days off is " + values.get("Average");
+    	StringBuilder sb = new StringBuilder();
+    	
+    	sb.append(info);
+    	sb.append(average+"\n");
+    	
+    	values.remove("Average");
+    	
+    	for(Entry<String,Double> entry : values.entrySet()){
+    		sb.append(entry.getKey() + " : " + entry.getValue() + "\n");
+    	}
+    	graph.setText(sb.toString());
+    	trend=null;
     }
 
     @FXML
-    void topTenStudentClick(ActionEvent event) {
-
+    void topTenStudentClick(ActionEvent event) throws SQLException {
+    	List<Absence> absences = AbsenceTrends.absenceFilter(currentValue());
+    	List<String> info = AbsenceTrends.topTen(absences);
+    	StringBuilder sb = new StringBuilder();
+    	
+    	for(String s : info){
+    		sb.append(s + "\n");
+    	}
+    	graph.setText(sb.toString());
+    	trend=null;
     }
     
     private ExtendedAbsence currentValue (){
@@ -103,8 +163,8 @@ public class absenceTrendsController {
     }
 
     @FXML
-    void returnAbsencesMenu(ActionEvent event) {
-
+    void returnAbsencesMenu(ActionEvent event) throws Exception {
+    	GeneralMethods.ChangeScene("AbsencesMenu", "AbsencesMenu");
     }
 
     @FXML
@@ -114,7 +174,11 @@ public class absenceTrendsController {
     
     @FXML
     void viewGraph(ActionEvent event) throws Exception {
+    	if(trend!=null){
     	GeneralMethods.ChangeScene("AbsenceGraph", "AbsenceGraph");
+    	} else {
+    		GeneralMethods.show("No valid data selected, trends can only be created for years and days", "Error");
+    	}
     }
 
     @FXML

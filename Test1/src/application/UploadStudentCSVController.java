@@ -65,13 +65,12 @@ public class UploadStudentCSVController {
 	 */
 	@FXML
 	void uploadFile(ActionEvent event) {
-		if (filePathTextField.getText().isEmpty()) {
-			GeneralMethods.show("Please pick a file", "Error");
-		} else {
-			if (Year.getValue() == null) {
-				GeneralMethods.show("Please pick a year", "Error");
-			} else {
-
+List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.Control>();
+		
+		fields.add(Year);
+		fields.add(filePathTextField);
+		
+		if(ApplicationMethods.noNullValues(fields)){
 				String s = filePathTextField.getText();
 
 				List<Student> studentList = new ArrayList<Student>();
@@ -94,7 +93,7 @@ public class UploadStudentCSVController {
 				}
 			}
 
-		}
+		
 	}
 
 	/**
@@ -116,11 +115,13 @@ public class UploadStudentCSVController {
 	 */
 	@FXML
 	void DeleteYear(ActionEvent event) throws Exception {
-		if (Year.getValue() != null) {
+List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.Control>();
+		
+		fields.add(Year);
+		
+		if(ApplicationMethods.noNullValues(fields)){
 			StudentSQL.DeleteYearStudent(Year.getValue().toString());
 			GeneralMethods.show("DELETED ALL FOR YEAR", "DELETED ALL FOR YEAR");
-		} else {
-			GeneralMethods.show("Pick a year before attempting to delete a year", "Warning");
 		}
 	}
 
@@ -144,9 +145,11 @@ public class UploadStudentCSVController {
 	 */
 	@FXML
 	void downloadCSVList(ActionEvent event) throws IOException, SQLException {
-		if (Year.getValue() == null) {
-			GeneralMethods.show("Please pick year first", "Warning");
-		} else {
+List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.Control>();
+		
+		fields.add(Year);
+		
+		if(ApplicationMethods.noNullValues(fields)){
 			List<String> attributes = new ArrayList<String>();
 
 			attributes.add("student_number");

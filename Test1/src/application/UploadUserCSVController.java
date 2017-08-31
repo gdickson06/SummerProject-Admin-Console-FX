@@ -52,6 +52,13 @@ public class UploadUserCSVController {
      */
     @FXML
     void uploadFile(ActionEvent event) {
+List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.Control>();
+		
+		fields.add(filePathTextField);
+		
+		
+		if(ApplicationMethods.noNullValues(fields)){   	
+    	
     	String s = filePathTextField.getText();
 
 
@@ -69,6 +76,7 @@ public class UploadUserCSVController {
 		if (error == false) {
 			GeneralMethods.show("Import successful with " + staff.size() + " staff imported, to use the system ensure the users are registered in QSIS", "UPLOAD SUCCESS");
 		}
+    }
     }
 /**
  * This method will return the user to the Staff Menu
