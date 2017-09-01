@@ -18,6 +18,7 @@ import javafx.scene.image.ImageView;
 import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Absence;
 import uk.ac.qub.sql.AbsenceSQL;
+import uk.ac.qub.sql.SearchQueries;
 
 public class SelectedAbsenceController {
 
@@ -99,10 +100,12 @@ public class SelectedAbsenceController {
 /**
  * This method will allow an absence to be amended
  * @param event
+ * @throws SQLException 
+ * @throws NumberFormatException 
  * @throws Exception
  */
     @FXML
-    void SaveChanges(ActionEvent event) {
+    void SaveChanges(ActionEvent event) throws NumberFormatException, SQLException {
 List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.Control>();
 		
 		fields.add(StudentNumber);
@@ -110,6 +113,7 @@ List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.C
 		fields.add(Type);
 		
 		if(ApplicationMethods.noNullValues(fields)){
+			if(SearchQueries.allStudentNumbers().contains(StudentNumber.getText())){
     	a.setApproved(Approved.isSelected());
     	a.setStudentNumber(Integer.valueOf(StudentNumber.getText()));
     	a.setLectureID(a.getLectureID());
@@ -128,7 +132,9 @@ List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.C
 			GeneralMethods.show("Error in amending Absence", "Error");
 			e.printStackTrace();
 		}
-		}	
+		}else {
+			GeneralMethods.show("Student not in database", "Error");}
+		}
     }
 
     @FXML

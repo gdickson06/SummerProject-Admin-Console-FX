@@ -20,6 +20,7 @@ import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Absence;
 import uk.ac.qub.sql.AbsenceSQL;
 import uk.ac.qub.sql.LectureSQL;
+import uk.ac.qub.sql.SearchQueries;
 
 public class UploadSingleAbsenceController {
 
@@ -82,7 +83,9 @@ public class UploadSingleAbsenceController {
 	}
 
 	@FXML
-	void uploadSingleAbsenceButton(ActionEvent event) {
+	void uploadSingleAbsenceButton(ActionEvent event) throws NumberFormatException, SQLException {
+		
+		
 List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.Control>();
 		
 		fields.add(studentNumber);
@@ -90,6 +93,9 @@ List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.C
 		fields.add(type);
 		
 		if(ApplicationMethods.noNullValues(fields)){
+			if(SearchQueries.allStudentNumbers().contains(studentNumber.getText())){
+			
+			
 		Absence a = new Absence();
 
 		if(studentNumber.getText().isEmpty()==false){a.setStudentNumber(Integer.valueOf(studentNumber.getText()));}
@@ -108,7 +114,11 @@ List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.C
 		} catch (Exception e) {
 			
 			GeneralMethods.show(e.getMessage(), "Error");
-		}}
+		}
+			} else {
+				GeneralMethods.show("Student not in database", "Error");
+			}
+		}
 	}
 
 	@FXML

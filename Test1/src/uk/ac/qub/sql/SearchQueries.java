@@ -15,6 +15,26 @@ import uk.ac.qub.objects.Student;
 
 
 public class SearchQueries {
+	public static List<String>  allStudentNumbers() throws SQLException{
+		ResultSet results;
+		List<String> studentNumbers = new ArrayList<String>();
+		String statement = "SELECT * FROM Students ";
+		results = SQL.SQLstatements(statement);
+
+		
+		if (results.next()) {
+
+			do {
+				
+				studentNumbers.add(results.getString("student_number"));
+			} while (results.next());
+
+		}
+		
+		return studentNumbers;
+	}
+	
+	
 	/**
 	 * This method will return all unread absences which will be displayed on the absence page
 	 * @return
@@ -157,7 +177,7 @@ public class SearchQueries {
 
 		statement = statement + ";";
 
-		System.out.println(statement);
+		
 
 		r = SQL.SQLstatements(statement);
 

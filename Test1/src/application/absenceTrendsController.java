@@ -194,6 +194,8 @@ public class absenceTrendsController {
 	
 	@FXML
 	void initialize() {
+		ApplicationMethods.Years(year);
+		ApplicationMethods.AbsenceTypes(type);
 		javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
 		Image.setImage(i);
 	}
