@@ -76,6 +76,6 @@ public class Room {
 	 */
 	@Override
 	public String toString() {
-		return "Room [roomCode=" + code + ", roomName=" + name + "]";
+		return "Room Code:   " + code + "\t Room Name:   " + name;
 	}
 }

@@ -341,6 +341,6 @@ this.firstName = firstName;
 	 */
 	@Override
 	public String toString() {
-		return "student number:" + studentNumber + " name:" + name + " cohort:" + cohort + " year:" + year;
+		return "Student Number:   " + studentNumber + "\t Name:   " + name + "\t Cohort:   " + cohort + "\t Year:   " + year;
 	}
 }

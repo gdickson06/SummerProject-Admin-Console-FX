@@ -133,7 +133,7 @@ public class Note {
 	 */
 	@Override
 	public String toString() {
-		return "Note [id=" + id + ", Year=" + Year + ", Date=" + Date + ", Details=" + Details + "]";
+		return "Note id:   " + id + "\t Year:   " + Year + "\t Date:   " + Date + "\t Details:   " + Details;
 	}
 
 }

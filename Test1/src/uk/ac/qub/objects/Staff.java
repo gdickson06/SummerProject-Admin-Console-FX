@@ -101,7 +101,7 @@ public class Staff {
 	 */
 	@Override
 	public String toString() {
-		return "staff number:" + staff_number + " name:" + name + ", access level:" + access_level ;
+		return "Staff Number:   " + staff_number + "\t Name:   " + name + "\t Access Level:   " + access_level;
 	}
 
 }

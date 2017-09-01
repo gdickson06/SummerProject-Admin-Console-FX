@@ -260,9 +260,8 @@ public class Placement {
 	 */
 	@Override
 	public String toString() {
-		return "id:" + id + " Year:" + Year + " StartDate:" + StartDate + " EndDate :" + EndDate
-				+ "Location : " + Location + " Cohort :" + Cohort + " Module=:" + Module
-				;
+		return "Placement id:   " + id + "\t Year:   " + Year + "\t Start Date:   " + StartDate + "\t End Date:   " + EndDate
+				+ "\t Location:   " + Location + "\t Cohort:   " + Cohort + "\t Module:   " + Module;
 	}
 	
 }

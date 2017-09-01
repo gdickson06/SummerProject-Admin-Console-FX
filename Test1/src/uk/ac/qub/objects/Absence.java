@@ -319,9 +319,9 @@ public class Absence {
 	 */
 	@Override
 	public String toString() {
-		return "Absence id:   " + id + "  Student Number:   " + StudentNumber + "  Lecture ID:   " + LectureID + "  Start Date:   "
-				+ StartDate + "  End Date:  " + EndDate + "  Start Time:   " + StartTime + ", End Time:   " + EndTime + "  Reason:   "
-				+ Reason + " Type:   " + type + "  Approved:   " + approved + "";
+		return "Absence id:   " + id + "\t Student Number:   " + StudentNumber + "\t Lecture ID:   " + LectureID + "\t Start Date:   "
+				+ StartDate + "\t End Date:  " + EndDate + "\t Start Time:   " + StartTime + "\t End Time:   " + EndTime + "\t Reason:   "
+				+ Reason + "\t Type:   " + type + "\t Approved:   " + approved;
 	}
 
 }
