@@ -13,7 +13,7 @@
       <Button fx:id="amendDeleteRoomButton" layoutX="475.0" layoutY="300.0" mnemonicParsing="false" onAction="#amendDeleteRoomButtonClick" prefHeight="180.0" prefWidth="300.0" text="Amend &amp; Delete Rooms" />
       <Button fx:id="uploadRoomCSVButton" layoutX="125.0" layoutY="300.0" mnemonicParsing="false" onAction="#uploadRoomCSVButtonClick" prefHeight="180.0" prefWidth="300.0" text="Upload List of Rooms to Database" />
       <Label layoutX="400.0" layoutY="125.0" prefHeight="27.0" prefWidth="268.0" text="Rooms Menu" />
-      <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
+      <Label layoutX="400.0" layoutY="75.0" text="Medical Hub Administration Console" />
       <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
       <Hyperlink fx:id="logOut" layoutX="909.0" layoutY="124.0" onMouseClicked="#logOut" text="Hyperlink" />
    </children>

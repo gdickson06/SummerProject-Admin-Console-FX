@@ -21,7 +21,7 @@
       <Label layoutX="73.0" layoutY="311.0" text="Start Date:" />
       <Label layoutX="103.0" layoutY="238.0" text="Group:" />
       <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
+      <Label layoutX="400.0" layoutY="75.0" text="Medical Hub Administration Console" />
       <Label layoutX="400.0" layoutY="125.0" prefHeight="27.0" prefWidth="908.0" text="Upload a Single Placement to the Database by filling in all the below fields" />
       <DatePicker fx:id="startDate" layoutX="206.0" layoutY="301.0" promptText="Select Start Date" />
       <DatePicker fx:id="endDate" layoutX="206.0" layoutY="378.0" promptText="Select End Date" />

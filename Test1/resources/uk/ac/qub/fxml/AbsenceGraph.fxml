@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="701.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AbsenceGraphController">
    <children>
-      <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
+      <Label layoutX="400.0" layoutY="75.0" text="Medical Hub Administration Console" />
       <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="Button1" layoutX="655.0" layoutY="601.0" mnemonicParsing="false" onAction="#returnAbsenceTrendsMenu" text="Return to Absence Trends &amp; Analytics Screen" />
       <JFXTextArea fx:id="info" editable="false" focusColor="#a10026" focusTraversable="false" layoutX="145.0" layoutY="598.0" pickOnBounds="false" prefHeight="56.0" prefWidth="455.0" text="If a student is partially absent on one day it will still be considered a full day absence for the above bar chart" unFocusColor="#a10026" />

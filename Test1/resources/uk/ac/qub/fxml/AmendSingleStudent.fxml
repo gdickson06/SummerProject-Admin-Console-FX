@@ -10,7 +10,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.StudentSelectController">
    <children>
       <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
+      <Label layoutX="400.0" layoutY="75.0" text="Medical Hub Administration Console" />
       <Label layoutX="400.0" layoutY="125.0" prefHeight="27.0" prefWidth="901.0" text="Click 'Save Details' to update Student, or click 'Delete student' to remove from database" />
       <JFXTextField fx:id="middleName" focusColor="WHITE" labelFloat="true" layoutX="250.0" layoutY="345.0" prefHeight="35.0" prefWidth="205.0" promptText="Enter Middle Name Here" unFocusColor="WHITE">
          <font>
