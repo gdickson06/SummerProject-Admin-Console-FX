@@ -204,8 +204,18 @@ public class AbsenceTrends {
 		String StudentNumber = String.valueOf(a.getStudentNumber());
 		String StartDate = a.getStartDate();
 		String EndDate = a.getEndDate();
-		LocalTime StartTime = LocalTime.parse(a.getStartTime());
-		LocalTime EndTime = LocalTime.parse(a.getEndTime());
+		
+			String time = a.getStartTime();
+			
+			if(time.length()==4){
+				time="0"+time;
+			}
+		LocalTime StartTime = LocalTime.parse(time);
+		String end = a.getEndTime();
+		if(end.length()==4){
+			end="0"+end;
+		}
+		LocalTime EndTime = LocalTime.parse(end);
 		List<LocalDate> date = dates(StartDate, EndDate);
 		String Cohort = null;
 		int year=0;
@@ -234,16 +244,16 @@ public class AbsenceTrends {
 		for (LocalDate ld : date) {
 			lectures.addAll(SQL.myLectures(Cohort, ld,year));
 		}
-		String time;
+		String time2;
 		List<Lecture> lectures2 = new ArrayList<Lecture>();
 		lectures2.addAll(lectures);
 		for (Lecture l : lectures) {
 			
-			time = l.getStartTime();
-			if(time.length()==4){
-				time=0+time;
+			time2 = l.getStartTime();
+			if(time2.length()==4){
+				time2=0+time2;
 			}
-			LocalTime start = LocalTime.parse(time);
+			LocalTime start = LocalTime.parse(time2);
 
 			if (start.isBefore(StartTime) || start.isAfter(EndTime) || start.equals(EndTime)) {
 				System.out.println(l.toString());
@@ -349,7 +359,7 @@ public class AbsenceTrends {
 		List<Lecture> lectures = new ArrayList<>();
 		
 		for (Absence a : absences) {
-			if(a.getStartTime().equalsIgnoreCase("null")){
+			if(a.getStartTime()==null|| a.getStartTime().equalsIgnoreCase("null")||a.getStartTime().isEmpty()){
 			lectures.addAll( lecturesFullDay(a));
 			} else {
 				
@@ -395,7 +405,7 @@ public class AbsenceTrends {
 		List<Lecture> lectures = new ArrayList<Lecture>();
 		
 		for(Absence a : absences){
-			if(a.getStartTime().equalsIgnoreCase("null")){
+			if(a.getStartTime()==null|| a.getStartTime().equalsIgnoreCase("null")||a.getStartTime().isEmpty()){
 				lectures.addAll(lecturesFullDay(a));
 			}else{
 			lectures.addAll(lectures(a));
