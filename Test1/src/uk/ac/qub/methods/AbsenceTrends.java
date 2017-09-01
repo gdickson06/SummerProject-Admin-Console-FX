@@ -359,7 +359,7 @@ public class AbsenceTrends {
 		List<Lecture> lectures = new ArrayList<>();
 		
 		for (Absence a : absences) {
-			if(a.getStartTime()==null|| a.getStartTime().equalsIgnoreCase("null")||a.getStartTime().isEmpty()){
+			if(a.getStartTime().equalsIgnoreCase("0:00")){
 			lectures.addAll( lecturesFullDay(a));
 			} else {
 				
@@ -405,7 +405,7 @@ public class AbsenceTrends {
 		List<Lecture> lectures = new ArrayList<Lecture>();
 		
 		for(Absence a : absences){
-			if(a.getStartTime()==null|| a.getStartTime().equalsIgnoreCase("null")||a.getStartTime().isEmpty()){
+			if(a.getStartTime().equals("0:00")){
 				lectures.addAll(lecturesFullDay(a));
 			}else{
 			lectures.addAll(lectures(a));

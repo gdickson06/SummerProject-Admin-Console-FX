@@ -116,11 +116,11 @@ List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.C
 			if(SearchQueries.allStudentNumbers().contains(StudentNumber.getText())){
     	a.setApproved(Approved.isSelected());
     	a.setStudentNumber(Integer.valueOf(StudentNumber.getText()));
-    	a.setLectureID(a.getLectureID());
+    	try{if(Integer.valueOf(Lecture.getText())>0){a.setLectureID(Integer.valueOf(Lecture.getText()));}} catch(Exception e){};
     	a.setStartDate(StartDate.getValue().toString());
     	a.setEndDate(EndDate.getValue().toString());
-    	a.setStartTime(StartTime.getText());
-    	a.setEndTime(EndTime.getText());
+    	if(!StartTime.getText().isEmpty()){a.setStartTime(StartTime.getText());}else{a.setStartTime("0:00");}
+    	if(!EndTime.getText().isEmpty()){a.setEndTime(EndTime.getText());}else{a.setEndTime("23:59");}
     	a.setReason(Reason.getText());
     	a.setType(Type.getValue());
     

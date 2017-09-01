@@ -102,8 +102,8 @@ List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.C
 		if(lectureID.getText().isEmpty()==false){a.setLectureID(Integer.valueOf(lectureID.getText()));}
 		a.setStartDate(startDate.getValue().toString());
 		a.setEndDate(endDate.getValue().toString());
-		if(!startTime.getText().isEmpty()){a.setStartTime(ConvertMethods.TimeConvertSQL(startTime.getText()));}
-		if(!endTime.getText().isEmpty()){a.setEndTime(ConvertMethods.TimeConvertSQL(endTime.getText()));}
+		if(!startTime.getText().isEmpty()){a.setStartTime(ConvertMethods.TimeConvertSQL(startTime.getText()));}else { a.setStartTime("00:00");}
+		if(!endTime.getText().isEmpty()){a.setEndTime(ConvertMethods.TimeConvertSQL(endTime.getText()));} else { a.setEndTime("23:59");}
 		a.setReason(reason.getText());
 		a.setApproved(approved.isSelected());
 		a.setType(type.getValue());
