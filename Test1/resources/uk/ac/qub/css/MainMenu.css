@@ -29,7 +29,7 @@
 }
 
 .hyperlink:hover {
-	-fx-text-fill: #FFFFFF;
+	-fx-text-fill: #1717C9;
 	-fx-font-family: "Avenir";
 	-fx-font-size: 12px;
 	-fx-underline:true;

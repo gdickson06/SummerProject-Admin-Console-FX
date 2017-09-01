@@ -40,11 +40,12 @@
 	-fx-text-fill: #FFFFFF;
 	-fx-font-family: "Avenir";
 	-fx-font-size: 12px;
+	-fx-underline:false;
 }
 
 .hyperlink:hover {
 	-fx-text-fill: #FFFFFF;
 	-fx-font-family: "Avenir";
 	-fx-font-size: 12px;
-	-fx-underline:true;
+	-fx-underline:false;
 }

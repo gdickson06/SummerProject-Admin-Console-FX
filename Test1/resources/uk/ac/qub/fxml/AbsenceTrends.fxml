@@ -10,6 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.absenceTrendsController">
    <children>
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#76001b" height="327.0" layoutX="708.0" layoutY="195.0" stroke="WHITE" strokeType="INSIDE" width="507.0" />
       <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="400.0" layoutY="152.0" text="Once this is done, click on the relevant button in order to populate absence trends for each category" />
       <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
@@ -31,10 +32,10 @@
       <Button layoutX="336.0" layoutY="468.0" mnemonicParsing="false" onAction="#yearClick" text="Year" />
       <Button layoutX="445.0" layoutY="468.0" mnemonicParsing="false" onAction="#moduleClick" text="Module" />
       <Button layoutX="198.0" layoutY="533.0" mnemonicParsing="false" onAction="#topTenStudentClick" text="Top Ten Students by Absence" />
-      <Button layoutX="708.0" layoutY="591.0" mnemonicParsing="false" onAction="#returnAbsencesMenu" text="Return to Absences Menu" />
-      <Button layoutX="981.0" layoutY="591.0" mnemonicParsing="false" onAction="#returnMainMenu" text="Return to Main Menu" />
-      <Label fx:id="graph" layoutX="695.0" layoutY="196.0" prefHeight="316.0" prefWidth="507.0" />
+      <Button layoutX="725.0" layoutY="591.0" mnemonicParsing="false" onAction="#returnAbsencesMenu" text="Return to Absences Menu" />
+      <Button layoutX="998.0" layoutY="591.0" mnemonicParsing="false" onAction="#returnMainMenu" text="Return to Main Menu" />
       <Label layoutX="400.0" layoutY="120.0" text="Please select a start date, end date, year, module or enter student number to begin the process." />
       <Button layoutX="900.0" layoutY="533.0" mnemonicParsing="false" onAction="#viewGraph" text="View Graph" />
+      <JFXTextArea fx:id="graph" editable="false" focusColor="#76001b" layoutX="718.0" layoutY="203.0" prefHeight="309.0" prefWidth="488.0" promptText="                          Absence Trend Details will appear here" unFocusColor="#76001b" />
    </children>
 </AnchorPane>
