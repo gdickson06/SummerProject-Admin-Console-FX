@@ -30,8 +30,8 @@ public class Main extends Application {
 		primaryStage.setTitle("QUB School of Medicine Timetable and Absence Notification Administration Console");
 		primaryStage.setScene(scene);
 		scene.getStylesheets().add(Main.class.getResource("/uk/ac/qub/css/Login.css").toExternalForm());
-		Image popUpIcon = new Image(Main.class.getResourceAsStream("/icon.png"));
-		primaryStage.getIcons().add(popUpIcon);
+		//Image popUpIcon = new Image(Main.class.getResourceAsStream("/icon.png"));
+		//primaryStage.getIcons().add(popUpIcon);
 		primaryStage.setMaximized(true);
 		primaryStage.show();
 		stage.getIcons().add(new Image("file:resources/toplogo.png"));
