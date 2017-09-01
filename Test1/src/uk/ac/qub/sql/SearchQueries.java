@@ -215,14 +215,14 @@ public class SearchQueries {
 			start=false;
 		}
 		
-		if(lectures.getModule()!=null){
+		if(!lectures.getModule().isEmpty()){
 			if(start==false){
 				statement = statement+" AND ";
 			} else {
 				statement = statement+" WHERE ";
 			}
 			
-			statement = statement + "module = '"+lectures.getModule()+"'";
+			statement = statement + "module LIKE '%"+lectures.getModule()+"%'";
 			start = false;
 		}
 		
