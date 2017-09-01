@@ -1,6 +1,9 @@
 package application;
 
 
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
 import java.net.URI;
 
 import java.net.URL;
@@ -14,6 +17,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Staff;
 import uk.ac.qub.sql.StaffSQL;
@@ -94,6 +98,18 @@ public class LoginController {
 			GeneralMethods.show("Error connecting to website", "Error");
 		} 
     }
+    /**
+     * To download user guide if the user has not logged in before.
+     * @param event
+     */
+    @FXML
+    void DownloadLink(MouseEvent event) {
+   	 try {
+			Desktop.getDesktop().open(new File("Administration Console User Guide.pdf"));
+		} catch (IOException e) {
+			GeneralMethods.show("Error in opening user guide", "Error");
+		}
+    }
     
     /**
      * The initialize method will do all the work before the page loads up and in this page it will only
@@ -101,7 +117,13 @@ public class LoginController {
      */
     @FXML
     void initialize() {
-    	
+    	File f = new File("SaveInfo.txt");
+    	if(f.exists()){
+    		info.setVisible(false);
+    	} else {
+    		
+    		GeneralMethods.show("This looks like the first time you are using this application, to stop receiving this message please set a save location", "Welcome");
+    	}
     	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");
     	Image.setImage(i);
     	
