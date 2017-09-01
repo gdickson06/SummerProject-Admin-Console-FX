@@ -8,24 +8,24 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CreatePDFController">
    <children>
-      <Label layoutX="141.0" layoutY="219.0" text="Staff:" />
-      <Label layoutX="116.0" layoutY="290.0" text="Module:" />
-      <Label layoutX="140.0" layoutY="364.0" text="Date:" />
-      <JFXTextField fx:id="Staff" focusColor="WHITE" layoutX="201.0" layoutY="205.0" prefHeight="35.0" prefWidth="274.0" unFocusColor="WHITE" />
-      <JFXComboBox fx:id="Module" focusColor="WHITE" layoutX="201.0" layoutY="276.0" prefHeight="39.0" prefWidth="274.0" unFocusColor="WHITE" />
-      <JFXTextField fx:id="StartTime" focusColor="WHITE" layoutX="634.0" layoutY="352.0" prefHeight="35.0" prefWidth="274.0" unFocusColor="WHITE" />
-      <Label layoutX="539.0" layoutY="364.0" text="Start Time:" />
-      <Label layoutX="572.0" layoutY="290.0" text="Week:" />
-      <Label layoutX="582.0" layoutY="219.0" text="Year:" />
-      <JFXTextField fx:id="Week" focusColor="WHITE" layoutX="634.0" layoutY="278.0" prefHeight="35.0" prefWidth="274.0" unFocusColor="WHITE" />
-      <JFXListView fx:id="Lectures" layoutX="149.0" layoutY="448.0" onMouseClicked="#LectureClick" prefHeight="159.0" prefWidth="970.0" />
-      <JFXButton layoutX="949.0" layoutY="196.0" onAction="#Search" text="Search" />
-      <JFXButton layoutX="949.0" layoutY="253.0" onAction="#GeneratePDF" text="Generate PDF" />
-      <JFXButton layoutX="949.0" layoutY="310.0" onAction="#ReturnPDFMenu" text="Return to PDF Menu" />
-      <JFXButton layoutX="949.0" layoutY="369.0" onAction="#ReturnMainMenu" text="Return to Main Menu" />
-      <DatePicker fx:id="Date" layoutX="201.0" layoutY="350.0" prefHeight="39.0" prefWidth="274.0" />
+      <Label layoutX="141.0" layoutY="199.0" text="Staff:" />
+      <Label layoutX="116.0" layoutY="270.0" text="Module:" />
+      <Label layoutX="140.0" layoutY="344.0" text="Date:" />
+      <JFXTextField fx:id="Staff" focusColor="WHITE" layoutX="201.0" layoutY="185.0" prefHeight="35.0" prefWidth="274.0" unFocusColor="WHITE" />
+      <JFXComboBox fx:id="Module" focusColor="WHITE" layoutX="201.0" layoutY="256.0" prefHeight="39.0" prefWidth="274.0" unFocusColor="WHITE" />
+      <JFXTextField fx:id="StartTime" focusColor="WHITE" layoutX="634.0" layoutY="332.0" prefHeight="35.0" prefWidth="274.0" unFocusColor="WHITE" />
+      <Label layoutX="539.0" layoutY="344.0" text="Start Time:" />
+      <Label layoutX="572.0" layoutY="270.0" text="Week:" />
+      <Label layoutX="582.0" layoutY="199.0" text="Year:" />
+      <JFXTextField fx:id="Week" focusColor="WHITE" layoutX="634.0" layoutY="258.0" prefHeight="35.0" prefWidth="274.0" unFocusColor="WHITE" />
+      <JFXListView fx:id="Lectures" layoutX="109.0" layoutY="398.0" onMouseClicked="#LectureClick" prefHeight="159.0" prefWidth="1010.0" />
+      <JFXButton layoutX="949.0" layoutY="264.0" onAction="#Search" text="Search" />
+      <JFXButton layoutX="949.0" layoutY="338.0" onAction="#GeneratePDF" text="Generate PDF" />
+      <JFXButton layoutX="333.0" layoutY="580.0" onAction="#ReturnPDFMenu" text="Return to PDF Menu" />
+      <JFXButton layoutX="745.0" layoutY="580.0" onAction="#ReturnMainMenu" text="Return to Main Menu" />
+      <DatePicker fx:id="Date" layoutX="201.0" layoutY="330.0" prefHeight="39.0" prefWidth="274.0" />
       <Label fx:id="PickedLecture" layoutX="1152.0" layoutY="79.0" />
-      <JFXComboBox fx:id="Year" focusColor="WHITE" layoutX="640.0" layoutY="215.0" prefHeight="25.0" prefWidth="274.0" unFocusColor="WHITE" />
+      <JFXComboBox fx:id="Year" focusColor="WHITE" layoutX="640.0" layoutY="195.0" prefHeight="25.0" prefWidth="274.0" unFocusColor="WHITE" />
       <Label layoutX="400.0" layoutY="125.0" prefHeight="27.0" prefWidth="901.0" text="Create a PDF Document by completing the mandatory fields below and click 'Generate PDF'" />
       <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
       <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />

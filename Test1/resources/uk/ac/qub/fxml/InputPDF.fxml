@@ -12,8 +12,8 @@
       <Label layoutX="403.0" layoutY="237.0" text="Tutorial ID" />
       <JFXTextField fx:id="Lecture" focusColor="WHITE" labelFloat="true" layoutX="515.0" layoutY="232.0" prefHeight="35.0" prefWidth="372.0" unFocusColor="WHITE" />
       <CheckListView fx:id="Students" layoutX="87.0" layoutY="311.0" prefHeight="191.0" prefWidth="1144.0" />
-      <JFXButton layoutX="109.0" layoutY="562.0" onAction="#LogAbsences" text="Log Absences" />
-      <JFXButton layoutX="390.0" layoutY="562.0" onAction="#PickLecture" text="Change Tutorials" />
+      <JFXButton layoutX="403.0" layoutY="562.0" onAction="#LogAbsences" text="Log Absences" />
+      <JFXButton layoutX="126.0" layoutY="562.0" onAction="#PickLecture" text="Search Tutorials" />
       <JFXButton layoutX="695.0" layoutY="562.0" onAction="#returnToPDFMenu" text="Return to PDF Menu" />
       <JFXButton layoutX="1001.0" layoutY="562.0" onAction="#returnToMainMenu" text="Return to Main Menu" />
       <Label fx:id="LectureInfo" layoutX="400.0" layoutY="166.0" prefHeight="39.0" prefWidth="701.0" />

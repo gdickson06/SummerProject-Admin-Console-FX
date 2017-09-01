@@ -9,28 +9,28 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AbsenceAmendDeleteController">
    <children>
-      <JFXButton layoutX="1075.0" layoutY="200.0" onAction="#TypeSearch" text="Search" />
-      <JFXButton layoutX="1075.0" layoutY="270.0" onAction="#ApprovedSearch" text="Search" />
-      <JFXButton layoutX="1075.0" layoutY="345.0" onAction="#SearchEndTime" text="Search" />
-      <JFXButton layoutX="540.0" layoutY="345.0" onAction="#SearchTime" text="Search" />
-      <JFXButton layoutX="540.0" layoutY="270.0" onAction="#SearchDate" text="Search" />
-      <JFXButton layoutX="540.0" layoutY="200.0" onAction="#SearchStudentNumber" text="Search" />
-      <JFXListView fx:id="ListAbsence" layoutX="80.0" layoutY="412.0" onMouseClicked="#listClick" prefHeight="164.0" prefWidth="1099.0" />
-      <JFXButton layoutX="822.0" layoutY="604.0" onAction="#returnMainMenu" text="Return to Main Menu" />
-      <JFXButton fx:id="Back" layoutX="529.0" layoutY="604.0" onAction="#Back" text="Return to Absences Menu" />
-      <JFXButton layoutX="307.0" layoutY="604.0" onAction="#ComboSearch" text="Combo- Search" />
-      <Label layoutX="708.0" layoutY="200.0" text="Type:" />
-      <Label layoutX="660.0" layoutY="270.0" text="Approved:" />
-      <Label layoutX="665.0" layoutY="350.0" text="End Time:" />
-      <JFXTextField fx:id="EndTime" focusColor="WHITE" labelFloat="true" layoutX="777.0" layoutY="345.0" prefHeight="35.0" prefWidth="243.0" promptText="Enter End Time Here" unFocusColor="WHITE" />
-      <JFXTextField fx:id="StartTime" focusColor="WHITE" labelFloat="true" layoutX="243.0" layoutY="345.0" prefHeight="35.0" prefWidth="262.0" promptText="Enter Start Time Here e.g. 12:00" unFocusColor="WHITE" />
-      <JFXTextField fx:id="StudentNumber" focusColor="WHITE" labelFloat="true" layoutX="245.0" layoutY="195.0" prefHeight="35.0" prefWidth="262.0" promptText="Enter Student Number Here" unFocusColor="WHITE" />
-      <Label layoutX="120.0" layoutY="350.0" text="Start Time:" />
-      <Label layoutX="123.0" layoutY="270.0" text="Start Date:" />
-      <Label layoutX="63.0" layoutY="200.0" text="Student Number:" />
-      <DatePicker fx:id="StartDate" layoutX="246.0" layoutY="265.0" prefHeight="39.0" prefWidth="249.0" promptText="Select Start Date" />
-      <JFXComboBox fx:id="Approved" focusColor="WHITE" layoutX="774.0" layoutY="265.0" prefHeight="39.0" prefWidth="243.0" promptText="Select Approval Status" unFocusColor="WHITE" />
-      <JFXComboBox fx:id="Type" focusColor="WHITE" layoutX="774.0" layoutY="195.0" prefHeight="25.0" prefWidth="249.0" promptText="Select Type" unFocusColor="WHITE" />
+      <JFXButton layoutX="965.0" layoutY="200.0" onAction="#TypeSearch" text="Search" />
+      <JFXButton layoutX="965.0" layoutY="270.0" onAction="#ApprovedSearch" text="Search" />
+      <JFXButton layoutX="965.0" layoutY="345.0" onAction="#SearchEndTime" text="Search" />
+      <JFXButton layoutX="500.0" layoutY="345.0" onAction="#SearchTime" text="Search" />
+      <JFXButton layoutX="500.0" layoutY="270.0" onAction="#SearchDate" text="Search" />
+      <JFXButton layoutX="500.0" layoutY="200.0" onAction="#SearchStudentNumber" text="Search" />
+      <JFXListView fx:id="ListAbsence" layoutX="80.0" layoutY="412.0" onMouseClicked="#listClick" prefHeight="164.0" prefWidth="1149.0" />
+      <JFXButton layoutX="797.0" layoutY="593.0" onAction="#returnMainMenu" text="Return to Main Menu" />
+      <JFXButton fx:id="Back" layoutX="342.0" layoutY="593.0" onAction="#Back" text="Return to Absences Menu" />
+      <JFXButton layoutX="1072.0" layoutY="345.0" onAction="#ComboSearch" text="Combo- Search" />
+      <Label layoutX="668.0" layoutY="200.0" text="Type:" />
+      <Label layoutX="620.0" layoutY="270.0" text="Approved:" />
+      <Label layoutX="625.0" layoutY="350.0" text="End Time:" />
+      <JFXTextField fx:id="EndTime" focusColor="WHITE" labelFloat="true" layoutX="737.0" layoutY="345.0" prefHeight="35.0" prefWidth="195.0" promptText="Enter End Time Here" unFocusColor="WHITE" />
+      <JFXTextField fx:id="StartTime" focusColor="WHITE" labelFloat="true" layoutX="233.0" layoutY="345.0" prefHeight="35.0" prefWidth="230.0" promptText="Enter Start Time Here" unFocusColor="WHITE" />
+      <JFXTextField fx:id="StudentNumber" focusColor="WHITE" labelFloat="true" layoutX="235.0" layoutY="195.0" prefHeight="35.0" prefWidth="230.0" promptText="Enter Student Number Here" unFocusColor="WHITE" />
+      <Label layoutX="110.0" layoutY="350.0" text="Start Time:" />
+      <Label layoutX="113.0" layoutY="270.0" text="Start Date:" />
+      <Label layoutX="53.0" layoutY="200.0" text="Student Number:" />
+      <DatePicker fx:id="StartDate" layoutX="236.0" layoutY="265.0" prefHeight="39.0" prefWidth="230.0" promptText="Select Start Date" />
+      <JFXComboBox fx:id="Approved" focusColor="WHITE" layoutX="734.0" layoutY="265.0" prefHeight="39.0" prefWidth="195.0" promptText="Select Status" unFocusColor="WHITE" />
+      <JFXComboBox fx:id="Type" focusColor="WHITE" layoutX="734.0" layoutY="195.0" prefHeight="39.0" prefWidth="195.0" promptText="Select Type" unFocusColor="WHITE" />
       <Label layoutX="400.0" layoutY="125.0" prefHeight="27.0" prefWidth="908.0" text="Click 'Save Details' to save changes, or click 'Delete Absence' to remove from database" />
       <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
       <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />

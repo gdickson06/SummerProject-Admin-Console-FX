@@ -318,10 +318,10 @@ public class Lecture {
 	 */
 	@Override
 	public String toString() {
-		return "Lecture [Week=" + Week + ", Day=" + Day + ", startDate=" + startDate + ", StartTime=" + StartTime
-				+ ", EndTime=" + EndTime + ", group=" + group + ", location=" + location + ", subject=" + subject
-				+ ", theme=" + theme + ", teachingFormat=" + teachingFormat + ", description=" + description
-				+ ", staff=" + staff + ", style=" + style + ", module=" + module + "]";
+		return "Week:   " + Week + "\t  Day:   " + Day + "\t Start Date:   " + startDate + "\t  Start Time:   " + StartTime
+				+ "\t End Time:   " + EndTime + "\t Group:   " + group + "\t Location:   " + location + "\t Subject:   " + subject
+				+ "\t Theme: " + theme + "\t Teaching Format:   " + teachingFormat + "\t Description:   " + description
+				+ "\t Staff:   " + staff + "\t Style:   " + style + "\t Module:   " + module;
 	}
 
 	/**

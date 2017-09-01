@@ -15,10 +15,10 @@
       <JFXButton layoutX="427.0" layoutY="345.0" onAction="#YearSearch" text="Search" />
       <JFXButton layoutX="427.0" layoutY="270.0" onAction="#StartTimeSearch" text="Search" />
       <JFXButton layoutX="427.0" layoutY="200.0" onAction="#WeekSearch" text="Search" />
-      <JFXListView fx:id="ListOfLectures" layoutX="104.0" layoutY="425.0" onMouseClicked="#ListClicked" prefHeight="201.0" prefWidth="1099.0" />
-      <JFXButton fx:id="ReturnMainMenu" layoutX="1072.0" layoutY="345.0" onAction="#ReturnMainMenu" text="Return to Main Menu" />
-      <JFXButton layoutX="1072.0" layoutY="270.0" onAction="#ReturnLectureMenu" text="Return to Lecture Menu" />
-      <JFXButton layoutX="1072.0" layoutY="200.0" onAction="#ComboSearch" text="Combo- Search" />
+      <JFXListView fx:id="ListOfLectures" layoutX="75.0" layoutY="425.0" onMouseClicked="#ListClicked" prefHeight="151.0" prefWidth="1128.0" />
+      <JFXButton fx:id="ReturnMainMenu" layoutX="744.0" layoutY="600.0" onAction="#ReturnMainMenu" text="Return to Main Menu" />
+      <JFXButton layoutX="345.0" layoutY="600.0" onAction="#ReturnLectureMenu" text="Return to Lecture Menu" />
+      <JFXButton layoutX="1055.0" layoutY="353.0" onAction="#ComboSearch" text="Combo- Search" />
       <Label layoutX="582.0" layoutY="205.0" text="Staff:" />
       <Label layoutX="555.0" layoutY="275.0" text="Module:" />
       <Label layoutX="581.0" layoutY="359.0" text="Date:" />
