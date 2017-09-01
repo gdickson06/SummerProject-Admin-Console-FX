@@ -9,7 +9,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GlobalSettingsController">
    <children>
       <ImageView fx:id="image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
+      <Label layoutX="400.0" layoutY="75.0" text="Medical Hub Administration Console" />
       <Label layoutX="400.0" layoutY="117.0" prefHeight="27.0" prefWidth="908.0" text="Click 'Save Details' to save changes, or 'Download User Guide' to download the PDF user guide" />
       <Label layoutX="108.0" layoutY="209.0" text="Western Trust Contact No:" textFill="#0a0a0a" />
       <Label layoutX="101.0" layoutY="258.0" text="Southern Trust Contact No:" />
@@ -40,12 +40,12 @@
       <JFXTextField fx:id="northernTrustContactNumber" focusColor="WHITE" layoutX="824.0" layoutY="248.0" unFocusColor="WHITE" />
       <JFXTextField fx:id="personalDayAllowance" focusColor="WHITE" layoutX="824.0" layoutY="199.0" unFocusColor="WHITE" />
       <JFXButton layoutX="1060.0" layoutY="203.0" onAction="#saveDetails" text="Save Details" />
-      <JFXButton layoutX="1060.0" layoutY="321.0" onAction="#downloadUserGuide" text="Download User Guide" />
-      <JFXButton layoutX="1060.0" layoutY="455.0" onAction="#returnMainMenu" text="Return to Main Menu" />
+      <JFXButton layoutX="1060.0" layoutY="291.0" onAction="#downloadUserGuide" text="Download User Guide" />
+      <JFXButton layoutX="1060.0" layoutY="385.0" onAction="#returnMainMenu" text="Return to Main Menu" />
       <Label layoutX="148.0" layoutY="585.0" text="Change File Location:" />
       <JFXTextField fx:id="changeFileLocation" focusColor="WHITE" layoutX="343.0" layoutY="581.0" unFocusColor="WHITE" />
       <Label layoutX="400.0" layoutY="148.0" text="You can also update your password and change your file location for downloading spreadsheets" />
-      <JFXButton layoutX="1060.0" layoutY="579.0" onAction="#ChangePassword" text="Change Password" />
-      <JFXButton layoutX="584.0" layoutY="579.0" onAction="#ChangeFileLocation" text="Change File Save Location" />
+      <JFXButton layoutX="1060.0" layoutY="479.0" onAction="#ChangePassword" text="Change Password" />
+      <JFXButton layoutX="1060.0" layoutY="579.0" onAction="#ChangeFileLocation" text="Change File Save Location" />
    </children>
 </AnchorPane>

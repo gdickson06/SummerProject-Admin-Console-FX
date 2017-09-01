@@ -1,6 +1,7 @@
 package application;
 
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 
 import java.net.URL;
@@ -51,7 +52,7 @@ public class absenceTrendsController {
 	private DatePicker startDate;
 
 	@FXML
-	private Label graph;
+	private JFXTextArea graph;
 
 	@FXML
 	void dayClick(ActionEvent event) throws SQLException {
@@ -174,7 +175,7 @@ public class absenceTrendsController {
 
 	@FXML
 	void returnAbsencesMenu(ActionEvent event) throws Exception {
-		GeneralMethods.ChangeScene("AbsencesMenu", "AbsencesMenu");
+		GeneralMethods.ChangeScene("AbsenceMenu", "AbsenceMenu");
 	}
 
 	@FXML

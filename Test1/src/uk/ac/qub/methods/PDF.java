@@ -122,7 +122,7 @@ public String getLocation() {
 		document.addTitle("Tutorial List");
 		document.addKeywords("Java, PDF, iText");
 		document.addAuthor(ApplicationMethods.CurrentUser.getName());
-		document.addCreator("Calum Hurst");
+		document.addCreator("Medical Hub Administration Console");
 	}
 	
 /**

@@ -66,7 +66,7 @@
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable Administration Portal" />
+      <Label layoutX="400.0" layoutY="75.0" text="Medical Hub Administration Console" />
       <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
       <JFXTextField fx:id="startTimeTextfield" focusColor="WHITE" labelFloat="true" layoutX="470.0" layoutY="365.0" prefHeight="35.0" prefWidth="183.0" promptText="Enter Start Time Here" unFocusColor="WHITE">
          <font>

@@ -17,7 +17,7 @@
       <JFXButton layoutX="624.0" layoutY="533.0" onAction="#RoomsMenuButtonClick" text="Return to Rooms Menu" />
       <JFXButton layoutX="940.0" layoutY="533.0" onAction="#MainMenuButtonClick" text="Return to Main Menu" />
       <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
+      <Label layoutX="400.0" layoutY="75.0" text="Medical Hub Administration Console" />
       <Label layoutX="400.0" layoutY="125.0" text="Please select a spreadsheet file to bulk upload a list of Rooms to the database." />
    </children>
 </AnchorPane>

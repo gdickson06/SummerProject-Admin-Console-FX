@@ -9,7 +9,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UploadSingleStudentController">
    <children>
       <Label layoutX="400.0" layoutY="125.0" prefHeight="27.0" prefWidth="736.0" text="Upload a Single Student to the Database by filling in all the below fields" />
-      <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
+      <Label layoutX="400.0" layoutY="75.0" text="Medical Hub Administration Console" />
       <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="75.0" layoutY="208.0" text="Student Number:" />
       <Label layoutX="122.0" layoutY="284.0" text="First Name:" />

@@ -32,7 +32,7 @@
       <JFXComboBox fx:id="Approved" focusColor="WHITE" layoutX="734.0" layoutY="265.0" prefHeight="39.0" prefWidth="195.0" promptText="Select Status" unFocusColor="WHITE" />
       <JFXComboBox fx:id="Type" focusColor="WHITE" layoutX="734.0" layoutY="195.0" prefHeight="39.0" prefWidth="195.0" promptText="Select Type" unFocusColor="WHITE" />
       <Label layoutX="400.0" layoutY="125.0" prefHeight="27.0" prefWidth="908.0" text="Click 'Save Details' to save changes, or click 'Delete Absence' to remove from database" />
-      <Label layoutX="400.0" layoutY="75.0" text="School of Medicine Timetable &amp; Absence Notification Administration Portal" />
+      <Label layoutX="400.0" layoutY="75.0" text="Medical Hub Administration Console" />
       <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
