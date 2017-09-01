@@ -77,6 +77,6 @@
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <Label layoutX="125.0" layoutY="468.0" text="Graduate:" />
+      <Label layoutX="129.0" layoutY="468.0" text="Graduate:" />
    </children>
 </AnchorPane>
