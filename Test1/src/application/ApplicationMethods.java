@@ -42,7 +42,7 @@ public static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM
 					valid=false;
 				}
 			}	else if (field instanceof JFXTextArea){
-				if(((JFXTextField) field).getText().isEmpty()){
+				if(((JFXTextArea) field).getText().isEmpty()){
 					field.setStyle(errorStyle);
 					valid=false;
 				}

@@ -215,7 +215,7 @@ public class SearchQueries {
 			start=false;
 		}
 		
-		if(!lectures.getModule().isEmpty()){
+		if(lectures.getModule()!=null){
 			if(start==false){
 				statement = statement+" AND ";
 			} else {
