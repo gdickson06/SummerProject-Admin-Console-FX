@@ -54,9 +54,7 @@
 
 .list-view:inactive {
 	-fx-background-color: #FFFFFF;
-	-fx-text-fill: #76001b;
-	-fx-font-family: "Avenir";
-	-fx-font-size: 14px;
+	
 }
 
 .list-view .list-cell:even {
@@ -87,7 +85,7 @@
 }
 
 .list-cell .label {
-	-fx-prompt-text-fill: #76001B;
+	
 	-fx-text-fill:#76001B;
 	-fx-font-family: "Avenir";
 	-fx-font-size: 14px;

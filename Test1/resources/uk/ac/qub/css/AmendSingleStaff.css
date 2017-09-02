@@ -24,7 +24,6 @@
 
 .list-view {
 	-fx-background-radius: 10;
-	-fx-font-size: 20px;
 }
 
 .list-view .list-cell:even {
@@ -72,7 +71,6 @@
 }
 
 .list-cell .label {
-	-fx-prompt-text-fill: #FFFFFF;
 	-fx-text-fill:#A10026;
 	-fx-font-family: "Avenir";
 	-fx-font-size: 16px;
