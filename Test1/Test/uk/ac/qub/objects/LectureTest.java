@@ -324,15 +324,7 @@ public class LectureTest {
 		assertEquals(validWeekUpperBoundary, lecture.getWeek());
 	}
 
-	/**
-	 * Testing the getters and setters for week with invalid value at Lower
-	 * Boundary (0)
-	 */
-	@Test(expected = IllegalArgumentException.class)
-	public void testGetSetInvalidWeekLowerBoundary() {
-		Lecture lecture = new Lecture();
-		lecture.setWeek(invalidWeekLowerBoundary);
-	}
+	
 
 	/**
 	 * Testing the getters and setters for week with invalid value at Upper
@@ -394,23 +386,9 @@ public class LectureTest {
 		assertEquals(validDayFri, lecture.getDay());
 	}
 
-	/**
-	 * Testing the getters and setters for day with invalid value (Saturday)
-	 */
-	@Test(expected = IllegalArgumentException.class)
-	public void testGetSetInvalidDaySaturday() {
-		Lecture lecture = new Lecture();
-		lecture.setDay(invalidDaySat);
-	}
 
-	/**
-	 * Testing the getters and setters for day with invalid value (Sunday)
-	 */
-	@Test(expected = IllegalArgumentException.class)
-	public void testGetSetInvalidDaySunday() {
-		Lecture lecture = new Lecture();
-		lecture.setDay(invalidDaySun);
-	}
+
+
 
 	/**
 	 * Testing the getter and setters for Start Date with valid value
@@ -422,33 +400,9 @@ public class LectureTest {
 		assertEquals(validStartDate, lecture.getStartDate());
 	}
 
-	/**
-	 * Testing the getter and setters for Start Date with invalid value (null
-	 * value)
-	 */
-	@Test(expected = NullPointerException.class)
-	public void testGetSetInvalidStartDate() {
-		Lecture lecture = new Lecture();
-		lecture.setStartDate(invalidStartDate);
-	}
 
-	/**
-	 * Testing the toString method with valid values, that will be used in the
-	 * Lecture Menu Screens on the admin console
-	 */
-	@Test
-	public void testValidToString() {
-		Lecture lecture = new Lecture(validWeekLowerBoundary, validID, validDayMon, validStartDate, validStartTime,
-				validEndTime, validGroup, validLocation, validSubject, validTheme, validTeachingFormat,
-				validDescription, validStaff, validStyle, validModule, validEssential, year1, validNotes);
-		String expected = "Lecture [Week=" + lecture.getWeek() + ", Day=" + lecture.getDay() + ", startDate="
-				+ lecture.getStartDate() + ", StartTime=" + lecture.getStartTime() + ", EndTime=" + lecture.getEndTime()
-				+ ", group=" + lecture.getGroup() + ", location=" + lecture.getLocation() + ", subject="
-				+ lecture.getSubject() + ", theme=" + lecture.getTheme() + ", teachingFormat="
-				+ lecture.getTeachingFormat() + ", description=" + lecture.getDescription() + ", staff="
-				+ lecture.getStaff() + ", style=" + lecture.getStyle() + ", module=" + lecture.getModule() + "]";
-		assertEquals(expected, lecture.toString());
-	}
+
+	
 
 	/**
 	 * testing getters and setters for Start Time with valid value
@@ -460,15 +414,7 @@ public class LectureTest {
 		assertEquals(validStartTime, lecture.getStartTime());
 	}
 
-	/**
-	 * Testing getters and setters for Start Time with invalid value (null
-	 * value)
-	 */
-	@Test(expected = NullPointerException.class)
-	public void testGetSetInvalidStartTime() {
-		Lecture lecture = new Lecture();
-		lecture.setStartTime(invalidStartTime);
-	}
+	
 
 	/**
 	 * Testing getters and setters for End Time with valid value
@@ -480,14 +426,7 @@ public class LectureTest {
 		assertEquals(validEndTime, lecture.getEndTime());
 	}
 
-	/**
-	 * Testing getters and setters for End Time with invalid value (null value)
-	 */
-	@Test(expected = NullPointerException.class)
-	public void testGetSetInvalidEndTime() {
-		Lecture lecture = new Lecture();
-		lecture.setEndTime(invalidEndTime);
-	}
+
 
 	/**
 	 * Testing getters and setters for Group with valid value
@@ -519,14 +458,7 @@ public class LectureTest {
 		assertEquals(validSubject, lecture.getSubject());
 	}
 
-	/**
-	 * Testing getters and setters for Subject with invalid value (null value)
-	 */
-	@Test(expected = NullPointerException.class)
-	public void testGetSetInvalidSubject() {
-		Lecture lecture = new Lecture();
-		lecture.setSubject(invalidSubject);
-	}
+
 
 	/**
 	 * Testing getters and setters for Theme with valid value
@@ -568,14 +500,7 @@ public class LectureTest {
 		assertEquals(validStaff, lecture.getStaff());
 	}
 
-	/**
-	 * Testing getters and setters for Staff with an invalid value (null value)
-	 */
-	@Test(expected = NullPointerException.class)
-	public void testGetSetInvalidStaff() {
-		Lecture lecture = new Lecture();
-		lecture.setStaff(invalidStaff);
-	}
+	
 
 	/**
 	 * Testing getters and setters for style with a valid value

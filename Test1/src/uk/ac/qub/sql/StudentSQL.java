@@ -30,17 +30,17 @@ public class StudentSQL {
 		for (Student s : students) {
 			studentNumber =s.getStudentNumber();
 			
-			lastName = s.getLastName();
-			firstName=s.getFirstName();
-			middleName=s.getMiddleName();
-			prefix=s.getPrefix();
-			name=s.getName();
-			cohort=s.getCohort();
-			email=s.getEmail();
-			nationality=s.getNationality();
-			graduate =s.getGraduate();
-			comments=s.getComments();
-			portfolio = s.getPortfolio();
+			lastName = s.getLastName().replaceAll("'", "''");
+			firstName=s.getFirstName().replaceAll("'", "''");
+			middleName=s.getMiddleName().replaceAll("'", "''");
+			prefix=s.getPrefix().replaceAll("'", "''");
+			name=s.getName().replaceAll("'", "''");
+			cohort=s.getCohort().replaceAll("'", "''");
+			email=s.getEmail().replaceAll("'", "''");
+			nationality=s.getNationality().replaceAll("'", "''");
+			graduate =s.getGraduate().replaceAll("'", "''");
+			comments=s.getComments().replaceAll("'", "''");
+			portfolio = s.getPortfolio().replaceAll("'", "''");
 
 		
 			newStatement = "INSERT INTO Students " + "VALUES (" + studentNumber + ", '" + lastName+ "', '" + firstName+ "', '" + middleName + "', '" + prefix+ "', '" + name+ "', '" + cohort
@@ -66,10 +66,10 @@ public class StudentSQL {
 //		studentNumber, lastName,firstName,middleName,prefix,name,cohort,email,nationality,graduate,comments,portfolio,year;
 		PreparedStatement statement = null;
 
-		String Statement = "UPDATE Students SET last_name ='" + s.getLastName() + "', first_name='" + s.getFirstName() + "', middle_name= '"
-				+ s.getMiddleName() + "', prefix = '" + s.getPrefix() + "', name ='"+s.getName()+"', cohort = '"+s.getCohort()+"', email ='"+s.getEmail()+
-				"', nationality = '" +s.getNationality()+"', graduate = '" + s.getGraduate()+"', comments ='"+ s.getComments() + "', portfolio = '" +
-				s.getPortfolio()+"', year_group =" + s.getYear()+ " WHERE student_number = " + s.getStudentNumber() + ";";
+		String Statement = "UPDATE Students SET last_name ='" + s.getLastName().replaceAll("'", "''") + "', first_name='" + s.getFirstName().replaceAll("'", "''") + "', middle_name= '"
+				+ s.getMiddleName().replaceAll("'", "''") + "', prefix = '" + s.getPrefix().replaceAll("'", "''") + "', name ='"+s.getName()+"', cohort = '"+s.getCohort().replaceAll("'", "''")+"', email ='"+s.getEmail().replaceAll("'", "''")+
+				"', nationality = '" +s.getNationality().replaceAll("'", "''")+"', graduate = '" + s.getGraduate().replaceAll("'", "''")+"', comments ='"+ s.getComments().replaceAll("'", "''") + "', portfolio = '" +
+				s.getPortfolio().replaceAll("'", "''")+"', year_group =" + s.getYear()+ " WHERE student_number = " + s.getStudentNumber() + ";";
 		System.out.println(Statement);
 		statement = Main.connection.prepareStatement(Statement);
 		statement.executeUpdate();
@@ -85,9 +85,9 @@ public class StudentSQL {
 //		
 		PreparedStatement statement = null;
 
-		String Statement = "INSERT INTO Students " + "VALUES (" + s.getStudentNumber() + ", '" + s.getLastName() + "', '" + s.getFirstName()
-				+ "', '" + s.getMiddleName() + "', '" +s.getPrefix() + "', '"+s.getName()+ "', '"+s.getCohort()+ "', '"+s.getEmail()+ "', '"+s.getNationality()
-				+ "', '"+s.getGraduate()+ "', '"+s.getComments()+ "', '"+s.getPortfolio()+ "', "+s.getYear()+")";
+		String Statement = "INSERT INTO Students " + "VALUES (" + s.getStudentNumber() + ", '" + s.getLastName().replaceAll("'", "''") + "', '" + s.getFirstName().replaceAll("'", "''")
+				+ "', '" + s.getMiddleName().replaceAll("'", "''") + "', '" +s.getPrefix().replaceAll("'", "''") + "', '"+s.getName().replaceAll("'", "''")+ "', '"+s.getCohort().replaceAll("'", "''")+ "', '"+s.getEmail().replaceAll("'", "''")+ "', '"+s.getNationality().replaceAll("'", "''")
+				+ "', '"+s.getGraduate().replaceAll("'", "''")+ "', '"+s.getComments().replaceAll("'", "''")+ "', '"+s.getPortfolio().replaceAll("'", "''")+ "', "+s.getYear()+")";
 		System.out.println(Statement);
 		statement = Main.connection.prepareStatement(Statement);
 		statement.executeUpdate();

@@ -63,16 +63,7 @@ public class GroupConTest {
 		groupsCon.setGroups(validGroup);
 		assertEquals(validGroup, groupsCon.getGroups());
 	}
-	
-	/**
-	 * Testing the getters and setters for the Group parameter with
-	 * an invalid value
-	 */
-	@Test(expected=NullPointerException.class)
-	public void testGetSetInvalidGroups() {
-		GroupsCon groupsCon = new GroupsCon();
-		groupsCon.setGroups(invalidGroup);
-	}
+
 	
 	/**
 	 * Testing the getters and setters for the Cohort parameter with
@@ -85,15 +76,7 @@ public class GroupConTest {
 		assertEquals(validCohort, groupsCon.getCohort());
 	}
 	
-	/**
-	 * Testing the getters and setters for the Cohort parameter with
-	 * an invalid value (null value)
-	 */
-	@Test(expected=NullPointerException.class)
-	public void testGetSetInvalidCohort() {
-		GroupsCon groupsCon = new GroupsCon();
-		groupsCon.setCohort(invalidCohort);
-	}
+	
 	
 	/**
 	 * Testing the toString method for the GroupCon class below

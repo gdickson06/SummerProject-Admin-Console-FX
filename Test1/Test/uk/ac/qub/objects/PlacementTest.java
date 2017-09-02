@@ -100,15 +100,7 @@ public class PlacementTest {
 		assertEquals(validID, placement.getId());
 	}
 	
-	/**
-	 * Testing the getters and setters for the ID parameter with an invalid value
-	 * (0)
-	 */
-	@Test(expected=IllegalArgumentException.class)
-	public void testGetSetInvalidId() {
-		Placement placement = new Placement();
-		placement.setId(invalidID);
-	}
+
 	
 	/**
 	 * Testing the getters and setters for the Year parameter with a valid value at
@@ -143,15 +135,7 @@ public class PlacementTest {
 		assertEquals(validYearUpperBoundary, placement.getYear());
 	}
 	
-	/**
-	 * Testing the getters and setters for the Year parameter with an valid value
-	 *  at the lower boundary (0)
-	 */
-	@Test(expected=IllegalArgumentException.class)
-	public void testGetSetInvalidYearLowerBoundary() {
-		Placement placement = new Placement();
-		placement.setYear(invalidYearLowerBoundary);
-	}
+	
 	
 	/**
 	 * Testing the getters and setters for the Year parameter with an valid value
@@ -174,15 +158,7 @@ public class PlacementTest {
 		assertEquals(validStartDate, placement.getStartDate());
 	}
 	
-	/**
-	 * Testing the getters and setters for Start Date parameter with
-	 * an invalid value (null value)
-	 */
-	@Test(expected=NullPointerException.class)
-	public void testGetSetInvalidStartDate() {
-		Placement placement = new Placement();
-		placement.setStartDate(invalidStartDate);
-	}
+	
 	
 	/**
 	 * Testing the getters and setters for End Date parameter with valid
@@ -195,15 +171,7 @@ public class PlacementTest {
 		assertEquals(validEndDate, placement.getEndDate());
 	}
 	
-	/**
-	 * Testing the getters and setters for End Date parameter with an invalid
-	 * value (null value)
-	 */
-	@Test(expected=NullPointerException.class)
-	public void testGetSetInvalidEndDate() {
-		Placement placement = new Placement();
-		placement.setEndDate(invalidEndDate);
-	}
+
 	
 	/**
 	 * Testing the getters and setters for Location parameter with an valid
@@ -216,15 +184,7 @@ public class PlacementTest {
 		assertEquals(validLocation, placement.getLocation());
 	}
 	
-	/**
-	 * Testing the getters and setters for Location parameter with an invalid
-	 * value (null value)
-	 */
-	@Test(expected=NullPointerException.class)
-	public void testGetSetInvalidLocation() {
-		Placement placement = new Placement();
-		placement.setLocation(invalidLocation);
-	}
+
 	
 	/**
 	 * Testing the getters and setters for the preference parameter with
@@ -248,15 +208,7 @@ public class PlacementTest {
 		assertEquals(validCohort, placement.getCohort());
 	}
 	
-	/**
-	 * Testing the getters and setters for the cohort parameter with
-	 * an invalid value (null value)
-	 */
-	@Test(expected=NullPointerException.class)
-	public void testGetSetInvalidCohort() {
-		Placement placement = new Placement();
-		placement.setCohort(invalidCohort);
-	}
+
 	
 	/**
 	 * Testing the getters and setters for the note parameter with
@@ -280,15 +232,7 @@ public class PlacementTest {
 		assertEquals(validModule, placement.getModule());
 	}
 
-	/**
-	 * Testing the getters and setters for the module parameter
-	 * with an invalid value (null value)
-	 */
-	@Test(expected=NullPointerException.class)
-	public void testGetSetInvalidModule() {
-		Placement placement = new Placement();
-		placement.setModule(invalidModule);
-	}
+	
 	
 	/**
 	 * Testing the getters and setters for the module number
@@ -301,26 +245,8 @@ public class PlacementTest {
 		assertEquals(validModuleNumber, placement.getModuleNumber());
 	}
 	
-	/**
-	 * Testing the getters and setters for the module number
-	 * parameter with an valid value
-	 */
-	@Test(expected=NullPointerException.class)
-	public void testGetSetInvalidModuleNumber() {
-		Placement placement = new Placement();
-		placement.setModuleNumber(invalidModuleNumber);
-	}
 	
-	/**
-	 * Testing the toString method that will be used to display all placement information
-	 * on the Placement Administration Menus on the admin console
-	 */
-	@Test
-	public void testToString() {
-		Placement placement = new Placement(validID, validYearLowerBoundary, validStartDate, validEndDate, validLocation, validPreference, validCohort, validNote, validModule, validModuleNumber);
-		String expected = "id:" + placement.getId() + " Year:" + placement.getYear() + " StartDate:" + placement.getStartDate() + " EndDate :" + placement.getEndDate()
-				+ "Location : " + placement.getLocation() + " Cohort :" + placement.getCohort() + " Module=:" + placement.getModule();
-		assertEquals(placement.toString(),expected);
-	}
+	
+
 
 }

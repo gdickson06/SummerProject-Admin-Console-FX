@@ -30,14 +30,14 @@ public class PlacementSQL {
 		String newStatement = null;
 
 		for (Placement p : placements) {
-			String cohort =p.getCohort();
-			String module = p.getModule();
+			String cohort =p.getCohort().replaceAll("'", "''");
+			String module = p.getModule().replaceAll("'", "''");
 			String StartDate = ConvertMethods.TextDate(p.getStartDate());
 			String EndDate =  ConvertMethods.TextDate(p.getEndDate());
-			String module_number = p.getModuleNumber();
-			String Location = p.getLocation();
-			String preference = p.getPreference();
-			String comments = p.getNote();
+			String module_number = p.getModuleNumber().replaceAll("'", "''");
+			String Location = p.getLocation().replaceAll("'", "''");
+			String preference = p.getPreference().replaceAll("'", "''");
+			String comments = p.getNote().replaceAll("'", "''");
 		
 			
 			try {
@@ -64,9 +64,9 @@ public class PlacementSQL {
 	
 
 		PreparedStatement statement = null;
-		String Statement = "UPDATE Placements SET cohort ='" + p.getCohort() + "', module='" + p.getModule()+ "', start_date='" + p.getStartDate() + 
-				"', end_date = '"+p.getEndDate()+"',module_number = '" +p.getModuleNumber()+"', hospital ='"+p.getLocation()+
-				"', preference = '"+p.getPreference()+"', comments ='"+p.getNote()+"', year="+p.getYear() + " WHERE id= "
+		String Statement = "UPDATE Placements SET cohort ='" + p.getCohort().replaceAll("'", "''") + "', module='" + p.getModule().replaceAll("'", "''")+ "', start_date='" + p.getStartDate() + 
+				"', end_date = '"+p.getEndDate()+"',module_number = '" +p.getModuleNumber().replaceAll("'", "''")+"', hospital ='"+p.getLocation().replaceAll("'", "''")+
+				"', preference = '"+p.getPreference().replaceAll("'", "''")+"', comments ='"+p.getNote().replaceAll("'", "''")+"', year="+p.getYear() + " WHERE id= "
 				+ p.getId() + ";";
 		System.out.println(Statement);
 		statement = Main.connection.prepareStatement(Statement);
@@ -106,9 +106,9 @@ public class PlacementSQL {
 
 		PreparedStatement statement = null;
 
-		String Statement = "INSERT INTO Placements(cohort,module,start_date,end_date,module_number,hospital,preference,year) VALUES('"+p.getCohort()+"',"
-				+ "'"+p.getModule()+"','"+p.getStartDate()+"','"+p.getEndDate()+"','"+p.getModuleNumber()
-		+"','"+p.getLocation()+"','"+p.getPreference()+"', '"+p.getYear()+"');";
+		String Statement = "INSERT INTO Placements(cohort,module,start_date,end_date,module_number,hospital,preference,year) VALUES('"+p.getCohort().replaceAll("'", "''")+"',"
+				+ "'"+p.getModule().replaceAll("'", "''")+"','"+p.getStartDate()+"','"+p.getEndDate()+"','"+p.getModuleNumber().replaceAll("'", "''")
+		+"','"+p.getLocation().replaceAll("'", "''")+"','"+p.getPreference().replaceAll("'", "''")+"', '"+p.getYear()+"');";
 		System.out.println(Statement);
 		
 		statement = Main.connection.prepareStatement(Statement);
@@ -127,7 +127,7 @@ public class PlacementSQL {
 
 		PreparedStatement statement = null;
 
-		String Statement = "UPDATE Placements SET comments ='"+ note+ "' WHERE id = " + id + ";";
+		String Statement = "UPDATE Placements SET comments ='"+ note.replaceAll("'", "''")+ "' WHERE id = " + id + ";";
 		statement = Main.connection.prepareStatement(Statement);
 		statement.executeUpdate();
 	}

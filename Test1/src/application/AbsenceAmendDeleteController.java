@@ -17,7 +17,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import uk.ac.qub.methods.ConvertMethods;
 import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Absence;
 import uk.ac.qub.sql.SearchQueries;
@@ -111,7 +110,7 @@ public class AbsenceAmendDeleteController {
     void SearchEndTime(ActionEvent event) {
     	List<Absence> searched = new ArrayList<Absence>();
      	try {
-			searched.addAll(SearchQueries.searchAbsence(6, ConvertMethods.TimeConvertSQL(EndTime.getText())));
+			searched.addAll(SearchQueries.searchAbsence(6, EndTime.getText()));
 		} catch (SQLException e) {
 			GeneralMethods.show("Error when searching absences", "Error");
 			e.printStackTrace();
@@ -128,7 +127,7 @@ public class AbsenceAmendDeleteController {
     void SearchTime(ActionEvent event) {
     	List<Absence> searched = new ArrayList<Absence>();
      	try {
-			searched.addAll(SearchQueries.searchAbsence(6, ConvertMethods.TimeConvertSQL(StartTime.getText())));
+			searched.addAll(SearchQueries.searchAbsence(6, StartTime.getText()));
 		} catch (SQLException e) {
 			GeneralMethods.show("Error when searching absences", "Error");
 			e.printStackTrace();
@@ -230,8 +229,8 @@ public class AbsenceAmendDeleteController {
     	a.setStudentNumber(i);
     	a.setApproved(approved);
     	if(StartDate.getValue()!=null){a.setStartDate(StartDate.getValue().toString());}
-    	if(!StartTime.getText().isEmpty()){a.setStartTime(ConvertMethods.TimeConvertSQL(StartTime.getText()));}
-    	if(!EndTime.getText().isEmpty()){a.setEndTime(ConvertMethods.TimeConvertSQL(EndTime.getText()));}
+    	if(!StartTime.getText().isEmpty()){a.setStartTime(StartTime.getText());}
+    	if(!EndTime.getText().isEmpty()){a.setEndTime(EndTime.getText());}
     	if(Type.getValue()!=null){a.setType(Type.getValue());}
     	
     	

@@ -15,7 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.image.ImageView;
-import uk.ac.qub.methods.ConvertMethods;
+
 import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Absence;
 import uk.ac.qub.sql.AbsenceSQL;
@@ -91,34 +91,43 @@ List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.C
 		fields.add(studentNumber);
 		fields.add(startDate);
 		fields.add(type);
+		fields.add(endDate);
 		
 		if(ApplicationMethods.noNullValues(fields)){
 			if(SearchQueries.allStudentNumbers().contains(studentNumber.getText())){
-			
+			try{
 			
 		Absence a = new Absence();
 
 		if(studentNumber.getText().isEmpty()==false){a.setStudentNumber(Integer.valueOf(studentNumber.getText()));}
 		if(lectureID.getText().isEmpty()==false){a.setLectureID(Integer.valueOf(lectureID.getText()));}
-		a.setStartDate(startDate.getValue().toString());
-		a.setEndDate(endDate.getValue().toString());
-		if(!startTime.getText().isEmpty()){a.setStartTime(ConvertMethods.TimeConvertSQL(startTime.getText()));}else { a.setStartTime("00:00");}
-		if(!endTime.getText().isEmpty()){a.setEndTime(ConvertMethods.TimeConvertSQL(endTime.getText()));} else { a.setEndTime("23:59");}
+		if(startDate.getValue()!=null){a.setStartDate(startDate.getValue().toString());}
+		if(endDate.getValue()!=null){a.setEndDate(endDate.getValue().toString());}
+		if(!startTime.getText().isEmpty()){a.setStartTime(startTime.getText());}else { a.setStartTime("00:00");}
+		if(!endTime.getText().isEmpty()){a.setEndTime(endTime.getText());} else { a.setEndTime("23:59");}
 		a.setReason(reason.getText());
 		a.setApproved(approved.isSelected());
 		a.setType(type.getValue());
-
+		ApplicationMethods.timeInput(startTime.getText());
+		ApplicationMethods.timeInput(endTime.getText());
+	
 		try {
+			System.out.println(a.getEndDate());
 			AbsenceSQL.saveSingleAbsence(a);
 			GeneralMethods.show("Success", "Success");
 		} catch (Exception e) {
 			
 			GeneralMethods.show(e.getMessage(), "Error");
 		}
+			} catch (Exception e) {
+				GeneralMethods.show("Please input time in 24 Hour format", "Warning");
+			e.printStackTrace();
+			}
 			} else {
 				GeneralMethods.show("Student not in database", "Error");
 			}
 		}
+			
 	}
 
 	@FXML

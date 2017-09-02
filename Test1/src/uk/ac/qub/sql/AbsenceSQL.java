@@ -22,7 +22,7 @@ public class AbsenceSQL {
 
 		String Statement = "UPDATE Absences SET student_number =" + a.getStudentNumber() + ", lecture_id=" + a.getLectureID()
 				+ ", start_date= '" + a.getStartDate() + "', end_date= '" + a.getEndDate() + "', start_time = '" + a.getStartTime()
-				+ "', end_time = '" + a.getEndTime() + "', reason = '" + a.getReason() + "', approved = " + a.getApproved() + ", type = '"
+				+ "', end_time = '" + a.getEndTime() + "', reason = '" + a.getReason().replaceAll("'", "''") + "', approved = " + a.getApproved() + ", type = '"
 				+ a.getType() + "', viewed = true WHERE absences_id = " + a.getId() + ";";
 		System.out.println(Statement);
 		statement = Main.connection.prepareStatement(Statement);
@@ -55,7 +55,7 @@ public class AbsenceSQL {
 		String Statement = "INSERT INTO Absences (student_number, lecture_id, start_date, end_date, start_time, end_time, reason, approved, type, viewed)"
 				+ "VALUES (" + a.getStudentNumber() + ", " + a.getLectureID() + ", '" + a.getStartDate()
 				+ "', '" + a.getEndDate() + "', '" + a.getStartTime() + "', '" + a.getEndTime()
-				+ "', '" + a.getReason() + "', " + a.getApproved() + ", '" + a.getType()
+				+ "', '" + a.getReason().replaceAll("'", "''") + "', " + a.getApproved() + ", '" + a.getType()
 				+ "',true);";
 		System.out.println(Statement);
 		singleAbsenceStatement = Main.connection.prepareStatement(Statement);

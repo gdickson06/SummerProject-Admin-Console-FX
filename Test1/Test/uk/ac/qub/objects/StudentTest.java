@@ -139,15 +139,7 @@ public class StudentTest {
 		student.setStudentNumber(invalidStudentNumberUpperBoundary);
 	}
 
-	/**
-	 * Testing the getter and setters for Student Number with an invalid Lower
-	 * Boundary value (0)
-	 */
-	@Test(expected = IllegalArgumentException.class)
-	public void testGeSetInvalidStudentNumberLowerBoundary() {
-		Student student = new Student();
-		student.setStudentNumber(invalidStudentNumberLowerBoundary);
-	}
+
 
 	/**
 	 * Testing the getter and setters for Last Name with a valid value
@@ -159,15 +151,7 @@ public class StudentTest {
 		assertEquals(validLastName, student.getLastName());
 	}
 
-	/**
-	 * Testing the getter and setters for Last Name with an invalid value (null
-	 * value)
-	 */
-	@Test(expected = NullPointerException.class)
-	public void testGetSetInvalidLastName() {
-		Student student = new Student();
-		student.setLastName(invalidLastName);
-	}
+	
 
 	/**
 	 * Testing the getters and setters for First Name with a valid value
@@ -179,15 +163,7 @@ public class StudentTest {
 		assertEquals(validFirstName, student.getFirstName());
 	}
 
-	/**
-	 * Testing the getters and setters for First Name with an invalid value
-	 * (null value)
-	 */
-	@Test(expected = NullPointerException.class)
-	public void testGetSetInvalidFirstName() {
-		Student student = new Student();
-		student.setFirstName(invalidFirstName);
-	}
+	
 
 	/**
 	 * Testing the getters and setters for Middle Name with a valid value
@@ -199,15 +175,7 @@ public class StudentTest {
 		assertEquals(validMiddleName, student.getMiddleName());
 	}
 
-	/**
-	 * Testing the getters and setters for Middle Name with an invalid value
-	 * (null value)
-	 */
-	@Test(expected = NullPointerException.class)
-	public void testGetSetInvalidMiddleName() {
-		Student student = new Student();
-		student.setMiddleName(invalidMiddleName);
-	}
+
 
 	/**
 	 * testing the setters and getters for Prefix with a valid value
@@ -229,15 +197,7 @@ public class StudentTest {
 		assertEquals(validName, student.getName());
 	}
 
-	/**
-	 * Testing the getters and setters for Name with an invalid value (null
-	 * value)
-	 */
-	@Test(expected = NullPointerException.class)
-	public void testGetSetInvalidName() {
-		Student student = new Student();
-		student.setName(invalidName);
-	}
+
 
 	/**
 	 * testing the getters and setters for Cohort with a valid value
@@ -249,14 +209,7 @@ public class StudentTest {
 		assertEquals(validCohort, student.getCohort());
 	}
 
-	/**
-	 * testing the getters and setters for Cohort with a valid value
-	 */
-	@Test(expected = NullPointerException.class)
-	public void testGetSetInvalidCohort() {
-		Student student = new Student();
-		student.setCohort(invalidCohort);
-	}
+
 
 	/**
 	 * testing the getters and setters for Email Address with a valid value
@@ -268,15 +221,7 @@ public class StudentTest {
 		assertEquals(validEmail, student.getEmail());
 	}
 
-	/**
-	 * testing the getters and setters for Email Address with an invalid value
-	 * (null value)
-	 */
-	@Test(expected = NullPointerException.class)
-	public void testGetSetInvalidEmail() {
-		Student student = new Student();
-		student.setEmail(invalidEmail);
-	}
+
 
 	/**
 	 * Testing the getters and setters for Nationality with a valid value
@@ -358,48 +303,11 @@ public class StudentTest {
 		assertEquals(validYear4, student.getYear());
 	}
 
-	/**
-	 * testing the setters and getters for Year with a valid value for Year 5
-	 */
-	@Test
-	public void testGetSetValidYear5() {
-		Student student = new Student();
-		student.setYear(validYear5);
-		assertEquals(validYear5, student.getYear());
-	}
+	
 
-	/**
-	 * testing the setters and getters for Year with an invalid value at the
-	 * Lower Boundary (0)
-	 */
-	@Test(expected = IllegalArgumentException.class)
-	public void testGetSetInvalidYearLowerBoundary() {
-		Student student = new Student();
-		student.setYear(invalidYearLowerBoundary);
-	}
+	
 
-	/**
-	 * testing the setters and getters for Year with an invalid value at the
-	 * Upper Boundary (6)
-	 */
-	@Test(expected = IllegalArgumentException.class)
-	public void testGetSetInvalidYearUpperBoundary() {
-		Student student = new Student();
-		student.setYear(invalidYearUpperBoundary);
-	}
 
-	/**
-	 * testing the toString method that will be used to display the Student
-	 * information on the Student menus in the admin console
-	 */
-	@Test
-	public void testToString() {
-		Student student = new Student(validStudentNumberLowerBoundary, validLastName, validFirstName, validMiddleName,
-				validPrefix, validName, validCohort, validEmail, validNationality, validGraduate, validComments,
-				validPortfolio, validYear1);
-		String expected = "student number:" + student.getStudentNumber() + " name:" + student.getName() + " cohort:"
-				+ student.getCohort() + " year:" + student.getYear();
-		assertEquals(expected, student.toString());
-	}
+	
 
 }

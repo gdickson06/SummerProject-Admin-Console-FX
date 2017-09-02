@@ -125,7 +125,7 @@ public class AbsenceTrends {
  * @param end
  * @return
  */
-	private static List<LocalDate> dates(String start, String end) {
+	public static List<LocalDate> dates(String start, String end) {
 
 		LocalDate startDate = LocalDate.parse(start);
 
@@ -143,7 +143,7 @@ public class AbsenceTrends {
  * @param dates
  * @return
  */
-	private static List<String> days(List<LocalDate> dates) {
+	public static List<String> days(List<LocalDate> dates) {
 
 		List<String> days = new ArrayList<String>();
 
@@ -210,7 +210,13 @@ public class AbsenceTrends {
 			if(time.length()==4){
 				time="0"+time;
 			}
-		LocalTime StartTime = LocalTime.parse(time);
+		
+		LocalTime StartTime = null;
+		try{
+			StartTime = LocalTime.parse(time);
+		} catch (Exception e){
+			StartTime = LocalTime.parse("00:00");
+		}
 		String end = a.getEndTime();
 		if(end.length()==4){
 			end="0"+end;
@@ -253,8 +259,12 @@ public class AbsenceTrends {
 			if(time2.length()==4){
 				time2=0+time2;
 			}
-			LocalTime start = LocalTime.parse(time2);
-
+			LocalTime start=null;
+			try{
+			start = LocalTime.parse(time2);
+			} catch (Exception e){
+				start =LocalTime.parse("00:00");
+			}
 			if (start.isBefore(StartTime) || start.isAfter(EndTime) || start.equals(EndTime)) {
 				System.out.println(l.toString());
 				lectures2.remove(l);

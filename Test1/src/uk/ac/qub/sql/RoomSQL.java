@@ -22,8 +22,8 @@ public class RoomSQL {
 		String newStatement = null;
 
 		for (Room r : rooms) {
-			String code = r.getCode();
-			String name = r.getName();
+			String code = r.getCode().replaceAll("'", "''");
+			String name = r.getName().replaceAll("'", "''");
 			try {
 				newStatement = "INSERT INTO LectureLocation " + "VALUES ('" + code + "', '" + name + "')";
 				statement = Main.connection.prepareStatement(newStatement);
@@ -43,7 +43,7 @@ public class RoomSQL {
 	public static void amendRoom(List<String> list) throws ClassNotFoundException, SQLException{
 		
 		PreparedStatement preparedStatement = null;
-		String statement = "UPDATE LectureLocation SET room_code = '"+list.get(0)+"',room_location = '"+list.get(1)+"' WHERE room_code ='"+list.get(2)+"';";
+		String statement = "UPDATE LectureLocation SET room_code = '"+list.get(0).replaceAll("'", "''")+"',room_location = '"+list.get(1).replaceAll("'", "''")+"' WHERE room_code ='"+list.get(2).replaceAll("'", "''")+"';";
 		preparedStatement = Main.connection.prepareStatement(statement);
 		preparedStatement.executeUpdate();
 	}

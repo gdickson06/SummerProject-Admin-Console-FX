@@ -139,25 +139,9 @@ public class AbsenceTest {
 		assertEquals(validStudentNumberUpperBoundary, absence.getStudentNumber());
 	}
 
-	/**
-	 * Testing the getters and setters for Student Number with invalid value at
-	 * the lower boundary (0)
-	 */
-	@Test(expected = IllegalArgumentException.class)
-	public void testGetInvalidStudentNumberLowerBoundary() {
-		Absence absence = new Absence();
-		absence.setStudentNumber(invalidStudentNumberLowerBoundary);
-	}
+	
 
-	/**
-	 * Testing the getters and setters for Student Number with invalid value at
-	 * the upper boundary (100000000)
-	 */
-	@Test(expected = IllegalArgumentException.class)
-	public void testGetInvalidStudentNumberUpperBoundary() {
-		Absence absence = new Absence();
-		absence.setStudentNumber(invalidStudentNumberUpperBoundary);
-	}
+	
 
 	/**
 	 * Testing the getters and setters for LectureID with valid value
@@ -209,15 +193,7 @@ public class AbsenceTest {
 		assertEquals(validStartTime, absence.getStartTime());
 	}
 
-	/**
-	 * Testing the getters and setters for Start Time with invalid Value (null
-	 * value)
-	 */
-	@Test(expected = NullPointerException.class)
-	public void testGetSetInvalidStartTime() {
-		Absence absence = new Absence();
-		absence.setStartTime(invalidStartTime);
-	}
+	
 
 	/**
 	 * Testing the getters and setters for End Time with valid values (17:00)
@@ -249,15 +225,7 @@ public class AbsenceTest {
 		assertEquals(validReason, absence.getReason());
 	}
 
-	/**
-	 * Testing the getters and setters for Reason with invalid values (null
-	 * value)
-	 */
-	@Test(expected = NullPointerException.class)
-	public void testGetSetInvalidReason() {
-		Absence absence = new Absence();
-		absence.setReason(invalidReason);
-	}
+
 
 	/**
 	 * Testing the getters and setters for Type for the first valid Type
@@ -302,19 +270,6 @@ public class AbsenceTest {
 		absence.setType(invalidType);
 	}
 
-	/**
-	 * Testing the getters and setters for the toString method
-	 */
-	@Test
-	public void testAbsenceToString() {
-		Absence absence = new Absence(validID, validStudentNumberLowerBoundary, validLectureID, validStartDate,
-				validEndDate, validStartTime, validEndTime, validReason, validType1, validApproved, validViewed);
-		String expected = "Absence [id=" + absence.getId() + ", StudentNumber=" + absence.getStudentNumber()
-				+ ", LectureID=" + absence.getLectureID() + ", StartDate=" + absence.getStartDate() + ", EndDate="
-				+ absence.getEndDate() + ", StartTime=" + absence.getStartTime() + ", EndTime=" + absence.getEndTime()
-				+ ", Reason=" + absence.getReason() + ", type=" + absence.getType() + ", approved="
-				+ absence.getApproved() + "]";
-		assertEquals(expected, absence.toString());
-	}
+
 
 }

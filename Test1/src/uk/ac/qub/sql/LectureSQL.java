@@ -30,21 +30,20 @@ public class LectureSQL {
 			int week = l.getWeek();
 			String day = l.getDay();
 			String startDate = ConvertMethods.DateConvertSQL(l.getStartDate());
-			String startTime = l.getStartTime();
-			String endTime = l.getEndTime();
+			String startTime = l.getStartTime().replaceAll("'", "''");
+			String endTime = l.getEndTime().replaceAll("'", "''");
 			String groups = l.getGroup();
-			String location = l.getLocation();
-			String subject = l.getSubject();
-			String theme = l.getTheme();
-			String format = l.getTeachingFormat();
-			String description = l.getDescription();
-			String staff = l.getStaff();
-			String style = l.getStyle();
-			String module = l.getModule();
+			String location = l.getLocation().replaceAll("'", "''");
+			String subject = l.getSubject().replaceAll("'", "''");
+			String theme = l.getTheme().replaceAll("'", "''");
+			String format = l.getTeachingFormat().replaceAll("'", "''");
+			String description = l.getDescription().replaceAll("'", "''");
+			String staff = l.getStaff().replaceAll("'", "''");
+			String style = l.getStyle().replaceAll("'", "''");
+			String module = l.getModule().replaceAll("'", "''");
 
-			description = description.replaceAll("'", "''");
-			staff = staff.replaceAll("'", "''");
-			startTime = startTime.replaceAll("'", "''");
+	
+			
 			String statements = null;
 			try {
 				ConvertMethods.convert(groups);
@@ -83,10 +82,10 @@ public class LectureSQL {
 		PreparedStatement statement = null;
 
 		String Statement = "UPDATE Lectures SET week =" + l.getWeek() + ", day='" + l.getDay() + "', date= '" + l.getStartDate()
-				+ "', start_time= '" + l.getStartTime() + "', end_time= '" + l.getEndTime() + "', groups= '" + l.getGroup()
-				+ "', location= '" + l.getLocation() + "', subject= '" + l.getSubject() + "', theme= '" + l.getTheme() + "', teaching= '"
-				+ l.getTeachingFormat() + "', description= '" + l.getDescription() + "', staff= '" + l.getStaff() + "', style = '" + l.getStyle()
-				+ "', module = '" + l.getModule() + "', optional="+l.getEssential()+", year ="+l.getYear()+" WHERE lecture_id = " + l.getId() + ";";
+				+ "', start_time= '" + l.getStartTime() + "', end_time= '" + l.getEndTime() + "', groups= '" + l.getGroup().replaceAll("'", "''")
+				+ "', location= '" + l.getLocation().replaceAll("'", "''") + "', subject= '" + l.getSubject().replaceAll("'", "''") + "', theme= '" + l.getTheme().replaceAll("'", "''") + "', teaching= '"
+				+ l.getTeachingFormat().replaceAll("'", "''") + "', description= '" + l.getDescription().replaceAll("'", "''") + "', staff= '" + l.getStaff().replaceAll("'", "''") + "', style = '" + l.getStyle().replaceAll("'", "''")
+				+ "', module = '" + l.getModule().replaceAll("'", "''") + "', optional="+l.getEssential()+", year ="+l.getYear()+" WHERE lecture_id = " + l.getId() + ";";
 		statement = Main.connection.prepareStatement(Statement);
 		statement.executeUpdate();
 
@@ -130,8 +129,8 @@ public static void DeleteLectureYear(String Year) throws Exception {
 
 		String Statement = "INSERT INTO Lectures (week, day, date, start_time, end_time, groups, location, subject, theme, teaching, description, staff, style, module, optional, year)"
 		+ "VALUES (" + l.getWeek() + ", '" + l.getDay() + "', '" + l.getStartDate() + "', '" + l.getStartTime() + "','" + l.getEndTime()
-				+ "', '" + l.getGroup() + "', '" + l.getLocation() + "', '" + l.getSubject() + "', '" + l.getTheme() + "', '" + l.getTeachingFormat()
-				+ "', '" + l.getDescription() + "', '" + l.getStaff() + "', '" + l.getStyle() + "', '" + l.getModule() + "', "+l.getEssential()+", "+l.getYear()+");";
+				+ "', '" + l.getGroup().replaceAll("'", "''") + "', '" + l.getLocation().replaceAll("'", "''") + "', '" + l.getSubject().replaceAll("'", "''") + "', '" + l.getTheme().replaceAll("'", "''") + "', '" + l.getTeachingFormat().replaceAll("'", "''")
+				+ "', '" + l.getDescription().replaceAll("'", "''") + "', '" + l.getStaff().replaceAll("'", "''") + "', '" + l.getStyle().replaceAll("'", "''") + "', '" + l.getModule().replaceAll("'", "''") + "', "+l.getEssential()+", "+l.getYear()+");";
 	
 		statement = Main.connection.prepareStatement(Statement);
 		statement.executeUpdate();
@@ -148,7 +147,7 @@ public static void DeleteLectureYear(String Year) throws Exception {
 
 		PreparedStatement statement = null;
 
-		String Statement = "UPDATE Lectures SET notes ='"+ note+ "' WHERE lecture_id = " + id + ";";
+		String Statement = "UPDATE Lectures SET notes ='"+ note.replaceAll("'", "''")+ "' WHERE lecture_id = " + id + ";";
 		statement = Main.connection.prepareStatement(Statement);
 		statement.executeUpdate();
 	}

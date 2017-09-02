@@ -103,6 +103,7 @@ public class UploadSingleLectureController {
 
     @FXML
     void uploadLectureButtonClick(ActionEvent event) throws Exception {
+    	try{
 List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.Control>();
 		
 		fields.add(startTimeTextfield);
@@ -117,7 +118,7 @@ List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.C
     	
 		
     	
-		l.setWeek(Integer.valueOf(weekTextfield.getText()));
+		if(!weekTextfield.getText().isEmpty()){l.setWeek(Integer.valueOf(weekTextfield.getText()));}
 		l.setDay(dayTextField.getText());
 		l.setStartDate(startDate.getValue().toString());
 		l.setStartTime(startTimeTextfield.getText());
@@ -138,7 +139,15 @@ List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.C
 		
 		LectureSQL.UploadSingleLecture(l);
 		GeneralMethods.show("Lecture added to database", "Lecture added to database");
-    }
+		ApplicationMethods.timeInput(startTimeTextfield.getText());
+		ApplicationMethods.timeInput(endTimeTextfield.getText());
+		}
+	} catch (Exception e) {
+		e.printStackTrace();
+		GeneralMethods.show("Please input time in 24 Hour format", "Warning");
+	}
+		
+		
     }
     @FXML
     void clear(ActionEvent event) {

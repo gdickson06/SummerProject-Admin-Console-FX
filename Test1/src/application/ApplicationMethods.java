@@ -77,6 +77,20 @@ public static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM
 		e.getItems().addAll(years);
 	}
 	
+public static void timeInput(String time)throws Exception{
+	boolean thrown = true;
 	
+	if(time.isEmpty()){
+		thrown =false;
+	}
+
+	if((time.length()==4 || time.length()==5)&&time.contains(":") ){
+		thrown = false;
+	}
+	
+	if(thrown){
+		throw new Exception();
+	}
+}
 
 }

@@ -47,7 +47,7 @@ public class GroupsConSQL {
 			System.out.println(g.toString());
 			 try {
 			 
-				statements = "INSERT INTO GroupConvert " + "VALUES ('" + g.getGroups() + "', '" + g.getCohort() + "')";
+				statements = "INSERT INTO GroupConvert " + "VALUES ('" + g.getGroups().replaceAll("'", "''") + "', '" + g.getCohort().replaceAll("'", "''") + "')";
 				statement = Main.connection.prepareStatement(statements);
 				statement.executeUpdate();
 			} catch (Exception e) {

@@ -69,15 +69,7 @@ public class StaffTest {
 		assertEquals(validStaffNumber, staff.getStaff_number());
 	}
 	
-	/**
-	 * testing the getters and setters for Staff Number with an invalid value
-	 * (null value)
-	 */
-	@Test(expected=NullPointerException.class)
-	public void testGetSetInvalidStaff_number() {
-		Staff staff = new Staff();
-		staff.setStaff_number(invalidStaffNumber);
-	}
+	
 	
 	/**
 	 * testing the getters and setters for the name parameter with a valid value
@@ -89,15 +81,7 @@ public class StaffTest {
 		assertEquals(validName, staff.getName());
 	}
 	
-	/**
-	 * testing the getters and setters for the name parameter with
-	 * an invalid value
-	 */
-	@Test(expected=NullPointerException.class)
-	public void testGetSetInvalidName() {
-		Staff staff = new Staff();
-		staff.setName(invalidName);
-	}
+
 	
 	/**
 	 * testing the getters and setters for the Access Level parameter
@@ -142,15 +126,6 @@ public class StaffTest {
 		staff.setAccess_level(invalidAccessLevel);
 	}
 	
-	/**
-	 * Testing the toString method that will display all parameters from
-	 * the Staff object
-	 */
-	@Test
-	public void testToString() {
-		Staff staff = new Staff(validStaffNumber, validName, validAccessLevel1);
-		String expected = "staff number:" + staff.getStaff_number() + " name:" + staff.getName() + ", access level:" + staff.getAccess_level();
-		assertEquals(expected, staff.toString());
-	}
+	
 
 }

@@ -106,15 +106,18 @@ public class SelectedAbsenceController {
  */
     @FXML
     void SaveChanges(ActionEvent event) throws NumberFormatException, SQLException {
-List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.Control>();
+    	try{
+    	List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.Control>();
 		
 		fields.add(StudentNumber);
 		fields.add(StartDate);
 		fields.add(Type);
+		fields.add(EndDate);
 		
 		if(ApplicationMethods.noNullValues(fields)){
 			if(SearchQueries.allStudentNumbers().contains(StudentNumber.getText())){
-    	a.setApproved(Approved.isSelected());
+    	
+				a.setApproved(Approved.isSelected());
     	a.setStudentNumber(Integer.valueOf(StudentNumber.getText()));
     	try{if(Integer.valueOf(Lecture.getText())>0){a.setLectureID(Integer.valueOf(Lecture.getText()));}} catch(Exception e){};
     	a.setStartDate(StartDate.getValue().toString());
@@ -123,7 +126,10 @@ List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.C
     	if(!EndTime.getText().isEmpty()){a.setEndTime(EndTime.getText());}else{a.setEndTime("23:59");}
     	a.setReason(Reason.getText());
     	a.setType(Type.getValue());
-    
+    	ApplicationMethods.timeInput(StartTime.getText());
+		ApplicationMethods.timeInput(EndTime.getText());
+
+	}
     	
     	try {
 			AbsenceSQL.AmendAbsence(a);
@@ -134,7 +140,12 @@ List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.C
 		}
 		}else {
 			GeneralMethods.show("Student not in database", "Error");}
-		}
+		
+		
+	} catch (Exception e) {
+		e.printStackTrace();
+		GeneralMethods.show("Please input time in 24 Hour format", "Warning");
+    }
     }
 
     @FXML

@@ -64,15 +64,7 @@ public class RoomTest {
 		assertEquals(validRoomCode, room.getCode());
 	}
 	
-	/**
-	 * testing the getters and setters for the Room Code with an invalid
-	 * value (null value)
-	 */
-	@Test(expected=NullPointerException.class)
-	public void testGetSetInvalidRoomCode() {
-		Room room = new Room();
-		room.setCode(invalidRoomCode);
-	}
+
 	
 	/**
 	 * Testing the getters and setters for the Room Name with a valid value
@@ -84,25 +76,8 @@ public class RoomTest {
 		assertEquals(validRoomName, room.getName());
 	}
 	
-	/**
-	 * Testing the getters and setters for the Room Name with an invalid value
-	 * (null value)
-	 */
-	@Test(expected=NullPointerException.class)
-	public void testGetSetInvalidName() {
-		Room room = new Room();
-		room.setName(invalidRoomName);
-	}
+
 	
-	/**
-	 * Testing the toString method that will display the Room information on the
-	 * Room Administration menu
-	 */
-	@Test
-	public void testToString() {
-		Room room = new Room(validRoomCode, validRoomName);
-		String expected = "Room [roomCode=" + room.getCode() + ", roomName=" + room.getName() + "]";
-		assertEquals(expected, room.toString());
-	}
+
 
 }

@@ -12,19 +12,7 @@ import java.util.List;
 
 public class ConvertMethods {
 
-/**
- * This method will convert a time inputted into SQL time input
- * @param time
- * @return
- */
-	public static String TimeConvertSQL(String time){
-		String r=time.replace(":","");
-		
-		String answer = r + "00";
-		
-		return answer;
-		
-	}
+
 	/**
 	 * This method will convert dates when written in the format Day DD MMM YY
 	 * @param e

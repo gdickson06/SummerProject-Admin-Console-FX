@@ -28,9 +28,9 @@ public class StaffSQL {
 
 		for (Staff s : users) {
 			String staffNumber = s.getStaff_number();
-			System.out.println("staffNumber = " + staffNumber);
-			String name = s.getName();
-			String accessLevel = s.getAccess_level();
+		
+			String name = s.getName().replaceAll("'", "''");
+			String accessLevel = s.getAccess_level().replaceAll("'", "''");
 
 			{
 
@@ -56,7 +56,7 @@ System.out.println(newStatement);
 		String Statement;
 		PreparedStatement statement = null;
 
-		Statement = "UPDATE Staff SET name ='" + s.getName() + "', access_level='" + s.getAccess_level()
+		Statement = "UPDATE Staff SET name ='" + s.getName().replaceAll("'", "''") + "', access_level='" + s.getAccess_level()
 				+ "' WHERE staff_number =" + s.getStaff_number() + ";";
 		statement = Main.connection.prepareStatement(Statement);
 		statement.executeUpdate();
@@ -87,7 +87,7 @@ System.out.println(newStatement);
 
 		PreparedStatement statement = null;
 
-		String Statement = "INSERT INTO Staff " + "VALUES (" + s.getStaff_number() + ", '" + s.getName() + "', '"
+		String Statement = "INSERT INTO Staff " + "VALUES (" + s.getStaff_number() + ", '" + s.getName().replaceAll("'", "''") + "', '"
 				+ s.getAccess_level() + "')";
 
 		statement = Main.connection.prepareStatement(Statement);

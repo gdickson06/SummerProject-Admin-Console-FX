@@ -116,25 +116,9 @@ public class NoteTest {
 		assertEquals(validYearUpperBoundary, note.getYear());
 	}
 
-	/**
-	 * Testing the getters and setters for year with an invalid value at the
-	 * lower boundary(0)
-	 */
-	@Test(expected = IllegalArgumentException.class)
-	public void testGetSetInvalidYearLowerBoundary() {
-		Note note = new Note();
-		note.setYear(invalidYearLowerBoundary);
-	}
 
-	/**
-	 * Testing the getters and setters for year with an invalid value at the
-	 * upper boundary(6)
-	 */
-	@Test(expected = IllegalArgumentException.class)
-	public void testGetSetInvalidYearUpperBoundary() {
-		Note note = new Note();
-		note.setYear(invalidYearUpperBoundary);
-	}
+
+
 
 	/**
 	 * Testing the getter and setters for Date parameter with a valid value
@@ -146,14 +130,7 @@ public class NoteTest {
 		assertEquals(validDate, note.getDate());
 	}
 
-	/**
-	 * Testing the getter and setters for Date parameter with an invalid value
-	 */
-	@Test(expected = NullPointerException.class)
-	public void testGetSetInvalidDate() {
-		Note note = new Note();
-		note.setDate(invalidDate);
-	}
+
 
 	/**
 	 * Testing the getter and setter for Details parameter with a valid value
@@ -165,26 +142,8 @@ public class NoteTest {
 		assertEquals(validDetails, note.getDetails());
 	}
 
-	/**
-	 * Testing the getter and setter for Details parameter with an invalid value
-	 * (null value)
-	 */
-	@Test(expected = NullPointerException.class)
-	public void testGetSetInvalidDetails() {
-		Note note = new Note();
-		note.setDetails(invalidDetails);
-	}
 
-	/**
-	 * Testing the toString method that will display all note information for
-	 * the empty tables on the Note Uploads Screens in Admin Console
-	 */
-	@Test
-	public void testToString() {
-		Note note = new Note(validID, validYearLowerBoundary, validDate, validDetails);
-		String expected = "Note [id=" + note.getId() + ", Year=" + note.getYear() + ", Date=" + note.getDate()
-				+ ", Details=" + note.getDetails() + "]";
-		assertEquals(expected, note.toString());
-	}
+
+
 
 }

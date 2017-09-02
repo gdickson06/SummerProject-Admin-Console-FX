@@ -26,7 +26,7 @@ public class NoteSQL {
 	public static void amendNote(Note n) throws ClassNotFoundException, SQLException{
 		
 		PreparedStatement preparedStatement = null;
-		String statement = "UPDATE Notes SET date = '"+n.getDate()+"',year_group = "+n.getYear()+", note_text='"+n.getDetails()+"' WHERE id ="+n.getId()+";";
+		String statement = "UPDATE Notes SET date = '"+n.getDate()+"',year_group = "+n.getYear()+", note_text='"+n.getDetails().replaceAll("'", "''")+"' WHERE id ="+n.getId()+";";
 	preparedStatement = Main.connection.prepareStatement(statement);
 		preparedStatement.executeUpdate();
 		
@@ -57,7 +57,7 @@ public class NoteSQL {
 
 		PreparedStatement statement = null;
 
-		String Statement = "INSERT INTO Notes (date, year_group, note_text) " + "VALUES ('" + n1.getDate() + "', '" + n1.getYear() + "', '" + n1.getDetails() +"')";
+		String Statement = "INSERT INTO Notes (date, year_group, note_text) " + "VALUES ('" + n1.getDate() + "', '" + n1.getYear() + "', '" + n1.getDetails().replaceAll("'", "''") +"')";
 		statement = Main.connection.prepareStatement(Statement);
 		statement.executeUpdate();
 
