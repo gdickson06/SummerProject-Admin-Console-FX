@@ -71,22 +71,21 @@ public class CSVRoomController {
 			String filePath = filePathTextField.getText();
 
 			List<Room> roomList = new ArrayList<Room>();
-			boolean uploadError = false;
+	
 
 			try {
 				roomList = CSV.readRoomsFromCSV(filePath);
 				RoomSQL.saveSQLRooms(roomList);
-
-			} catch (Exception e) {
-				GeneralMethods.show("Error with Rooms Upload, please view handbook", "ERROR");
-				uploadError = true;
-			}
-
-			if (uploadError == false) {
 				GeneralMethods.show(
 						"Upload of Rooms from CSV successful, with " + roomList.size() + " rooms added to the database",
 						"Rooms Upload Successful");
+
+			} catch (Exception e) {
+				GeneralMethods.show(e.getLocalizedMessage(), "ERROR");
+				
 			}
+
+			
 		}
 	}
 

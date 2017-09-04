@@ -3,6 +3,7 @@ package application;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -60,18 +61,30 @@ private static uk.ac.qub.objects.Lecture selectedLecture;
 
     @FXML
     void PickLecture(ActionEvent event) throws NumberFormatException, SQLException {
+List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.Control>();
+		
+		fields.add(Lecture);
+		
+		if(ApplicationMethods.noNullValues(fields)){
     	List<uk.ac.qub.objects.Lecture> lectures = SearchQueries.searchLecture(1, Lecture.getText());
-
+    	try{
 		selectedLecture = lectures.get(0);
 
 		LectureInfo.setText(selectedLecture.toString());
 
 		List<Student> students = SearchQueries.studentsInLecture(selectedLecture);
-
+		if(students.size()>0){
 		ObservableList<Student> list = FXCollections.observableArrayList();
 		list.addAll(students);
-	
 		Students.setItems(list);
+		} else {
+			GeneralMethods.show("No students in lecture", "Warning");
+		}
+	
+    	} catch (IndexOutOfBoundsException e){
+    		GeneralMethods.show("No such lecture, please check PDF ID", "Error");
+    	}
+		}
     }
 
     @FXML

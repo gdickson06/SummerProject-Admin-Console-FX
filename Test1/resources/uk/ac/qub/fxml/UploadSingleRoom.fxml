@@ -13,11 +13,11 @@
       <JFXTextField fx:id="RoomCodeTextField" focusColor="WHITE" labelFloat="true" layoutX="447.0" layoutY="264.0" prefHeight="35.0" prefWidth="582.0" promptText="Enter Room Code Here e.g MBC/01/002" unFocusColor="WHITE" />
       <Label layoutX="326.0" layoutY="268.0" text="Room Code:" />
       <JFXButton layoutX="95.0" layoutY="533.0" onAction="#UploadSingleRoomUpload" text="Add Room to Database" />
-      <JFXButton layoutX="424.0" layoutY="533.0" onAction="#Clear" text="Cancel" />
+      <JFXButton layoutX="424.0" layoutY="533.0" onAction="#Clear" text="Clear" />
       <JFXButton layoutX="624.0" layoutY="533.0" onAction="#RoomsMenuButtonClick" text="Return to Rooms Menu" />
       <JFXButton layoutX="940.0" layoutY="533.0" onAction="#MainMenuButtonClick" text="Return to Main Menu" />
       <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="400.0" layoutY="75.0" text="Medical Hub Administration Console" />
-      <Label layoutX="400.0" layoutY="125.0" text="Please select a spreadsheet file to bulk upload a list of Rooms to the database." />
+      <Label layoutX="400.0" layoutY="125.0" text="Please fill out all fields to upload a room to the database." />
    </children>
 </AnchorPane>

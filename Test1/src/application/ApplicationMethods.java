@@ -16,7 +16,7 @@ import uk.ac.qub.objects.Staff;
 
 public class ApplicationMethods {
 	
-static String errorStyle ="-fx-border-color: white";
+static String errorStyle ="-fx-border-color: #D1D1D1; -fx-border-width: 3";
 public static Staff CurrentUser;
 
 public static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");

@@ -104,7 +104,7 @@ public class SQL {
 	        do{
 	        	for(int i =0; i<attributes.size(); i++){
 	        		if(i!=attributes.size()){
-	        	if(r.getString(attributes.get(i))==null){sb.append(" ");}else{sb.append(r.getString(attributes.get(i)));}
+	        	if(r.getString(attributes.get(i))==null){sb.append(" ");}else{sb.append("\""+r.getString(attributes.get(i))+"\"");}
 	        	sb.append(',');
 	        		} else {
 	        			if(r.getString(attributes.get(i))==null){sb.append(" ");}else{sb.append(r.getString(attributes.get(i)));}

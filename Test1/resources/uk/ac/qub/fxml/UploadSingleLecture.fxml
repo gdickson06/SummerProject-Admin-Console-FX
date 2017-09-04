@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UploadSingleLectureController">
    <children>
-      <Label layoutX="400.0" layoutY="125.0" text="Please Fill in all mandatory fields to upload a single lecture to the database." />
+      <Label layoutX="401.0" layoutY="125.0" text="Please fill in all mandatory fields to upload a single lecture to the database." />
       <Label layoutX="727.0" layoutY="370.0" text="Year:" />
       <JFXCheckBox fx:id="optional" checkedColor="#a10026" layoutX="795.0" layoutY="495.0" text="Optional" unCheckedColor="WHITE" />
       <JFXComboBox fx:id="year" focusColor="WHITE" labelFloat="true" layoutX="795.0" layoutY="365.0" prefHeight="39.0" prefWidth="157.0" promptText="Select Year" unFocusColor="WHITE" />

@@ -79,7 +79,7 @@ public class SearchQueries {
 			statement = "select * from Absences where student_number = " + info + ";";
 			break;
 		case 2:
-			statement = "select * from Absences where start_date = " + info + ";";
+			statement = "select * from Absences where start_date = '" + info + "';";
 			break;
 		case 3:
 			statement = "select * from Absences where start_time = '" + info + "';";
@@ -242,7 +242,7 @@ public class SearchQueries {
 			} else {
 				statement = statement+" WHERE ";
 			}
-				statement = statement+"staff = '"+lectures.getStaff()+"'";
+				statement = statement+"staff LIKE '%"+lectures.getStaff()+"%'";
 				start=false;
 		}		
 		

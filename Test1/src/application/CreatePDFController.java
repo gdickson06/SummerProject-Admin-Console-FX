@@ -71,7 +71,7 @@ public class CreatePDFController {
 
      		 selectedLecture=Lectures.getSelectionModel().getSelectedItem();
      		
-     		 PickedLecture.setText(selectedLecture.toString());
+     		 PickedLecture.setText(selectedLecture.PDFString());
       	
     }
 /**

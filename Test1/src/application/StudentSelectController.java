@@ -167,7 +167,7 @@ public class StudentSelectController {
 
 		cohort.setText(s.getCohort());
 
-		firstName.setText(s.getEmail());
+		firstName.setText(s.getFirstName());
 
 		emailAddress.setText(s.getEmail());
 

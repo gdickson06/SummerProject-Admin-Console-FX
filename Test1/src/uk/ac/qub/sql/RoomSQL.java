@@ -24,13 +24,11 @@ public class RoomSQL {
 		for (Room r : rooms) {
 			String code = r.getCode().replaceAll("'", "''");
 			String name = r.getName().replaceAll("'", "''");
-			try {
+	
 				newStatement = "INSERT INTO LectureLocation " + "VALUES ('" + code + "', '" + name + "')";
 				statement = Main.connection.prepareStatement(newStatement);
 				statement.executeUpdate();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			
 		}
 	}
 	

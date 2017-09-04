@@ -100,6 +100,7 @@ public class PlacementNoteController {
     	 p=TablePlacement.getSelectionModel().getSelectedItem();
  		SelectedPlacement.setText(p.toString());
  		Note.setText(p.getNote());
+ 		
     }
 /**
  * This method allows a note to the uploaded to the selected placement
@@ -111,7 +112,9 @@ public class PlacementNoteController {
     void upload(ActionEvent event) {
     	if(p!=null){
         	try {
-				PlacementSQL.UploadNote(String.valueOf(p.getId()), Note.getText());
+        		String note = null;
+        		if(Note.getText().isEmpty()){note=("");} else {note=Note.getText();}
+				PlacementSQL.UploadNote(String.valueOf(p.getId()),note);
 				GeneralMethods.show("Uploaded note for placement "+ p.getId(), "Upload Success");
 	        	
         	} catch (Exception e) {

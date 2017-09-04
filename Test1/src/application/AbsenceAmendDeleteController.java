@@ -127,7 +127,7 @@ public class AbsenceAmendDeleteController {
     void SearchTime(ActionEvent event) {
     	List<Absence> searched = new ArrayList<Absence>();
      	try {
-			searched.addAll(SearchQueries.searchAbsence(6, StartTime.getText()));
+			searched.addAll(SearchQueries.searchAbsence(3, StartTime.getText()));
 		} catch (SQLException e) {
 			GeneralMethods.show("Error when searching absences", "Error");
 			e.printStackTrace();

@@ -535,5 +535,9 @@ public class Lecture {
 	public void setModule(String module) {
 		this.module = module;
 	}
+	
+	public String PDFString(){
+		return "lecture ID : " + id +  " date/time : " + startDate +" " + StartTime + "-" + EndTime + " location : " + location ;
+	}
 
 }

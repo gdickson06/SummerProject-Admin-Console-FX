@@ -104,8 +104,12 @@ try {
     
     @FXML
     void Upload(ActionEvent event) throws Exception {
+    	
     	if(l!=null){
-        	LectureSQL.UploadNote(String.valueOf(l.getId()), Note.getText());
+    		String note = null;
+    		if(Note.getText().isEmpty()){note=("");} else {note=Note.getText();}
+			
+        	LectureSQL.UploadNote(String.valueOf(l.getId()), note);
         	GeneralMethods.show("Uploaded note for lecture "+ l.getId(), "Upload Success");
         	} else {
         		GeneralMethods.show("No lecture selected", "Error");
