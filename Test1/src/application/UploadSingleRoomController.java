@@ -78,7 +78,7 @@ List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.C
  */
     @FXML
     void MainMenuButtonClick(ActionEvent event) throws Exception {
-    	GeneralMethods.ChangeScene("MeainMenu3","MainMenu");
+    	GeneralMethods.ChangeScene("MainMenu","MainMenu");
     }
 /**
  * The initialize method will populate the image on the screen

@@ -86,13 +86,14 @@ public class AbsenceAmendDeleteController {
   */
     @FXML
     void ApprovedSearch(ActionEvent event) {
-    	String bool="true";
+    	String bool="false";
     	if(Approved.getValue().equals("Approved")){
     		bool="true";
     	}
     	List<Absence> searched = new ArrayList<Absence>();
     	
     	try {
+    		System.out.println();
 			searched.addAll(SearchQueries.searchAbsence(5, bool));
 		} catch (SQLException e) {
 			GeneralMethods.show("Error when searching absences", "Error");
