@@ -97,7 +97,7 @@ public class SearchQueries {
 		}
 
 		r = SQL.SQLstatements(statement);
-		
+		System.out.println(statement);
 
 			if (r.next()) {
 

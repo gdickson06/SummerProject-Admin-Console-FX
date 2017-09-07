@@ -131,7 +131,7 @@ public class StudentTest {
 
 	/**
 	 * Testing the getter and setters for Student Number with an invalid Upper
-	 * Boundary value (10000000)
+	 * Boundary value (100000000)
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testGeSetInvalidStudentNumberUpperBoundary() {
