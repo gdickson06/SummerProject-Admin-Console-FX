@@ -145,6 +145,7 @@ public class CreatePDFController {
     }
 /**
  * This initialize method will populate the image and combo boxes on the page
+ * 
  */
     @FXML
     void initialize() {
