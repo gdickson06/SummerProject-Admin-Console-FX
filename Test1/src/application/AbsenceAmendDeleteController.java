@@ -1,5 +1,12 @@
 package application;
-
+/** 
+ * Name of Package - application
+ * Date Last Amended - 07/09/17
+ * Outline - This is the controller class for the Amend Delete Absence page
+ * this will allow absences to be searched and view the un-read absences.
+ * Demographics – 285 LOC 11 Methods 
+ * 
+ */
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXListView;

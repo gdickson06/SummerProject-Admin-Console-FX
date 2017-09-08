@@ -19,7 +19,15 @@ import uk.ac.qub.objects.Staff;
 
 
 import uk.ac.qub.sql.StaffSQL;
-
+/** 
+ * Name of Package - application
+ * Date Last Amended - 08/09/17
+ * Outline - This is the controller class for the selected staff screen, this
+ * will contain methods to return to any of the previous three screens and to amend
+ * and delete the selected staff member
+ * Demographics – 153 LOC 6 Methods 
+ * 
+ */
 public class SelectedUserController {
 	
 	Staff s = StaffAmendDeleteController.s;

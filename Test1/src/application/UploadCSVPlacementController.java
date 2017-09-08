@@ -20,7 +20,15 @@ import uk.ac.qub.methods.CSV;
 import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Placement;
 import uk.ac.qub.sql.PlacementSQL;
-
+/** 
+ * Name of Package - application
+ * Date Last Amended - 07/09/17
+ * Outline - This is the controller class for a user to be able to upload a full
+ * year of placements from a CSV file, deleting a full year of placements and to 
+ * download a full year of placements to a CSV file.
+ * Demographics – 169 LOC 7 Methods 
+ * 
+ */
 public class UploadCSVPlacementController {
 	  @FXML
 	    private ImageView Image;

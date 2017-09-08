@@ -11,7 +11,14 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import uk.ac.qub.methods.GeneralMethods;
-
+/** 
+ * Name of Package - application
+ * Date Last Amended - 07/09/17
+ * Outline - The is the controller class for the room sub menu this will contain
+ * links to the 3 main actions that involved rooms
+ * Demographics – 111 LOC 6 Methods 
+ * 
+ */
 public class RoomMenuController {
 	
 	@FXML

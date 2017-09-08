@@ -23,7 +23,14 @@ import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Lecture;
 import uk.ac.qub.sql.SQL;
 import uk.ac.qub.sql.SearchQueries;
-
+/** 
+ * Name of Package - application
+ * Date Last Amended - 07/09/17
+ * Outline - This is the controller class for the Amend Delete lecture page
+ * this will allow lectures to be searched and selected
+ * Demographics – 268 LOC 11 Methods 
+ * 
+ */
 public class LectureAmendController {
 
 	protected static Lecture selectedLecture;

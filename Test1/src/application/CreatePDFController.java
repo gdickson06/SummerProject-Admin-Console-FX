@@ -25,7 +25,16 @@ import uk.ac.qub.methods.PDF;
 import uk.ac.qub.objects.Lecture;
 import uk.ac.qub.sql.SQL;
 import uk.ac.qub.sql.SearchQueries;
-
+/** 
+ * @author Calum Hurst
+ * Name of Package - application
+ * Date Last Amended - 07/09/17
+ * Outline - This is the controller class which is for the create PDF page, this will
+ * include the method for generating the PDF as well as searching for the lecture
+ * which will be on the PDF.
+ * Demographics – 170 LOC 6 Methods 
+ * 
+ */
 public class CreatePDFController {
 	
 	private Lecture selectedLecture;

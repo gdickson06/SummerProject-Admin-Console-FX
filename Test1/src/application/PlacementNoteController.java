@@ -25,7 +25,15 @@ import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Placement;
 import uk.ac.qub.sql.PlacementSQL;
 import uk.ac.qub.sql.SearchQueries;
-
+/** 
+ * Name of Package - application
+ * Date Last Amended - 07/09/17
+ * Outline - This class will be the controller class for the note placement page
+ * it will contain methods for searching placements and to amend the notes attached
+ * to a selected placement
+ * Demographics – 163 LOC 6 Methods 
+ * 
+ */
 public class PlacementNoteController {
 	
 	private Placement p;

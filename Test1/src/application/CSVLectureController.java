@@ -20,7 +20,15 @@ import uk.ac.qub.objects.Lecture;
 import uk.ac.qub.sql.LectureSQL;
 
 import uk.ac.qub.sql.SQL;
-
+/** 
+ * Name of Package - application
+ * Date Last Amended - 07/09/17
+ * Outline - This is the controller class for a user to be able to upload a full
+ * year of lectures from a CSV file, deleting a full year of lectures and to 
+ * download a full year of lectures to a CSV file.
+ * Demographics – 178 LOC 7 Methods 
+ * 
+ */
 public class CSVLectureController {
 
 	@FXML

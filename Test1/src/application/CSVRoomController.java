@@ -16,7 +16,14 @@ import uk.ac.qub.methods.CSV;
 import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Room;
 import uk.ac.qub.sql.RoomSQL;
-
+/** 
+ * Name of Package - application
+ * Date Last Amended - 07/09/17
+ * Outline - This is the controller class for the screen to upload a spreadsheet of 
+ * rooms to the database.
+ * Demographics – 123 LOC 5 Methods 
+ * 
+ */
 public class CSVRoomController {
 
 	@FXML

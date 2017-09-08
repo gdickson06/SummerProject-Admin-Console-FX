@@ -11,7 +11,14 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import uk.ac.qub.methods.GeneralMethods;
-
+/** 
+ * Name of Package - application
+ * Date Last Amended - 07/09/17
+ * Outline - This is the controller for the main menu, this will have links to all
+ * the sub menus along with the log out and a link to the settings page.
+ * Demographics – 158 LOC 11 Methods 
+ * 
+ */
 public class MainMenuController {
 	
 	@FXML

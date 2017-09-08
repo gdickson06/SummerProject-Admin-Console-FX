@@ -13,7 +13,15 @@ import javafx.scene.image.ImageView;
 import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Room;
 import uk.ac.qub.sql.RoomSQL;
-
+/** 
+ * Name of Package - application
+ * Date Last Amended - 08/09/17
+ * Outline - This is the controller class for the selected room screen, this
+ * will contain methods to return to any of the previous three screens and to amend
+ * and delete the selected room
+ * Demographics – 131 LOC 6 Methods 
+ * 
+ */
 public class SelectedRoomController {
 	private Room r = RoomAmendDeleteController.SelectedRoom;
 	private String oldRoomCode;

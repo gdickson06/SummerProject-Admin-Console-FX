@@ -19,7 +19,16 @@ import uk.ac.qub.sql.SQL;
 import uk.ac.qub.sql.SearchQueries;
 
 import org.controlsfx.control.CheckListView;
-
+/** 
+ * @author Calum Hurst
+ * Name of Package - application
+ * Date Last Amended - 07/09/17
+ * Outline - This is the controller class for the General notes class, this will be used
+ * to upload a new note for a year, to amend and delete any upcoming notes, there will be
+ * a list of the current notes updated from the database.
+ * Demographics – 136 LOC 5 Methods 
+ * 
+ */
 public class InputPDFController {
 	
     @FXML
@@ -44,7 +53,12 @@ private static uk.ac.qub.objects.Lecture selectedLecture;
 
 	private static List<Student> selectedItems;
   
-
+/**
+ * This method will log the absences to the database, it will find all the students
+ * with a tick next to their name in the checkedlistview and upload a standardised absence
+ * for the lecture that was missed for each student.
+ * @param event
+ */
     @FXML
     void LogAbsences(ActionEvent event) {
     	selectedItems=Students.getCheckModel().getCheckedItems();
@@ -58,7 +72,14 @@ private static uk.ac.qub.objects.Lecture selectedLecture;
 			GeneralMethods.show("Error in logging absence", "Error");
 		}
     }
-
+/**
+ * This will take the number input into the lecture ID fields and fill the
+ * listview with the students from the lecture, if no lecture is selected the 
+ * list view will remain blank and the user will be warned of this via a pop up box
+ * @param event
+ * @throws NumberFormatException
+ * @throws SQLException
+ */
     @FXML
     void PickLecture(ActionEvent event) throws NumberFormatException, SQLException {
 List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.Control>();
@@ -86,17 +107,28 @@ List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.C
     	}
 		}
     }
-
+/**
+ * This will return the user to the PDF menu
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void returnToPDFMenu(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("PDFMenu", "PDFMenu");
     }
-
+/**
+ * This method will return the user to the Main menu
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void returnToMainMenu(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("MainMenu","MainMenu");
     }
-
+/**
+ * The initialize method will fill the imageview at the top left hand screen with
+ * the QUB logo
+ */
     @FXML
     void initialize() {
     	javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");

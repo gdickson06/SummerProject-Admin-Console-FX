@@ -18,7 +18,14 @@ import javafx.scene.input.MouseEvent;
 import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Student;
 import uk.ac.qub.sql.SearchQueries;
-
+/** 
+ * Name of Package - application
+ * Date Last Amended - 07/09/17
+ * Outline - This is the controller class for the Amend Delete student page
+ * this will allow students to be searched and selected
+ * Demographics – 238 LOC 11 Methods 
+ * 
+ */
 public class StudentAmendDeleteController {
 
 	protected static Student selectedStudent;

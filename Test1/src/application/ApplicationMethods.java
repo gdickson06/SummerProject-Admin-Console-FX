@@ -13,14 +13,29 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.scene.control.DatePicker;
 import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Staff;
-
+/** 
+ *  @author Calum Hurst
+ * Name of Package - application
+ * Date Last Amended - 07/09/17
+ * Outline - This class holds the methods that will be used within the use of the applicaiton
+ * Demographics – 121 LOC 4 Methods 
+ * 
+ */
 public class ApplicationMethods {
 	
 static String errorStyle ="-fx-border-color: #D1D1D1; -fx-border-width: 3";
 public static Staff CurrentUser;
 
 public static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-
+/**
+ * This method will take in a list of controls and check for any null values
+ * this will return a boolean of true of there are no null values and a value 
+ * of false if any object in the list returns a null value. This will also highlight
+ * any of the fields which should not be null and use the show method to show an error
+ * message.
+ * @param fields
+ * @return
+ */
 	@SuppressWarnings("rawtypes")
 	protected static boolean noNullValues(List<javafx.scene.control.Control> fields){
 		boolean valid = true;
@@ -54,7 +69,10 @@ public static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM
 		}
 		return valid;
 	}
-
+/**
+ * This method will be used to fill a JFXComboBox with all of the Absence types
+ * @param type
+ */
 	protected static void AbsenceTypes(JFXComboBox<String> type) {
 		List<String>types= new ArrayList<String>();
     	
@@ -65,7 +83,10 @@ public static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM
     	
     	type.getItems().addAll(types);
 	}
-	
+/**
+ * This will be used to fill in a JFXComboBox with all of the possible years	
+ * @param e
+ */
 	protected static void Years(JFXComboBox<Integer> e){
 		List<Integer> years = new ArrayList<Integer>();
 		years.add(1);
@@ -76,7 +97,12 @@ public static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM
 		
 		e.getItems().addAll(years);
 	}
-	
+/**
+ * This will ensure that the inputted time is in a valid state else it will throw
+ * an exception	
+ * @param time
+ * @throws Exception
+ */
 public static void timeInput(String time)throws Exception{
 	boolean thrown = true;
 	

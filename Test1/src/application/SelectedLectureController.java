@@ -21,7 +21,15 @@ import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Lecture;
 
 import uk.ac.qub.sql.LectureSQL;
-
+/** 
+ * Name of Package - application
+ * Date Last Amended - 08/09/17
+ * Outline - This is the controller class for the selected lecture screen, this
+ * will contain methods to return to any of the previous three screens and to amend
+ * and delete the selected lecture
+ * Demographics – 232 LOC 6 Methods 
+ * 
+ */
 public class SelectedLectureController {
 
 	Lecture l = LectureAmendController.selectedLecture;

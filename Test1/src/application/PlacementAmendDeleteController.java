@@ -22,6 +22,15 @@ import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Placement;
 import uk.ac.qub.sql.SearchQueries;
 
+/** 
+ * Name of Package - application
+ * Date Last Amended - 07/09/17
+ * Outline - This is the controller class for the Amend Delete placement page
+ * this will allow placements to be searched
+ * Demographics – 242 LOC 11 Methods 
+ * 
+ */
+
 public class PlacementAmendDeleteController {
 	
 	protected static Placement selectedPlacement;

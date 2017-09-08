@@ -11,7 +11,14 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import uk.ac.qub.methods.GeneralMethods;
-
+/** 
+ * Name of Package - application
+ * Date Last Amended - 07/09/17
+ * Outline - This is the controller class for the PDF menu it will contain
+ * links to create and input PDFs along with a method to return to main menu and log out
+ * Demographics – 97 LOC 4 Methods 
+ * 
+ */
 public class PDFMenuController {
 	
 	@FXML

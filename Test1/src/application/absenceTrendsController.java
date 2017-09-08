@@ -22,7 +22,16 @@ import uk.ac.qub.methods.AbsenceTrends;
 import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Absence;
 import uk.ac.qub.objects.ExtendedAbsence;
-
+/** 
+ * @author Calum Hurst
+ * Name of Package - application
+ * Date Last Amended - 07/09/17
+ * Outline - This will be the controller class for the absence trends, this will
+ * allow the user to view which trends they would like to see along with filters 
+ * for the trends
+ * Demographics – 211 LOC 9 Methods 
+ * 
+ */
 public class absenceTrendsController {
 
 	protected static Map<String, Double> trend;

@@ -21,7 +21,14 @@ import uk.ac.qub.objects.Absence;
 import uk.ac.qub.sql.AbsenceSQL;
 import uk.ac.qub.sql.LectureSQL;
 import uk.ac.qub.sql.SearchQueries;
-
+/** 
+ * Name of Package - application
+ * Date Last Amended - 07/09/17
+ * Outline - This is the controller class to upload a single absence to the database,
+ * the methods will be able to upload the absence and to clear to fields.
+ * Demographics – 181 LOC 5 Methods 
+ * 
+ */
 public class UploadSingleAbsenceController {
 
 	@FXML
@@ -58,17 +65,28 @@ public class UploadSingleAbsenceController {
 
 	@FXML
 	private DatePicker endDate;
-	
+/**
+ * This method will return the user to the main menu	
+ * @param event
+ * @throws Exception
+ */
 	@FXML
 	void mainMenuButtonClick(ActionEvent event) throws Exception {
 		GeneralMethods.ChangeScene("MainMenu", "MainMenu");
 	}
-
+/**
+ * This method will return the user to the absence menu
+ * @param event
+ * @throws Exception
+ */
 	@FXML
 	void returnAbsenceMenuButtonClick(ActionEvent event) throws Exception {
 		GeneralMethods.ChangeScene("AbsenceMenu", "AbsenceMenu");
 	}
-
+/**
+ * This method will clear all information on the page
+ * @param event
+ */
 	@FXML
 	void clear(ActionEvent event) {
 		studentNumber.setText("");
@@ -81,7 +99,14 @@ public class UploadSingleAbsenceController {
 		approved.setSelected(false);
 		type.setValue("");
 	}
-
+/**
+ * This method will upload a single absence there will be checks to ensure that 
+ * NON NULL values cannot be set to null along with a check that the times are in 
+ * the correct format
+ * @param event
+ * @throws NumberFormatException
+ * @throws SQLException
+ */
 	@FXML
 	void uploadSingleAbsenceButton(ActionEvent event) throws NumberFormatException, SQLException {
 		
@@ -129,7 +154,11 @@ List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.C
 		}
 			
 	}
-
+/**
+ * The initialize will set a listener to the lecture ID so that the start 
+ * and end date are filled out along with the start and end times, the combo
+ * boxes will also be filled out along with the startTime and endTime
+ */
 	@FXML
 	void initialize() {
 		lectureID.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -142,8 +171,7 @@ List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.C
 				startTime.setText(att.get(1));
 				endTime.setText(att.get(2));
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				GeneralMethods.show("Error in finding lecture", "Error");
 			}
 		});
 		ApplicationMethods.AbsenceTypes(type);

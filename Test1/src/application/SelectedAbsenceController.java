@@ -19,7 +19,15 @@ import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Absence;
 import uk.ac.qub.sql.AbsenceSQL;
 import uk.ac.qub.sql.SearchQueries;
-
+/** 
+ * Name of Package - application
+ * Date Last Amended - 08/09/17
+ * Outline - This is the controller class for the selected absence screen, this
+ * will contain methods to return to any of the previous three screens and to amend
+ * and delete the selected absence
+ * Demographics – 198 LOC 6 Methods 
+ * 
+ */
 public class SelectedAbsenceController {
 
 	private Absence a = AbsenceAmendDeleteController.a;
@@ -147,7 +155,10 @@ public class SelectedAbsenceController {
 		GeneralMethods.show("Please input time in 24 Hour format", "Warning");
     }
     }
-
+/**
+ * The initialize method will populate the fields with all of the current values
+ * make the absence as read and set the image
+ */
     @FXML
     void initialize() {
     	try {

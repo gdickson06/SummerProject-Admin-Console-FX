@@ -20,7 +20,16 @@ import javafx.scene.input.MouseEvent;
 import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Note;
 import uk.ac.qub.sql.NoteSQL;
-
+/** 
+ * @author Calum Hurst
+ * Name of Package - application
+ * Date Last Amended - 07/09/17
+ * Outline - This is the controller class for the General notes class, this will be used
+ * to upload a new note for a year, to amend and delete any upcoming notes, there will be
+ * a list of the current notes updated from the database.
+ * Demographics – 234 LOC 7 Methods 
+ * 
+ */
 public class GeneralNotesController {
 
 	private Note n;

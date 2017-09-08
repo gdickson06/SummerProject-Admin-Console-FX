@@ -18,7 +18,14 @@ import javafx.scene.input.MouseEvent;
 import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Staff;
 import uk.ac.qub.sql.SearchQueries;
-
+/** 
+ * Name of Package - application
+ * Date Last Amended - 07/09/17
+ * Outline - This is the controller class for the Amend Delete staff page
+ * this will allow staff to be searched and selected
+ * Demographics – 176 LOC 8 Methods 
+ * 
+ */
 public class StaffAmendDeleteController {
 	
 	protected static Staff s;

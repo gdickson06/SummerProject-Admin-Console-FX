@@ -12,6 +12,16 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import uk.ac.qub.methods.GeneralMethods;
 
+/** 
+ * Name of Package - application
+ * Date Last Amended - 07/09/17
+ * Outline - This class will be the controller for the sub menu of the notes section,
+ * it will hold links to the main menu, lecture note, placement note, log out and general 
+ * notes
+ * Demographics – 114 LOC 6 Methods 
+ * 
+ */
+
 public class NotesMenuController {
 	
 	@FXML

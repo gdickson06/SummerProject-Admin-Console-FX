@@ -22,7 +22,16 @@ import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.sql.SQL;
 
 public class GlobalSettingsController {
-
+	/** 
+	 * @author Calum Hurst
+	 * Name of Package - application
+	 * Date Last Amended - 07/09/17
+	 * Outline - This controller is for the global settings page, it will offer the 
+	 * user the ability to download the user guide, change global and personal settings 
+	 * and go to the forgotten password screen.
+	 * Demographics – 202 LOC 6 Methods 
+	 * 
+	 */
 	@FXML
 	private ResourceBundle resources;
 
@@ -76,7 +85,11 @@ public class GlobalSettingsController {
 
 	@FXML
 	private JFXTextField absencesEmailAddress;
-
+/**
+ * This method will take a list of Strings and update all of the user settings with
+ * the new values
+ * @param event
+ */
 	@FXML
 	void saveDetails(ActionEvent event) {
 
@@ -106,7 +119,10 @@ public class GlobalSettingsController {
 		
 		
 	}
-
+/**
+ * This method will display the user guide on the screen
+ * @param event
+ */
 	@FXML
 	void downloadUserGuide(ActionEvent event) {
 		
@@ -116,25 +132,41 @@ public class GlobalSettingsController {
 			GeneralMethods.show("Error in opening user guide", "Error");
 		}
 	}
-
+/**
+ * This method will return the user to the main menu
+ * @param event
+ * @throws Exception
+ */
 	@FXML
 	void returnMainMenu(ActionEvent event) throws Exception {
 		GeneralMethods.ChangeScene("MainMenu", "MainMenu");
 	}
-
+/**
+ * This method will send the user to the forgotten password link
+ * @param event
+ * @throws IOException
+ * @throws URISyntaxException
+ */
 	@FXML
 	void ChangePassword(ActionEvent event) throws IOException, URISyntaxException {
 		java.awt.Desktop.getDesktop().browse(new URI(forgottenPasswordLink.getText()));
 		
 	}
-	
+/**
+ * This method will write to the saveinfo.txt file the location where the user
+ * wants the files to be saved.
+ * @param event
+ */
     @FXML
     void ChangeFileLocation(ActionEvent event) {
      	FileWriter.save(changeFileLocation.getText().replace("\\" , "/"));
     	GeneralMethods.show("Location changed to" + changeFileLocation.getText(), "Location Changed");
    
     }
-
+/**
+ * This is the initialize method and will upload the current information to the screen
+ * along with setting the image in the top left hand side of the screen
+ */
 	@FXML
 	void initialize() {
 		javafx.scene.image.Image i = new javafx.scene.image.Image("file:resources/qublogo.png");

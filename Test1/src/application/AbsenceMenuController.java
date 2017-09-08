@@ -1,6 +1,7 @@
 package application;
 
 import java.net.URL;
+
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -11,7 +12,15 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import uk.ac.qub.methods.GeneralMethods;
-
+/** 
+ * @author Calum Hurst
+ * Name of Package - application
+ * Date Last Amended - 07/09/17
+ * Outline - This is the controller class for the absence sub menu, this will have buttons
+ * which will lead to new screens.
+ * Demographics – 106 LOC 5 Methods 
+ * 
+ */
 public class AbsenceMenuController {
 	
 	@FXML

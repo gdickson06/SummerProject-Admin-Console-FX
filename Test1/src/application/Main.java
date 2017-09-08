@@ -13,14 +13,25 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 
-
+/** 
+ * Name of Package - application
+ * Date Last Amended - 07/09/17
+ * Outline - This is the main class of the application, it includes the start method 
+ * which will start up the application and create the initial scene and stage for
+ * the rest of the appplication to run from.
+ * Demographics – 76 LOC 4 Methods 
+ * 
+ */
 
 public class Main extends Application {
 	public static Stage stage;
 	public static Scene scene;
 	
 	public static Connection connection;
-	
+	/**
+	 * This method will be used to start the application, it includes the creation
+	 * of the initial scene and stage
+	 */
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 

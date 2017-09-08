@@ -21,7 +21,14 @@ import javafx.scene.input.MouseEvent;
 import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Staff;
 import uk.ac.qub.sql.StaffSQL;
-
+/** 
+ * Name of Package - application
+ * Date Last Amended - 07/09/17
+ * Outline - This is the controller class the the login page, it will contain
+ * methods to log in, clear the data and to go to the forgotten password page
+ * Demographics – 139 LOC 5 Methods 
+ * 
+ */
 public class LoginController {
 	
 	@FXML

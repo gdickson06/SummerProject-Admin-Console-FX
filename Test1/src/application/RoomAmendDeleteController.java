@@ -1,7 +1,3 @@
-/**
- * Sample Skeleton for 'AmendDeleteRoomsMenu.fxml' Controller Class
- */
-
 package application;
 
 import java.sql.SQLException;
@@ -21,6 +17,14 @@ import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Room;
 import uk.ac.qub.sql.SearchQueries;
 
+/** 
+ * Name of Package - application
+ * Date Last Amended - 07/09/17
+ * Outline - This is the controller class for the Amend Delete room page
+ * this will allow rooms to be searched
+ * Demographics – 125 LOC 6 Methods 
+ * 
+ */
 public class RoomAmendDeleteController {
 
 	protected static Room SelectedRoom;

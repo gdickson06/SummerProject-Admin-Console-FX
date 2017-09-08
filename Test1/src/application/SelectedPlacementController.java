@@ -19,7 +19,15 @@ import javafx.scene.image.ImageView;
 import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Placement;
 import uk.ac.qub.sql.PlacementSQL;
-
+/** 
+ * Name of Package - application
+ * Date Last Amended - 08/09/17
+ * Outline - This is the controller class for the selected placement screen, this
+ * will contain methods to return to any of the previous three screens and to amend
+ * and delete the selected placement
+ * Demographics – 162 LOC 6 Methods 
+ * 
+ */
 public class SelectedPlacementController {
 	
 	private Placement p = PlacementAmendDeleteController.selectedPlacement;

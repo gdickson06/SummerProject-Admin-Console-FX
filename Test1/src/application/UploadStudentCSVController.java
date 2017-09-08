@@ -22,7 +22,15 @@ import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Student;
 import uk.ac.qub.sql.SQL;
 import uk.ac.qub.sql.StudentSQL;
-
+/** 
+ * Name of Package - application
+ * Date Last Amended - 08/09/17
+ * Outline - This is the controller class for a user to be able to upload a full
+ * year of students from a CSV file, deleting a full year of students and to 
+ * download a full year of students to a CSV file.
+ * Demographics – 190 LOC 7 Methods 
+ * 
+ */
 public class UploadStudentCSVController {
 	@FXML
 	private JFXComboBox<Integer> Year;

@@ -22,7 +22,15 @@ import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Lecture;
 import uk.ac.qub.sql.LectureSQL;
 import uk.ac.qub.sql.SearchQueries;
-
+/** 
+ * Name of Package - application
+ * Date Last Amended - 07/09/17
+ * Outline - This class will be the controller class for the note lecture page
+ * it will contain methods for searching lectures and to amend the notes attached
+ * to a selected lecture
+ * Demographics – 155 LOC 6 Methods 
+ * 
+ */
 public class NoteLectureController {
 	
 	private Lecture l;
@@ -62,24 +70,38 @@ public class NoteLectureController {
 
     @FXML
     private JFXListView<Lecture> TableLectures;
-
+/**
+ * This method will return the user to the notes menu
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void ReturnNotesMenu(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("NotesMenu","NotesMenu");
     }
-
+/**
+ * This method will return the user to the main menu
+ * @param event
+ * @throws Exception
+ */
     @FXML
     void ReturnMainMenu(ActionEvent event) throws Exception {
     	GeneralMethods.ChangeScene("MainMenu","MainMenu");
     }
-
+/**
+ * This method will select a note when it is clicked from the listview
+ * @param event
+ */
     @FXML
     void TableClick(MouseEvent event) {
  l=TableLectures.getSelectionModel().getSelectedItem();
     		SelectedLecture.setText(l.toString());
     		Note.setText(l.getNotes());
     }
-    
+/**
+ * This method will search through lectures given a set criteria    
+ * @param event
+ */
     @FXML
     void Search(ActionEvent event) {
     	Lecture l = new Lecture();
@@ -101,7 +123,12 @@ try {
 		list.addAll(searched);
 		TableLectures.setItems(list);
     }
-    
+ /**
+  * This method will upload the note to the lecture if the selected lecture is null
+  * a pop up box will inform the user of this.   
+  * @param event
+  * @throws Exception
+  */
     @FXML
     void Upload(ActionEvent event) throws Exception {
     	
@@ -115,7 +142,10 @@ try {
         		GeneralMethods.show("No lecture selected", "Error");
         	}
     }
-
+/**
+ * This initialize method will add the image to the top left hand corner and
+ * will populate the year combo box.
+ */
     @FXML
     void initialize() {
     	ApplicationMethods.Years(Year);
