@@ -34,7 +34,7 @@ The fx:controller is used to reference the InputPDFController.java controller cl
       <!-- The below label is the Console header. It will be positioned at 400 on the X axis and 75 on the Y axis to 
    	  maintain a static feel throughout the console -->
       <Label layoutX="400.0" layoutY="75.0" text="Medical Hub Administration Console" />
-      !-- The below ImageView will act as a placeholder for the QUB logo to be populated in the initialise() method in the controller class -->
+      <!-- The below ImageView will act as a placeholder for the QUB logo to be populated in the initialise() method in the controller class -->
       <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

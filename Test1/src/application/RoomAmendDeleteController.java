@@ -63,7 +63,6 @@ public class RoomAmendDeleteController {
     void ListClick(MouseEvent event) {
     	if(event.getClickCount()==2){
     		SelectedRoom=RoomList.getSelectionModel().getSelectedItem();
-    		System.out.println("clicked on"+SelectedRoom);
     		try {
 				GeneralMethods.ChangeScene("AmendsingleRoom","AmendSingleRoom");
 			} catch (Exception e) {
@@ -78,8 +77,6 @@ public class RoomAmendDeleteController {
  */
     @FXML
     void RoomCodeSearch(ActionEvent event) {
-    
-    	System.out.println(RoomCode.getText());
     	List<Room> roomSearch = new ArrayList<Room>();
     	try {
     		

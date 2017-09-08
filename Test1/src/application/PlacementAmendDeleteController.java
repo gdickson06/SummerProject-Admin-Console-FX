@@ -168,7 +168,6 @@ public class PlacementAmendDeleteController {
 			GeneralMethods.show("Error while searching Placements", "Error");
 			e.printStackTrace();
 		}
-    	System.out.println(searched.size());
 		ObservableList<Placement> list = FXCollections.observableArrayList();
 		list.addAll(searched);
 		Placements.setItems(list);

@@ -137,7 +137,6 @@ List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.C
 		ApplicationMethods.timeInput(endTime.getText());
 	
 		try {
-			System.out.println(a.getEndDate());
 			AbsenceSQL.saveSingleAbsence(a);
 			GeneralMethods.show("Success", "Success");
 		} catch (Exception e) {

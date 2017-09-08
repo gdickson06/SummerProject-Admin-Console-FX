@@ -113,7 +113,6 @@ public class StudentAmendDeleteController {
     void ListClick(MouseEvent event) throws Exception {
     	 if(event.getClickCount()==2){
     		 selectedStudent=listOfStudents.getSelectionModel().getSelectedItem();
-    		 System.out.println("clicked on " + selectedStudent);
     		 GeneralMethods.ChangeScene("AmendSingleStudent","AmendSingleStudentMenu");
     	    }
     }

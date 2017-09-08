@@ -150,7 +150,6 @@ List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.C
 		
 		
 		if(ApplicationMethods.noNullValues(fields)){
-    		System.out.println(Year.getValue().toString());
     		File f =PlacementSQL.downloadToCSV(Year.getValue().toString());
     		
     		Desktop.getDesktop().open(f);
