@@ -19,39 +19,45 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
 
-
 import uk.ac.qub.objects.Absence;
 import uk.ac.qub.objects.ExtendedAbsence;
 import uk.ac.qub.objects.Lecture;
 
 import uk.ac.qub.sql.SQL;
-
+/**
+ * Name of Package - uk.ac.qub.methods
+ * Date Last Amended - 08/09/17
+ * Outline - This class will contain all of the methods required for the absence
+ * trends, there will be a method to filter and methods to return information
+ * based on the filters
+ * Demographics – 494 LOC 10 Methods 
+ */
 public class AbsenceTrends {
 
 	/**
-	 *This method will filter an absence using a class known as extended absence
-	 *this allows the absence to be joined with the student class to give a list of
-	 *absences which can be used for the trends
+	 * This method will filter an absence using a class known as extended
+	 * absence this allows the absence to be joined with the student class to
+	 * give a list of absences which can be used for the trends
 	 * 
 	 * @param s
 	 * @return
 	 * @throws SQLException
 	 */
-	
-	public static List<Absence> absenceFilter(ExtendedAbsence a) throws SQLException{
-		
+
+	public static List<Absence> absenceFilter(ExtendedAbsence a) throws SQLException {
+
 		ResultSet r;
 
 		List<Absence> absences = new ArrayList<Absence>();
 		System.out.println(a.getStudentNumber());
 		String statement = "select * from Absences join Students using (student_number) ";
 		Boolean start = true;
-		if (a.getStart()!=null) {
+		if (a.getStart() != null) {
 			statement = statement + " Where end_date >= " + a.getStart();
 			start = false;
 		}
 
-		if (a.getEnd()!=null) {
+		if (a.getEnd() != null) {
 			if (start == false) {
 				statement = statement + " and ";
 			} else {
@@ -61,7 +67,7 @@ public class AbsenceTrends {
 			start = false;
 		}
 
-		if (a.getType()!=null) {
+		if (a.getType() != null) {
 			if (start == false) {
 				statement = statement + " and ";
 			} else {
@@ -71,8 +77,8 @@ public class AbsenceTrends {
 			start = false;
 		}
 
-		if (a.getStudentNumber()!=0) {
-			
+		if (a.getStudentNumber() != 0) {
+
 			if (start == false) {
 				statement = statement + " and ";
 			} else {
@@ -83,14 +89,14 @@ public class AbsenceTrends {
 			start = false;
 		}
 
-		if(a.getYear()!=0){
+		if (a.getYear() != 0) {
 			if (start == false) {
 				statement = statement + " and ";
 			} else {
 				statement = statement + " where ";
 			}
 			statement = statement + "year_group=" + a.getYear() + "";
-			
+
 		}
 
 		statement = statement + ";";
@@ -99,32 +105,30 @@ public class AbsenceTrends {
 
 		r = SQL.SQLstatements(statement);
 
-	
-			if (r.next()) {
+		if (r.next()) {
 
-				do {
-					Absence abs = new Absence(r.getInt("absences_id"),r.getInt("student_number"), r.getInt("lecture_id"), r.getString("start_date"), r.getString("end_date"),
-							r.getString("start_time"),r.getString("end_time"), r.getString("reason"), r.getString("type"), r.getBoolean("approved"),r.getBoolean("viewed"));
-					
-					absences.add(abs);
-				} while (r.next());
+			do {
+				Absence abs = new Absence(r.getInt("absences_id"), r.getInt("student_number"), r.getInt("lecture_id"),
+						r.getString("start_date"), r.getString("end_date"), r.getString("start_time"),
+						r.getString("end_time"), r.getString("reason"), r.getString("type"), r.getBoolean("approved"),
+						r.getBoolean("viewed"));
 
-			}
-		
-		
-			
-		
+				absences.add(abs);
+			} while (r.next());
+
+		}
+
 		return absences;
-		
-		
-		
+
 	}
-/**
- * This method gives a list of dates between the start and end date
- * @param start
- * @param end
- * @return
- */
+
+	/**
+	 * This method gives a list of dates between the start and end date
+	 * 
+	 * @param start
+	 * @param end
+	 * @return
+	 */
 	public static List<LocalDate> dates(String start, String end) {
 
 		LocalDate startDate = LocalDate.parse(start);
@@ -138,11 +142,13 @@ public class AbsenceTrends {
 
 		return totalDates;
 	}
-/**
- * This method gives a list of days from a list of LocalDates
- * @param dates
- * @return
- */
+
+	/**
+	 * This method gives a list of days from a list of LocalDates
+	 * 
+	 * @param dates
+	 * @return
+	 */
 	public static List<String> days(List<LocalDate> dates) {
 
 		List<String> days = new ArrayList<String>();
@@ -154,12 +160,14 @@ public class AbsenceTrends {
 
 		return days;
 	}
-/**
- * This method shows all of the lectures for a full day absence
- * @param a
- * @return
- * @throws SQLException
- */
+
+	/**
+	 * This method shows all of the lectures for a full day absence
+	 * 
+	 * @param a
+	 * @return
+	 * @throws SQLException
+	 */
 	private static List<Lecture> lecturesFullDay(Absence a) throws SQLException {
 		String StudentNumber = String.valueOf(a.getStudentNumber());
 		String StartDate = a.getStartDate();
@@ -167,12 +175,11 @@ public class AbsenceTrends {
 		List<LocalDate> date = dates(StartDate, EndDate);
 		String Cohort = null;
 		ResultSet r;
-		int year=0;
+		int year = 0;
 		String statement = "Select * from Students WHERE student_number =" + StudentNumber;
 
 		r = SQL.SQLstatements(statement);
 
-	
 		try {
 			if (r.next()) {
 
@@ -188,49 +195,49 @@ public class AbsenceTrends {
 		List<Lecture> lectures = new ArrayList<Lecture>();
 
 		for (LocalDate ld : date) {
-			lectures.addAll(SQL.myLectures(Cohort, ld,year));
+			lectures.addAll(SQL.myLectures(Cohort, ld, year));
 		}
 
 		return lectures;
 	}
-/**
- * This method returns all of the lectures for a partial day of absence
- * @param a
- * @return
- * @throws SQLException
- */
+
+	/**
+	 * This method returns all of the lectures for a partial day of absence
+	 * 
+	 * @param a
+	 * @return
+	 * @throws SQLException
+	 */
 	private static List<Lecture> lectures(Absence a) throws SQLException {
 		System.out.println(a.getId());
 		String StudentNumber = String.valueOf(a.getStudentNumber());
 		String StartDate = a.getStartDate();
 		String EndDate = a.getEndDate();
-		
-			String time = a.getStartTime();
-			
-			if(time.length()==4){
-				time="0"+time;
-			}
-		
+
+		String time = a.getStartTime();
+
+		if (time.length() == 4) {
+			time = "0" + time;
+		}
+
 		LocalTime StartTime = null;
-		try{
+		try {
 			StartTime = LocalTime.parse(time);
-		} catch (Exception e){
+		} catch (Exception e) {
 			StartTime = LocalTime.parse("00:00");
 		}
 		String end = a.getEndTime();
-		if(end.length()==4){
-			end="0"+end;
+		if (end.length() == 4) {
+			end = "0" + end;
 		}
 		LocalTime EndTime = LocalTime.parse(end);
 		List<LocalDate> date = dates(StartDate, EndDate);
 		String Cohort = null;
-		int year=0;
+		int year = 0;
 		ResultSet r;
 		String statement = "Select * from Students WHERE student_number =" + StudentNumber;
 
 		r = SQL.SQLstatements(statement);
-
-	
 
 		try {
 			if (r.next()) {
@@ -243,45 +250,46 @@ public class AbsenceTrends {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+
 		List<Lecture> lectures = new ArrayList<Lecture>();
 
 		for (LocalDate ld : date) {
-			lectures.addAll(SQL.myLectures(Cohort, ld,year));
+			lectures.addAll(SQL.myLectures(Cohort, ld, year));
 		}
 		String time2;
 		List<Lecture> lectures2 = new ArrayList<Lecture>();
 		lectures2.addAll(lectures);
 		for (Lecture l : lectures) {
-			
+
 			time2 = l.getStartTime();
-			if(time2.length()==4){
-				time2=0+time2;
+			if (time2.length() == 4) {
+				time2 = 0 + time2;
 			}
-			LocalTime start=null;
-			try{
-			start = LocalTime.parse(time2);
-			} catch (Exception e){
-				start =LocalTime.parse("00:00");
+			LocalTime start = null;
+			try {
+				start = LocalTime.parse(time2);
+			} catch (Exception e) {
+				start = LocalTime.parse("00:00");
 			}
 			if (start.isBefore(StartTime) || start.isAfter(EndTime) || start.equals(EndTime)) {
 				System.out.println(l.toString());
 				lectures2.remove(l);
 			}
-			
+
 		}
 
 		return lectures2;
 	}
-/**
- * This method gives the number of absences on Monday, Tuesday, Wednesday, Thursday
- * and Friday. This method does not count time off in lectures just if any part
- * of the day was missed. If there were two partial days of absence this will count
- * as two different absences
- * @param absences
- * @return
- */
+
+	/**
+	 * This method gives the number of absences on Monday, Tuesday, Wednesday,
+	 * Thursday and Friday. This method does not count time off in lectures just
+	 * if any part of the day was missed. If there were two partial days of
+	 * absence this will count as two different absences
+	 * 
+	 * @param absences
+	 * @return
+	 */
 	public static Map<String, Double> DayTrend(List<Absence> absences) {
 
 		Map<String, Double> data = new LinkedHashMap<String, Double>();
@@ -304,180 +312,183 @@ public class AbsenceTrends {
 		return data;
 	}
 
-	
-
-/**
- * This method shows the trends of year absences, this shows how many
- * absences are taken per year compared to the average
- * @param absences
- * @return
- * @throws SQLException
- */
+	/**
+	 * This method shows the trends of year absences, this shows how many
+	 * absences are taken per year compared to the average
+	 * 
+	 * @param absences
+	 * @return
+	 * @throws SQLException
+	 */
 	public static Map<String, Double> YearTrends(List<Absence> absences) throws SQLException {
 		Map<String, Double> data = new TreeMap<String, Double>();
-		
+
 		List<String> years = new ArrayList<String>();
 		for (Absence a : absences) {
-			String statement = "select * from Absences join Students Using (student_number) WHERE absences_id = " +a.getId();
+			String statement = "select * from Absences join Students Using (student_number) WHERE absences_id = "
+					+ a.getId();
 			ResultSet r = SQL.SQLstatements(statement);
 
 			r.next();
-			List<LocalDate> datesOff = dates(r.getString("start_date"),r.getString("end_date"));
+			List<LocalDate> datesOff = dates(r.getString("start_date"), r.getString("end_date"));
 			List<String> daysOff = days(datesOff);
-			int numOff =0;
-			
-			for(String s : daysOff){
-				
-				if(s.equals("MONDAY")||s.equals("TUESDAY")||s.equals("WEDNESDAY")||s.equals("THURSDAY")||s.equals("FRIDAY")){
+			int numOff = 0;
+
+			for (String s : daysOff) {
+
+				if (s.equals("MONDAY") || s.equals("TUESDAY") || s.equals("WEDNESDAY") || s.equals("THURSDAY")
+						|| s.equals("FRIDAY")) {
 					numOff++;
 				}
 			}
-			for(int i =0; i<numOff; i++){
-			years.add(r.getString("year_group"));
+			for (int i = 0; i < numOff; i++) {
+				years.add(r.getString("year_group"));
 			}
 		}
 
 		Set<String> s = new HashSet<String>();
-		String [] yearGroups = {"1","2","3","4","5"};
+		String[] yearGroups = { "1", "2", "3", "4", "5" };
 		s.addAll(Arrays.asList(yearGroups));
 
 		for (String year : s) {
-			data.put("Year " +String.valueOf(Integer.parseInt(year)), (double) Collections.frequency(years, year));
+			data.put("Year " + String.valueOf(Integer.parseInt(year)), (double) Collections.frequency(years, year));
 		}
 		System.out.println(absences.size());
-		double average = (double)(years.size())/5;
+		double average = (double) (years.size()) / 5;
 		System.out.println(average);
 		data.put("Average", average);
 
 		return data;
 	}
-/**
- * This lists all modules and compares to the average number of absences over the searched
- * range, this will assume that there is likely to be at least one absence in all modules
- * over a period of time and this means that modules with 0 absences will be not shown
- * or took into concideration for the average. This is to help with any filtering so that
- * filtering by year would not allow for absences for certain year's modules
- * 
- * @param absences
- * @return
- * @throws SQLException
- */
+
+	/**
+	 * This lists all modules and compares to the average number of absences
+	 * over the searched range, this will assume that there is likely to be at
+	 * least one absence in all modules over a period of time and this means
+	 * that modules with 0 absences will be not shown or took into concideration
+	 * for the average. This is to help with any filtering so that filtering by
+	 * year would not allow for absences for certain year's modules
+	 * 
+	 * @param absences
+	 * @return
+	 * @throws SQLException
+	 */
 	public static Map<String, Double> ModuleTrends(List<Absence> absences) throws SQLException {
-	
+
 		Map<String, Double> data = new TreeMap<String, Double>();
 		List<String> modules = new ArrayList<String>();
 		List<Lecture> lectures = new ArrayList<>();
-		
+
 		for (Absence a : absences) {
-			if(a.getStartTime().equalsIgnoreCase("0:00")){
-			lectures.addAll( lecturesFullDay(a));
+			if (a.getStartTime().equalsIgnoreCase("0:00")) {
+				lectures.addAll(lecturesFullDay(a));
 			} else {
-				
+
 				lectures.addAll(lectures(a));
 			}
 		}
-		
-		for(Lecture l : lectures){
+
+		for (Lecture l : lectures) {
 			modules.add(l.getModule());
 		}
-		
+
 		Set<String> s = new HashSet<String>();
 		s.addAll(modules);
 
 		for (String module : s) {
 			data.put(module, (double) Collections.frequency(modules, module));
 		}
-		
-		double average = (double)modules.size() / (double)SQL.Modules().size();
-		Set<String> s1 =SQL.Modules();
+
+		double average = (double) modules.size() / (double) SQL.Modules().size();
+		Set<String> s1 = SQL.Modules();
 		s1.removeAll(modules);
-		for(String empty : s1){
+		for (String empty : s1) {
 			data.put(empty, 0.0);
 		}
-		
-		
+
 		data.put("Average", average);
 
 		return data;
-		
-		
+
 	}
-/**
- * This will show the trends of which staff members have most absences and runs off 
- * the same logic as the module trends method
- * @param absences
- * @return
- * @throws SQLException
- */
-	public static Map<String, Double> StaffTrends(List <Absence> absences) throws SQLException {
+
+	/**
+	 * This will show the trends of which staff members have most absences and
+	 * runs off the same logic as the module trends method
+	 * 
+	 * @param absences
+	 * @return
+	 * @throws SQLException
+	 */
+	public static Map<String, Double> StaffTrends(List<Absence> absences) throws SQLException {
 		Map<String, Double> data = new TreeMap<String, Double>();
 		List<String> staff = new ArrayList<String>();
 		List<Lecture> lectures = new ArrayList<Lecture>();
-		
-		for(Absence a : absences){
-			if(a.getStartTime().equals("0:00")){
+
+		for (Absence a : absences) {
+			if (a.getStartTime().equals("0:00")) {
 				lectures.addAll(lecturesFullDay(a));
-			}else{
-			lectures.addAll(lectures(a));
+			} else {
+				lectures.addAll(lectures(a));
 			}
 		}
-		
-		for(Lecture l : lectures){
+
+		for (Lecture l : lectures) {
 			staff.addAll(Arrays.asList(l.getStaff().split("/")));
 		}
-		
+
 		Set<String> s = new HashSet<String>();
 		s.addAll(staff);
 
 		for (String staffMember : s) {
-			data.put(staffMember, (double) Collections.frequency(staff,staffMember));
+			data.put(staffMember, (double) Collections.frequency(staff, staffMember));
 		}
-		
-		double average = (double)absences.size() / (double)SQL.Staff().size();
+
+		double average = (double) absences.size() / (double) SQL.Staff().size();
 		data.put("Average", average);
-		
+
 		Set<String> nonMissed = SQL.Staff();
 		nonMissed.removeAll(staff);
-		
-		for(String staffMember: nonMissed){
+
+		for (String staffMember : nonMissed) {
 			data.put(staffMember, 0.0);
 		}
-		
 
 		return data;
 	}
-	
-	public static List<String> topTen(List<Absence>list){
+
+	/**
+	 * This method will return the top ten students from days of absence taken
+	 * 
+	 * @param list
+	 * @return
+	 */
+	public static List<String> topTen(List<Absence> list) {
 		List<Integer> results = new ArrayList<Integer>();
 		List<String> answers = new ArrayList<String>();
 		Map<Integer, Integer> answer = new HashMap<>();
 		Set<Integer> students = new HashSet<Integer>();
-		
-		for(Absence a : list){
+
+		for (Absence a : list) {
 			results.add(a.getStudentNumber());
 		}
-		
+
 		students.addAll(results);
-		
-		for(Integer i : students){
+
+		for (Integer i : students) {
 			answer.put(i, Collections.frequency(results, i));
 		}
-		
-	
-		
-		Map<Integer,Integer> topTen =
-			   answer.entrySet().stream()
-			       .sorted(Map.Entry.comparingByKey(Comparator.naturalOrder()))
-			       .limit(10)
-			       .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-		
-		for(Entry<Integer,Integer> entry : topTen.entrySet()){
-			answers.add(entry.getKey().toString() +  " : " +entry.getValue().toString()+ " absences");
+
+		Map<Integer, Integer> topTen = answer.entrySet().stream()
+				.sorted(Map.Entry.comparingByKey(Comparator.naturalOrder())).limit(10)
+				.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+		for (Entry<Integer, Integer> entry : topTen.entrySet()) {
+			answers.add(entry.getKey().toString() + " : " + entry.getValue().toString() + " absences");
 		}
-		
+
 		Collections.reverse(answers);
 		return answers;
 	}
-	
 
 }

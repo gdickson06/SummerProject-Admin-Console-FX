@@ -7,7 +7,12 @@ import java.io.File;
 import java.io.FileReader;
 
 import java.io.IOException;
-
+/**
+ * Name of Package - uk.ac.qub.methods
+ * Date Last Amended - 08/09/17
+ * Outline - This class will contain the methods to read and write from a txt file
+ * Demographics – 46 LOC 2 Methods 
+ */
 public class FileWriter {
 /**
  * This method will save the local info

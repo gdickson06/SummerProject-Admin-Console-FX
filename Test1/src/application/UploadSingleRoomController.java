@@ -12,7 +12,14 @@ import javafx.scene.image.ImageView;
 import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Room;
 import uk.ac.qub.sql.RoomSQL;
-
+/** 
+ * Name of Package - application
+ * Date Last Amended - 07/09/17
+ * Outline - This is the controller class to upload a single room to the database,
+ * the methods will be able to upload the room and to clear to fields.
+ * Demographics – 98 LOC 5 Methods 
+ * 
+ */
 public class UploadSingleRoomController {
 
     @FXML

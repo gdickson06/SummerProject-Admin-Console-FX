@@ -16,7 +16,14 @@ import javafx.scene.image.ImageView;
 import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Placement;
 import uk.ac.qub.sql.PlacementSQL;
-
+/** 
+ * Name of Package - application
+ * Date Last Amended - 07/09/17
+ * Outline - This is the controller class to upload a single placement to the database,
+ * the methods will be able to upload the placement and to clear to fields.
+ * Demographics – 140 LOC 5 Methods 
+ * 
+ */
 public class UploadSinglePlacementController {
 
     @FXML
@@ -85,7 +92,13 @@ public class UploadSinglePlacementController {
     	hospital.setText("");
     	year.setValue(0);
     }
-
+    /**
+	 * This method will upload a single placement, there will be checks that NON
+	 * NULL values cannot be set to null and that time is in the correct format.
+	 * 
+	 * @param event
+	 * @throws Exception
+	 */
     @FXML
     void upload(ActionEvent event) {
 List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.Control>();

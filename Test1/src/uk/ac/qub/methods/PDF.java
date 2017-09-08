@@ -25,7 +25,14 @@ import com.itextpdf.text.pdf.PdfWriter;
 import application.ApplicationMethods;
 import uk.ac.qub.objects.Lecture;
 import uk.ac.qub.sql.SQL;
-
+/**
+ * Name of Package - uk.ac.qub.methods
+ * Date Last Amended - 08/09/17
+ * Outline - This class will contain all of the methods required for the creation of 
+ * the PDFs it will contain methods to create the PDF, add metadata to the PDF, add
+ * a table to the PDF and add the information to the PDF
+ * Demographics – 196 LOC 4 Methods 
+ */
 public class PDF {
 	private static List<String> names;
 	private static List<String> cohorts;

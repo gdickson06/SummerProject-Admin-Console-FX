@@ -1,14 +1,18 @@
 package uk.ac.qub.methods;
 
 
-
-
-
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 
-
+/**
+ * Name of Package - uk.ac.qub.methods
+ * Date Last Amended - 08/09/17
+ * Outline - This class will contain all of the methods required to convert the
+ * data that is input into the console, this will ensure that all data is standardised
+ * to the types laid out in the dissertation.
+ * Demographics – 187 LOC 4 Methods 
+ */
 
 public class ConvertMethods {
 

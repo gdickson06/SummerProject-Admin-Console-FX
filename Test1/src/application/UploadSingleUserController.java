@@ -15,6 +15,15 @@ import uk.ac.qub.objects.Staff;
 
 import uk.ac.qub.sql.StaffSQL;
 
+/** 
+ * Name of Package - application
+ * Date Last Amended - 08/09/17
+ * Outline - This is the controller class to upload a single staff member to the database,
+ * the methods will be able to upload the staff member and to clear to fields.
+ * Demographics – 123 LOC 5 Methods 
+ * 
+ */
+
 public class UploadSingleUserController {
 
     @FXML

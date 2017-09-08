@@ -1,6 +1,5 @@
 package uk.ac.qub.methods;
 
-
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -17,6 +16,13 @@ import uk.ac.qub.objects.Room;
 import uk.ac.qub.objects.Staff;
 import uk.ac.qub.objects.Student;
 
+/**
+ * Name of Package - uk.ac.qub.methods Date Last Amended - 08/09/17 
+ * Outline -This class will contain all of the methods required for the inputting of
+ * CSV files, there will be two methods for each type of objects one to read
+ * in the data from the CSV and the other to convert this to a java object.
+ *  Demographics – 291 LOC 10 Methods
+ */
 public class CSV {
 
 	/**
@@ -116,7 +122,7 @@ public class CSV {
 		String hospital = metadata.get(7);
 		String preference = metadata.get(8);
 		String comments = metadata.get(9);
-	
+
 		Placement p = new Placement();
 		p.setCohort(group);
 		p.setModule(module);
@@ -169,10 +175,10 @@ public class CSV {
 
 		CSVReader reader = new CSVReader(new FileReader(fileName));
 		List<String[]> attributes = reader.readAll();
-		
+
 		attributes.remove(0);
 		for (String[] s : attributes) {
-			
+
 			List<String> list = Arrays.asList(s);
 
 			if (list.get(0).isEmpty() == false) {
@@ -253,34 +259,32 @@ public class CSV {
 		List<Placement> placements = new ArrayList<Placement>();
 
 		CSVReader fileReader = new CSVReader(new FileReader(filename));
-	
-		
+
 		List<String[]> attributes = new ArrayList<String[]>();
-	
-		Boolean b =true;
-		do{
-			String [] e =(fileReader.readNext());
+
+		Boolean b = true;
+		do {
+			String[] e = (fileReader.readNext());
 			attributes.add(e);
-			if(e==null){ b=false;}
-			
-		}while(b);
-		
-		
+			if (e == null) {
+				b = false;
+			}
+
+		} while (b);
+
 		attributes.remove(0);
-		attributes.remove(attributes.size()-1);
-		
-		
+		attributes.remove(attributes.size() - 1);
+
 		for (String[] s : attributes) {
 			List<String> list = Arrays.asList(s);
-			
-			
-				Placement placement = createPlacement(list, year);
-				placements.add(placement);
-			
+
+			Placement placement = createPlacement(list, year);
+			placements.add(placement);
+
 		}
 
 		fileReader.close();
-		
+
 		return placements;
 	}
 

@@ -15,7 +15,14 @@ import javafx.scene.image.ImageView;
 import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Student;
 import uk.ac.qub.sql.StudentSQL;
-
+/** 
+ * Name of Package - application
+ * Date Last Amended - 08/09/17
+ * Outline - This is the controller class to upload a single student to the database,
+ * the methods will be able to upload the student and to clear to fields.
+ * Demographics – 155 LOC 5 Methods 
+ * 
+ */
 public class UploadSingleStudentController {
 	@FXML
     private JFXTextArea comments;

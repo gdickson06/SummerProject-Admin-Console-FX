@@ -16,7 +16,14 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
+/**
+ * Name of Package - uk.ac.qub.methods
+ * Date Last Amended - 08/09/17
+ * Outline - This class contains all of the methods that did not fit in other classes
+ * the change scene class to go from one page to another, the show method for pop
+ * up boxes and the configure file chooser to set up the file chooser.
+ * Demographics – 95 LOC 3 Methods 
+ */
 public class GeneralMethods {
 
 	
