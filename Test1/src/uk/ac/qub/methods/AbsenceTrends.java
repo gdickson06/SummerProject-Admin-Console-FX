@@ -30,7 +30,7 @@ import uk.ac.qub.sql.SQL;
  * Outline - This class will contain all of the methods required for the absence
  * trends, there will be a method to filter and methods to return information
  * based on the filters
- * Demographics – 494 LOC 10 Methods 
+ * Demographics – 488 LOC 10 Methods 
  */
 public class AbsenceTrends {
 
@@ -49,7 +49,6 @@ public class AbsenceTrends {
 		ResultSet r;
 
 		List<Absence> absences = new ArrayList<Absence>();
-		System.out.println(a.getStudentNumber());
 		String statement = "select * from Absences join Students using (student_number) ";
 		Boolean start = true;
 		if (a.getStart() != null) {
@@ -101,7 +100,6 @@ public class AbsenceTrends {
 
 		statement = statement + ";";
 
-		System.out.println(statement);
 
 		r = SQL.SQLstatements(statement);
 
@@ -209,7 +207,6 @@ public class AbsenceTrends {
 	 * @throws SQLException
 	 */
 	private static List<Lecture> lectures(Absence a) throws SQLException {
-		System.out.println(a.getId());
 		String StudentNumber = String.valueOf(a.getStudentNumber());
 		String StartDate = a.getStartDate();
 		String EndDate = a.getEndDate();
@@ -272,7 +269,6 @@ public class AbsenceTrends {
 				start = LocalTime.parse("00:00");
 			}
 			if (start.isBefore(StartTime) || start.isAfter(EndTime) || start.equals(EndTime)) {
-				System.out.println(l.toString());
 				lectures2.remove(l);
 			}
 
@@ -353,9 +349,7 @@ public class AbsenceTrends {
 		for (String year : s) {
 			data.put("Year " + String.valueOf(Integer.parseInt(year)), (double) Collections.frequency(years, year));
 		}
-		System.out.println(absences.size());
 		double average = (double) (years.size()) / 5;
-		System.out.println(average);
 		data.put("Average", average);
 
 		return data;

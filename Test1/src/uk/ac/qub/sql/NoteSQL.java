@@ -16,7 +16,7 @@ import uk.ac.qub.objects.Note;
  * Name of Package - uk.ac.qub.sql Date Last Amended - 08/09/17 
  * Outline - This class will contain all of the methods to amend,delete,upload and
  * view active notes 
- * Demographics – 105 LOC 4 Methods
+ * Demographics – 104 LOC 4 Methods
  */
 
 public class NoteSQL {
@@ -85,7 +85,6 @@ public class NoteSQL {
 		List<Note> notes = new ArrayList<Note>();
 
 		r = SQL.SQLstatements(statement);
-		System.out.println(statement);
 		try {
 			if (r.next()) {
 

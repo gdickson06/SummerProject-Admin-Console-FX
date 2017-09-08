@@ -21,7 +21,7 @@ import uk.ac.qub.objects.Student;
  * Outline -This class will contain all of the methods required for the inputting of
  * CSV files, there will be two methods for each type of objects one to read
  * in the data from the CSV and the other to convert this to a java object.
- *  Demographics – 291 LOC 10 Methods
+ *  Demographics – 290 LOC 10 Methods
  */
 public class CSV {
 
@@ -206,7 +206,6 @@ public class CSV {
 		List<String[]> attributes = reader.readAll();
 		attributes.remove(0);
 		for (String[] s : attributes) {
-			System.out.println(s.length);
 			List<String> list = Arrays.asList(s);
 
 			if (list.get(0).isEmpty() == false) {

@@ -18,7 +18,7 @@ import uk.ac.qub.objects.Staff;
  * Outline - This class will contain all of the methods to amend, 
  * delete, save single and save multiple staff members  along 
  * with any other methods to amend parts of staff members
- * Demographics – 188 LOC 7 Methods
+ * Demographics – 189 LOC 7 Methods
  */
 
 public class StaffSQL {
@@ -45,7 +45,7 @@ public class StaffSQL {
 				newStatement = "INSERT INTO Staff VALUES (" + staffNumber + ", '" + name + "', '" + accessLevel + "');";
 
 			}
-System.out.println(newStatement);
+
 			statement = Main.connection.prepareStatement(newStatement);
 			statement.executeUpdate();
 
@@ -80,7 +80,6 @@ System.out.println(newStatement);
 	public static void DeleteUser(String snumber) throws Exception {
 
 		PreparedStatement ps = Main.connection.prepareStatement("DELETE FROM Staff WHERE staff_number =" + snumber);
-		System.out.println(ps);
 		ps.executeUpdate();
 	}
 

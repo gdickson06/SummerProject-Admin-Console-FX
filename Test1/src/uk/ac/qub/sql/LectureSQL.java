@@ -16,7 +16,7 @@ import uk.ac.qub.objects.Lecture;
  * Outline - This class will contain all of the methods to amend, 
  * delete, save single and save multiple lectures along with any other methods to amend
  * parts of lectures
- * Demographics – 199 LOC 7 Methods
+ * Demographics – 198 LOC 7 Methods
  */
 
 public class LectureSQL {
@@ -62,7 +62,6 @@ public class LectureSQL {
 						+ "', '" + description + "', '" + staff + "', '" + style + "', '" + module + "', false," + Year
 						+ ");";
 
-				System.out.println(statement);
 				statement = Main.connection.prepareStatement(statements);
 				statement.executeUpdate();
 			} catch (Exception e) {

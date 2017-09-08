@@ -11,7 +11,7 @@ import java.util.List;
  * Outline - This class will contain all of the methods required to convert the
  * data that is input into the console, this will ensure that all data is standardised
  * to the types laid out in the dissertation.
- * Demographics – 187 LOC 4 Methods 
+ * Demographics – 186 LOC 4 Methods 
  */
 
 public class ConvertMethods {
@@ -66,7 +66,6 @@ public static String TextDate(String e){
 		answer +=12;
 		break;
 	default:
-		System.out.println("Error");
 	}
 
 answer +=split[1];
@@ -99,7 +98,6 @@ return answer;
  * @throws InputMismatchException
  */
 	public static List<String> convert (String s) throws InputMismatchException{
-		System.out.println(s);
 		
 		List <String> answer = new ArrayList<String>();
 		try{

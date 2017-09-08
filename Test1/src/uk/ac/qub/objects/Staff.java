@@ -6,7 +6,7 @@ package uk.ac.qub.objects;
  * will be used for the Staff Administration screens within the 
  * administration console, as well as for the login screens for
  * the admin console
- * Demographics – 109 LOC 9 Methods
+ * Demographics – 104 LOC 9 Methods
  */
 
 

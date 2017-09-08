@@ -12,7 +12,7 @@ import uk.ac.qub.objects.Student;
  * Outline - This class will contain all of the methods to amend, 
  * delete, save single and save multiple students along with any other methods to amend
  * parts of students
- * Demographics – 134 LOC 5 Methods
+ * Demographics – 132 LOC 5 Methods
  */
 public class StudentSQL {
 
@@ -77,7 +77,6 @@ public class StudentSQL {
 				+ "', graduate = '" + s.getGraduate().replaceAll("'", "''") + "', comments ='"
 				+ s.getComments().replaceAll("'", "''") + "', portfolio = '" + s.getPortfolio().replaceAll("'", "''")
 				+ "', year_group =" + s.getYear() + " WHERE student_number = " + s.getStudentNumber() + ";";
-		System.out.println(Statement);
 		statement = Main.connection.prepareStatement(Statement);
 		statement.executeUpdate();
 
@@ -100,7 +99,6 @@ public class StudentSQL {
 				+ s.getEmail().replaceAll("'", "''") + "', '" + s.getNationality().replaceAll("'", "''") + "', '"
 				+ s.getGraduate().replaceAll("'", "''") + "', '" + s.getComments().replaceAll("'", "''") + "', '"
 				+ s.getPortfolio().replaceAll("'", "''") + "', " + s.getYear() + ")";
-		System.out.println(Statement);
 		statement = Main.connection.prepareStatement(Statement);
 		statement.executeUpdate();
 

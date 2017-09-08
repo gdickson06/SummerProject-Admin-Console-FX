@@ -11,7 +11,7 @@ import uk.ac.qub.objects.Absence;
  * Name of Package - uk.ac.qub.sql
  * Date Last Amended - 08/09/17 
  * Outline - This class will contain all of the methods to amend, delete, save single and read absence
- * Demographics – 81 LOC 4 Methods
+ * Demographics – 79 LOC 4 Methods
  */
 public class AbsenceSQL {
 
@@ -29,7 +29,6 @@ public class AbsenceSQL {
 				+ ", start_date= '" + a.getStartDate() + "', end_date= '" + a.getEndDate() + "', start_time = '" + a.getStartTime()
 				+ "', end_time = '" + a.getEndTime() + "', reason = '" + a.getReason().replaceAll("'", "''") + "', approved = " + a.getApproved() + ", type = '"
 				+ a.getType() + "', viewed = true WHERE absences_id = " + a.getId() + ";";
-		System.out.println(Statement);
 		statement = Main.connection.prepareStatement(Statement);
 		statement.executeUpdate();
 	}
@@ -62,7 +61,6 @@ public class AbsenceSQL {
 				+ "', '" + a.getEndDate() + "', '" + a.getStartTime() + "', '" + a.getEndTime()
 				+ "', '" + a.getReason().replaceAll("'", "''") + "', " + a.getApproved() + ", '" + a.getType()
 				+ "',true);";
-		System.out.println(Statement);
 		singleAbsenceStatement = Main.connection.prepareStatement(Statement);
 		singleAbsenceStatement.executeUpdate();
 	}

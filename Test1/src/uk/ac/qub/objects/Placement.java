@@ -267,5 +267,4 @@ public class Placement {
 		return "Placement id:   " + id + "\t Year:   " + Year + "\t Start Date:   " + StartDate + "\t End Date:   " + EndDate
 				+ "\t Location:   " + Location + "\t Cohort:   " + Cohort + "\t Module:   " + Module;
 	}
-	
 }

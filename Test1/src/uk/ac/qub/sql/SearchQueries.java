@@ -18,7 +18,7 @@ import uk.ac.qub.objects.Student;
  * Date Last Amended - 08/09/17 
  * Outline - This class will contain all of the methods to search through all types of
  * object stored in the database
- * Demographics – 785 LOC 12 Methods
+ * Demographics – 778 LOC 12 Methods
  */
 
 public class SearchQueries {
@@ -107,7 +107,6 @@ public class SearchQueries {
 		}
 
 		r = SQL.SQLstatements(statement);
-		System.out.println(statement);
 
 		if (r.next()) {
 
@@ -167,7 +166,6 @@ public class SearchQueries {
 		}
 
 		if (A.getStartTime() != null) {
-			System.out.println(A.getStartTime().isEmpty());
 			if (start == false) {
 				statement = statement + " and ";
 			} else {
@@ -279,7 +277,6 @@ public class SearchQueries {
 
 		statement = statement + ";";
 
-		System.out.println(statement);
 
 		results = SQL.SQLstatements(statement);
 
@@ -374,7 +371,6 @@ public class SearchQueries {
 
 		statement = statement + ";";
 
-		System.out.println(statement);
 
 		results = SQL.SQLstatements(statement);
 
@@ -490,7 +486,6 @@ public class SearchQueries {
 		}
 
 		results = SQL.SQLstatements(statement);
-		System.out.println(statement);
 		try {
 			if (results.next()) {
 
@@ -592,7 +587,6 @@ public class SearchQueries {
 		default:
 			System.out.println("Error in searching rooms");
 		}
-		System.out.println(statement);
 		r = SQL.SQLstatements(statement);
 
 		if (r.next()) {
@@ -651,7 +645,6 @@ public class SearchQueries {
 		}
 
 		r = SQL.SQLstatements(statement);
-		System.out.println(statement);
 		if (r.next()) {
 
 			do {
@@ -768,7 +761,7 @@ public class SearchQueries {
 		statement = statement + ";";
 
 		r = SQL.SQLstatements(statement);
-		System.out.println(statement);
+
 
 		if (r.next()) {
 			do {

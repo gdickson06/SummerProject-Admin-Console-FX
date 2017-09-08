@@ -13,7 +13,7 @@ import uk.ac.qub.objects.Lecture;
 /**
  * Name of Package - uk.ac.qub.sql Date Last Amended - 08/09/17 Outline - This
  * class will contain the method to upload the GroupsCon to the databse
- * absence Demographics – 66 LOC 1 Methods
+ * absence Demographics – 64 LOC 1 Methods
  */
 public class GroupsConSQL {
 
@@ -43,12 +43,10 @@ public class GroupsConSQL {
 
 		}
 
-		System.out.println(set.size());
 		PreparedStatement statement = null;
 		String statements = null;
 
 		for (GroupsCon g : set) {
-			System.out.println(g.toString());
 			try {
 
 				statements = "INSERT INTO GroupConvert " + "VALUES ('" + g.getGroups().replaceAll("'", "''") + "', '"

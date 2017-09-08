@@ -30,7 +30,7 @@ import uk.ac.qub.objects.Student;
  * Outline - This class will contains all of the information to connection to the SQL
  * database, along with any SQL related methods that do not fit in any of the other
  * classes
- * Demographics – 323 LOC 9 Methods
+ * Demographics – 321 LOC 9 Methods
  */
 
 public class SQL {
@@ -112,7 +112,6 @@ public class SQL {
 
 		sb.append('\n');
 		sb.deleteCharAt(0);
-		System.out.println("SELECT * FROM " + type + year + "'");
 		ResultSet r = SQL.SQLstatements("SELECT * FROM " + type + year + ";");
 		if (r.next()) {
 			do {
@@ -152,7 +151,6 @@ public class SQL {
 		String SqlQuery;
 		SqlQuery = "SELECT * FROM Lectures WHERE date = '" + Date + "' AND year='" + year + "';";
 		Statement statement = Main.connection.createStatement();
-		System.out.println(SqlQuery);
 		ResultSet results = statement.executeQuery(SqlQuery);
 
 		List<Lecture> lectures = new ArrayList<Lecture>();

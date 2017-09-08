@@ -18,7 +18,7 @@ import uk.ac.qub.objects.Placement;
  * Outline - This class will contain all of the methods to amend, 
  * delete, save single and save multiple placements along with any other methods to amend
  * parts of placements
- * Demographics – 241 LOC 7 Methods
+ * Demographics – 239 LOC 7 Methods
  */
 public class PlacementSQL {
 
@@ -75,7 +75,6 @@ public class PlacementSQL {
 				+ p.getLocation().replaceAll("'", "''") + "', preference = '" + p.getPreference().replaceAll("'", "''")
 				+ "', comments ='" + p.getNote().replaceAll("'", "''") + "', year=" + p.getYear() + " WHERE id= "
 				+ p.getId() + ";";
-		System.out.println(Statement);
 		statement = Main.connection.prepareStatement(Statement);
 		statement.executeUpdate();
 	}
@@ -119,7 +118,6 @@ public class PlacementSQL {
 				+ p.getStartDate() + "','" + p.getEndDate() + "','" + p.getModuleNumber().replaceAll("'", "''") + "','"
 				+ p.getLocation().replaceAll("'", "''") + "','" + p.getPreference().replaceAll("'", "''") + "', '"
 				+ p.getYear() + "');";
-		System.out.println(Statement);
 
 		statement = Main.connection.prepareStatement(Statement);
 		statement.executeUpdate();
