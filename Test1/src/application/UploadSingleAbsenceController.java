@@ -18,8 +18,8 @@ import javafx.scene.image.ImageView;
 
 import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Absence;
+import uk.ac.qub.objects.Lecture;
 import uk.ac.qub.sql.AbsenceSQL;
-import uk.ac.qub.sql.LectureSQL;
 import uk.ac.qub.sql.SearchQueries;
 /** 
  * Name of Package - application
@@ -162,15 +162,16 @@ List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.C
 	void initialize() {
 		lectureID.textProperty().addListener((observable, oldValue, newValue) -> {
 			String id = lectureID.getText();
-
+			
 			try {
-				List<String> att = LectureSQL.finder(id);
-				startDate.setValue(LocalDate.parse(att.get(0)));
-				endDate.setValue(LocalDate.parse(att.get(0)));
-				startTime.setText(att.get(1));
-				endTime.setText(att.get(2));
+				List<Lecture> lec = SearchQueries.searchLecture(1, id);
+				Lecture att = lec.get(0);
+				startDate.setValue(LocalDate.parse(att.getStartDate()));
+				endDate.setValue(LocalDate.parse(att.getStartDate()));
+				startTime.setText(att.getStartTime());
+				endTime.setText(att.getEndTime());
 			} catch (SQLException e) {
-				GeneralMethods.show("Error in finding lecture", "Error");
+				
 			}
 		});
 		ApplicationMethods.AbsenceTypes(type);

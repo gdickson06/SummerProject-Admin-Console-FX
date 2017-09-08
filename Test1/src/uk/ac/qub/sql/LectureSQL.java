@@ -1,8 +1,6 @@
 package uk.ac.qub.sql;
 
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -171,28 +169,5 @@ public class LectureSQL {
 		statement.executeUpdate();
 	}
 
-	/**
-	 * This method finds the time and date of a lecture based on the id of the
-	 * lecture
-	 * 
-	 * @param id
-	 * @return
-	 * @throws SQLException
-	 */
-	public static List<String> finder(String id) throws SQLException {
-
-		List<String> s = new ArrayList<String>();
-
-		String statement = "select * from Lectures where lecture_id ='" + id + "'";
-
-		ResultSet r = SQL.SQLstatements(statement);
-		r.next();
-
-		s.add(r.getString("start_date"));
-		s.add(r.getString("start_time"));
-		s.add(r.getString("end_Time"));
-
-		return s;
-	}
 
 }
