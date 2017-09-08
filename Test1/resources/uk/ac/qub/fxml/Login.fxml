@@ -1,23 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<!-- importing necessary Java, JavaFX and JFoenix classes for FXML file -->
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
+<!-- The below AnchorPane will consist of all the subsequent JFXButtons, Labels, JFXComboBox and JFXListView that will appear on screen
+The fx:controller is used to reference the LoginController.java controller class that will manipulate the FXML objects -->
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginController">
    <children>
+      <!-- The below label is the Console header. It will be positioned at 400 on the X axis and 75 on the Y axis to 
+   	  maintain a static feel throughout the console -->
       <Label layoutX="400.0" layoutY="75.0" text="Medical Hub Administration Console" />
+      <!-- Creating the JFXButton for Forgot Password, with an onAction identifier that will be 
+      associated with the Forgot Password java method in the controller class -->
       <JFXButton fx:id="ForgotPassword" layoutX="754.0" layoutY="509.0" onAction="#ForgotPassword" text="Forgot Password?" />
+      <!-- Creating the labels for Staff Number and Password -->
       <Label layoutX="247.0" layoutY="271.0" text="Staff Number:" />
       <Label layoutX="290.0" layoutY="380.0" text="Password: " />
+      <!-- Creating the JFXTextField for User Name, with fx:id to allow the controller class to call 
+      the getText method to retrieve the user name entered by the user-->
       <JFXTextField fx:id="UsernameText" focusColor="WHITE" labelFloat="true" layoutX="400.0" layoutY="263.0" prefHeight="35.0" prefWidth="519.0" promptText="Enter Staff Number" unFocusColor="WHITE" />
+      <!-- Creating the JFXButtons for Login and Clear, each with an 
+      onAction identifier that will be associated with the respective 
+      java methods in the controller class -->
       <JFXButton fx:id="LoginButton" layoutX="248.0" layoutY="509.0" onAction="#Login" text="Sign in" />
       <JFXButton fx:id="Clear" layoutX="404.0" layoutY="509.0" onAction="#Clear" text="Cancel" />
+      <!-- Creating the JFXPasswordField for Password, with fx:id to allow the controller class to call 
+      the getText method to retrieve the passowrd entered by the user-->
       <JFXPasswordField fx:id="PasswordText" focusColor="WHITE" labelFloat="true" layoutX="400.0" layoutY="372.0" prefHeight="35.0" prefWidth="519.0" promptText="Enter Password" unFocusColor="WHITE" />
+      <!-- Creating the sub menu header for the page, with text explaining how to navigate the screen -->
       <Label layoutX="400.0" layoutY="141.0" text="Please enter your Staff Number and Password in order to access the console" />
+      <!-- The below ImageView will act as a placeholder for the QUB logo to be populated in the initialise() method in the controller class -->
       <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+      <!-- Creating the Hyperlink for Download User Guide with an onAction identifier to reference 
+      the Download User Guide java method in the controller class -->
       <Hyperlink fx:id="info" layoutX="398.0" layoutY="189.0" onMouseClicked="#DownloadLink" text="If this is your first time using the administration console please consult the user guide in the 'Settings &amp; Help' Menu" underline="true" />
    </children>
 </AnchorPane>

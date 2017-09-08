@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<!-- importing necessary Java, JavaFX and JFoenix classes for FXML file -->
 <?import javafx.scene.shape.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.control.*?>
@@ -8,20 +8,35 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
+<!-- The below AnchorPane will consist of all the subsequent JFXButton, Labels and other FXML objects that will appear on screen
+The fx:controller is used to reference the PlacementNoteController.java controller class that will manipulate the FXML objects -->
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PlacementNoteController">
    <children>
+      <!-- Creating a rectangle to contain all of the FXML objects on the AnchorPane -->
       <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#76001b" height="385.0" layoutX="60.0" layoutY="191.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="5.0" width="1174.0" />
+      <!-- Creating the JFXButton for Uploading a Placement Note, with with an onAction identifier that
+       will be associated with the upload placement java method in the controller class -->
       <JFXButton layoutX="411.0" layoutY="591.0" onAction="#upload" text="Upload Note" />
+      <!-- Creating the JFXTextArea for Placement Note Details, with fx:id that will
+       allow the controller class to call the getText method to retrieve the placement note 
+       details that the user has entered -->
       <JFXTextArea fx:id="Note" focusColor="WHITE" layoutX="926.0" layoutY="215.0" prefHeight="152.0" prefWidth="250.0" promptText="Enter Note Here" unFocusColor="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextArea>
+      <!-- Creating the TablePlacement JFXListView that will populate the placement whenever the user
+      searchs for a placement after entering a placement value and clicking Search -->
       <JFXListView fx:id="TablePlacement" layoutX="136.0" layoutY="411.0" onMouseClicked="#PlacementSelect" prefHeight="126.0" prefWidth="1026.0" />
+      <!-- Creating the JFXButtons for Returning to the Notes and Main Menu, with with an onAction identifier
+       that will be associated with the respective java methods in the controller class -->
       <JFXButton layoutX="1051.0" layoutY="591.0" onAction="#returnToMainMenu" text="Return to Main Menu" />
       <JFXButton layoutX="732.0" layoutY="591.0" onAction="#returnToNoteMenu" text="Return to Notes Menu" />
+      <!-- Creating the labels for the End Date and Cohort Search parameters -->
       <Label layoutX="543.0" layoutY="225.0" text="End Date:" />
       <Label layoutX="556.0" layoutY="285.0" text="Cohort:" />
+      <!-- Creating the JFXTextFields for Cohort and Subject, with an fx:id that will allow the controller
+        class to call the getText method to retrieve the values that the user has entered -->
       <JFXTextField fx:id="Cohort" focusColor="WHITE" labelFloat="true" layoutX="645.0" layoutY="280.0" prefHeight="33.0" prefWidth="222.0" promptText="Enter Cohort Here" unFocusColor="WHITE">
          <font>
             <Font size="16.0" />
@@ -32,22 +47,38 @@
             <Font size="16.0" />
          </font>
       </JFXTextField>
+      <!-- Creating the labels for the Module and Location search parameters -->
       <Label layoutX="551.0" layoutY="350.0" text="Module:" />
       <Label layoutX="130.0" layoutY="350.0" text="Location:" />
+      <!-- Creating the JFXTextField for Location, with an fx:id that will allow the controller
+        class to call the getText method to retrieve the placement location that the user has entered -->
       <JFXTextField fx:id="Location" focusColor="WHITE" labelFloat="true" layoutX="215.0" layoutY="345.0" prefHeight="33.0" prefWidth="238.0" promptText="Enter Groups Here" unFocusColor="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
+      <!-- Creating the labels for the Year and Start Date search parameters -->
       <Label layoutX="155.0" layoutY="285.0" text="Year:" />
       <Label layoutX="119.0" layoutY="225.0" text="Start Date:" />
+      <!-- Creating the JFXButton for Searching for a Placement note, with with an onAction identifier that
+       will be associated with the search java method in the controller class -->
       <JFXButton layoutX="152.0" layoutY="591.0" onAction="#search" text="Search" />
+      <!-- Creating the DatePickers objects for Start and End Date, with an fx:id that will allow the controller
+        class to call the getValue method to retrieve the placement end and start dates that the user 
+        has selected -->
       <DatePicker fx:id="startDate" layoutX="215.0" layoutY="215.0" prefHeight="25.0" prefWidth="238.0" />
       <DatePicker fx:id="endDate" layoutX="645.0" layoutY="215.0" prefHeight="25.0" prefWidth="222.0" />
+      <!-- Creating the JFXComboBox for the Year Group, with an fx:id that will allow the controller
+        class to call the getValue method to retrieve the year group that the user has selected -->
       <JFXComboBox fx:id="year" focusColor="WHITE" layoutX="215.0" layoutY="286.0" prefHeight="25.0" prefWidth="238.0" unFocusColor="WHITE" />
+      <!-- This label will display the placement details of the selected placement-->
       <Label fx:id="SelectedPlacement" layoutX="173.0" layoutY="161.0" />
+      <!-- The below ImageView will act as a placeholder for the QUB logo to be populated in the initialise() method in the controller class -->
       <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+      <!-- The below label is the Console header. It will be positioned at 400 on the X axis and 75 on the Y axis to 
+   	  maintain a static feel throughout the console -->
       <Label layoutX="400.0" layoutY="75.0" text="Medical Hub Administration Console" />
+      <!-- Creating the sub menu header for the page, with text explaining how to navigate the screen -->
       <Label layoutX="400.0" layoutY="115.0" prefHeight="27.0" prefWidth="901.0" text="Search for a Placement using the search buttons below, and click 'Upload Note' to add note to the database." />
    </children>
 </AnchorPane>

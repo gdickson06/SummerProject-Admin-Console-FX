@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<!-- importing necessary Java, JavaFX and JFoenix classes for FXML file -->
 <?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.control.*?>
@@ -7,11 +7,20 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
+<!-- The below AnchorPane will consist of all the subsequent JFXButtons, Labels, JFXComboBox and JFXListView that will appear on screen
+The fx:controller is used to reference the StudentSelectController.java controller class that will manipulate the FXML objects -->
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.StudentSelectController">
    <children>
+      <!-- The below ImageView will act as a placeholder for the QUB logo to be populated in the initialise() method in the controller class --> 
       <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+      <!-- The below label is the Console header. It will be positioned at 400 on the X axis and 75 on the Y axis to 
+   	  maintain a static feel throughout the console -->
       <Label layoutX="400.0" layoutY="75.0" text="Medical Hub Administration Console" />
+      <!-- Creating the sub menu header for the page, with text explaining how to navigate the screen -->
       <Label layoutX="400.0" layoutY="125.0" prefHeight="27.0" prefWidth="901.0" text="Click 'Save Details' to update Student, or click 'Delete student' to remove from database" />
+      <!-- Creating the JFXTextFields for First Name, Last Name and Middle Name with fx:id so that the 
+      controller class can call the getText method to retrieve the values for the student entered 
+      by the user -->
       <JFXTextField fx:id="middleName" focusColor="WHITE" labelFloat="true" layoutX="250.0" layoutY="345.0" prefHeight="35.0" prefWidth="205.0" promptText="Enter Middle Name Here" unFocusColor="WHITE">
          <font>
             <Font size="16.0" />
@@ -24,14 +33,23 @@
          <font>
             <Font size="16.0" />
          </font></JFXTextField>
+      <!-- Creating the labels for First, Middle and Last Name to be positioned adjacent to their respective
+      JFXTextFields -->   
       <Label layoutX="119.0" layoutY="225.0" text="First Name:" />
       <Label layoutX="120.0" layoutY="290.0" text="Last Name:" />
       <Label layoutX="96.0" layoutY="350.0" text="Middle Name:" />
+      <!-- Creating the JFXButtons for the Save Details and Delete Student from Database, each with an
+      onAction identifier that will reference the associated java methods within the controller class -->
       <JFXButton layoutX="98.0" layoutY="543.0" onAction="#save" text="Save Details" />
       <JFXButton layoutX="287.0" layoutY="543.0" onAction="#deleteStudent" text="Delete Student" />
+      <!-- Creating the JFXButtons for the Return to Search, Return to Main Menu and Return to Student
+      Menu, each with an onAction identifier that will reference each associated java method within the
+      controller class -->
       <JFXButton layoutX="506.0" layoutY="543.0" onAction="#returnStudentMenu" text="Return to Student Screen" />
       <JFXButton layoutX="819.0" layoutY="543.0" onAction="#returnMain" text="Return to Main Menu" />
       <JFXButton layoutX="1070.0" layoutY="543.0" onAction="#returnSearch" text="Return to Search" />
+      <!-- Creating the labels for Student Number, Prefix, Year, Nationality, Email Address, Cohort
+      and name, to be positioned against their adjacent JFXTextFields -->
       <Label fx:id="studentNumberLabel" layoutX="561.0" layoutY="38.0" text="Label" />
       <Label layoutX="155.0" layoutY="410.0" text="Prefix:" />
       <Label layoutX="560.0" layoutY="468.0" text="Year:" />
@@ -39,6 +57,9 @@
       <Label layoutX="487.0" layoutY="350.0" text="Email Address:" />
       <Label layoutX="542.0" layoutY="290.0" text="Cohort:" />
       <Label layoutX="549.0" layoutY="225.0" text="Name:" />
+      <!-- Creating the JFXTextFields for Name, Cohort, Email Address, Nationality and Portfolio, with
+      fx:id so that the controller class can call the getText method to retrieve the values for the
+      student entered by the user -->
       <JFXTextField fx:id="name" focusColor="WHITE" labelFloat="true" layoutX="648.0" layoutY="220.0" prefHeight="35.0" prefWidth="205.0" promptText="Enter name Here" unFocusColor="WHITE">
          <font>
             <Font size="16.0" />
@@ -64,19 +85,27 @@
             <Font size="16.0" />
          </font>
       </JFXTextField>
+      <!-- Creating the label for Portfolio to be positioned against the Portfolio JFXTextField -->
       <Label layoutX="914.0" layoutY="225.0" text="Portfolio:" />
+      <!-- Creating the JFXTextArea for Comments, with fx:id so that the controller class can call the 
+      getText method to retrieve the comments for the student entered by the user -->
       <JFXTextArea fx:id="comments" focusColor="WHITE" layoutX="912.0" layoutY="343.0" prefHeight="156.0" prefWidth="310.0" promptText="Enter Comments Here" unFocusColor="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextArea>
+      <!-- Creating the JFXComboBox for Year, with fx:id so that the controller class can call the 
+      getValue method to retrieve the year of the student selected by the user -->
       <JFXComboBox fx:id="year" focusColor="WHITE" layoutX="647.0" layoutY="466.0" prefHeight="35.0" prefWidth="205.0" promptText="Select Year" unFocusColor="WHITE" />
+      <!-- Creating the JFXTextFields for Graduate and prefix, with fx:id so that the controller class 
+      can call the getText method to retrieve the values for the student entered by the user -->
       <JFXTextField fx:id="graduate" focusColor="WHITE" layoutX="248.0" layoutY="466.0" text="Enter Graduate here" unFocusColor="WHITE" />
       <JFXTextField fx:id="prefix" focusColor="WHITE" labelFloat="true" layoutX="250.0" layoutY="405.0" prefHeight="35.0" prefWidth="205.0" promptText="Enter Prefix" unFocusColor="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
+      <!-- Creating the label for Graduate to be positioned adjacent to the Graduate JFXTextField -->
       <Label layoutX="129.0" layoutY="468.0" text="Graduate:" />
    </children>
 </AnchorPane>

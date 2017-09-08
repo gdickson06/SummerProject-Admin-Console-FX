@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<!-- importing necessary Java, JavaFX and JFoenix classes for FXML file -->
 <?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.control.*?>
@@ -7,12 +7,22 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
+<!-- The below AnchorPane will consist of all the subsequent JFXButton, Labels and other FXML objects that will appear on screen
+The fx:controller is used to reference the UploadSingleLectureController.java controller class that will manipulate the FXML objects -->
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UploadSingleLectureController">
    <children>
+      <!-- Creating the sub menu header for the page, with text explaining how to navigate the screen -->
       <Label layoutX="401.0" layoutY="125.0" text="Please fill in all mandatory fields to upload a single lecture to the database." />
+      <!-- Creating the label for the Year dropdown JFXComboBox -->
       <Label layoutX="727.0" layoutY="370.0" text="Year:" />
+      <!-- Creating the JFX CheckBox for Optional, with fx:id so that the controller class can use the
+      getValue method to determine if a user has selected the lecture as being optional or not-->
       <JFXCheckBox fx:id="optional" checkedColor="#a10026" layoutX="795.0" layoutY="495.0" text="Optional" unCheckedColor="WHITE" />
+      <!-- Creating the JFX ComboBox for Year, with fx:id so that the controller class can use the
+      getValue method to retrieve the year the user has entered for the lecture-->
       <JFXComboBox fx:id="year" focusColor="WHITE" labelFloat="true" layoutX="795.0" layoutY="365.0" prefHeight="39.0" prefWidth="157.0" promptText="Select Year" unFocusColor="WHITE" />
+      <!-- Creating the JFXTextFields for Cohort and Module, each with an onAction identifier that will
+      be referenced by the respective java methods within the controller class -->
       <JFXTextField fx:id="cohortTextField" focusColor="WHITE" labelFloat="true" layoutX="155.0" layoutY="365.0" prefHeight="35.0" prefWidth="157.0" promptText="Enter Cohorts Here" unFocusColor="WHITE">
          <font>
             <Font size="16.0" />
@@ -23,11 +33,15 @@
             <Font size="16.0" />
          </font>
       </JFXTextField>
+      <!-- Creating the labels for the Module, Style, Teaching, Subject and End Time search parameters -->
       <Label layoutX="702.0" layoutY="435.0" text="Module:" />
       <Label layoutX="724.0" layoutY="310.0" text="Style:" />
       <Label layoutX="692.0" layoutY="255.0" text="Teaching:" />
       <Label layoutX="378.0" layoutY="495.0" text="Subject:" />
       <Label layoutX="364.0" layoutY="435.0" text="End Time:" />
+      <!-- Creating JFXTextFields for End Time, Subject, teaching and Style, each with an onAction
+      identifier that will be referenced by each search parameter's associated java method in the 
+      controller class -->
       <JFXTextField fx:id="endTimeTextfield" focusColor="WHITE" labelFloat="true" layoutX="470.0" layoutY="430.0" prefHeight="35.0" prefWidth="183.0" promptText="Enter End Time Here" unFocusColor="WHITE">
          <font>
             <Font size="16.0" />
@@ -48,14 +62,19 @@
             <Font size="16.0" />
          </font>
       </JFXTextField>
+      <!-- Creating the JFXButtons for the Return to Main Menu and Lecture Menu, with onAction
+      identifiers that will reference the respective java methods in the controller class -->
       <JFXButton layoutX="962.0" layoutY="577.0" onAction="#mainMenuButtonClick" text="Return to Main Menu" />
       <JFXButton layoutX="585.0" layoutY="577.0" onAction="#returnLectureMenuButtonClick" text="Return to Lectures Menu" />
       <JFXButton layoutX="336.0" layoutY="577.0" onAction="#clear" text="Clear" />
       <JFXButton layoutX="54.0" layoutY="577.0" onAction="#uploadLectureButtonClick" text="Upload Lecture" />
+      <!-- Creating the labels for the Start Date, Cohorts, Day and Week search parameters -->
       <Label layoutX="51.0" layoutY="435.0" text="Start Date:" />
       <Label layoutX="68.0" layoutY="370.0" text="Cohorts:" />
       <Label layoutX="98.0" layoutY="310.0" text="Day:" />
       <Label layoutX="87.0" layoutY="255.0" text="Week:" />
+      <!-- Creating JFXTextFields for Week and Day, each with an onAction identifier that will 
+      be referenced by each search parameter's associated java method in the controller class -->
       <JFXTextField fx:id="weekTextfield" focusColor="WHITE" labelFloat="true" layoutX="155.0" layoutY="250.0" prefHeight="33.0" prefWidth="157.0" promptText="Enter Week Here" unFocusColor="WHITE">
          <font>
             <Font size="16.0" />
@@ -66,8 +85,13 @@
             <Font size="16.0" />
          </font>
       </JFXTextField>
+      <!-- The below label is the Console header. It will be positioned at 400 on the X axis and 75 on the Y axis to 
+   	  maintain a static feel throughout the console -->
       <Label layoutX="400.0" layoutY="75.0" text="Medical Hub Administration Console" />
+      <!-- The below ImageView will act as a placeholder for the QUB logo to be populated in the initialise() method in the controller class -->
       <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+      <!-- Creating JFXTextFields for Location, Staff Member and Theme, each with an onAction identifier 
+      that will be referenced by each search parameter's associated java method in the controller class -->
       <JFXTextField fx:id="startTimeTextfield" focusColor="WHITE" labelFloat="true" layoutX="470.0" layoutY="365.0" prefHeight="35.0" prefWidth="183.0" promptText="Enter Start Time Here" unFocusColor="WHITE">
          <font>
             <Font size="16.0" />
@@ -88,11 +112,16 @@
             <Font size="16.0" />
          </font>
       </JFXTextField>
+      <!-- Creating the labels for the Theme, Staff, Location and Start Time parameters -->
       <Label layoutX="77.0" layoutY="495.0" text="Theme:" />
       <Label layoutX="400.0" layoutY="255.0" text="Staff:" />
       <Label layoutX="370.0" layoutY="310.0" text="Location:" />
       <Label layoutX="356.0" layoutY="370.0" text="Start Time:" />
+      <!-- Creating the JFXTextArea for Description, with fx:id that will allow the controller class to
+      call the getValue method to retrieve the lecture description uploaded by the user -->
       <JFXTextArea fx:id="descriptionTextarea" focusColor="WHITE" labelFloat="true" layoutX="1024.0" layoutY="370.0" prefHeight="153.0" prefWidth="209.0" promptText="Enter Description Here" unFocusColor="WHITE" />
+      <!-- Creating the DatePicker for Start Date, with fx:id so that the controller class can call the
+      getValue method to retrieve the start date uploaded for the lecture by the user -->
       <DatePicker fx:id="startDate" layoutX="155.0" layoutY="430.0" prefHeight="39.0" prefWidth="157.0" promptText="Start Date" />
    </children>
 </AnchorPane>
