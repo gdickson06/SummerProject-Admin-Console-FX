@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<!-- importing necessary Java, JavaFX and JFoenix classes for FXML file -->
 <?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.control.*?>
@@ -7,13 +7,24 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
+<!-- The below AnchorPane will consist of all the subsequent JFXButtons, Labels, JFXComboBox and JFXListView that will appear on screen
+The fx:controller is used to reference the StudentSelectController.java controller class that will manipulate the FXML objects -->
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.StudentAmendDeleteController">
    <children>
+      <!-- The below ImageView will act as a placeholder for the QUB logo to be populated in the initialise() method in the controller class -->
       <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+      <!-- The below label is the Console header. It will be positioned at 400 on the X axis and 75 on the Y axis to 
+   	  maintain a static feel throughout the console -->
       <Label layoutX="400.0" layoutY="75.0" text="Medical Hub Administration Console" />
+      <!-- Creating the sub menu header for the page, with text explaining how to navigate the screen -->
       <Label layoutX="400.0" layoutY="125.0" prefHeight="27.0" prefWidth="883.0" text="Search for a Student to amend or delete his/her details using the Search or Combo-Search Buttons" />
+      <!-- Creating the labels for the First Name and Student Number that will be positioned
+      adjacent to their respective JFXTextFields-->
       <Label layoutX="104.0" layoutY="265.0" text="First Name:" />
       <Label layoutX="57.0" layoutY="200.0" text="Student Number:" />
+      <!-- Creating the JFXTextFields for First Name, Student Number, Email Address and Cohort, 
+      each with an fx:id that will allow the controller class to use the getText method to retrieve
+      the values entered by the user -->
       <JFXTextField fx:id="firstName" focusColor="WHITE" labelFloat="true" layoutX="210.0" layoutY="260.0" prefHeight="35.0" prefWidth="177.0" promptText="Enter First Name" unFocusColor="WHITE">
          <font>
             <Font size="14.0" />
@@ -30,25 +41,46 @@
          <font>
             <Font size="14.0" />
          </font></JFXTextField>
+      <!-- Creating the labels for Email Address and Cohort to be positioned adjacent to their respective
+      JFXTextFields -->   
       <Label layoutX="526.0" layoutY="330.0" text="Email Address:" />
       <Label layoutX="583.0" layoutY="261.0" text="Cohort:" />
+      <!-- Creating the JFXButton for Combo Search, with an onAction identifier that will reference
+      the Combo Search java method within the controller class -->
       <JFXButton layoutX="1013.0" layoutY="325.0" onAction="#comboSearch" text="Combo- Search" />
+      <!-- Creating the JFXButtons for Return to Student Menu and Return to Main Menu, each with
+      an onAction identifier that will reference their associated java methods in the controller class -->
       <JFXButton layoutX="300.0" layoutY="600.0" onAction="#returnStudentMenu" text="Return to Student Menu" />
       <JFXButton layoutX="700.0" layoutY="600.0" onAction="#returnMainMenu" text="Return to Main Menu" />
+      <!-- Creating the listOfStudents JFXListView that will populate all of the students
+      based on the values searched by the user. The onMouseClicked identifier will be linked
+      with an associated Java method in the controller class that will allow the user to amend
+      or delete the selected student -->
       <JFXListView fx:id="listOfStudents" layoutX="81.0" layoutY="412.0" onMouseClicked="#ListClick" prefHeight="162.0" prefWidth="1099.0" />
+      <!-- Creating the JFXButtons for Student Number Search, First Name Search, Last Name Search,
+      Email Search and Cohort Search, each with an onAction identifier that will reference their
+       associated java methods in the controller class -->
       <JFXButton layoutX="407.0" layoutY="195.0" onAction="#studentNumberSearch" text="Search" />
       <JFXButton layoutX="407.0" layoutY="260.0" onAction="#firstNameSearch" text="Search" />
       <JFXButton layoutX="407.0" layoutY="326.0" onAction="#lastNameSearch" text="Search" />
       <JFXButton layoutX="869.0" layoutY="325.0" onAction="#emailSearch" text="Search" />
       <JFXButton layoutX="869.0" layoutY="260.0" onAction="#cohortSearch" text="Search" />
+      <!-- Creating the JFXTextField for Last Name, with fx:id so that the controller class can
+      call the getText method to retrieve the student's last name -->
       <JFXTextField fx:id="lastName" focusColor="WHITE" labelFloat="true" layoutX="210.0" layoutY="326.0" prefHeight="35.0" prefWidth="177.0" promptText="Enter Last Name" unFocusColor="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </JFXTextField>
+      <!-- Creating the label for last name to be positioned adjacent to the Last Name JFXTextField -->
       <Label layoutX="106.0" layoutY="330.0" text="Last Name:" />
+      <!-- Creating the JFXButton for year Search, with onAction identifier that will reference the
+      year search java method in the controller class -->
       <JFXButton layoutX="869.0" layoutY="195.0" onAction="#yearSearch" text="Search" />
+      <!-- Creating the label for Year to be positioned adjacent to the Intake Year JFXComboBox -->
       <Label layoutX="603.0" layoutY="200.0" text="Year:" />
+      <!-- Creating the JFXComboBox for Intake Year, with fx:id so that the controller class can call
+      the getValue method in order to retrieve the student's intake year -->
       <JFXComboBox fx:id="IntakeYear" focusColor="WHITE" labelFloat="true" layoutX="672.0" layoutY="195.0" prefHeight="25.0" prefWidth="160.0" promptText="Select Year" unFocusColor="WHITE" />
    </children>
 </AnchorPane>

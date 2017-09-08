@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!-- importing necessary Java, JavaFX and JFoenix classes for FXML file -->
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -7,21 +8,37 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
+<!-- The below AnchorPane will consist of all the subsequent JFXButtons, Labels, JFXComboBox and JFXListView that will appear on screen
+The fx:controller is used to reference the LectureAmendController.java controller class that will manipulate the FXML objects -->
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LectureAmendController">
    <children>
+      <!-- Creating the JFXButtons for Staff Search, Module Search, Date Search, Year Search
+      Start Time Search and Week Search for Lectures, all with onAction identifiers that will
+      be used to reference each button's associated java method in the controller class -->
       <JFXButton layoutX="914.0" layoutY="200.0" onAction="#StaffSearch" text="Search" />
       <JFXButton layoutX="914.0" layoutY="270.0" onAction="#ModuleSearch" text="Search" />
       <JFXButton layoutX="914.0" layoutY="350.0" onAction="#DateSearch" text="Search" />
       <JFXButton layoutX="427.0" layoutY="345.0" onAction="#YearSearch" text="Search" />
       <JFXButton layoutX="427.0" layoutY="270.0" onAction="#StartTimeSearch" text="Search" />
       <JFXButton layoutX="427.0" layoutY="200.0" onAction="#WeekSearch" text="Search" />
+      <!-- Creating the listOFLectures JFXListView that will populate all of the Lectures
+      based on the values searched by the user. The onMouseClicked identifier will be linked
+      with an associated Java method in the controller class that will allow the user to amend
+      or delete the selected Lecture -->
       <JFXListView fx:id="ListOfLectures" layoutX="75.0" layoutY="425.0" onMouseClicked="#ListClicked" prefHeight="151.0" prefWidth="1128.0" />
+       <!-- Creating the JFXButtons for Return to Main Menu, Return to Lecture Menu and Combo Search for 
+       Lectures, all with onAction identifiers that will be used to reference each button's associated 
+      Java method in the controller class -->
       <JFXButton fx:id="ReturnMainMenu" layoutX="744.0" layoutY="600.0" onAction="#ReturnMainMenu" text="Return to Main Menu" />
       <JFXButton layoutX="345.0" layoutY="600.0" onAction="#ReturnLectureMenu" text="Return to Lecture Menu" />
       <JFXButton layoutX="1055.0" layoutY="353.0" onAction="#ComboSearch" text="Combo- Search" />
+      <!-- Creating the Labels for Staff Module and Date, to be positioned adjacent to their associated
+      JFXTextFields -->
       <Label layoutX="582.0" layoutY="205.0" text="Staff:" />
       <Label layoutX="555.0" layoutY="275.0" text="Module:" />
       <Label layoutX="581.0" layoutY="359.0" text="Date:" />
+      <!-- Creating  the JFXTextFields for Staff, Start Time and Week, each with an fx:id that will
+      allow the controller class to retrieve the data selected using the getText Java method-->
       <JFXTextField fx:id="StaffText" focusColor="WHITE" labelFloat="true" layoutX="646.0" layoutY="200.0" prefHeight="35.0" prefWidth="243.0" promptText="Enter Staff" unFocusColor="WHITE">
          <font>
             <Font size="14.0" />
@@ -37,14 +54,25 @@
             <Font size="14.0" />
          </font>
       </JFXTextField>
+      <!-- Creating the labels for Year, Start Time and Week to be positioned adjacent to their associated
+      JFXTextFields-->
       <Label layoutX="108.0" layoutY="350.0" text="Year:" />
       <Label layoutX="53.0" layoutY="275.0" text="Start Time:" />
       <Label layoutX="98.0" layoutY="205.0" text="Week:" />
+      <!-- Creating the sub menu header for the page, with text explaining how to navigate the screen -->
       <Label layoutX="400.0" layoutY="125.0" prefHeight="27.0" prefWidth="883.0" text="Search for a Lecture to amend or delete using Search or Combo-Search Buttons" textFill="WHITE" />
+      <!-- The below label is the Console header. It will be positioned at 400 on the X axis and 75 on the Y axis to 
+   	  maintain a static feel throughout the console -->
       <Label layoutX="400.0" layoutY="75.0" text="Medical Hub Administration Console" />
+      <!-- The below ImageView will act as a placeholder for the QUB logo to be populated in the initialise() method in the controller class -->
       <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+      <!-- Creating the JFXComboBox for Module, with the values being added in the initialise method in the controller class -->
       <JFXComboBox fx:id="Module" focusColor="WHITE" labelFloat="true" layoutX="646.0" layoutY="270.0" prefHeight="39.0" prefWidth="243.0" promptText="Select Module" unFocusColor="WHITE" />
+      <!-- Creating the Date Picker object for Date, with fx:id so that the Java method getText can be used
+      in the controller class to retrieve the selected date -->
       <DatePicker fx:id="Date" layoutX="644.0" layoutY="350.0" prefHeight="25.0" prefWidth="243.0" promptText="Select Date" />
+      <!-- Creating the JFXComboBox for Year with fx:id so that the Java method getValue can be used in the
+      controller class to retrieve the selected year -->
       <JFXComboBox fx:id="YearText" focusColor="WHITE" labelFloat="true" layoutX="165.0" layoutY="345.0" prefHeight="25.0" prefWidth="216.0" promptText="Select Year" unFocusColor="#fcfcfc" />
    </children>
 </AnchorPane>

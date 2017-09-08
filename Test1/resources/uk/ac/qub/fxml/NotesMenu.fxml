@@ -1,20 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<!-- importing necessary Java, JavaFX and JFoenix classes for FXML file -->
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
+<!-- The below AnchorPane will consist of all the subsequent JFXButton, Labels and one Hyperlin that will appear on screen
+The fx:controller is used to reference the NotesMenuController.java controller class that will manipulate the FXML objects -->
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.NotesMenuController">
    <children>
+      <!-- Creating the button that will redirect the user to the Main Menu -->
       <Button fx:id="returnMainMenuButton" layoutX="540.0" layoutY="580.0" mnemonicParsing="false" onAction="#returnMainMenuButtonClick" text="Return to Main Menu" />
       <Label layoutX="138.0" layoutY="552.0" />
+      <!-- Creating the button that will redirect the user to the Upload General Notes to Database Menu -->
       <Button fx:id="generalNoteButton" layoutX="825.0" layoutY="300.0" mnemonicParsing="false" onAction="#generalNoteButtonClick" prefHeight="180.0" prefWidth="300.0" text="Add General Note to Database" />
+      <!-- Creating the button that will redirect the user to the Upload Practical Notes to Database Menu -->
       <Button fx:id="practicalNoteButton" layoutX="475.0" layoutY="300.0" mnemonicParsing="false" onAction="#practicalNoteButtonClick" prefHeight="180.0" prefWidth="300.0" text="Upload Placement Notes to Database" />
+      <!-- Creating the button that will redirect the user to the Upload Lecture Notes to Database Menu -->
       <Button fx:id="lectureNoteButton" layoutX="125.0" layoutY="300.0" mnemonicParsing="false" onAction="#lectureNoteButtonClick" prefHeight="180.0" prefWidth="300.0" text="Upload Notes for Lectures to Database" />
+      <!-- Creating the sub menu header for the page, with text explaining how to navigate the screen -->
       <Label layoutX="400.0" layoutY="125.0" prefHeight="27.0" prefWidth="268.0" text="Notes Menu" />
+      <!-- The below label is the Console header. It will be positioned at 400 on the X axis and 75 on the Y axis to 
+   	  maintain a static feel throughout the console -->
       <Label layoutX="400.0" layoutY="75.0" text="Medical Hub Administration Console" />
+      <!-- The below ImageView will act as a placeholder for the QUB logo to be populated in the initialise() method in the controller class -->
       <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+      <!-- Creating the Hyperlink for Log Out with an onAction identifier to reference the log out
+      java method in the controller class -->
       <Hyperlink fx:id="logOut" layoutX="909.0" layoutY="124.0" onMouseClicked="#logOut" text="Hyperlink" />
    </children>
 </AnchorPane>

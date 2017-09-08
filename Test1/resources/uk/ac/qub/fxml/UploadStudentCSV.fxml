@@ -1,23 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<!-- importing necessary Java, JavaFX and JFoenix classes for FXML file -->
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
+<!-- The below AnchorPane will consist of all the subsequent JFXButton, Labels and other FXML objects that will appear on screen
+The fx:controller is used to reference the UploadStudentCSVController.java controller class that will manipulate the FXML objects -->
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UploadStudentCSVController">
    <children>
+      <!-- The below ImageView will act as a placeholder for the QUB logo to be populated in the initialise() method in the controller class -->
       <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true" />
+      <!-- The below label is the Console header. It will be positioned at 400 on the X axis and 75 on the Y axis to 
+   	  maintain a static feel throughout the console -->
       <Label layoutX="400.0" layoutY="75.0" text="Medical Hub Administration Console" />
+      <!-- Creating the sub menu header for the page, with text explaining how to navigate the screen -->
       <Label layoutX="400.0" layoutY="125.0" text="Please select a spreadsheet file and year to bulk upload a list of students to the database." />
+      <!-- Creating the JFXTextField for the File Path directory, which has onAction identifier that will
+      reference the java method that displays the file path of the chosen spreadsheet in the controller
+      class -->
       <JFXTextField fx:id="filePathTextField" focusColor="WHITE" labelFloat="true" layoutX="281.0" layoutY="254.0" prefHeight="35.0" prefWidth="512.0" promptText="File Path" unFocusColor="WHITE" />
+      <!-- Creating the JFXButtons for the Upload Spreadsheet File, Delete year (from database) and Choose File,
+      each with onAction identifiers that will reference the respective java methods in the 
+      controller class -->
       <JFXButton layoutX="831.0" layoutY="252.0" onAction="#chooseCSV" text="Choose File" />
       <JFXButton layoutX="590.0" layoutY="350.0" onAction="#uploadFile" text="Upload File" />
       <JFXButton layoutX="754.0" layoutY="350.0" onAction="#DeleteYear" text="Delete Year" />
+      <!-- Creating the JFXButtons for the Return to Main Menu and Student Menu buttons, with onAction
+      identifiers that will reference the respective java methods in the controller class -->
       <JFXButton layoutX="277.0" layoutY="500.0" onAction="#returnStudentMenu" text="Return to Student Menu" />
       <JFXButton layoutX="700.0" layoutY="500.0" onAction="#returnMainMenu" text="Return To Main Menu" />
+      <!-- Creating the JFXComboBox for Year Group, with an onAction identifier that will allow the
+      controller class to use the getText method to retrieve the year group selected by the user -->
       <JFXComboBox fx:id="Year" focusColor="WHITE" labelFloat="true" layoutX="281.0" layoutY="351.0" prefHeight="25.0" prefWidth="215.0" promptText="Select Year" unFocusColor="WHITE" />
+      <!-- Creating the JFXButton for Download Placements Spreadsheet, Delete year (from database) 
+      with an onAction identifiers that will reference the  java methods in the controller class responsible
+      for downloading the formatted Placements Spreadsheet to the specified save location-->
       <JFXButton layoutX="920.0" layoutY="350.0" onAction="#downloadCSVList" text="Download Student Spreadsheet" />
    </children>
 </AnchorPane>
