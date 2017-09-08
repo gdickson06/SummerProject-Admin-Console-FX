@@ -19,12 +19,19 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-
-
 import application.Main;
 import uk.ac.qub.methods.ConvertMethods;
 import uk.ac.qub.objects.Lecture;
 import uk.ac.qub.objects.Student;
+
+/**
+ * Name of Package - uk.ac.qub.sql
+ * Date Last Amended - 08/09/17 
+ * Outline - This class will contains all of the information to connection to the SQL
+ * database, along with any SQL related methods that do not fit in any of the other
+ * classes
+ * Demographics – 323 LOC 9 Methods
+ */
 
 public class SQL {
 
@@ -34,47 +41,53 @@ public class SQL {
 	public static String user = "jTurkington";
 	public static String password = "emily1234";
 	public static String url = "jdbc:mysql://qub.cjw92whe4wuf.eu-west-2.rds.amazonaws.com:3306/med?autoReconnect=true&useSSL=false&allowMultiQueries=true";
-	public static String QsisUser="QSIS";
-	public static String QsisPassword ="James123";
-	public static String QsisUrl ="jdbc:mysql://qsis.cjw92whe4wuf.eu-west-2.rds.amazonaws.com:3306/QSIS?autoReconnect=true&useSSL=false&allowMultiQueries=true";
-	
+	public static String QsisUser = "QSIS";
+	public static String QsisPassword = "James123";
+	public static String QsisUrl = "jdbc:mysql://qsis.cjw92whe4wuf.eu-west-2.rds.amazonaws.com:3306/QSIS?autoReconnect=true&useSSL=false&allowMultiQueries=true";
+
 	/**
-	 * This method will be used in the GlobalSettings screen, this read in all 
-	 * of the amendable content from the database and use it to populate the text
-	 * boxes in the settings menu
+	 * This method will be used in the GlobalSettings screen, this read in all
+	 * of the amendable content from the database and use it to populate the
+	 * text boxes in the settings menu
+	 * 
 	 * @return
 	 * @throws SQLException
 	 */
-	public static Map<String,String> importGlobalSettings() throws SQLException{
-		Map<String,String> values = new HashMap<String,String>();
-		
+	public static Map<String, String> importGlobalSettings() throws SQLException {
+		Map<String, String> values = new HashMap<String, String>();
+
 		ResultSet r = SQLstatements("SELECT * FROM AmendableContent");
-		
-		while (r.next()){
+
+		while (r.next()) {
 			values.put(r.getString("identifier"), r.getString("current_value"));
 		}
 		return values;
- 	}
+	}
+
 	/**
-	 * This method will update the database with any new values 
+	 * This method will update the database with any new values
+	 * 
 	 * @param values
 	 * @throws SQLException
 	 */
-	public static void updateInfo(List<String> values) throws SQLException{
-		List<String>fields = new ArrayList<String>();
-		String [] a = {"Western Trust Contact Number", "Southern Trust Contact Number","South Eastern Trust Contact Number", "School of Medicine Email",
-		"School of Medicine Contact Number","QUB IT Online Form","QUB IT Helpdesk Website","Personal Day Policy","Personal Day Allowance",
-		"Northern Trust Contact Number","Forgotten Password Link ","Find Current Absences Policy", "Belfast Trust Contact Number", "Absences Email Address"};
+	public static void updateInfo(List<String> values) throws SQLException {
+		List<String> fields = new ArrayList<String>();
+		String[] a = { "Western Trust Contact Number", "Southern Trust Contact Number",
+				"South Eastern Trust Contact Number", "School of Medicine Email", "School of Medicine Contact Number",
+				"QUB IT Online Form", "QUB IT Helpdesk Website", "Personal Day Policy", "Personal Day Allowance",
+				"Northern Trust Contact Number", "Forgotten Password Link ", "Find Current Absences Policy",
+				"Belfast Trust Contact Number", "Absences Email Address" };
 		fields.addAll(Arrays.asList(a));
-		
-		for(int i=0; i<fields.size();i++){
+
+		for (int i = 0; i < fields.size(); i++) {
 			PreparedStatement preparedStatement = null;
-			String statement = "UPDATE AmendableContent SET current_value = '"+values.get(i)+"' WHERE identifier ='"+fields.get(i)+"';";
+			String statement = "UPDATE AmendableContent SET current_value = '" + values.get(i) + "' WHERE identifier ='"
+					+ fields.get(i) + "';";
 			preparedStatement = Main.connection.prepareStatement(statement);
 			preparedStatement.executeUpdate();
 		}
 	}
-	
+
 	/**
 	 * This method will take in a cohort and a date and return a list of
 	 * Lectures for the date
@@ -84,50 +97,60 @@ public class SQL {
 	 * @return
 	 * @throws SQLException
 	 */
-	
-	public static void downloadToCSV(List<String>attributes,String year,String type) throws IOException, SQLException {
-		File file =new File("year"+year+"placements.csv");
-		 PrintWriter pw = new PrintWriter(file);
-	        StringBuilder sb = new StringBuilder();
-	        
-	        for(String s : attributes){
-	        	sb.append(',');
-	        	sb.append(s);
-	        	
-	        }
-	        
-	        sb.append('\n');
-	        sb.deleteCharAt(0);
-	        System.out.println("SELECT * FROM "+type + year +"'");
-	        ResultSet r = SQL.SQLstatements("SELECT * FROM "+type + year +";");
-	        if(r.next()){
-	        do{
-	        	for(int i =0; i<attributes.size(); i++){
-	        		if(i!=attributes.size()){
-	        	if(r.getString(attributes.get(i))==null){sb.append(" ");}else{sb.append("\""+r.getString(attributes.get(i))+"\"");}
-	        	sb.append(',');
-	        		} else {
-	        			if(r.getString(attributes.get(i))==null){sb.append(" ");}else{sb.append(r.getString(attributes.get(i)));}
-	    	        	
-	        		}
-	        	}
-	        	sb.append('\n');
-	        	
-	        }while (r.next());
 
-	        }
+	public static void downloadToCSV(List<String> attributes, String year, String type)
+			throws IOException, SQLException {
+		File file = new File("year" + year + "placements.csv");
+		PrintWriter pw = new PrintWriter(file);
+		StringBuilder sb = new StringBuilder();
 
-	        pw.write(sb.toString());
-	        pw.close();
-	        Desktop.getDesktop().open(file);
+		for (String s : attributes) {
+			sb.append(',');
+			sb.append(s);
+
+		}
+
+		sb.append('\n');
+		sb.deleteCharAt(0);
+		System.out.println("SELECT * FROM " + type + year + "'");
+		ResultSet r = SQL.SQLstatements("SELECT * FROM " + type + year + ";");
+		if (r.next()) {
+			do {
+				for (int i = 0; i < attributes.size(); i++) {
+					if (i != attributes.size()) {
+						if (r.getString(attributes.get(i)) == null) {
+							sb.append(" ");
+						} else {
+							sb.append("\"" + r.getString(attributes.get(i)) + "\"");
+						}
+						sb.append(',');
+					} else {
+						if (r.getString(attributes.get(i)) == null) {
+							sb.append(" ");
+						} else {
+							sb.append(r.getString(attributes.get(i)));
+						}
+
+					}
+				}
+				sb.append('\n');
+
+			} while (r.next());
+
+		}
+
+		pw.write(sb.toString());
+		pw.close();
+		Desktop.getDesktop().open(file);
 	}
+
 	public static List<Lecture> myLectures(String group, LocalDate Date, int year) throws SQLException {
 		List<Lecture> mine = null;
 
 		mine = new ArrayList<Lecture>();
 
 		String SqlQuery;
-		SqlQuery = "SELECT * FROM Lectures WHERE date = '" + Date + "' AND year='"+year+"';";
+		SqlQuery = "SELECT * FROM Lectures WHERE date = '" + Date + "' AND year='" + year + "';";
 		Statement statement = Main.connection.createStatement();
 		System.out.println(SqlQuery);
 		ResultSet results = statement.executeQuery(SqlQuery);
@@ -262,16 +285,14 @@ public class SQL {
 			} while (r.next());
 
 		}
-		
+
 		modules.remove("Holiday");
 		return modules;
 	}
-	
 
-	
-	
 	/**
 	 * Creating Absences for inputting PDFs
+	 * 
 	 * @param lecture
 	 * @param students
 	 * @throws SQLException

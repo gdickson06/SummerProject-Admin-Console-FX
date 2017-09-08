@@ -7,7 +7,12 @@ import java.sql.SQLException;
 
 import application.Main;
 import uk.ac.qub.objects.Absence;
-
+/**
+ * Name of Package - uk.ac.qub.sql
+ * Date Last Amended - 08/09/17 
+ * Outline - This class will contain all of the methods to amend, delete, save single and read absence
+ * Demographics – 81 LOC 4 Methods
+ */
 public class AbsenceSQL {
 
 	/**

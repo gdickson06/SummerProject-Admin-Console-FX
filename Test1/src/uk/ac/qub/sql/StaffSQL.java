@@ -12,6 +12,14 @@ import application.Main;
 import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Staff;
 
+/**
+ * Name of Package - uk.ac.qub.sql
+ * Date Last Amended - 08/09/17 
+ * Outline - This class will contain all of the methods to amend, 
+ * delete, save single and save multiple staff members  along 
+ * with any other methods to amend parts of staff members
+ * Demographics – 188 LOC 7 Methods
+ */
 
 public class StaffSQL {
 	/**
@@ -159,7 +167,9 @@ System.out.println(newStatement);
 	}
 @Deprecated
 	/**
-	 * This method allows for a password to be changed 
+	 * This method allows for a password to be changed this is now deprecated
+	 * as we will be using the QSis system to change passwords and will not be allowing
+	 * this to be done through this applicaiton
 	 * @param username
 	 * @param newPassword
 	 * @throws ClassNotFoundException
