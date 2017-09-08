@@ -1,10 +1,12 @@
 package uk.ac.qub.objects;
-
 /**
- * @author Calum Hurst & Gerard Dickson The below is the Room class that
+ * Name of Package - uk.ac.qub.objects Date Last Amended - 08/09/17 
+ * Outline - The below is the Room class that
  *         creates room objects that will be used for the Room Administration
  *         screens within the administration console
+ * Demographics – 83 LOC 7 Methods
  */
+
 
 public class Room {
 	
@@ -20,8 +22,8 @@ public class Room {
 	 * @param name
 	 */
 	public Room(String code, String name) {
-		this.code = code;
-		this.name = name;
+		setCode(code);
+		setName(name);
 	}
 	
 	/**
@@ -29,7 +31,7 @@ public class Room {
 	 * args
 	 */
 	public Room() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 	/**

@@ -76,19 +76,7 @@ public class LectureTest {
 		validEssential = true;
 	}
 
-	/**
-	 * testing the first Lecture constructor
-	 */
-	@Test
-	public void testLectureConstructorFiveArgs() {
-		Lecture lecture = new Lecture(validWeekLowerBoundary, validStartTime, validStaff, validModule, year1);
-		assertNotNull(lecture);
-		assertEquals(validWeekLowerBoundary, lecture.getWeek());
-		assertEquals(validStartTime, lecture.getStartTime());
-		assertEquals(validStaff, lecture.getStaff());
-		assertEquals(validModule, lecture.getModule());
-		assertEquals(year1, lecture.getYear());
-	}
+
 
 	/**
 	 * Testing the second Lecture constructor with 15 args
@@ -326,15 +314,7 @@ public class LectureTest {
 
 	
 
-	/**
-	 * Testing the getters and setters for week with invalid value at Upper
-	 * Boundary (25)
-	 */
-	@Test(expected = IllegalArgumentException.class)
-	public void testGetSetInvalidWeekUpperBoundary() {
-		Lecture lecture = new Lecture();
-		lecture.setWeek(invalidWeekUpperBoundary);
-	}
+
 
 	/**
 	 * Testing the getters and setters for day with valid value (Monday)

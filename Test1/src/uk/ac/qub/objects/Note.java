@@ -1,10 +1,13 @@
 package uk.ac.qub.objects;
 
 /**
- * @author Calum Hurst & Gerard Dickson The below is the Note class that
+ * Name of Package - uk.ac.qub.objects Date Last Amended - 08/09/17 
+ * Outline - The below is the Note class that
  *         creates Note objects which will be used for the Note Upload screens
  *         within the administration console
+ * Demographics – 139 LOC 11 Methods
  */
+
 
 public class Note {
 
@@ -26,10 +29,10 @@ public class Note {
 	 */
 	public Note(int id, int year, String date, String details) {
 
-		this.id = id;
-		Year = year;
-		Date = date;
-		Details = details;
+		setId(id);
+		setYear(year);
+		setDate(date);
+		setDetails(details);
 	}
 
 	/**
@@ -73,9 +76,7 @@ public class Note {
 	}
 
 	/**
-	 * Below is the setter for setting the year parameter for a Note object. If
-	 * the year is not between 1-5 an exception will be thrown
-	 * 
+	 * Below is the setter for setting the year parameter for a Note object.
 	 * @param year
 	 */
 	public void setYear(int year) {
@@ -94,8 +95,7 @@ public class Note {
 	}
 
 	/**
-	 * Below is the setter for setting the date parameter for a Note object. If
-	 * the field is left empty an exception will be thrown
+	 * Below is the setter for setting the date parameter for a Note object. 
 	 * 
 	 * @param date
 	 */
@@ -117,7 +117,7 @@ public class Note {
 
 	/**
 	 * Below is the setter for setting the details parameter for a Note object.
-	 * If the field is left empty an exception will be thrown
+	 *
 	 * 
 	 * @param details
 	 */

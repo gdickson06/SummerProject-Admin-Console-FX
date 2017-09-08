@@ -1,12 +1,14 @@
 package uk.ac.qub.objects;
-
 /**
- * @author Calum Hurst & Gerard Dickson 
- * The below is the Staff class that creates Staff objects that 
+ * Name of Package - uk.ac.qub.objects 
+ * Date Last Amended - 08/09/17 
+ * Outline - The below is the Staff class that creates Staff objects that 
  * will be used for the Staff Administration screens within the 
  * administration console, as well as for the login screens for
  * the admin console
+ * Demographics – 109 LOC 9 Methods
  */
+
 
 public class Staff {
 	
@@ -23,16 +25,16 @@ public class Staff {
 	 * @param access_level
 	 */
 	public Staff(String staff_number, String name, String access_level) {
-		this.staff_number = staff_number;
-		this.name = name;
-		this.access_level = access_level;
+		setStaff_number(staff_number);
+		setName(name);
+		setAccess_level(access_level);
 	}
 	
 	/**
 	 * Below is the default constructor for the staff class with no arsg
 	 */
 	public Staff() {
-		// TODO Auto-generated constructor stub
+	
 	}
 	
 	/**
@@ -44,8 +46,7 @@ public class Staff {
 	}
 	
 	/**
-	 * Below is the setter for setting the staff number for the Staff object. If
-	 * no staff number is entered then an exception will be thrown
+	 * Below is the setter for setting the staff number for the Staff object.
 	 * @param staff_number
 	 */
 	public void setStaff_number(String staff_number) {
@@ -63,8 +64,7 @@ public class Staff {
 	}
 	
 	/**
-	 * Below is the setter for the name parameter from the staff object. If
-	 * no name is entered an exception will be thrown
+	 * Below is the setter for the name parameter from the staff object.
 	 * @param name
 	 */
 	public void setName(String name) {
@@ -88,11 +88,8 @@ public class Staff {
 	 * @param access_level
 	 */
 	public void setAccess_level(String access_level) {
-		if(access_level.equalsIgnoreCase("Administrator")||access_level.equalsIgnoreCase("Module Coordinator")||access_level.equalsIgnoreCase("Lecturer")||access_level.isEmpty()) {
 			this.access_level = access_level;
-		} else {
-			throw new IllegalArgumentException("Invalid Access Level Selected");
-		}
+		
 	}
 	
 	/**

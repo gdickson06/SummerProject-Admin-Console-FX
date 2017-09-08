@@ -55,27 +55,7 @@ public class AbsenceTest {
 		invalidType = "annual leave";
 	}
 
-	/**
-	 * Testing the constructor with valid arguments included
-	 */
 
-	@Test
-	public void testAbsenceConstructorWithArgs() {
-		Absence absence = new Absence(validID, validStudentNumberLowerBoundary, validLectureID, validStartDate,
-				validEndDate, validStartTime, validEndTime, validReason, validType1, validApproved, validViewed);
-		assertNotNull(absence);
-		// testing each of the arguments within the constructor
-		assertEquals(validID, absence.getId());
-		assertEquals(validStudentNumberLowerBoundary, absence.getStudentNumber());
-		assertEquals(validLectureID, absence.getLectureID());
-		assertEquals(validStartDate, absence.getStartDate());
-		assertEquals(validEndDate, absence.getEndDate());
-		assertEquals(validStartTime, absence.getStartTime());
-		assertEquals(validEndDate, absence.getEndDate());
-		assertEquals(validReason, absence.getReason());
-		assertEquals(validType1, absence.getType());
-		assertEquals(validApproved, absence.getApproved());
-	}
 
 	/**
 	 * Testing the default constructor
@@ -153,14 +133,7 @@ public class AbsenceTest {
 		assertEquals(validLectureID, absence.getLectureID());
 	}
 
-	/**
-	 * Testing the getters and setters for LectureID with invalid value(0)
-	 */
-	@Test(expected = IllegalArgumentException.class)
-	public void testGetSetInvalidLectureID() {
-		Absence absence = new Absence();
-		absence.setLectureID(invalidLectureID);
-	}
+
 
 	/**
 	 * Testing the getters and setters for Start Date with valid value
@@ -172,16 +145,7 @@ public class AbsenceTest {
 		assertEquals(validStartDate, absence.getStartDate());
 	}
 
-	/**
-	 * Testing the getters and setters for Start Date with invalid value (null
-	 * value)
-	 */
-	@Test(expected = NullPointerException.class)
-	public void testGetSetInvalidStartDate() {
-		Absence absence = new Absence();
-		absence.setStartDate(invalidStartDate);
-
-	}
+	
 
 	/**
 	 * Testing the getters and setters for Start Time with valid Value (12:00)
@@ -205,14 +169,7 @@ public class AbsenceTest {
 		assertEquals(validEndTime, absence.getEndTime());
 	}
 
-	/**
-	 * Testing the getters and setters for End Time with invalid values (17:00)
-	 */
-	@Test(expected = NullPointerException.class)
-	public void testGetSetInvalidEndTime() {
-		Absence absence = new Absence();
-		absence.setEndTime(invalidEndTime);
-	}
+	
 
 	/**
 	 * Testing the getters and setters for Reason with valid values (Stomach

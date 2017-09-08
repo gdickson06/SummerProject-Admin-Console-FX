@@ -116,15 +116,7 @@ public class StaffTest {
 		assertEquals(validAccessLevel3, staff.getAccess_level());
 	}
 	
-	/**
-	 * testing the getters and setters for the Access Level parameter
-	 * with an invalid value (Teacher)
-	 */
-	@Test(expected=IllegalArgumentException.class)
-	public void testGetSetInvalidAccessLevel() {
-		Staff staff = new Staff();
-		staff.setAccess_level(invalidAccessLevel);
-	}
+	
 	
 	
 

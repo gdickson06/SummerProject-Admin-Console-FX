@@ -1,11 +1,13 @@
 package uk.ac.qub.objects;
 
 /**
- * @author Calum Hurst & Gerard Dickson The below is the lecture class that
- *         creates Lecture objects which will be used for the Lecture
- *         Administration and Lecture Notes screens within the administration
- *         console
+ * Name of Package - uk.ac.qub.objects Date Last Amended - 08/09/17 
+ * Outline - The below is the lecture class that creates Lecture objects 
+ * which will be used for the Lecture Administration and Lecture Notes 
+ * screens within the administration console
+ * Demographics – 529 LOC 42 Methods
  */
+
 
 public class Lecture {
 
@@ -18,17 +20,7 @@ public class Lecture {
 	String Day, startDate, StartTime, EndTime, group, location, subject, theme, teachingFormat, description, staff,
 			style, module, year, notes;
 
-	Boolean Essential;
-
-	public Lecture(int week, String startTime, String staff, String module, String year) {
-		super();
-		Week = week;
-
-		StartTime = startTime;
-		this.staff = staff;
-		this.module = module;
-		this.year = year;
-	}
+	Boolean optional;
 
 	/**
 	 * Below is the primary constructor with args for the Lecture class
@@ -53,21 +45,21 @@ public class Lecture {
 			String location, String subject, String theme, String teachingFormat, String description, String staff,
 			String style, String module) {
 
-		Week = week;
-		this.id = id;
-		Day = day;
-		this.startDate = startDate;
-		StartTime = startTime;
-		EndTime = endTime;
-		this.group = group;
-		this.location = location;
-		this.subject = subject;
-		this.theme = theme;
-		this.teachingFormat = teachingFormat;
-		this.description = description;
-		this.staff = staff;
-		this.style = style;
-		this.module = module;
+		setWeek(week);
+		setId(id);
+		setDay(day);
+		setStartDate(startDate);
+		setStartTime(startTime);
+		setEndTime(endTime);
+		setGroup(group);
+		setLocation(location);
+		setSubject(subject);
+		setTheme(theme);
+		setTeachingFormat(teachingFormat);
+		setDescription(description);
+		setStaff(staff);
+		setStyle(style);
+		setModule(module);
 	}
 
 	/**
@@ -115,21 +107,20 @@ public class Lecture {
 	public Lecture(int week, String day, String startDate, String startTime, String endTime, String group,
 			String location, String subject, String theme, String teachingFormat, String description, String staff,
 			String style, String module) {
-		super();
-		Week = week;
-		Day = day;
-		this.startDate = startDate;
-		StartTime = startTime;
-		EndTime = endTime;
-		this.group = group;
-		this.location = location;
-		this.subject = subject;
-		this.theme = theme;
-		this.teachingFormat = teachingFormat;
-		this.description = description;
-		this.staff = staff;
-		this.style = style;
-		this.module = module;
+		setWeek(week);
+		setDay(day);
+		setStartDate(startDate);
+		setStartTime(startTime);
+		setEndTime(endTime);
+		setGroup(group);
+		setLocation(location);
+		setSubject(subject);
+		setTheme(theme);
+		setTeachingFormat(teachingFormat);
+		setDescription(description);
+		setStaff(staff);
+		setStyle(style);
+		setModule(module);
 	}
 
 	/**
@@ -157,24 +148,25 @@ public class Lecture {
 	public Lecture(int week, int id, String day, String startDate, String startTime, String endTime, String group,
 			String location, String subject, String theme, String teachingFormat, String description, String staff,
 			String style, String module, Boolean essential, String year, String notes) {
-		Week = week;
-		this.id = id;
-		Day = day;
-		this.startDate = startDate;
-		StartTime = startTime;
-		EndTime = endTime;
-		this.group = group;
-		this.location = location;
-		this.subject = subject;
-		this.theme = theme;
-		this.teachingFormat = teachingFormat;
-		this.description = description;
-		this.staff = staff;
-		this.style = style;
-		this.module = module;
-		this.year = year;
-		this.notes = notes;
-		Essential = essential;
+		setWeek(week);
+		setId(id);
+		setDay(day);
+		setStartDate(startDate);
+		setStartTime(startTime);
+		setEndTime(endTime);
+		setGroup(group);
+		setLocation(location);
+		setSubject(subject);
+		setTheme(theme);
+		setTeachingFormat(teachingFormat);
+		setDescription(description);
+		setStaff(staff);
+		setStyle(style);
+		setModule(module);
+		setEssential(essential);
+		setNotes(notes);
+		setYear(year);
+
 	}
 
 	/**
@@ -232,7 +224,7 @@ public class Lecture {
 	 * @return
 	 */
 	public Boolean getEssential() {
-		return Essential;
+		return optional;
 	}
 
 	/**
@@ -242,7 +234,7 @@ public class Lecture {
 	 * @param essential
 	 */
 	public void setEssential(Boolean essential) {
-		Essential = essential;
+		optional = essential;
 	}
 
 	/**
@@ -256,18 +248,14 @@ public class Lecture {
 	}
 
 	/**
-	 * Below is the setter for setting the week parameter for the Lecture
-	 * object. If the week is not between 0-24 an exception will be thrown
-	 * We include 0 in case the week is not set
+	 * Below is the setter for setting the week parameter for the Lecture object
 	 * 
 	 * @param week
 	 */
 	public void setWeek(int week) {
-		if (week >= 0 && week <= 24) {
-			Week = week;
-		} else {
-			throw new IllegalArgumentException("Invalid Week entered");
-		}
+
+		Week = week;
+
 	}
 
 	/**
@@ -280,14 +268,13 @@ public class Lecture {
 	}
 
 	/**
-	 * The below setter sets the day paramater for a Lecture object. If a day
-	 * between Monday-Friday is not entered, an exception is thrown
+	 * The below setter sets the day paramater for a Lecture object.
 	 * 
 	 * @param day
 	 */
 	public void setDay(String day) {
 		Day = day;
-		
+
 	}
 
 	/**
@@ -307,9 +294,9 @@ public class Lecture {
 	 * @param startDate
 	 */
 	public void setStartDate(String startDate) {
-	
-			this.startDate = startDate;
-		
+
+		this.startDate = startDate;
+
 	}
 
 	/**
@@ -318,10 +305,11 @@ public class Lecture {
 	 */
 	@Override
 	public String toString() {
-		return "Week:   " + Week + "\t  Day:   " + Day + "\t Start Date:   " + startDate + "\t  Start Time:   " + StartTime
-				+ "\t End Time:   " + EndTime + "\t Group:   " + group + "\t Location:   " + location + "\t Subject:   " + subject
-				+ "\t Theme: " + theme + "\t Teaching Format:   " + teachingFormat + "\t Description:   " + description
-				+ "\t Staff:   " + staff + "\t Style:   " + style + "\t Module:   " + module;
+		return "Week:   " + Week + "\t  Day:   " + Day + "\t Start Date:   " + startDate + "\t  Start Time:   "
+				+ StartTime + "\t End Time:   " + EndTime + "\t Group:   " + group + "\t Location:   " + location
+				+ "\t Subject:   " + subject + "\t Theme: " + theme + "\t Teaching Format:   " + teachingFormat
+				+ "\t Description:   " + description + "\t Staff:   " + staff + "\t Style:   " + style + "\t Module:   "
+				+ module;
 	}
 
 	/**
@@ -335,15 +323,14 @@ public class Lecture {
 	}
 
 	/**
-	 * The below setter sets the Start Time parameter for the Lecture Object. If
-	 * the Start Time is left unfilled an exception is thrown
+	 * The below setter sets the Start Time parameter for the Lecture Object.
 	 * 
 	 * @param startTime
 	 */
 	public void setStartTime(String startTime) {
-	
-			StartTime = startTime;
-		
+
+		StartTime = startTime;
+
 	}
 
 	/**
@@ -359,12 +346,12 @@ public class Lecture {
 	 * The below setter sets the End Time parameter for the Lecture object
 	 * 
 	 * @param endTime.
-	 *            If the parameter is left empty an exception is thrown
+	 * 
 	 */
 	public void setEndTime(String endTime) {
-		
-			EndTime = endTime;
-		
+
+		EndTime = endTime;
+
 	}
 
 	/**
@@ -413,15 +400,14 @@ public class Lecture {
 	}
 
 	/**
-	 * The below setter sets the subject parameter for the Lecture object. If
-	 * the field is left empty an exception is thrown
+	 * The below setter sets the subject parameter for the Lecture object.
 	 * 
 	 * @param subject
 	 */
 	public void setSubject(String subject) {
-		
-			this.subject = subject;
-		
+
+		this.subject = subject;
+
 	}
 
 	/**
@@ -489,15 +475,14 @@ public class Lecture {
 	}
 
 	/**
-	 * The below setter sets the staff parameter for the Lecture object. If the
-	 * field is left empty an exception is thrown
+	 * The below setter sets the staff parameter for the Lecture object.
 	 * 
 	 * @param staff
 	 */
 	public void setStaff(String staff) {
 
-			this.staff = staff;
-		
+		this.staff = staff;
+
 	}
 
 	/**
@@ -535,9 +520,10 @@ public class Lecture {
 	public void setModule(String module) {
 		this.module = module;
 	}
-	
-	public String PDFString(){
-		return "lecture ID : " + id +  " date/time : " + startDate +" " + StartTime + "-" + EndTime + " location : " + location ;
+
+	public String PDFString() {
+		return "lecture ID : " + id + " date/time : " + startDate + " " + StartTime + "-" + EndTime + " location : "
+				+ location;
 	}
 
 }

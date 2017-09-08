@@ -1,9 +1,11 @@
 package uk.ac.qub.objects;
 
 /**
- * @author Calum Hurst and Gerard Dickson
- * The below class creates Absence Objects that will interact with the 
+ * Name of Package - uk.ac.qub.objects
+ * Date Last Amended - 08/09/17
+ * Outline - The below class creates Absence Objects that will interact with the 
  * Absence menu screens on the administration console
+ * Demographics – 312 LOC 25 Methods 
  */
 
 import java.time.LocalDate;
@@ -13,10 +15,6 @@ import uk.ac.qub.methods.GeneralMethods;
 
 public class Absence {
 
-	/*
-	 * Creating the data to be used in constructors, getters and setters and
-	 * toString()method
-	 */
 	int id, StudentNumber, LectureID;
 	String StartDate, EndDate, StartTime, EndTime, Reason, type;
 	Boolean approved, viewed;
@@ -38,17 +36,31 @@ public class Absence {
 	 */
 	public Absence(int id, int studentNumber, int lectureID, String startDate, String endDate, String startTime,
 			String endTime, String reason, String type, Boolean approved, Boolean viewed) {
-		super();
-		this.id = id;
-		StudentNumber = studentNumber;
-		LectureID = lectureID;
-		StartDate = startDate;
-		EndDate = endDate;
-		StartTime = startTime;
-		EndTime = endTime;
-		Reason = reason;
-		this.type = type;
-		this.approved = approved;
+		
+		setId(id);
+		setStudentNumber(studentNumber);
+		setLectureID(lectureID);
+		setStartDate(startDate);
+		setEndDate(endDate);
+		setStartTime(startTime);
+		setEndTime(endTime);
+		setReason(reason);
+		setType(type);
+		setApproved(approved);
+		setViewed(viewed);
+	}
+/**
+ * The getter for the viewed boolean
+ * @return
+ */
+	public Boolean getViewed() {
+		return viewed;
+	}
+/**
+ * The setter for the viewed boolean
+ * @param viewed
+ */
+	public void setViewed(Boolean viewed) {
 		this.viewed = viewed;
 	}
 
@@ -99,22 +111,18 @@ public class Absence {
 
 	/**
 	 * The below setter sets the value of the Student Number for the Absence
-	 * Object. If the Student Number is less than 00000001 or greater than
+	 * Object. If the Student Number is less than 00000000 or greater than
 	 * 99999999 (or if a value other than an int is inputted) an exception will
-	 * be thrown
+	 * be thrown the value of 00000000 is allowed in case of null
 	 * 
 	 * @param studentNumber
 	 */
-	public void setStudentNumber(int studentNumber) {
-		try {
-			if (studentNumber >= 00000000 && StudentNumber <= 99999999) {
-				StudentNumber = studentNumber;
-			} else {
-				throw new IllegalArgumentException("Invalid Entry for Student Number");
-			}
-		} catch (InputMismatchException e) {
-			System.err.println("Incorrect Input entered for Student Number");
-			e.printStackTrace();
+	public void setStudentNumber(int studentNumber) throws IllegalArgumentException {
+
+		if (studentNumber >= 00000000 && StudentNumber <= 99999999) {
+			StudentNumber = studentNumber;
+		} else {
+			throw new IllegalArgumentException();
 		}
 	}
 
@@ -129,23 +137,15 @@ public class Absence {
 	}
 
 	/**
-	 * This setter will set the Lecture ID arg for an absence object If a value
-	 * other than an int, or a value less than 1, is inputted an exception will
-	 * be thrown
+	 * The setter for the lecture ID, validation is done in different classes
+	 * and will be handled different depending on the needs
 	 * 
 	 * @param lectureID
 	 */
 	public void setLectureID(int lectureID) {
-		try {
-			if (lectureID >= 1) {
-				LectureID = lectureID;
-			} else {
-				throw new IllegalArgumentException("Lecture ID cannot be less than 1");
-			}
-		} catch (InputMismatchException e) {
-			System.err.println("Incorrect Input entered for Lecture ID");
-			e.printStackTrace();
-		}
+
+		LectureID = lectureID;
+
 	}
 
 	/**
@@ -158,25 +158,18 @@ public class Absence {
 	}
 
 	/**
-	 * This setter will return the start date of the absence object and will
-	 * throw an exception if the arg is empty
+	 * This setter will return the start date of the absence object 
 	 * 
 	 * @return
 	 */
 	public void setStartDate(String startDate) {
-		try {
-			if (!startDate.isEmpty()) {
+		
 				StartDate = startDate;
-			} else {
-				throw new IllegalArgumentException("No input for startDate");
-			}
-		} catch (InputMismatchException e) {
-			System.err.println("Incorrect Input entered for Start Date");
-		}
+		
 	}
 
 	/**
-	 * Below is the getter for retreiving the EndDate arg of an absence object
+	 * Below is the getter for retrieving the EndDate arg of an absence object
 	 * 
 	 * @return
 	 */
@@ -215,10 +208,9 @@ public class Absence {
 	 * @param startTime
 	 */
 	public void setStartTime(String startTime) {
-	
-				StartTime = startTime;
-			
-		
+
+		StartTime = startTime;
+
 	}
 
 	/**
@@ -231,22 +223,14 @@ public class Absence {
 	}
 
 	/**
-	 * Below is the setter for the End Time arg of an Absence Object If the
-	 * field is left empty an exception will be thrown
+	 * Below is the setter for the End Time arg of an Absence Object 
 	 * 
 	 * @param endTime
 	 */
 	public void setEndTime(String endTime) {
-		try {
-			if (!endTime.isEmpty()) {
+	
 				EndTime = endTime;
-			} else {
-				throw new IllegalArgumentException("End Time is empty");
-			}
-		} catch (InputMismatchException e) {
-			System.err.println("Incorrect Input entered for End Time");
-			e.printStackTrace();
-		}
+		
 
 	}
 
@@ -266,9 +250,9 @@ public class Absence {
 	 * @param reason
 	 */
 	public void setReason(String reason) {
-		
-			Reason = reason;
-		
+
+		Reason = reason;
+
 	}
 
 	/**
@@ -319,9 +303,10 @@ public class Absence {
 	 */
 	@Override
 	public String toString() {
-		return "Absence id:   " + id + "\t Student Number:   " + StudentNumber + "\t Lecture ID:   " + LectureID + "\t Start Date:   "
-				+ StartDate + "\t End Date:  " + EndDate + "\t Start Time:   " + StartTime + "\t End Time:   " + EndTime + "\t Reason:   "
-				+ Reason + "\t Type:   " + type + "\t Approved:   " + approved;
+		return "Absence id:   " + id + "\t Student Number:   " + StudentNumber + "\t Lecture ID:   " + LectureID
+				+ "\t Start Date:   " + StartDate + "\t End Date:  " + EndDate + "\t Start Time:   " + StartTime
+				+ "\t End Time:   " + EndTime + "\t Reason:   " + Reason + "\t Type:   " + type + "\t Approved:   "
+				+ approved;
 	}
 
 }

@@ -78,14 +78,6 @@ public class GroupConTest {
 	
 	
 	
-	/**
-	 * Testing the toString method for the GroupCon class below
-	 */
-	@Test
-	public void testToString() {
-		GroupsCon groupCon = new GroupsCon(validGroup, validCohort);
-		String expected = "GroupsCon [groups=" + groupCon.getGroups() + ", cohort=" + groupCon.getCohort() + "]"; 
-		assertEquals(expected, groupCon.toString());
-	}
+	
 
 }

@@ -1,10 +1,13 @@
 package uk.ac.qub.objects;
 
 /**
- * @author Calum Hurst & Gerard Dickson The below is the Placement class that
+ * Name of Package - uk.ac.qub.objects Date Last Amended - 08/09/17 
+ * Outline - The below is the Placement class that
  *         creates Placement objects that will be used for the Placement Upload
  *         screens within the administration console
+ * Demographics – 270 LOC 24 Methods
  */
+
 
 public class Placement {
 	
@@ -30,17 +33,18 @@ public class Placement {
 	 */
 	public Placement(int id, int year, String startDate, String endDate, String location, String preference, String cohort,
 			String note, String module, String moduleNumber) {
-		super();
-		this.id = id;
-		Year = year;
-		StartDate = startDate;
-		EndDate = endDate;
-		Location = location;
-		Preference = preference;
-		Cohort = cohort;
-		Note = note;
-		Module = module;
-		ModuleNumber = moduleNumber;
+		
+		setId(id);
+		setYear(year);
+		setStartDate(startDate);
+		setEndDate(endDate);
+		setLocation(location);
+		setPreference(preference);
+		setCohort(cohort);
+		setNote(note);
+		setModule(module);
+		setModuleNumber(moduleNumber);
+
 	}
 	
 	
@@ -108,7 +112,7 @@ public class Placement {
 	
 	/**
 	 * Below is the setter for setting the Start Date parameter for a 
-	 * Placement object. If the field is left empty an exception will be thrown
+	 * Placement object.
 	 * 
 	 * @param startDate
 	 */
@@ -129,7 +133,7 @@ public class Placement {
 	
 	/**
 	 * Below is the setter for setting the End Date parameter for a 
-	 * Placement object. If the field is left empty an exception will be thrown
+	 * Placement object.
 	 * 
 	 * @param endDate
 	 */
@@ -150,7 +154,7 @@ public class Placement {
 	
 	/**
 	 * Below is the setter for setting the location parameter for a Placement
-	 * object. If the field is left empty an exception will be thrown
+	 * object. 
 	 * @param location
 	 */
 	public void setLocation(String location) {
@@ -188,7 +192,7 @@ public class Placement {
 	
 	/**
 	 * Below is the setter for setting the cohort parameter for a Placement
-	 * object. if no cohort is entered an exception will be thrown
+	 * object.
 	 * @param cohort
 	 */
 	public void setCohort(String cohort) {
@@ -225,7 +229,7 @@ public class Placement {
 	
 	/**
 	 * Below is the setter for setting the module parameter for a Placement
-	 * Object. If the module field is left empty an exception will be thrown
+	 * Object. 
 	 * @param module
 	 */
 	public void setModule(String module) {
@@ -245,7 +249,7 @@ public class Placement {
 	
 	/**
 	 * The below is the setter for setting the module number for a
-	 * Placement object. If the field is left empty an exception will be thrown
+	 * Placement object.
 	 * @param moduleNumber
 	 */
 	public void setModuleNumber(String moduleNumber) {

@@ -1,10 +1,13 @@
 package uk.ac.qub.objects;
 
 /**
- * @author Calum Hurst & Gerard Dickson The below is the Student class that
- *         creates Student objects that will be used for the Student
- *         Administration screens within the administration console, as well as
- *         for the login screens for the admin console
+ * Name of Package - uk.ac.qub.objects 
+ * Date Last Amended - 08/09/17 
+ * Outline - The below is the Student class that creates Student objects that will be used
+ * for the Student Administration screens within the administration console, as
+ * well as for the login screens for the admin console
+ *  Demographics – 346 LOC 30 Methods
+ *
  */
 
 public class Student {
@@ -37,26 +40,27 @@ public class Student {
 	public Student(int studentNumber, String lastName, String firstName, String middleName, String prefix, String name,
 			String cohort, String email, String nationality, String graduate, String comments, String portfolio,
 			String year) {
-		this.studentNumber = studentNumber;
-		this.lastName = lastName;
-		this.firstName = firstName;
-		this.middleName = middleName;
-		this.prefix = prefix;
-		this.name = name;
-		this.cohort = cohort;
-		this.email = email;
-		this.nationality = nationality;
-		this.graduate = graduate;
-		this.comments = comments;
-		this.portfolio = portfolio;
-		this.year = year;
+		setStudentNumber(studentNumber);
+		setLastName(lastName);
+		setFirstName(firstName);
+		setMiddleName(middleName);
+		setPrefix(prefix);
+		setName(name);
+		setCohort(cohort);
+		setEmail(email);
+		setNationality(nationality);
+		setGraduate(graduate);
+		setComments(comments);
+		setPortfolio(portfolio);
+		setYear(year);
+
 	}
 
 	/**
 	 * Below is the default constructor for the Student class with no args
 	 */
 	public Student() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	/**
@@ -71,7 +75,7 @@ public class Student {
 
 	/**
 	 * Below is the setter for setting the Student Numberfor the Student Object.
-	 * If the student number is outside of the 00000001-99999999 then an
+	 * If the student number is outside of the 00000000-99999999 then an
 	 * exception will be thrown
 	 * 
 	 * @param studentNumber
@@ -95,14 +99,14 @@ public class Student {
 
 	/**
 	 * Below is the setter for the Last Name parameter for the Student Object.
-	 * If no value is entered an exception will be thrown
+	 * 
 	 * 
 	 * @param lastName
 	 */
 	public void setLastName(String lastName) {
-	
-			this.lastName = lastName;
-	
+
+		this.lastName = lastName;
+
 	}
 
 	/**
@@ -116,14 +120,13 @@ public class Student {
 
 	/**
 	 * Below is the setter for the First Name parameter for the Student Object.
-	 * If no value is entered an exception will be thrown
 	 * 
 	 * @param firstName
 	 */
 	public void setFirstName(String firstName) {
-	
-this.firstName = firstName;
-	
+
+		this.firstName = firstName;
+
 	}
 
 	/**
@@ -138,14 +141,13 @@ this.firstName = firstName;
 
 	/**
 	 * Below is the setter for the Middle Name parameter for the Student Object.
-	 * If no value is entered an exception will be thrown
 	 * 
 	 * @param middleName
 	 */
 	public void setMiddleName(String middleName) {
-	
-			this.middleName=middleName;
-		
+
+		this.middleName = middleName;
+
 	}
 
 	/**
@@ -184,9 +186,9 @@ this.firstName = firstName;
 	 * @param name
 	 */
 	public void setName(String name) {
-	
-			this.name = name;
-	
+
+		this.name = name;
+
 	}
 
 	/**
@@ -201,15 +203,14 @@ this.firstName = firstName;
 
 	/**
 	 * Below is the setter for setting the Cohort parameter from the Student
-	 * object. If no Cohort is entered an exception will be thrown
+	 * object.
 	 * 
 	 * @param cohort
 	 */
 	public void setCohort(String cohort) {
 
-			this.cohort=cohort;
-		}
-	
+		this.cohort = cohort;
+	}
 
 	/**
 	 * Below is the getter for retrieving the Email Address parameter from the
@@ -223,15 +224,14 @@ this.firstName = firstName;
 
 	/**
 	 * Below is the getter for retrieving the Email Address parameter from the
-	 * Student object. If no Email Address is Entered an exception will be
-	 * thrown
+	 * Student object.
 	 * 
 	 * @param email
 	 */
 	public void setEmail(String email) {
-		
-			this.email = email;
-		
+
+		this.email = email;
+
 	}
 
 	/**
@@ -325,14 +325,13 @@ this.firstName = firstName;
 	}
 
 	/**
-	 * The below setter sets the Year parameter for the Student object. If the
-	 * parameter is set to any value not between 1-5, an exception is thrown
+	 * The below setter sets the Year parameter for the Student object.
 	 * 
 	 * @param year
 	 */
 	public void setYear(String year) {
 		this.year = year;
-		
+
 	}
 
 	/**
@@ -341,6 +340,7 @@ this.firstName = firstName;
 	 */
 	@Override
 	public String toString() {
-		return "Student Number:   " + studentNumber + "\t Name:   " + name + "\t Cohort:   " + cohort + "\t Year:   " + year;
+		return "Student Number:   " + studentNumber + "\t Name:   " + name + "\t Cohort:   " + cohort + "\t Year:   "
+				+ year;
 	}
 }
