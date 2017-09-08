@@ -21,7 +21,6 @@ import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Note;
 import uk.ac.qub.sql.NoteSQL;
 /** 
- * @author Calum Hurst
  * Name of Package - application
  * Date Last Amended - 07/09/17
  * Outline - This is the controller class for the General notes class, this will be used

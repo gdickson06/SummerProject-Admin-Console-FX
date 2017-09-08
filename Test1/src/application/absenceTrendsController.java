@@ -23,7 +23,6 @@ import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Absence;
 import uk.ac.qub.objects.ExtendedAbsence;
 /** 
- * @author Calum Hurst
  * Name of Package - application
  * Date Last Amended - 07/09/17
  * Outline - This will be the controller class for the absence trends, this will

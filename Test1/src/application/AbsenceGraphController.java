@@ -25,7 +25,6 @@ import javafx.scene.image.WritableImage;
 import uk.ac.qub.methods.FileWriter;
 import uk.ac.qub.methods.GeneralMethods;
 /** 
-* @author Calum Hurst
  * Name of Package - application
  * Date Last Amended - 07/09/17
  * Outline - This is the controller class for the graph screen, this will populate a page

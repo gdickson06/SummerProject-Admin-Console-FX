@@ -8,7 +8,7 @@ import java.util.List;
 
 import application.Main;
 import uk.ac.qub.methods.ConvertMethods;
-import uk.ac.qub.methods.GeneralMethods;
+
 import uk.ac.qub.objects.Lecture;
 /**
  * Name of Package - uk.ac.qub.sql
@@ -27,11 +27,12 @@ public class LectureSQL {
 	 * 
 	 * @param lectures
 	 * @param Year
+	 * @return 
 	 * @throws Exception
 	 */
-	public static void saveSQLLecture(List<Lecture> lectures, String Year) throws Exception {
+	public static List<String> saveSQLLecture(List<Lecture> lectures, String Year) throws Exception {
 
-		int error = 0;
+		
 		List<String> errors = new ArrayList<String>();
 
 		PreparedStatement statement = null;
@@ -65,19 +66,16 @@ public class LectureSQL {
 				statement = Main.connection.prepareStatement(statements);
 				statement.executeUpdate();
 			} catch (Exception e) {
-				error++;
+				
 				errors.add(l.getStartDate() + " " + l.getStartTime() + " " + l.getLocation());
 			}
 
 		}
 
-		if (error > 0) {
-			GeneralMethods.show("There was an issue with " + error + " lectures", "Warning");
-			for (String s : errors) {
-				GeneralMethods.show(s, "Issue with this lecture");
-			}
-		}
+		
 		GroupsConSQL.GroupsToGroup(lectures);
+		
+		return errors;
 	}
 
 	/**

@@ -26,11 +26,11 @@ import uk.ac.qub.sql.SQL;
  * Outline - This is the controller class for a user to be able to upload a full
  * year of lectures from a CSV file, deleting a full year of lectures and to 
  * download a full year of lectures to a CSV file.
- * Demographics – 178 LOC 7 Methods 
+ * Demographics – 189 LOC 7 Methods 
  * 
  */
 public class CSVLectureController {
-
+	public static List<String>errors;
 	@FXML
 	private ImageView Image;
 	@FXML
@@ -76,8 +76,19 @@ public class CSVLectureController {
 
 			try {
 				lectureList = CSV.readLecturesFromCSV(s);
-				LectureSQL.saveSQLLecture(lectureList, Year.getValue().toString());
-				GeneralMethods.show("Import successful with " + lectureList.size() + " lectures imported",
+				ApplicationMethods am = new ApplicationMethods(lectureList, Year.getValue().toString());
+				Thread t = new Thread(am);
+				t.start();
+				GeneralMethods.loading(t);
+				t.join();
+				if (errors.size() > 0) {
+					GeneralMethods.show("There was an issue with " + errors.size() + " lectures", "Warning");
+					for (String string : errors) {
+						GeneralMethods.show(string, "Issue with this lecture");
+					}
+				}
+				int lecs = lectureList.size()-errors.size();
+				GeneralMethods.show("Import successful with " + lecs + " lectures imported",
 						"UPLOAD SUCCESS");
 			} catch (Exception e) {
 				GeneralMethods.show("Issue with input please view the handbook", "ERROR");

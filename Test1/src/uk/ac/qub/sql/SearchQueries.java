@@ -461,7 +461,7 @@ public class SearchQueries {
 		case 1:
 			statement = "select * from Lectures where lecture_id = " + info + ";";
 			break;
-
+			//week
 		case 2:
 			statement = "select * from Lectures where week = " + info + ";";
 			break;
@@ -477,11 +477,11 @@ public class SearchQueries {
 		case 5:
 			statement = "select * from Lectures where staff LIKE '%" + info + "%';";
 			break;
-
+		//module
 		case 6:
 			statement = "select * from Lectures where module LIKE '" + info + "%';";
 			break;
-
+		//year
 		case 7:
 			statement = "select * from Lectures where year = '" + info + "';";
 			break;

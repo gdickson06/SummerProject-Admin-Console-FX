@@ -23,7 +23,6 @@ import uk.ac.qub.sql.SQL;
 
 public class GlobalSettingsController {
 	/** 
-	 * @author Calum Hurst
 	 * Name of Package - application
 	 * Date Last Amended - 07/09/17
 	 * Outline - This controller is for the global settings page, it will offer the 

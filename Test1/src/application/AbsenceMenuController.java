@@ -13,7 +13,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import uk.ac.qub.methods.GeneralMethods;
 /** 
- * @author Calum Hurst
  * Name of Package - application
  * Date Last Amended - 07/09/17
  * Outline - This is the controller class for the absence sub menu, this will have buttons

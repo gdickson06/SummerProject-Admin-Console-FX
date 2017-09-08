@@ -12,20 +12,32 @@ import com.jfoenix.controls.JFXTextField;
 
 import javafx.scene.control.DatePicker;
 import uk.ac.qub.methods.GeneralMethods;
+import uk.ac.qub.objects.Lecture;
 import uk.ac.qub.objects.Staff;
+import uk.ac.qub.sql.LectureSQL;
 /** 
- *  @author Calum Hurst
  * Name of Package - application
  * Date Last Amended - 07/09/17
  * Outline - This class holds the methods that will be used within the use of the applicaiton
- * Demographics – 121 LOC 4 Methods 
+ * Demographics – 148 LOC 7 Methods 
  * 
  */
-public class ApplicationMethods {
+public class ApplicationMethods implements Runnable {
 	
 static String errorStyle ="-fx-border-color: #D1D1D1; -fx-border-width: 3";
 public static Staff CurrentUser;
-
+private List<Lecture> info1;
+private String info2;
+/**
+ * This will give the information for the thread
+ * @param info1
+ * @param info2
+ */
+public ApplicationMethods(List<Lecture> info1, String info2) {
+	super();
+	this.info1 = info1;
+	this.info2 = info2;
+}
 public static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 /**
  * This method will take in a list of controls and check for any null values
@@ -118,5 +130,18 @@ public static void timeInput(String time)throws Exception{
 		throw new Exception();
 	}
 }
+/**
+ * This method is created to take the strain off the main method
+ */
+@Override
+public void run() {
+	try {
+	CSVLectureController.errors=LectureSQL.saveSQLLecture(info1,info2);
+	} catch (Exception e) {
+		GeneralMethods.show("Error with uploading SQL", "Error");
+	}
+	
+}
+
 
 }

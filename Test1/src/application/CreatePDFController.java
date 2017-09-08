@@ -26,7 +26,6 @@ import uk.ac.qub.objects.Lecture;
 import uk.ac.qub.sql.SQL;
 import uk.ac.qub.sql.SearchQueries;
 /** 
- * @author Calum Hurst
  * Name of Package - application
  * Date Last Amended - 07/09/17
  * Outline - This is the controller class which is for the create PDF page, this will
