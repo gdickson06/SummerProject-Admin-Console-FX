@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- importing necessary Java, JavaFX and JFoenix classes for FXML file -->
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- The below AnchorPane will consist of all the subsequent JFXButtons, Labels and Combo boxes that will appear on screen
+The fx:controller is used to reference the AbsenceGraphConroller.java controller class that will manipulate the FXML objects -->
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="701.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AbsenceGraphController">
+   <children>
+   	  <!-- The below label is the Console header. It will be positioned at 400 on the X axis and 75 on the Y axis to 
+   	  maintain a static feel throughout the console -->
+      <Label layoutX="400.0" layoutY="75.0" text="Medical Hub Administration Console" />
+      <!-- The below ImageView will act as a placeholder for the QUB logo to be populated in the initialize() method in the controller class -->
+      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+      <!-- Return to Absence Menu button has been created below with onAction identifier -->
+      <Button fx:id="Button1" layoutX="655.0" layoutY="601.0" mnemonicParsing="false" onAction="#returnAbsenceTrendsMenu" text="Return to Absence Trends &amp; Analytics Screen" />
+      <!-- The below JFXTextArea will provide information on the absences within the absence bar chart-->
+      <JFXTextArea fx:id="info" editable="false" focusColor="#a10026" focusTraversable="false" layoutX="145.0" layoutY="598.0" pickOnBounds="false" prefHeight="56.0" prefWidth="455.0" text="If a student is partially absent on one day it will still be considered a full day absence for the above bar chart" unFocusColor="#a10026" />
+      <!-- Return to Main Menu button has been created below with onAction identifier -->
+      <Button fx:id="Button2" layoutX="1067.0" layoutY="601.0" mnemonicParsing="false" onAction="#save" text="Save" />
+      <!-- Created Bar Chart below to contain the absence data retrieved from the SQL database -->
+      <BarChart fx:id="graph" layoutX="37.0" layoutY="189.0" prefHeight="404.0" prefWidth="1218.0">
+        <xAxis>
+          <!-- Labelling the X axis of the graph as absences -->
+          <CategoryAxis label="Absences" prefHeight="22.0" prefWidth="1246.0" side="BOTTOM" tickLabelFill="WHITE" />
+        </xAxis>
+        <yAxis>
+          <!-- Labelling the Y axis of the graph as Number of days Absence -->
+          <NumberAxis label="Number of Days" side="LEFT" tickLabelFill="WHITE" />
+        </yAxis>
+      </BarChart>
+   </children>
+</AnchorPane>

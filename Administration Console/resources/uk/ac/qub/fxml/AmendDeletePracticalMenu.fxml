@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- importing necessary Java, JavaFX and JFoenix classes for FXML file -->
+<?import javafx.geometry.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- The below AnchorPane will consist of all the subsequent JFXButtons, Labels, JFXComboBox and JFXListView that will appear on screen
+The fx:controller is used to reference the PlacementAmendDeleteController.java controller class that will manipulate the FXML objects -->
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PlacementAmendDeleteController">
+   <children>
+   	  <!-- Creating the JFXButtons for End Date Search, Hospital Search, Start Date Search, Module Search,
+      and Group Search, all with onAction identifiers that will be used to reference each button's 
+      associated java method in the controller class-->
+      <JFXButton layoutX="927.0" layoutY="180.0" onAction="#endDateSearch" text="Search" />
+      <JFXButton layoutX="927.0" layoutY="330.0" onAction="#hospitalSearch" text="Search" />
+      <JFXButton layoutX="434.0" layoutY="330.0" onAction="#startDateSearch" text="Search" />
+      <JFXButton layoutX="434.0" layoutY="255.0" onAction="#moduleSearch" text="Search" />
+      <JFXButton layoutX="434.0" layoutY="180.0" onAction="#groupSearch" text="Search" />
+      <!-- Creating the Placements JFXListView that will populate all of the Placements
+      based on the values searched by the user. The onMouseClicked identifier will be linked
+      with an associated Java method in the controller class that will allow the user to amend
+      or delete the selected Placement -->
+      <JFXListView fx:id="Placements" layoutX="90.0" layoutY="407.0" onMouseClicked="#PlacementClick" prefHeight="155.0" prefWidth="1099.0" />
+      <!-- Creating the JFXButtons for Return to Main Menu, Return to Practical Menu and Combo Search for 
+      Placements, all with onAction identifiers that will be used to reference each button's associated 
+      Java method in the controller class -->
+      <JFXButton layoutX="739.0" layoutY="588.0" onAction="#ReturnMainMenu" text="Return to Main Menu" />
+      <JFXButton layoutX="339.0" layoutY="588.0" onAction="#ReturnPlacementMenu" text="Return to Placements Menu" />
+      <JFXButton layoutX="1060.0" layoutY="330.0" onAction="#ComboSearch" text="Combo- Search" />
+      <!-- Creating the labels for Start Date and End Date to be positioned against their respective
+      DatePicker and JFXComboBox -->
+      <Label layoutX="62.0" layoutY="334.0" text="Start Date:" />
+      <Label layoutX="564.0" layoutY="339.0" text="Hospital:" />
+      <!-- Creating the JFXTextFields for Hospital and Group, each with an fx:id that will
+      allow the controller class to retrieve the data selected using the getText Java method-->
+      <JFXTextField fx:id="hospital" focusColor="WHITE" labelFloat="true" layoutX="651.0" layoutY="328.0" prefHeight="35.0" prefWidth="250.0" promptText="Enter Hospital Here" unFocusColor="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="group" focusColor="WHITE" labelFloat="true" layoutX="164.0" layoutY="182.0" prefHeight="35.0" prefWidth="250.0" promptText="Enter Group Here" unFocusColor="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXTextField>
+      <!-- Creating the labels for Module and Group to be positione adjacent to their associated
+       JFXTextFields  -->
+      <Label layoutX="79.0" layoutY="260.0" text="Module:" />
+      <Label layoutX="90.0" layoutY="188.0" text="Group:" />
+      <!-- Creating the sub menu header for the page, with text explaining how to navigate the screen -->
+      <Label layoutX="400.0" layoutY="125.0" prefHeight="27.0" prefWidth="883.0" text="Search for a Placement to amend or delete using the Search or Combo-Search Buttons" />
+      <!-- The below label is the Console header. It will be positioned at 400 on the X axis and 75 on the Y axis to 
+   	  maintain a static feel throughout the console -->
+      <Label layoutX="400.0" layoutY="75.0" text="Medical Hub Administration Console" />
+      <!-- The below ImageView will act as a placeholder for the QUB logo to be populated in the initialise() method in the controller class -->
+      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+      <!-- Creating the Date Picker object for Start Date, with fx:id so that the Java method getText can be used
+      in the controller class to retrieve the selected start date -->
+      <DatePicker fx:id="startDate" layoutX="164.0" layoutY="327.0" prefHeight="39.0" prefWidth="250.0" promptText="Select Start Date Here" />
+      <!-- Creating the JFXTextField for Module, with an fx:id that will allow the controller class to
+       retrieve the data selected using the getText Java method-->
+      <JFXTextField fx:id="module" focusColor="WHITE" labelFloat="true" layoutX="164.0" layoutY="254.0" prefHeight="35.0" prefWidth="250.0" promptText="Enter Module Here" unFocusColor="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font></JFXTextField>
+      <!-- Creating the Date Picker object for End Date, with fx:id so that the Java method getText can be used
+      in the controller class to retrieve the selected end date -->   
+      <DatePicker fx:id="endDate" layoutX="652.0" layoutY="182.0" prefHeight="39.0" prefWidth="244.0" promptText="Select End Date Here" />
+      <!-- Creating the labels for End Date and Year, to be positioned adjacent to their respective 
+      JFTextField and JFXComboBox -->
+      <Label layoutX="557.0" layoutY="189.0" text="End Date:" />
+      <Label layoutX="593.0" layoutY="260.0" text="Year:" />
+      <!-- Creating the JFXButton for Year Search, with an onAction identifier that will be used to 
+      reference the button's associated java method in the controller class-->
+      <JFXButton layoutX="927.0" layoutY="253.0" onAction="#yearSearch" text="Search" />
+      <!-- Creating the JFXComboBox for Year, with an fx:id so that the values of the Years can be
+      set in the initialise method in the controller class, and so that the getValue method can be
+      used in the controller class to retrieve the selected year -->
+      <JFXComboBox fx:id="Year" focusColor="WHITE" layoutX="651.0" layoutY="254.0" prefHeight="25.0" prefWidth="244.0" promptText="Select Year" stylesheets="@../css/AmendDeletePracticalMenu.css" unFocusColor="WHITE" />
+   </children>
+</AnchorPane>

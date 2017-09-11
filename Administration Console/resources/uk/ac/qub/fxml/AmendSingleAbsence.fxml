@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- importing necessary Java, JavaFX and JFoenix classes for FXML file -->
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- The below AnchorPane will consist of all the subsequent JFXButtons, Labels, JFXComboBox and JFXListView that will appear on screen
+The fx:controller is used to reference the SelectedAbsenceController.java controller class that will manipulate the FXML objects -->
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SelectedAbsenceController">
+   <children>
+      <!-- Creating the JFXTextField for Start Time, with fx:id so that the controller class can call the
+      getText method to retrieve the start time value for the absence entered by the user -->
+      <JFXTextField fx:id="StartTime" focusColor="WHITE" layoutX="230.0" layoutY="405.0" prefHeight="35.0" prefWidth="225.0" promptText="Enter Start Time Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <!-- Creating the JFXButtons for the Return to Search, Return to Main Menu and Return to Absences
+      Menu, each with an onAction identifier that will reference each associated java method within the
+      controller class -->
+      <JFXButton layoutX="1055.0" layoutY="572.0" onAction="#Back" text="Return to Search" />
+      <JFXButton layoutX="796.0" layoutY="572.0" onAction="#Home" text="Return to Main Menu" />
+      <JFXButton layoutX="492.0" layoutY="572.0" onAction="#ReturnAbsencesScreen" text="Return to Absences Screen" />
+      <!-- Creating the JFXButtons for the Save Details and Delete Absence from Database, each with an
+       onAction identifier that will reference the associated java methods within the
+      controller class -->
+      <JFXButton layoutX="270.0" layoutY="572.0" onAction="#Delete" text="Delete Absence" />
+      <JFXButton layoutX="68.0" layoutY="572.0" onAction="#SaveChanges" text="Save Details" />
+      <!-- Creating the labels for End Time, Start Time, Start Date and Student Number, to be positioned
+      adjacent to their respective JFXTextFields and DatePickers -->
+      <Label layoutX="129.0" layoutY="475.0" text="End Time:" />
+      <Label layoutX="120.0" layoutY="410.0" text="Start Time:" />
+      <Label layoutX="123.0" layoutY="340.0" text="Start Date:" />
+      <Label layoutX="68.0" layoutY="270.0" text="Student Number:" />
+      <!-- Creating the JFXTextField for Student Number and Lecture, with fx:id so that the controller class can 
+      call the getText method to retrieve the student number and lecture values for the absence entered by the user -->
+      <JFXTextField fx:id="StudentNumber" focusColor="WHITE" layoutX="230.0" layoutY="265.0" prefHeight="33.0" prefWidth="225.0" promptText="Enter Student Number Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="Lecture" focusColor="WHITE" layoutX="648.0" layoutY="265.0" prefHeight="35.0" prefWidth="225.0" promptText="Enter Lecture ID Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <!-- Creating the labels for Lecture ID, Type and End Date, to be positioned adjacent to their
+      respective JFXTextFields and JFXComboBox -->
+      <Label layoutX="537.0" layoutY="270.0" text="Lecture ID:" />
+      <Label layoutX="580.0" layoutY="340.0" text="Type:" />
+      <Label layoutX="544.0" layoutY="410.0" text="End Date:" />
+      <!-- Creating the JFXTextArea for Reason, with fx:id so that the controller class can 
+      call the getText method to retrieve the reason value for the absence entered by the user -->
+      <JFXTextArea fx:id="Reason" focusColor="WHITE" labelFloat="true" layoutX="947.0" layoutY="268.0" prefHeight="181.0" prefWidth="249.0" promptText="Enter Reason Here" unFocusColor="WHITE" />
+      <!-- Creating the DatePicker object for Start Date, with fx:id so that the controller class can call
+      the getValue method to retrieve the start date for an absence selected by the user -->
+      <DatePicker fx:id="StartDate" layoutX="230.0" layoutY="335.0" prefHeight="39.0" prefWidth="225.0" />
+      <!-- Creating the JFXTextField for End Time, with fx:id so that the controller class can 
+      call the getText method to retrieve the end time for the absence entered by the user -->
+      <JFXTextField fx:id="EndTime" focusColor="WHITE" layoutX="230.0" layoutY="470.0" prefHeight="35.0" prefWidth="225.0" promptText="Enter End Time Here" unFocusColor="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <!-- Creating the JFXComboBox for Type, with fx:id so that the controller class can call
+      the getValue method to retrieve the absence type for an absence selected by the user -->
+      <JFXComboBox fx:id="Type" focusColor="WHITE" layoutX="648.0" layoutY="335.0" prefHeight="39.0" prefWidth="225.0" promptText="Select Type" unFocusColor="WHITE" />
+      <!-- Creating the DatePicker object for End Date, with fx:id so that the controller class can call
+      the getValue method to retrieve the end date for an absence selected by the user -->
+      <DatePicker fx:id="EndDate" layoutX="648.0" layoutY="405.0" prefHeight="39.0" prefWidth="225.0" />
+       <!-- The below ImageView will act as a placeholder for the QUB logo to be populated in the initialise() method in the controller class -->
+      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+      <!-- The below label is the Console header. It will be positioned at 400 on the X axis and 75 on the Y axis to 
+   	  maintain a static feel throughout the console -->
+      <Label layoutX="400.0" layoutY="75.0" text="Medical Hub Administration Console" />
+      <!-- Creating the sub menu header for the page, with text explaining how to navigate the screen -->
+      <Label layoutX="400.0" layoutY="125.0" prefHeight="27.0" prefWidth="908.0" text="Click 'Save Details' to save changes, or click 'Delete Absence' to remove from database" />
+      <!--  Creating the JFXCheckBoxes for Approved, with fx:id so that the controller class can call the
+      getValue method to see if absence was selected as approved or not by a user for the absence -->
+      <JFXCheckBox fx:id="Approved" checkedColor="#a10026" layoutX="660.0" layoutY="482.0" text="Approved" textFill="WHITE" unCheckedColor="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXCheckBox>
+      <JFXCheckBox checkedColor="#a10026" layoutX="972.0" layoutY="482.0" text="Viewed" textFill="WHITE" unCheckedColor="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXCheckBox>
+   </children>
+</AnchorPane>

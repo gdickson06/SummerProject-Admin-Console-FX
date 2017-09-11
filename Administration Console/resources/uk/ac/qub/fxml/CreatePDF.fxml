@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- importing necessary Java, JavaFX and JFoenix classes for FXML file -->
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- The below AnchorPane will consist of all the subsequent JFXButtons, Labels, JFXComboBox and JFXListView that will appear on screen
+The fx:controller is used to reference the CreatePDFController.java controller class that will manipulate the FXML objects -->
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CreatePDFController">
+   <children>
+      <!-- Creating the labels for Staff, Module and Date to be positioned adjacent to their respective
+      JFXTextFields and DatePicker -->
+      <Label layoutX="141.0" layoutY="199.0" text="Staff:" />
+      <Label layoutX="116.0" layoutY="270.0" text="Module:" />
+      <Label layoutX="140.0" layoutY="344.0" text="Date:" />
+      <!-- Creating the JFXTextField for Staff, with fx:id so that the controller class can call the 
+      getText method to retrieve the staff member name for the PDF -->
+      <JFXTextField fx:id="Staff" focusColor="WHITE" layoutX="201.0" layoutY="185.0" prefHeight="35.0" prefWidth="274.0" unFocusColor="WHITE" />
+      <!-- Creating the JFXComboBox for Module, with fx:id so that the controller class can call the 
+      getValue method to retrieve the module for the PDF. The module values will be set in the intiialise
+      method in the controller class -->
+      <JFXComboBox fx:id="Module" focusColor="WHITE" layoutX="201.0" layoutY="256.0" prefHeight="39.0" prefWidth="274.0" unFocusColor="WHITE" />
+      <!-- Creating the JFXTextField for Start Time, with fx:id so that the controller class can call the 
+      getText method to retrieve the start time of the tutorial for the PDF -->
+      <JFXTextField fx:id="StartTime" focusColor="WHITE" layoutX="634.0" layoutY="332.0" prefHeight="35.0" prefWidth="274.0" unFocusColor="WHITE" />
+      <!-- Creating the labels for Staff, Module and Date to be positioned adjacent to their respective
+      JFXTextFields and JFXComboBox -->
+      <Label layoutX="539.0" layoutY="344.0" text="Start Time:" />
+      <Label layoutX="572.0" layoutY="270.0" text="Week:" />
+      <Label layoutX="582.0" layoutY="199.0" text="Year:" />
+      <!-- Creating the JFXTextField for Week, with fx:id so that the controller class can call the 
+      getText method to retrieve the week of the tutorial for the PDF -->
+      <JFXTextField fx:id="Week" focusColor="WHITE" layoutX="634.0" layoutY="258.0" prefHeight="35.0" prefWidth="274.0" unFocusColor="WHITE" />
+      <!-- Creating the JFXListView for Lectures, that will populate a list of tutorials so that
+      the user select from to generate a PDF document. The fx:id will allow the controller class
+      to reference the ListView in the method for generating PDF's -->
+      <JFXListView fx:id="Lectures" layoutX="109.0" layoutY="398.0" onMouseClicked="#LectureClick" prefHeight="159.0" prefWidth="1010.0" />
+      <!-- Creating the JFXButtons for the Return to Search, GeneratePDF, Return to PDF Menu and Return to Main
+      Menu, each with an onAction identifier that will reference each associated java method within the
+      controller class -->
+      <JFXButton layoutX="949.0" layoutY="264.0" onAction="#Search" text="Search" />
+      <JFXButton layoutX="949.0" layoutY="338.0" onAction="#GeneratePDF" text="Generate PDF" />
+      <JFXButton layoutX="333.0" layoutY="580.0" onAction="#ReturnPDFMenu" text="Return to PDF Menu" />
+      <JFXButton layoutX="745.0" layoutY="580.0" onAction="#ReturnMainMenu" text="Return to Main Menu" />
+      <!-- Creating the DatePicker object that for Date, with fx:id so that the controller class can
+      retrieve the date of the tutorial when generating the PDF document -->
+      <DatePicker fx:id="Date" layoutX="201.0" layoutY="330.0" prefHeight="39.0" prefWidth="274.0" />
+      <!-- Creating the label to display the information of the selected tutorial -->
+      <Label fx:id="PickedLecture" layoutX="400.0" layoutY="145.0" />
+      <!-- Creating the JFXComboBox for JFXComboBox, with fx:id so that the controller class can call the 
+      getValue method to retrieve the year group for the tutorial that is selected by the user -->
+      <JFXComboBox fx:id="Year" focusColor="WHITE" layoutX="640.0" layoutY="195.0" prefHeight="25.0" prefWidth="274.0" unFocusColor="WHITE" />
+       <!-- Creating the sub menu header for the page, with text explaining how to navigate the screen -->
+      <Label layoutX="400.0" layoutY="105.0" prefHeight="27.0" prefWidth="901.0" text="Create a PDF Document by completing the mandatory fields below and click 'Generate PDF'" />
+       <!-- The below label is the Console header. It will be positioned at 400 on the X axis and 75 on the Y axis to 
+   	  maintain a static feel throughout the console -->
+      <Label layoutX="400.0" layoutY="75.0" text="Medical Hub Administration Console" />
+      <!-- The below ImageView will act as a placeholder for the QUB logo to be populated in the initialise() method in the controller class -->
+      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

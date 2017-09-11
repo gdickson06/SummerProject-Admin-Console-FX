@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- importing necessary Java, JavaFX and JFoenix classes for FXML file -->
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- The below AnchorPane will consist of all the subsequent JFXButtons, Labels, JFXComboBox and JFXListView that will appear on screen
+The fx:controller is used to reference the RoomAmendDeleteController.java controller class that will manipulate the FXML objects -->
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RoomAmendDeleteController">
+   <children>
+      <!-- Creating the JFXButtons for Return to Main menu and Return to Rooms Menu, each with
+       onAction identifiers that will be used to reference each button's associated java method
+       in the controller class -->
+      <JFXButton layoutX="700.0" layoutY="600.0" onAction="#returnMainMenu" text="Return to Main Menu" />
+      <JFXButton layoutX="277.0" layoutY="600.0" onAction="#returnRoomsMenu" text="Return to Rooms Menu" />
+      <!-- Creating the JFXTextFields for Room Name and Room Code, each with an fx:id that will
+      allow the controller class to retrieve the data selected using the getText Java method -->
+      <JFXTextField fx:id="RoomName" focusColor="WHITE" labelFloat="true" layoutX="298.0" layoutY="295.0" prefHeight="35.0" prefWidth="528.0" promptText="Enter Room Name Here" unFocusColor="WHITE" />
+      <JFXTextField fx:id="RoomCode" focusColor="WHITE" labelFloat="true" layoutX="298.0" layoutY="223.0" prefHeight="35.0" prefWidth="528.0" promptText="Enter Room Code Here e.g. MBC/01/002" unFocusColor="WHITE" />
+      <!-- Creating the labels for Room Name and Room Code to be positioned adjacent to their respective
+      JFXTextFields -->
+      <Label layoutX="172.0" layoutY="300.0" text="Room Name:" />
+      <Label layoutX="178.0" layoutY="228.0" text="Room Code:" />
+      <!-- Creating the RoomList JFXListView that will populate all of the Rooms
+      based on the values searched by the user. The onMouseClicked identifier will be linked
+      with an associated Java method in the controller class that will allow the user to amend
+      or delete the selected Room -->
+      <JFXListView fx:id="RoomList" layoutX="54.0" layoutY="371.0" onMouseClicked="#ListClick" prefHeight="201.0" prefWidth="1163.0" />
+      <!-- Creating the JFXButtons for Return to Main Menu and Return to Room Menu, each with an
+      onAction identifier that will be used to reference each button's associated Java method in the 
+      controller class -->
+      <JFXButton layoutX="896.0" layoutY="223.0" onAction="#RoomCodeSearch" text="Search" />
+      <JFXButton layoutX="896.0" layoutY="295.0" onAction="#RoomNameSearch" text="Search" />
+      <!-- Creating the sub menu header for the page, with text explaining how to navigate the screen -->
+      <Label layoutX="400.0" layoutY="125.0" prefHeight="27.0" prefWidth="908.0" text="Search for a Room to amend or delete using the search and combo search buttons" />
+      <!-- The below label is the Console header. It will be positioned at 400 on the X axis and 75 on the Y axis to 
+   	  maintain a static feel throughout the console -->
+      <Label layoutX="400.0" layoutY="75.0" text="Medical Hub Administration Console" />
+      <!-- The below ImageView will act as a placeholder for the QUB logo to be populated in the initialise() method in the controller class -->
+      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

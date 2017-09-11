@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- importing necessary Java, JavaFX and JFoenix classes for FXML file -->
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- The below AnchorPane will consist of all the subsequent JFXButtons, Labels and Combo boxes that will appear on screen
+The fx:controller is used to reference the AbsenceAmendDeleteController.java controller class that will manipulate the FXML objects -->
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AbsenceAmendDeleteController">
+   <children>
+   	  <!-- Creating the JFXButtons for Type Search, Approved Search, End Time Search, Time Search, Date Search
+   	  and Student Number Search, all with onAction identifiers to be linked with associated java methods -->
+      <JFXButton layoutX="965.0" layoutY="200.0" onAction="#TypeSearch" text="Search" />
+      <JFXButton layoutX="965.0" layoutY="270.0" onAction="#ApprovedSearch" text="Search" />
+      <JFXButton layoutX="965.0" layoutY="345.0" onAction="#SearchEndTime" text="Search" />
+      <JFXButton layoutX="500.0" layoutY="345.0" onAction="#SearchTime" text="Search" />
+      <JFXButton layoutX="500.0" layoutY="270.0" onAction="#SearchDate" text="Search" />
+      <JFXButton layoutX="500.0" layoutY="200.0" onAction="#SearchStudentNumber" text="Search" />
+      <!-- Creating the JFXListView that will populated the absences returned by each search, with
+      an onMouseClick identifier to be linked with a java method that will open the selected Absence -->
+      <JFXListView fx:id="ListAbsence" layoutX="80.0" layoutY="412.0" onMouseClicked="#listClick" prefHeight="164.0" prefWidth="1149.0" />
+      <!-- Creating the JFXButtons for Returning to Main Menu and Return to Absence menu, as well as the
+      Combo Search button that will allow the user to search for Absences with multiple attributes, all
+      with onAction identifiers to be linked with the associated Java methods -->
+      <JFXButton layoutX="797.0" layoutY="593.0" onAction="#returnMainMenu" text="Return to Main Menu" />
+      <JFXButton fx:id="Back" layoutX="342.0" layoutY="593.0" onAction="#Back" text="Return to Absences Menu" />
+      <JFXButton layoutX="1072.0" layoutY="345.0" onAction="#ComboSearch" text="Combo- Search" />
+      <!-- Creating the labels for Type, Approved and End Time to be placed adjacent to their associated
+      combo-box, checkbox and JFXTextField -->
+      <Label layoutX="668.0" layoutY="200.0" text="Type:" />
+      <Label layoutX="620.0" layoutY="270.0" text="Approved:" />
+      <Label layoutX="625.0" layoutY="350.0" text="End Time:" />
+      <!-- Creating the JFXTextFields for End Time, Start and Student Number, with ids so that information
+       can be retrieved using getText java methods-->
+      <JFXTextField fx:id="EndTime" focusColor="WHITE" labelFloat="true" layoutX="737.0" layoutY="345.0" prefHeight="35.0" prefWidth="195.0" promptText="Enter End Time Here" unFocusColor="WHITE" />
+      <JFXTextField fx:id="StartTime" focusColor="WHITE" labelFloat="true" layoutX="233.0" layoutY="345.0" prefHeight="35.0" prefWidth="230.0" promptText="Enter Start Time Here" unFocusColor="WHITE" />
+      <JFXTextField fx:id="StudentNumber" focusColor="WHITE" labelFloat="true" layoutX="235.0" layoutY="195.0" prefHeight="35.0" prefWidth="230.0" promptText="Enter Student Number Here" unFocusColor="WHITE" />
+      <!-- Creating the labels for the Start Time, Start Date and Student Number, to be positioned
+      adjacent to their associated JFXTextFields and date picker -->
+      <Label layoutX="110.0" layoutY="350.0" text="Start Time:" />
+      <Label layoutX="113.0" layoutY="270.0" text="Start Date:" />
+      <Label layoutX="53.0" layoutY="200.0" text="Student Number:" />
+      <!-- Creating the Date Picker object so that the user can select a Start Date for searching absences -->
+      <DatePicker fx:id="StartDate" layoutX="236.0" layoutY="265.0" prefHeight="39.0" prefWidth="230.0" promptText="Select Start Date" />
+      <!-- Creating the JFXComboBoxes for Approved and Type, with the values being set in the initialise method
+      in the controller class -->
+      <JFXComboBox fx:id="Approved" focusColor="WHITE" layoutX="734.0" layoutY="265.0" prefHeight="39.0" prefWidth="195.0" promptText="Select Status" unFocusColor="WHITE" />
+      <JFXComboBox fx:id="Type" focusColor="WHITE" layoutX="734.0" layoutY="195.0" prefHeight="39.0" prefWidth="195.0" promptText="Select Type" unFocusColor="WHITE" />
+      <!-- Creating the sub menu header advising user to Save details or delete absences on menu -->
+      <Label layoutX="400.0" layoutY="125.0" prefHeight="27.0" prefWidth="908.0" text="Click 'Save Details' to save changes, or click 'Delete Absence' to remove from database" />
+      <!-- The below label is the Console header. It will be positioned at 400 on the X axis and 75 on the Y axis to 
+   	  maintain a static feel throughout the console -->
+      <Label layoutX="400.0" layoutY="75.0" text="Medical Hub Administration Console" />
+      <!-- The below ImageView will act as a placeholder for the QUB logo to be populated in the initialise() method in the controller class -->
+      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

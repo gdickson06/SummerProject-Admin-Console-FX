@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- importing necessary Java, JavaFX and JFoenix classes for FXML file -->
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- The below AnchorPane will consist of all the subsequent JFXButton, Labels and other FXML objects that will appear on screen
+The fx:controller is used to reference the UploadSingleRoomController.java controller class that will manipulate the FXML objects -->
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UploadSingleRoomController">
+   <children>
+      <!-- Creating the label for the Room Name Parameter -->
+      <Label layoutX="320.0" layoutY="372.0" text="Room Name:" />
+      <!-- Creating the JFXTextFields for Room Name and Room Code, with fx:id so that 
+       the controller class can call the getText method to retrieve the values entered by the user -->
+      <JFXTextField fx:id="RoomNameTextField" focusColor="WHITE" labelFloat="true" layoutX="447.0" layoutY="368.0" prefHeight="35.0" prefWidth="582.0" promptText="Enter Room Name Here" unFocusColor="WHITE" />
+      <JFXTextField fx:id="RoomCodeTextField" focusColor="WHITE" labelFloat="true" layoutX="447.0" layoutY="264.0" prefHeight="35.0" prefWidth="582.0" promptText="Enter Room Code Here e.g MBC/01/002" unFocusColor="WHITE" />
+      <!-- Creating the label for the Room Code values -->
+      <Label layoutX="326.0" layoutY="268.0" text="Room Code:" />
+      <!-- Creating the JFXButtons for the Clear button to remove all data within the TextFields,
+      and Upload Single Room, to upload the room to the database, each with onAction
+      identifiers that will reference the respective java methods in the controller class -->
+      <JFXButton layoutX="95.0" layoutY="533.0" onAction="#UploadSingleRoomUpload" text="Add Room to Database" />
+      <JFXButton layoutX="424.0" layoutY="533.0" onAction="#Clear" text="Clear" />
+      <!-- Creating the JFXButtons for the Return to Main Menu and Rooms Menu, with onAction
+      identifiers that will reference the respective java methods in the controller class -->
+      <JFXButton layoutX="624.0" layoutY="533.0" onAction="#RoomsMenuButtonClick" text="Return to Rooms Menu" />
+      <JFXButton layoutX="940.0" layoutY="533.0" onAction="#MainMenuButtonClick" text="Return to Main Menu" />
+      <!-- The below ImageView will act as a placeholder for the QUB logo to be populated in the initialise() method in the controller class -->
+      <ImageView fx:id="Image" fitHeight="114.0" fitWidth="406.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+      <!-- The below label is the Console header. It will be positioned at 400 on the X axis and 75 on the Y axis to 
+   	  maintain a static feel throughout the console -->
+      <Label layoutX="400.0" layoutY="75.0" text="Medical Hub Administration Console" />
+      <!-- Creating the sub menu header for the page, with text explaining how to navigate the screen -->
+      <Label layoutX="400.0" layoutY="125.0" text="Please fill out all fields to upload a room to the database." />
+   </children>
+</AnchorPane>
