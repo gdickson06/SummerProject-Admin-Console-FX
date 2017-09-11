@@ -21,8 +21,10 @@ import javafx.stage.Stage;
  * Name of Package - uk.ac.qub.methods Date Last Amended - 08/09/17 Outline -
  * This class contains all of the methods that did not fit in other classes the
  * change scene class to go from one page to another, the show method for pop up
- * boxes and the configure file chooser to set up the file chooser. Demographics
- * – 121 LOC 4 Methods
+ * boxes and the configure file chooser to set up the file chooser. This class was made 
+ * with the IText API to create the PDF, the code has been created in with the
+ * sample code as a basis.
+ *  Demographics – 128 LOC 4 Methods
  */
 public class GeneralMethods {
 
