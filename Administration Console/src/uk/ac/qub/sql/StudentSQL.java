@@ -1,24 +1,30 @@
 package uk.ac.qub.sql;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
 import application.Main;
+import uk.ac.qub.methods.GeneralMethods;
 import uk.ac.qub.objects.Student;
 
 /**
- * Name of Package - uk.ac.qub.sql
- * Date Last Amended - 08/09/17 
- * Outline - This class will contain all of the methods to amend, 
- * delete, save single and save multiple students along with any other methods to amend
- * parts of students
- * Demographics – 132 LOC 5 Methods
+ * Name of Package - uk.ac.qub.sql Date Last Amended - 08/09/17 Outline - This
+ * class will contain all of the methods to amend, delete, save single and save
+ * multiple students along with any other methods to amend parts of students
+ * Demographics – 166 LOC 6 Methods
  */
 public class StudentSQL {
 
 	/**
 	 * This method will read in a list of Students created in a different method
-	 * and upload them to the database
+	 * and upload them to the database it is assumed this spreadsheet will be
+	 * created from an existing list on Qsis, which means there is no check
+	 * whether the student is on the Qsis system
 	 * 
 	 * @param students
 	 * @param year
@@ -88,10 +94,11 @@ public class StudentSQL {
 	 * @param s
 	 * @throws Exception
 	 */
-	public static void UploadSingleStudent(Student s) throws Exception {
-		//
+	public static boolean UploadSingleStudent(Student s) throws Exception {
+		boolean complete = true;
 		PreparedStatement statement = null;
-
+		Boolean exists = StudentInQsis(String.valueOf(s.getStudentNumber()));
+		if(exists){
 		String Statement = "INSERT INTO Students " + "VALUES (" + s.getStudentNumber() + ", '"
 				+ s.getLastName().replaceAll("'", "''") + "', '" + s.getFirstName().replaceAll("'", "''") + "', '"
 				+ s.getMiddleName().replaceAll("'", "''") + "', '" + s.getPrefix().replaceAll("'", "''") + "', '"
@@ -101,7 +108,10 @@ public class StudentSQL {
 				+ s.getPortfolio().replaceAll("'", "''") + "', " + s.getYear() + ")";
 		statement = Main.connection.prepareStatement(Statement);
 		statement.executeUpdate();
-
+		} else {
+			complete=false;
+		}
+		return complete;
 	}
 
 	/**
@@ -127,6 +137,30 @@ public class StudentSQL {
 
 		PreparedStatement ps = Main.connection.prepareStatement("DELETE FROM Students WHERE year_group =" + Year);
 		ps.executeUpdate();
+	}
+
+	private static Boolean StudentInQsis(String StudentNumber) throws SQLException {
+		Boolean exists = false;
+		ResultSet results = null;
+		Connection connection = null;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			connection = DriverManager.getConnection(SQL.QsisUrl, SQL.QsisUser, SQL.QsisPassword);
+		} catch (Exception e) {
+			GeneralMethods.show("Database connection error, please check your internet connection", "Error");
+		}
+
+		Statement statement = connection.createStatement();
+
+		results = statement.executeQuery("select * from Qsis WHERE user_number = " + StudentNumber);
+
+		if (results.next() == false) {
+			GeneralMethods.show("Student not registered in Qsis", "Error");
+		} else {
+			exists = true;
+		}
+		
+		return exists;
 	}
 
 }

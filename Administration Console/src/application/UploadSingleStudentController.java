@@ -78,6 +78,7 @@ List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.C
 		fields.add(year);
 		fields.add(name);
 		fields.add(studentNumber);
+		fields.add(emailAddress);
 		if(ApplicationMethods.noNullValues(fields)){
     	Student s = new Student();
     	s.setComments(comments.getText());
@@ -94,8 +95,10 @@ List<javafx.scene.control.Control> fields = new ArrayList<javafx.scene.control.C
     	s.setStudentNumber(Integer.valueOf(studentNumber.getText()));
     	s.setYear(year.getValue().toString());
     	try {
-			StudentSQL.UploadSingleStudent(s);
+			boolean complete = StudentSQL.UploadSingleStudent(s);
+			if(complete){
 			GeneralMethods.show("Successfully uploaded student", "Success");
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			GeneralMethods.show("Error when uploading Student", "ERROR");
