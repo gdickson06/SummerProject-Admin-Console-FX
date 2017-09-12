@@ -37,11 +37,10 @@ public class Main extends Application {
 
 		setStage(primaryStage);
 		AnchorPane root = FXMLLoader.load(getClass().getResource("/uk/ac/qub/fxml/Login.fxml"));
-		Scene scene = new Scene(root, 900, 700);
+		Scene scene = new Scene(root, 1200, 700);
 		primaryStage.setTitle("QUB School of Medicine Timetable and Absence Notification Administration Console");
 		primaryStage.setScene(scene);
 		scene.getStylesheets().add(Main.class.getResource("/uk/ac/qub/css/Login.css").toExternalForm());
-		primaryStage.setMaximized(true);
 		primaryStage.show();
 		stage.getIcons().add(new Image("file:resources/toplogo.png"));
 		try {
