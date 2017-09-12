@@ -24,7 +24,7 @@ import javafx.stage.Stage;
  * boxes and the configure file chooser to set up the file chooser. This class was made 
  * with the IText API to create the PDF, the code has been created in with the
  * sample code as a basis.
- *  Demographics – 128 LOC 4 Methods
+ *  Demographics – 129 LOC 4 Methods
  */
 public class GeneralMethods {
 
@@ -52,8 +52,9 @@ public class GeneralMethods {
 	}
 
 	/**
-	 * This method will allow pop up boxes to appear
-	 * 
+	 * This method will allow pop up boxes to appear the code for this application 
+	 * was aided by JavaFX For Dummies (For Dummies (Computers)) 1 by Doug Lowe (ISBN: 9781118385340)
+	 * page 79
 	 * @param message
 	 * @param title
 	 */
@@ -64,12 +65,12 @@ public class GeneralMethods {
 		stage.setMinWidth(250);
 		Label lbl = new Label();
 		lbl.setText(message);
-		Button btnOK = new Button();
-		btnOK.setText("OK");
-		btnOK.setOnAction(e -> stage.close());
+		Button OK = new Button();
+		OK.setText("OK");
+		OK.setOnAction(e -> stage.close());
 		VBox pane = new VBox(20);
 		pane.setPadding(new Insets(10, 10, 10, 10));
-		pane.getChildren().addAll(lbl, btnOK);
+		pane.getChildren().addAll(lbl, OK);
 		pane.setAlignment(Pos.CENTER);
 		Scene scene = new Scene(pane);
 		scene.getStylesheets().add(Main.class.getResource("/uk/ac/qub/css/PopUp.css").toExternalForm());
