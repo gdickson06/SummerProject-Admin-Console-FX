@@ -106,6 +106,7 @@ public class GeneralMethods {
 	
 		try {
 			t.join();
+		
 		} catch (InterruptedException e) {
 			stage.close();
 		}
