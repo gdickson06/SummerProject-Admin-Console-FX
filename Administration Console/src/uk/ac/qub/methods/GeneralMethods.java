@@ -82,7 +82,7 @@ public class GeneralMethods {
 	}
 /**
  * This will give a blank loading page to warn the user that the system has not
- * crashed but is still loading
+ * crash but is still loading
  * @param t
  */
 	public static void loading(Thread t) {
@@ -103,7 +103,7 @@ public class GeneralMethods {
 		stage.setScene(scene);
 		stage.show();
 
-
+	
 		try {
 			t.join();
 		
