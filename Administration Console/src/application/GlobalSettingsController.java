@@ -159,7 +159,7 @@ public class GlobalSettingsController {
     @FXML
     void ChangeFileLocation(ActionEvent event) {
      	FileWriter.save(changeFileLocation.getText().replace("\\" , "/"));
-    	GeneralMethods.show("Location changed to" + changeFileLocation.getText(), "Location Changed");
+    	GeneralMethods.show("Location changed to " + changeFileLocation.getText(), "Location Changed");
    
     }
 /**
